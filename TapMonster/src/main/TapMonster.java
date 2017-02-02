@@ -1,23 +1,24 @@
-/**
- * 
- */
 package main;
 
-import guiPractice.GUIApplication;
+import java.util.ArrayList;
 
-/**
- * @author Alan19
- *
- */
-@SuppressWarnings("serial")
+import guiPractice.GUIApplication;
 public class TapMonster extends GUIApplication {
 
+	/**
+	 * Static Fields
+	 */
 	/**
 	 * Static Fields
 	 */
 
 	private static TapMonster game;
 	private static Thread go;
+	public static ArrayList<Artifact> artifacts;
+	public static ArrayList<Artifact> store;
+	public static ArrayList<Artifact> inventory;
+	public static ArrayList<Monster> monsters;
+	public static ArrayList<Monster> bosses;
 
 	public TapMonster() {
 		// TODO Auto-generated constructor stub
@@ -26,11 +27,6 @@ public class TapMonster extends GUIApplication {
 	/* (non-Javadoc)
 	 * @see guiPractice.GUIApplication#initScreen()
 	 */
-	@Override
-	protected void initScreen() {
-		// TODO Auto-generated method stub
-
-	}
 
 	/**
 	 * @param args
@@ -41,4 +37,12 @@ public class TapMonster extends GUIApplication {
 		go.run();
 	}
 
+
+
+
+	@Override
+	protected void initScreen() {
+		// TODO Auto-generated method stub
+
+	}
 }
