@@ -31,7 +31,7 @@ public class TapMonster extends GUIApplication {
 	@Override
 	protected void initScreen() {
 		// TODO Auto-generated method stub
-		allRewards = Reward.getAllRewards();
+		allRewards = Reward.getAllRewards(); //gets rewards from rewards class (sam)
 	}
 
 	/**
