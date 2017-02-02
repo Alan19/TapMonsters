@@ -10,18 +10,22 @@ import guiPractice.components.Clickable;
 import guiPractice.components.Visible;
 
 /**
- * @author Student8
+ * @author Alan19
  *
  */
-public class DeathScreen extends Screen implements Visible , Clickable{
+public class DeathScreen extends Screen implements Visible, Clickable, Runnable{
 
 	/**
 	 * @param width
 	 * @param height
 	 */
+		
+	private Thread app;
+	
 	public DeathScreen(int width, int height) {
 		super(width, height);
-		// TODO Auto-generated constructor stub
+		Thread app = new Thread(this);
+		app.start();
 	}
 
 	/* (non-Javadoc)
@@ -70,6 +74,12 @@ public class DeathScreen extends Screen implements Visible , Clickable{
 	public boolean isHovered(int arg0, int arg1) {
 		// TODO Auto-generated method stub
 		return false;
+	}
+
+	@Override
+	public void run() {
+		// TODO Auto-generated method stub
+		
 	}
 
 }
