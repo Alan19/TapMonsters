@@ -4,6 +4,7 @@
 package main;
 
 import guiPractice.GUIApplication;
+import rewards.Reward;
 
 /**
  * @author Alan19
@@ -18,6 +19,7 @@ public class TapMonster extends GUIApplication {
 
 	private static TapMonster game;
 	private static Thread go;
+	public static Reward[] allRewards;
 
 	public TapMonster() {
 		// TODO Auto-generated constructor stub
@@ -29,7 +31,7 @@ public class TapMonster extends GUIApplication {
 	@Override
 	protected void initScreen() {
 		// TODO Auto-generated method stub
-
+		allRewards = Reward.getAllRewards();
 	}
 
 	/**
