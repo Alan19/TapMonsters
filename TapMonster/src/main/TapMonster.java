@@ -1,6 +1,8 @@
 package main;
 
 import java.util.ArrayList;
+import guiPractice.GUIApplication;
+import rewards.Reward;
 
 import guiPractice.GUIApplication;
 public class TapMonster extends GUIApplication {
@@ -19,6 +21,7 @@ public class TapMonster extends GUIApplication {
 	public static ArrayList<Artifact> inventory;
 	public static ArrayList<Monster> monsters;
 	public static ArrayList<Monster> bosses;
+	public static Reward[] allRewards;
 
 	public TapMonster() {
 		// TODO Auto-generated constructor stub
@@ -27,6 +30,11 @@ public class TapMonster extends GUIApplication {
 	/* (non-Javadoc)
 	 * @see guiPractice.GUIApplication#initScreen()
 	 */
+	@Override
+	protected void initScreen() {
+		// TODO Auto-generated method stub
+		allRewards = Reward.getAllRewards(); //gets rewards from rewards class (sam)
+	}
 
 	/**
 	 * @param args
@@ -37,12 +45,4 @@ public class TapMonster extends GUIApplication {
 		go.run();
 	}
 
-
-
-
-	@Override
-	protected void initScreen() {
-		// TODO Auto-generated method stub
-
-	}
 }
