@@ -1,6 +1,15 @@
 /**
+<<<<<<< HEAD
 
 
+=======
+ * 
+ */
+
+/**
+ * @author Joyce
+ *
+>>>>>>> refs/remotes/origin/master
  */
 public class TestFile {
 

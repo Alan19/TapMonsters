@@ -18,6 +18,7 @@ public class TapMonster extends GUIApplication {
 
 	private static TapMonster game;
 	private static Thread go;
+	
 
 	public TapMonster() {
 		// TODO Auto-generated constructor stub
