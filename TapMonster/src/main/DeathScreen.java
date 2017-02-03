@@ -7,13 +7,14 @@ import java.util.ArrayList;
 
 import guiPractice.Screen;
 import guiPractice.components.Clickable;
+import guiPractice.components.ClickableScreen;
 import guiPractice.components.Visible;
 
 /**
  * @author Alan19
  *
  */
-public class DeathScreen extends Screen implements Visible, Clickable, Runnable{
+public class DeathScreen extends ClickableScreen implements Visible, Clickable, Runnable{
 
 	/**
 	 * @param width
@@ -22,7 +23,7 @@ public class DeathScreen extends Screen implements Visible, Clickable, Runnable{
 		
 	private Thread app;
 	
-	public DeathScreen(int width, int height) {
+	public DeathScreen(int width, int height, int level, int score, Visible artifactList){
 		super(width, height);
 		Thread app = new Thread(this);
 		app.start();
@@ -78,6 +79,12 @@ public class DeathScreen extends Screen implements Visible, Clickable, Runnable{
 
 	@Override
 	public void run() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void initAllObjects(ArrayList<Visible> arg0) {
 		// TODO Auto-generated method stub
 		
 	}
