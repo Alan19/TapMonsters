@@ -2,9 +2,9 @@ package monster;
 
 import java.util.ArrayList;
 
-public class monster {
+public class monster implements monsterAbilities{
 
-	private static String[] abilities = {"Godly","Frost","Flame","Poisonous","Normal"};
+	private static String[] abilities = {"Godly","Frost","Flame","Poison","Normal"};
 	private static String[] name1 = {"Terrifying","Big","Tiny","Dangerous","Angry","Cruel","Awesome","Friendly","Deathly","Lonely"};
 	private static String[] name2 = {"Calm","Hasty","Lazy","Casual","Caring","Emotional","Brave","Honest","Fluffy","Safe"};
 	private static String[] name3 = {"Beast","Fiend","Brute","Demon","Colossus","Savage","Moster","Animal","Thingy"};
@@ -16,18 +16,7 @@ public class monster {
 		// TODO Auto-generated constructor stub
 	}
 	
-//	private static boolean wasNameUsed(String name){
-//		if(names.size()<1)return true;
-//		for(int i = 0;i<names.size();i++){
-//			if(names.get(0)==name){
-//				isUsed = true;
-//			}else isUsed = false;
-//		}
-//		if(isUsed = true)return false;
-//		else return true;
-//	}
-	
-	private static String getName(){
+	public static String getName() {
 		//private method to search for if the name was already used
 		int r0 = (int)(Math.random()*abilities.length);
 		int r1 = (int)(Math.random()*name1.length);
@@ -41,11 +30,28 @@ public class monster {
 		}
 		return name;
 	}
+	
+	private static boolean wasNameUsed(String name){
+		if(names.size()<1)return true;
+		for(int i = 0;i<names.size();i++){
+			if(names.get(i)==name){
+				isUsed = true;
+			}else isUsed = false;
+		}
+		if(isUsed = true)return false;
+		else return true;
+	}
+
+	@Override
+	public void setEffect() {
+		//each name we see we will 
+		
+	}
 
 	public static void main(String[] args) {
-		ArrayList<String> names = new ArrayList<String>();
+		names = new ArrayList<String>();
 		String temp = getName();
-//		wasNameUsed(temp);
+		wasNameUsed(temp);
 		Print(temp);
 		names.add(temp);
 	}
@@ -71,6 +77,9 @@ public class monster {
 		}
 		System.out.print(printString);
 	}
+
+
+
 
 
 }
