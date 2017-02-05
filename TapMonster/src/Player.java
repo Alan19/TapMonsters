@@ -36,4 +36,12 @@ public Player(int move) {
 
 	}
 
+	@Override
+	public int getKey(int key) {
+		return key;
+	}
+
+
 }
+
+
