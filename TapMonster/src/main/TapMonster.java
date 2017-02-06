@@ -1,6 +1,8 @@
 package main;
 
 import java.util.ArrayList;
+
+import artifacts.Artifact;
 import guiPractice.GUIApplication;
 import rewards.Reward;
 
@@ -18,13 +20,14 @@ public class TapMonster extends GUIApplication {
 //	private static Thread go;
 //	public static ArrayList<Artifact> artifacts;
 //	public static ArrayList<Artifact> store;
-//	public static ArrayList<Artifact> inventory;
+	public static ArrayList<Artifact> inventory;
 //	public static ArrayList<Monster> monsters;
 //	public static ArrayList<Monster> bosses;
 //	public static Reward[] allRewards;
 
 	public TapMonster() {
 		// TODO Auto-generated constructor stub
+		this.inventory = inventory;
 	}
 
 	/* (non-Javadoc)
