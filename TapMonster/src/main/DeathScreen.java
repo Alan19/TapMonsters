@@ -32,6 +32,7 @@ public class DeathScreen extends ClickableScreen implements Visible, Clickable, 
 	private int w;
 	private int h;
 	private TextArea playerInfo;
+	private ArrayList<Visible> viewObjects;
 	
 	public DeathScreen(int width, int height, int level, int score, Visible artifactList){
 		super(width, height);
@@ -80,8 +81,7 @@ public class DeathScreen extends ClickableScreen implements Visible, Clickable, 
 	}
 
 	@Override
-	public void initAllObjects(ArrayList<Visible> arg0) {
-		// TODO Auto-generated method stub
+	public void initAllObjects(ArrayList<Visible> viewObjects) {
 		
 	}
 
