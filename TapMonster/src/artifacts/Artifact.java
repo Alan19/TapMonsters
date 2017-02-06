@@ -1,5 +1,7 @@
 package artifacts;
 
+import guiPractice.components.Action;
+
 import java.awt.image.BufferedImage;
 
 public class Artifact implements ArtifactInterface{
@@ -8,14 +10,17 @@ public class Artifact implements ArtifactInterface{
 	private int price;
 	private BufferedImage icon;
 	private String name;
+	private Action action;
 
-	public Artifact(Player player, String desc, String name, int price /*image link stuff*/) {
+	public Artifact(String desc, String name, int price, Action action /*image link stuff*/) {
 		this.description = desc;
 		this.price = price;
 		this.name = name;
+		this.action = action;
 	}
 	
 	public Artifact buyItem(){
+		//action.act();
 		return this;
 	}
 
