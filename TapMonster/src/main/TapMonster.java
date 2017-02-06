@@ -18,8 +18,8 @@ public class TapMonster extends GUIApplication {
 
 //	private static TapMonster game;
 //	private static Thread go;
-//	public static ArrayList<Artifact> artifacts;
-//	public static ArrayList<Artifact> store;
+	public static ArrayList<Artifact> artifacts;
+	public static ArrayList<Artifact> store;
 	public static ArrayList<Artifact> inventory;
 //	public static ArrayList<Monster> monsters;
 //	public static ArrayList<Monster> bosses;
@@ -27,6 +27,8 @@ public class TapMonster extends GUIApplication {
 
 	public TapMonster() {
 		// TODO Auto-generated constructor stub
+		this.artifacts = artifacts;
+		this.store = store;
 		this.inventory = inventory;
 	}
 

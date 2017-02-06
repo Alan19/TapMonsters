@@ -2,7 +2,7 @@ package monster;
 
 import java.util.ArrayList;
 
-public class monster implements monsterAbilities{
+public class Monster implements MonsterAbilities{
 
 	private static String[] abilities = {"Godly","Frost","Flame","Poison","Normal"};
 	private static String[] name1 = {"Terrifying","Big","Tiny","Dangerous","Angry","Cruel","Awesome","Friendly","Deathly","Lonely"};
@@ -12,7 +12,7 @@ public class monster implements monsterAbilities{
 	private static ArrayList<String> names;
 	private static boolean isUsed = false;
 
-	public monster() {
+	public Monster() {
 		// TODO Auto-generated constructor stub
 	}
 	

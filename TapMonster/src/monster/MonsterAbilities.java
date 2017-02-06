@@ -1,5 +1,5 @@
 package monster;
 
-public interface monsterAbilities {
+public interface MonsterAbilities {
 	void setEffect();
 }
