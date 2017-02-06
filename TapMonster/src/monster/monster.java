@@ -7,7 +7,7 @@ public class monster implements monsterAbilities{
 	private static String[] abilities = {"Godly","Frost","Flame","Poison","Normal"};
 	private static String[] name1 = {"Terrifying","Big","Tiny","Dangerous","Angry","Cruel","Awesome","Friendly","Deathly","Lonely"};
 	private static String[] name2 = {"Calm","Hasty","Lazy","Casual","Caring","Emotional","Brave","Honest","Fluffy","Safe"};
-	private static String[] name3 = {"Beast","Fiend","Brute","Demon","Colossus","Savage","Moster","Animal","Thingy"};
+	private static String[] name3 = {"Beast","Humanoid","Demon","Titan","Monster","Thingy"};
 	private static String name = "";
 	private static ArrayList<String> names;
 	private static boolean isUsed = false;
