@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import guiPractice.components.Clickable;
 import guiPractice.components.ClickableScreen;
 import guiPractice.components.TextArea;
+import guiPractice.components.TextLabel;
 import guiPractice.components.Visible;
 
 /**
@@ -70,7 +71,12 @@ public class DeathScreen extends ClickableScreen implements Visible, Clickable, 
 	public void run() {
 		g.setColor(new Color(43, 53, 255));
 		g.drawRect(getX(), getY(), getWidth(), getHeight());
-		g.
+		/**
+		 * Reference numbers later
+		 */
+		String level = null;
+		String round = null;
+		playerInfo = new TextArea(getX(), getY(), getWidth()-1, getHeight()-1, "You Died! \nLevel: " + level + "Round: " + round);
 	}
 
 	@Override
