@@ -6,8 +6,10 @@ package main;
 import java.awt.Color;
 import java.awt.Graphics2D;
 import java.util.ArrayList;
+import java.util.Iterator;
 
 import guiPractice.components.Clickable;
+import guiPractice.components.ClickableGraphic;
 import guiPractice.components.ClickableScreen;
 import guiPractice.components.TextArea;
 import guiPractice.components.TextLabel;
@@ -25,16 +27,18 @@ public class DeathScreen extends ClickableScreen implements Visible, Clickable, 
 	 */
 		
 	private Thread app;
-	private Visible artifactList;
+	private ArrayList<ClickableGraphic> artifactList;
 	private Graphics2D g;
 	private int x;
 	private int y;
-	private int w;
-	private int h;
+	private int ax;
+	private int ay = getHeight() + 100;
+	private int aw = getWidth();
+	private int ah = ay + 100;
 	private TextArea playerInfo;
 	private ArrayList<Visible> viewObjects;
 	
-	public DeathScreen(int width, int height, int level, int score, Visible artifactList){
+	public DeathScreen(int width, int height, int level, int score, ArrayList<ClickableGraphic> artifactList){
 		super(width, height);
 		this.artifactList = artifactList;
 		app = new Thread(this);
@@ -77,12 +81,19 @@ public class DeathScreen extends ClickableScreen implements Visible, Clickable, 
 		 */
 		String level = null;
 		String round = null;
-		playerInfo = new TextArea(getX(), getY(), getWidth()-1, getHeight()-1, "You Died! \nLevel: " + level + "Round: " + round);
+		playerInfo = new TextArea(0, 0, getWidth()-1, getHeight()-1, "You Died! \nLevel: " + level + "Round: " + round);
+		drawArtifacts();
+	}
+
+	private void drawArtifacts() {
+		for (Visible artifact : artifactList) {
+			addObject(artifact);
+		}
 	}
 
 	@Override
 	public void initAllObjects(ArrayList<Visible> viewObjects) {
-		
+		viewObjects.add(playerInfo);
 	}
 
 }
