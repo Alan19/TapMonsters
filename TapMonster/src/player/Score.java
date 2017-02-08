@@ -3,7 +3,12 @@
  */
 package player;
 
+import java.util.ArrayList;
+
+import artifacts.Artifact;
 import main.TapMonster;
+import monster.Monster;
+import rewards.Reward;
 
 /**
  * @author Joyce
@@ -15,12 +20,14 @@ public class Score implements ScoreKeeper{
 	public static int achieved;
 	public static int threshold;
 	
-	public static int rewardAdd;
-	public static int artifactAdd;
-	public static int monsterAdd;
+	public static Reward[] rewardAdd;
+	public static ArrayList<Artifact> artifactAdd;
+	public static ArrayList<Monster> monsterAdd;
 	
-	public Score() {
-		this.score = score;
+	public Score(ArrayList<Artifact> a, Reward[] r, ArrayList<Monster> m) {
+		this.artifactAdd = a;
+		this.rewardAdd = r;
+		this.monsterAdd = m;
 	}
 
 	@Override
@@ -31,7 +38,7 @@ public class Score implements ScoreKeeper{
 	
 	@Override
 	public void addArtifact(int cost) {
-	
+		
 	}
 	
 	@Override
@@ -47,8 +54,7 @@ public class Score implements ScoreKeeper{
 	}
 	
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
+		if (artifactAdd.isEmpty()) System.out.print("Empty");
 	}
 
 	

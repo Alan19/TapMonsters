@@ -4,14 +4,13 @@ import java.util.ArrayList;
 
 import artifacts.Artifact;
 import guiPractice.GUIApplication;
+import monster.Monster;
+import player.Score;
 import rewards.Reward;
 
 import guiPractice.GUIApplication;
 public class TapMonster extends GUIApplication {
 
-	/**
-	 * Static Fields
-	 */
 	/**
 	 * Static Fields
 	 */
@@ -21,13 +20,14 @@ public class TapMonster extends GUIApplication {
 	public static ArrayList<Artifact> artifacts;
 	public static ArrayList<Artifact> store;
 	public static ArrayList<Artifact> inventory;
-//	public static ArrayList<Monster> monsters;
+	public static ArrayList<Monster> monsters;
 //	public static ArrayList<Monster> bosses;
-//	public static Reward[] allRewards;
+	public static Reward[] allRewards;
+	public static Score score;
 
 	public TapMonster() {
 		// TODO Auto-generated constructor stub
-		
+		score = new Score(artifacts, allRewards, monsters);
 	}
 
 	/* (non-Javadoc)
