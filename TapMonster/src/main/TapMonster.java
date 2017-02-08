@@ -27,9 +27,7 @@ public class TapMonster extends GUIApplication {
 
 	public TapMonster() {
 		// TODO Auto-generated constructor stub
-		this.artifacts = artifacts;
-		this.store = store;
-		this.inventory = inventory;
+		
 	}
 
 	/* (non-Javadoc)
