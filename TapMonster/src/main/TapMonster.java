@@ -27,7 +27,7 @@ public class TapMonster extends GUIApplication {
 
 	public TapMonster() {
 		// TODO Auto-generated constructor stub
-		score = new Score();
+		score = new Score(defaultCloseOperation, defaultCloseOperation);
 	}
 
 	/* (non-Javadoc)

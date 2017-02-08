@@ -47,7 +47,7 @@ public class ScoreScreen extends ClickableScreen {
 				score.addArtifact(rareness);
 			}
 		});
-		reward = new Button(20, 100, 100, 40, "Get an reward", Color.green, new Action() {
+		reward = new Button(20, 100, 100, 40, "Get a reward", Color.green, new Action() {
 			
 			@Override
 			public void act() {
