@@ -3,9 +3,12 @@
  */
 package player;
 
+import java.awt.Color;
+import java.awt.Graphics2D;
 import java.util.ArrayList;
 
 import artifacts.Artifact;
+import guiPractice.components.Component;
 import main.TapMonster;
 import monster.Monster;
 import rewards.Reward;
@@ -14,31 +17,35 @@ import rewards.Reward;
  * @author Joyce
  *
  */
-public class Score implements ScoreKeeper{
+public class Score extends Component implements ScoreKeeper{
 
 	public static int score;
 	public static int achieved;
 	public static int threshold;
 	
-	public static Reward[] rewardAdd;
-	public static ArrayList<Artifact> artifactAdd;
-	public static ArrayList<Monster> monsterAdd;
+//	public static Reward[] rewardAdd;
+//	public static ArrayList<Artifact> artifactAdd;
+//	public static ArrayList<Monster> monsterAdd;
 	
-	public Score(ArrayList<Artifact> a, Reward[] r, ArrayList<Monster> m) {
-		this.artifactAdd = a;
-		this.rewardAdd = r;
-		this.monsterAdd = m;
+	public Score(int x, int y) {
+		super(x, y, 100, 80);
+;//		this.artifactAdd = a;
+//		this.rewardAdd = r;
+//		this.monsterAdd = m;
+		score = 0;
 	}
 
 	@Override
 	public void addReward(int percent) {
-		// TODO Auto-generated method stub
-		
+		System.out.println("Got a reward with " + percent);
+		score += score*percent;
+		update();
 	}
 	
 	@Override
 	public void addArtifact(int cost) {
-		
+		score += cost;
+		update();
 	}
 	
 	@Override
@@ -54,7 +61,16 @@ public class Score implements ScoreKeeper{
 	}
 	
 	public static void main(String[] args) {
-		if (artifactAdd.isEmpty()) System.out.print("Empty");
+	}
+
+	@Override
+	public void update(Graphics2D g) {
+		g.setColor(Color.white);
+		g.fillRect(0, 0, getWidth(), getHeight());
+		g.setColor(Color.black);
+		g.drawRect(0, 0, getWidth()-1, getHeight()-1);
+		g.drawString("score = " + score + "", 5, 30);
+		
 	}
 
 	
