@@ -7,6 +7,8 @@ import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
+
+import guiPractice.components.Action;
 import guiPractice.components.Clickable;
 import guiPractice.components.ClickableGraphic;
 import guiPractice.components.ClickableScreen;
@@ -87,7 +89,16 @@ public class DeathScreen extends ClickableScreen implements Visible, Clickable, 
 		int x = 5;
 		int y = 10;
 		for (Artifact artifact : artifactList) {
-			ClickableGraphic image = new ClickableGraphic(x, y, artifact.getImagePath());
+			ClickableGraphic image = new ClickableGraphic(x, y, null);
+			image.setImage(artifact.getIcon());
+			image.setAction(new Action() {
+				
+				@Override
+				public void act() {
+					// TODO Auto-generated method stub
+					
+				}
+			});
 			addObject(image);
 			if(x >= getWidth()) {
 				x = 5;
