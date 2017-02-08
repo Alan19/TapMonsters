@@ -27,7 +27,7 @@ public class DeathScreen extends ClickableScreen implements Visible, Clickable, 
 	 */
 		
 	private Thread app;
-	private ArrayList<ClickableGraphic> artifactList;
+	private ArrayList<Artifact> artifactList;
 	private Graphics2D g;
 	private int x;
 	private int y;
@@ -38,7 +38,7 @@ public class DeathScreen extends ClickableScreen implements Visible, Clickable, 
 	private TextArea playerInfo;
 	private ArrayList<Visible> viewObjects;
 	
-	public DeathScreen(int width, int height, int level, int score, ArrayList<ClickableGraphic> artifactList){
+	public DeathScreen(int width, int height, int level, int score, ArrayList<Artifact> artifactList){
 		super(width, height);
 		this.artifactList = artifactList;
 		app = new Thread(this);
@@ -86,8 +86,8 @@ public class DeathScreen extends ClickableScreen implements Visible, Clickable, 
 	}
 
 	private void drawArtifacts() {
-		for (Visible artifact : artifactList) {
-			addObject(artifact);
+		for (Artifact artifact : artifactList) {
+			addObject(artifact.getIcon());
 		}
 	}
 
