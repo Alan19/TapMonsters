@@ -4,6 +4,7 @@
 package rewards;
 
 import java.awt.Graphics2D;
+import java.awt.image.BufferedImage;
 
 import guiPractice.components.Component;
 
@@ -19,7 +20,13 @@ public class RewardIcon extends Component {
 	 * @param w
 	 * @param h
 	 */
-	public RewardIcon(int x, int y, int w, int h) {
+	
+	private int x;
+	private int y;
+	private BufferedImage image;
+	private boolean loadedImages;
+	
+	public RewardIcon(int x, int y, int w, int h, Reward reward) {
 		super(x, y, w, h);
 		// TODO Auto-generated constructor stub
 	}

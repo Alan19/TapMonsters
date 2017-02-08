@@ -1,4 +1,4 @@
-package Monster;
+package monster;
 
 public interface Game {
 	void decreaseLife();
