@@ -20,14 +20,14 @@ public class TapMonster extends GUIApplication {
 	public static ArrayList<Artifact> artifacts;
 	public static ArrayList<Artifact> store;
 	public static ArrayList<Artifact> inventory;
-	public static ArrayList<Monster> monsters;
+	//public static ArrayList<Monster> monsters;
 //	public static ArrayList<Monster> bosses;
 	public static Reward[] allRewards;
 	public static Score score;
 
 	public TapMonster() {
 		// TODO Auto-generated constructor stub
-		score = new Score(defaultCloseOperation, defaultCloseOperation);
+		score = new Score(10, 10);
 	}
 
 	/* (non-Javadoc)
