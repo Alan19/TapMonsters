@@ -28,6 +28,14 @@ public class Artifact implements ArtifactInterface{
 		return description;
 	}
 	
+	public String getName(){
+		return name;
+	}
+	
+	public BufferedImage getIcon() {
+		return icon;
+	}
+
 	public int getPrice(){
 		return price;
 	}
