@@ -84,8 +84,17 @@ public class DeathScreen extends ClickableScreen implements Visible, Clickable, 
 	}
 
 	private void drawArtifacts() {
+		int x = 5;
+		int y = 10;
 		for (Artifact artifact : artifactList) {
-			ClickableGraphic image = new ClickableGraphic(ax, ay, artifact.getImagePath());
+			ClickableGraphic image = new ClickableGraphic(x, y, artifact.getImagePath());
+			addObject(image);
+			if(x >= getWidth()) {
+				x = 5;
+				y += 20;
+			}
+			else x += 20;
+			viewObjects.add(image);
 		}
 	}
 
