@@ -1,6 +1,6 @@
 package monster;
 
-public interface monsterTarget {
+public interface MonsterTarget {
 	void decreaseHearts(int i);
 
 	void subtractExtraLife(int i);
