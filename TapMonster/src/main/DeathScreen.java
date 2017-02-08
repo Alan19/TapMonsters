@@ -5,14 +5,12 @@ package main;
 
 import java.awt.Color;
 import java.awt.Graphics2D;
+import java.awt.image.BufferedImage;
 import java.util.ArrayList;
-import java.util.Iterator;
-
 import guiPractice.components.Clickable;
 import guiPractice.components.ClickableGraphic;
 import guiPractice.components.ClickableScreen;
 import guiPractice.components.TextArea;
-import guiPractice.components.TextLabel;
 import guiPractice.components.Visible;
 
 /**
@@ -87,7 +85,7 @@ public class DeathScreen extends ClickableScreen implements Visible, Clickable, 
 
 	private void drawArtifacts() {
 		for (Artifact artifact : artifactList) {
-			
+			ClickableGraphic image = new ClickableGraphic(ax, ay, artifact.getImagePath());
 		}
 	}
 
