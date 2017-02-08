@@ -10,7 +10,6 @@ import java.util.ArrayList;
 import artifacts.Artifact;
 import guiPractice.components.Component;
 import main.TapMonster;
-import monster.Monster;
 import rewards.Reward;
 
 /**
