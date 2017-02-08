@@ -7,13 +7,18 @@ import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
 
 import guiPractice.components.Component;
+import guiPractice.components.Graphic;
 
 /**
  * @author Student8
  *
  */
-public class RewardIcon extends Component {
+public class RewardIcon extends Graphic {
 
+	public RewardIcon(int x, int y, double scale, String imageLocation) {
+		super(x, y, scale, imageLocation);
+		// TODO Auto-generated constructor stub
+	}
 	/**
 	 * @param x
 	 * @param y
@@ -26,18 +31,6 @@ public class RewardIcon extends Component {
 	private BufferedImage image;
 	private boolean loadedImages;
 	
-	public RewardIcon(int x, int y, int w, int h, Reward reward) {
-		super(x, y, w, h);
-		// TODO Auto-generated constructor stub
-	}
-
-	/* (non-Javadoc)
-	 * @see guiPractice.components.Component#update(java.awt.Graphics2D)
-	 */
-	@Override
-	public void update(Graphics2D arg0) {
-		// TODO Auto-generated method stub
-
-	}
+	
 
 }
