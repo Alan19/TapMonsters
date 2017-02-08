@@ -8,8 +8,9 @@ import java.util.ArrayList;
 
 import guiPractice.components.Action;
 import guiPractice.components.Button;
-import guiPractice.components.ClickableScreen;
+
 import guiPractice.components.Visible;
+import guiPractice.sampleGames.ClickableScreen;
 
 /**
  * @author Joyce
