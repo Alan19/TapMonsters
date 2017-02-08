@@ -5,14 +5,14 @@ package main;
 
 import java.awt.Color;
 import java.awt.Graphics2D;
+import java.awt.image.BufferedImage;
 import java.util.ArrayList;
-import java.util.Iterator;
 
+import guiPractice.components.Action;
 import guiPractice.components.Clickable;
 import guiPractice.components.ClickableGraphic;
 import guiPractice.components.ClickableScreen;
 import guiPractice.components.TextArea;
-import guiPractice.components.TextLabel;
 import guiPractice.components.Visible;
 
 /**
@@ -27,7 +27,7 @@ public class DeathScreen extends ClickableScreen implements Visible, Clickable, 
 	 */
 		
 	private Thread app;
-	private ArrayList<ClickableGraphic> artifactList;
+	private ArrayList<Artifact> artifactList;
 	private Graphics2D g;
 	private int x;
 	private int y;
@@ -38,7 +38,7 @@ public class DeathScreen extends ClickableScreen implements Visible, Clickable, 
 	private TextArea playerInfo;
 	private ArrayList<Visible> viewObjects;
 	
-	public DeathScreen(int width, int height, int level, int score, ArrayList<ClickableGraphic> artifactList){
+	public DeathScreen(int width, int height, int level, int score, ArrayList<Artifact> artifactList){
 		super(width, height);
 		this.artifactList = artifactList;
 		app = new Thread(this);
@@ -86,8 +86,26 @@ public class DeathScreen extends ClickableScreen implements Visible, Clickable, 
 	}
 
 	private void drawArtifacts() {
-		for (Visible artifact : artifactList) {
-			addObject(artifact);
+		int x = 5;
+		int y = 10;
+		for (Artifact artifact : artifactList) {
+			ClickableGraphic image = new ClickableGraphic(x, y, null);
+			image.setImage(artifact.getIcon());
+			image.setAction(new Action() {
+				
+				@Override
+				public void act() {
+					// TODO Auto-generated method stub
+					
+				}
+			});
+			addObject(image);
+			if(x >= getWidth()) {
+				x = 5;
+				y += 20;
+			}
+			else x += 20;
+			viewObjects.add(image);
 		}
 	}
 
