@@ -1,24 +1,40 @@
 import java.awt.Image;
+import java.util.ArrayList;
 
-public class MonsterDex {
-	
-	private Image[] Encountered;
-	private Image[] Pikmin = new Image[6];
-	
+import guiPractice.Screen;
+import guiPractice.components.Button;
+import guiPractice.components.ClickableScreen;
+import guiPractice.components.Graphic;
+import guiPractice.components.TextArea;
+import guiPractice.components.Visible;
+
+public class MonsterDex extends ClickableScreen{
 	
 
-	public MonsterDex() {
-		populateDex();
+	private int MonNum = 1;
+	private int xLoc = 50;
+	private int yLoc = 50;
+	
+	private Graphic Pikmin;
+	private TextArea description;
+	private Button Next;
+	private Button Back;
+	
+	public MonsterDex(int width, int height) {
+		super(width,height);	
+	}
+
+	@Override
+	public void initAllObjects(ArrayList<Visible> arg0) {
+		// TODO Auto-generated method stub
+		
 	}
 	
-
-	private void populateDex() {
-		Pikmin = new Image[6];
-		for(int i = 0;i < 6;i++){
-			// Pikmin[i] = getImage(MonsterSprites/c(i+1).gif );
-		}
-	}
 	
+
+
+	
+
 	
 
 }

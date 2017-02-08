@@ -1,9 +1,11 @@
 import java.awt.Image;
 
+import guiPractice.components.Graphic;
+
 public class Monster {
 	
 	private Image[] AllMons;
-	private Image[] encounters[];
+	static Graphic[] encounters;
 
 	public Monster() {
 		
