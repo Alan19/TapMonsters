@@ -1,7 +1,7 @@
 /**
  * 
  */
-package player;
+package score;
 
 import guiPractice.GUIApplication;
 
