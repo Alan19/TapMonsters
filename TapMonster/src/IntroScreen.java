@@ -7,6 +7,7 @@ import guiPractice.components.ClickableScreen;
 import guiPractice.components.TextLabel;
 import guiPractice.components.Visible;
 import java.awt.Color;
+import java.awt.image.BufferedImage;
 public class IntroScreen extends ClickableScreen implements Visible, Clickable, Runnable {
 
 	private TextLabel label;
@@ -50,7 +51,6 @@ public class IntroScreen extends ClickableScreen implements Visible, Clickable, 
 		return false;
 	}
 
-	@Override
 	public void initAllObjects(ArrayList<Visible> viewObjects) {
 		label = new TextLabel(getWidth()/2-60, getHeight()/2-30, 120, 60, "Instructions will be here");
 		viewObjects.add(label);
@@ -65,6 +65,34 @@ public class IntroScreen extends ClickableScreen implements Visible, Clickable, 
 
 	@Override
 	public void run() {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	@Override
+	public int getHeight() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+
+	@Override
+	public BufferedImage getImage() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+	@Override
+	public int getWidth() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+
+	@Override
+	public void update() {
 		// TODO Auto-generated method stub
 		
 	}
