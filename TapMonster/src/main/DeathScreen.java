@@ -1,14 +1,18 @@
 /**
  * 
  */
-package main;
+package src.main;
 
+import java.awt.Color;
+import java.awt.Graphics2D;
 import java.util.ArrayList;
 
-import guiPractice.Screen;
+import guiPractice.components.Action;
 import guiPractice.components.Clickable;
-import guiPractice.components.ClickableScreen;
+import guiPractice.components.ClickableGraphic;
+import guiPractice.components.TextArea;
 import guiPractice.components.Visible;
+import guiPractice.sampleGames.ClickableScreen;
 
 /**
  * @author Alan19
@@ -22,52 +26,42 @@ public class DeathScreen extends ClickableScreen implements Visible, Clickable, 
 	 */
 		
 	private Thread app;
+	private ArrayList<Artifact> artifactList;
+	private Graphics2D g;
+	private int x;
+	private int y;
+	private int ax;
+	private int ay = getHeight() + 100;
+	private int aw = getWidth();
+	private int ah = ay + 100;
+	private TextArea playerInfo;
+	private ArrayList<Visible> viewObjects;
 	
-	public DeathScreen(int width, int height, int level, int score, Visible artifactList){
+	public DeathScreen(int width, int height, int level, int score, ArrayList<Artifact> artifactList){
 		super(width, height);
-		Thread app = new Thread(this);
+		this.artifactList = artifactList;
+		app = new Thread(this);
 		app.start();
 	}
 
-	/* (non-Javadoc)
-	 * @see guiPractice.components.Visible#getX()
-	 */
 	@Override
 	public int getX() {
-		// TODO Auto-generated method stub
-		return 0;
+		return x;
 	}
 
-	/* (non-Javadoc)
-	 * @see guiPractice.components.Visible#getY()
-	 */
 	@Override
 	public int getY() {
-		// TODO Auto-generated method stub
-		return 0;
+		return y;
 	}
 
-	/* (non-Javadoc)
-	 * @see guiPractice.components.Visible#isAnimated()
-	 */
 	@Override
 	public boolean isAnimated() {
 		// TODO Auto-generated method stub
 		return false;
 	}
 
-	/* (non-Javadoc)
-	 * @see guiPractice.Screen#initObjects(java.util.ArrayList)
-	 */
-	@Override
-	public void initObjects(ArrayList<Visible> arg0) {
-		// TODO Auto-generated method stub
-
-	}
-
 	@Override
 	public void act() {
-		// TODO Auto-generated method stub
 		
 	}
 
@@ -79,14 +73,43 @@ public class DeathScreen extends ClickableScreen implements Visible, Clickable, 
 
 	@Override
 	public void run() {
-		// TODO Auto-generated method stub
-		
+		g.setColor(new Color(43, 53, 255));
+		g.drawRect(getX(), getY(), getWidth(), getHeight());
+		/**
+		 * Reference numbers later
+		 */
+		String level = null;
+		String round = null;
+		playerInfo = new TextArea(0, 0, getWidth()-1, getHeight()-1, "You Died! \nLevel: " + level + "Round: " + round);
+		drawArtifacts();
+	}
+
+	private void drawArtifacts() {
+		int x = 5;
+		int y = 10;
+		for (Artifact artifact : artifactList) {
+			ClickableGraphic image = new ClickableGraphic(x, y, artifact.getImagePath());
+			image.setAction(new Action() {
+				
+				@Override
+				public void act() {
+					// TODO Auto-generated method stub
+					
+				}
+			});
+			addObject(image);
+			if(x >= getWidth()) {
+				x = 5;
+				y += 20;
+			}
+			else x += 20;
+			viewObjects.add(image);
+		}
 	}
 
 	@Override
-	public void initAllObjects(ArrayList<Visible> arg0) {
-		// TODO Auto-generated method stub
-		
+	public void initAllObjects(ArrayList<Visible> viewObjects) {
+		viewObjects.add(playerInfo);
 	}
 
 }
