@@ -9,7 +9,6 @@ import java.util.ArrayList;
 
 import artifacts.Artifact;
 import guiPractice.components.Component;
-import main.TapMonster;
 import rewards.Reward;
 
 /**
@@ -36,7 +35,7 @@ public class Score extends Component implements ScoreKeeper{
 
 	@Override
 	public void addReward(int percent) {
-		System.out.println("Got a reward with " + percent);
+		//System.out.println("Got a reward with " + percent);
 		score += score*percent;
 		update();
 	}
