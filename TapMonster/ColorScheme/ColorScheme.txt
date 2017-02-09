@@ -1,0 +1,7 @@
+COLOR SCHEME
+
+#a52a2a
+#d3d3d3
+#ffa500
+#54a006
+#084887

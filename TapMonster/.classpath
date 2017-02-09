@@ -3,6 +3,6 @@
 	<classpathentry excluding="src/" kind="src" path=""/>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
-	<classpathentry kind="lib" path="src/lib/TapGUI.jar"/>
+	<classpathentry kind="lib" path="lib/TapGUI.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
