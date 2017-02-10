@@ -6,15 +6,22 @@ import java.util.ArrayList;
 
 import guiPractice.Screen;
 import guiPractice.components.Visible;
+import main.Sequence;
 
 public class SequenceScreen extends Screen implements KeyListener{
 
+	public static ArrayList<Sequence> monsterSequence;
 	
 	public SequenceScreen(int width, int height) {
 		super(width, height);
-		// TODO Auto-generated constructor stub
+		monsterSequence = new ArrayList<Sequence>();
+		fillArrayList(monsterSequence);
 	}
 
+	public void fillArrayList(ArrayList<Sequence> arr){
+		
+	}
+	
 	public void initObjects(ArrayList<Visible> arg0) {
 		// TODO Auto-generated method stub
 		
