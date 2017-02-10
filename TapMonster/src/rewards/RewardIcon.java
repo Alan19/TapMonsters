@@ -15,8 +15,8 @@ import guiPractice.components.Graphic;
  */
 public class RewardIcon extends Graphic {
 
-	public RewardIcon(int x, int y, double scale, String imageLocation) {
-		super(x, y, scale, imageLocation);
+	public RewardIcon(int x, int y, double scale, Reward reward) {
+		super(x, y, scale, reward.getImage());
 		// TODO Auto-generated constructor stub
 	}
 	/**
