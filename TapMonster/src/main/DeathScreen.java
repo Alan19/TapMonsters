@@ -6,14 +6,15 @@ package main;
 import java.awt.Color;
 import java.awt.Graphics2D;
 import java.util.ArrayList;
+import java.util.List;
 
+import guiPractice.ClickableScreen;
 import guiPractice.components.Action;
 import guiPractice.components.Clickable;
 import guiPractice.components.ClickableGraphic;
 import guiPractice.components.TextArea;
 import guiPractice.components.TextLabel;
 import guiPractice.components.Visible;
-import guiPractice.sampleGames.ClickableScreen;
 
 /**
  * @author Alan19
@@ -108,8 +109,8 @@ public class DeathScreen extends ClickableScreen implements Visible, Clickable, 
 	}
 	
 	@Override
-	public void initAllObjects(ArrayList<Visible> viewObjects) {
-		viewObjects.add(playerInfo);
+	public void initAllObjects(List<Visible> viewObjects) {
+		viewObjects.add(playerInfo);		
 	}
 
 }
