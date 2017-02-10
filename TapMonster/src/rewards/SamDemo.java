@@ -5,19 +5,19 @@ package rewards;
 
 import java.awt.Color;
 import java.util.ArrayList;
+import java.util.List;
 
 import guiPractice.GUIApplication;
 import guiPractice.components.Action;
 import guiPractice.components.Button;
 import guiPractice.components.TextLabel;
 import guiPractice.components.Visible;
-import guiPractice.components.ClickableScreen;
 
 /**
  * @author Student8
  *
  */
-public class SamDemo extends GUIApplication {
+public class SamDemo extends guiPractice.GUIApplication {
 	
 	public static Reward[] rewardList;
 	public static Reward reward;
@@ -25,7 +25,8 @@ public class SamDemo extends GUIApplication {
 	/**
 	 * 
 	 */
-	public SamDemo() {
+	public SamDemo(int w, int h) {
+		super(w, h);
 		rewardList = Reward.getAllRewards();
 		int randNum = (int) (Math.random() * 8);
 		reward = rewardList[randNum];
@@ -47,7 +48,7 @@ public class SamDemo extends GUIApplication {
 	 */
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		SamDemo demo = new SamDemo();
+		SamDemo demo = new SamDemo(800, 600);
 		Thread app = new Thread(demo);
 		app.start();
 	}
@@ -104,7 +105,7 @@ public class SamDemo extends GUIApplication {
 			return timeValue;
 		}
 	}
-	private class DemoScreen extends ClickableScreen{
+	private class DemoScreen extends guiPractice.ClickableScreen{
 
 		private TextLabel rewardDisplay;
 		private Button beatAMonster;
@@ -115,7 +116,9 @@ public class SamDemo extends GUIApplication {
 			// TODO Auto-generated constructor stub
 		}
 
-		public void initAllObjects(ArrayList<Visible> view) {
+		@Override
+		public void initAllObjects(List<Visible> view) {
+			// TODO Auto-generated method stub
 			rewardDisplay = new TextLabel(20, 40, 100, 25, "");
 			beatAMonster = new Button(40, 100, 90, 40, "Beat A Monster", Color.blue, new Action() {
 				

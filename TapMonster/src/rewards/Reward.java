@@ -2,7 +2,7 @@ package rewards;
 
 public class Reward {
 
-	public static final int NUMBER_OF_REWARDS = 5;
+	public static final int NUMBER_OF_REWARDS = 8;
 	private String description;
 	private RewardEffect effect;
 	private String image;
