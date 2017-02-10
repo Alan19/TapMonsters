@@ -1,7 +1,4 @@
-/**
- * 
- */
-package player;
+package score;
 
 import guiPractice.GUIApplication;
 
@@ -11,11 +8,6 @@ import guiPractice.GUIApplication;
  */
 public class ScoreDemo extends GUIApplication {
 
-	
-	
-	/**
-	 * 
-	 */
 	public ScoreDemo() {
 		
 	}
@@ -29,9 +21,6 @@ public class ScoreDemo extends GUIApplication {
 		setScreen(screen);
 	}
 
-	/**
-	 * @param args
-	 */
 	public static void main(String[] args) {
 		ScoreDemo demo = new ScoreDemo();
 		Thread app = new Thread(demo);

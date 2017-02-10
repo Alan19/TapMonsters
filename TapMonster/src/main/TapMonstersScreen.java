@@ -1,13 +1,14 @@
-package guiPractice.TapMonsters;
+package main;
 
+import java.util.ArrayList;
 import java.util.List;
 
-import guiPractice.ClickableScreen;
 import guiPractice.Simon.ProgressInterfaceSimon;
 import guiPractice.Simon.ProgressJaviy;
-import guiPractice.TapMonsters.Monster.Game;
+import guiPractice.TapMonsters.monster.Game;
 import guiPractice.TapMonsters.Monster.Monster;
 import guiPractice.TapMonsters.Monster.MonsterName;
+import guiPractice.components.ClickableScreen;
 import guiPractice.components.TextLabel;
 import guiPractice.components.Visible;
 
@@ -96,6 +97,12 @@ public class TapMonstersScreen extends ClickableScreen implements Runnable,Game{
 		// TODO Auto-generated method stub
 		System.out.println("No special effects");
 		System.out.println(Monster.description());
+	}
+
+	@Override
+	public void initAllObjects(ArrayList<Visible> arg0) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }
