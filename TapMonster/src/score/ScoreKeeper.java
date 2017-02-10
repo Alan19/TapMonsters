@@ -6,9 +6,9 @@ public interface ScoreKeeper {
 	
 	void addArtifact(int cost);
 	
-	void addMonster(int lengthOfSequence);
+	void addMonster(int monsterLevel);
 	
 	void addSequenceMultiplier(int sequenceRight, int totalseqLength);
 
-	void addExp();
+	//void addExp();
 }

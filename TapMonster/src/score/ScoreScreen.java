@@ -52,14 +52,24 @@ public class ScoreScreen extends ClickableScreen {
 			
 			@Override
 			public void act() {
-				int rareness = (int) (Math.random()*10);
+				int type = (int) (Math.random()*10);
 				
-				score.addReward(rareness);
+				score.addReward(type);
+			}
+		});
+		sequence = new Button(20, 100, 100, 40, "Sequence Multiplier!", Color.green, new Action() {
+			
+			@Override
+			public void act() {
+				int seqRight = (int) (Math.random()*10);
+				
+				score.addSequenceMultiplier(seqRight, 100);
 			}
 		});
 		view.add(artifact);
 		 view.add(score);
 		 view.add(reward);
+		 view.add(sequence);
 		
 	}
 
