@@ -8,15 +8,16 @@ public class Artifact implements ArtifactInterface{
 	
 	private String description;
 	private int price;
-	private BufferedImage icon;
+	private String imagePath;
 	private String name;
 	private Action action;
 
-	public Artifact(String desc, String name, int price, Action action /*image link stuff*/) {
+	public Artifact(String desc, String name, int price, Action action, String path) {
 		this.description = desc;
 		this.price = price;
 		this.name = name;
 		this.action = action;
+		this.imagePath = path;
 	}
 	
 	public Artifact buyItem(){
@@ -31,13 +32,13 @@ public class Artifact implements ArtifactInterface{
 	public String getName(){
 		return name;
 	}
-	
-	public BufferedImage getIcon() {
-		return icon;
-	}
 
 	public int getPrice(){
 		return price;
+	}
+
+	public String getImagePath() {
+		return imagePath;
 	}
 
 }
