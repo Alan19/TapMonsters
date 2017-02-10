@@ -1,6 +1,3 @@
-/**
- * 
- */
 package main;
 
 import guiPractice.GUIApplication;
@@ -11,9 +8,6 @@ import guiPractice.GUIApplication;
  */
 public class MaxDemo extends GUIApplication {
 
-	/**
-	 * 
-	 */
 	public MaxDemo() {
 		// TODO Auto-generated constructor stub
 	}
@@ -24,7 +18,8 @@ public class MaxDemo extends GUIApplication {
 	@Override
 	protected void initScreen() {
 		// TODO Auto-generated method stub
-
+		KLDebugScreen demoS = new KLDebugScreen(getWidth(), getHeight());
+		setScreen(demoS);
 	}
 
 	/**
@@ -32,7 +27,9 @@ public class MaxDemo extends GUIApplication {
 	 */
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-
+		MaxDemo demo = new MaxDemo();
+		Thread app = new Thread(demo);
+		app.start();
 	}
 
 }

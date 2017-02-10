@@ -51,7 +51,7 @@ public class Score extends Component implements ScoreKeeper{
 	}
 	
 	@Override
-	public void addMonster(int monsterLevel) {
+	public void addMonster(int sequenceLength) {
 		
 	}
 	
