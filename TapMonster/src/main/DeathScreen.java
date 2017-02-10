@@ -29,8 +29,6 @@ public class DeathScreen extends ClickableScreen implements Runnable{
 	private Thread app;
 	private ArrayList<artifacts.Artifact> artifactList;
 	private Graphics2D g;
-	private int x;
-	private int y;
 	private TextArea playerInfo;
 	private ArrayList<Visible> viewObjects;
 	private int level;
@@ -47,7 +45,7 @@ public class DeathScreen extends ClickableScreen implements Runnable{
 		app.start();
 	}
 
-	@Override
+	
 	public void run() {
 		g.setColor(new Color(43, 53, 255));
 		playerInfo = new TextArea(0, 0, getWidth()-1, getHeight()/3, "You Died! \nLevel: " + level + "Score: " + score);
@@ -57,11 +55,10 @@ public class DeathScreen extends ClickableScreen implements Runnable{
 	private void drawArtifacts() {
 		int x = 5;
 		int y = 10+getHeight()/3;
-		for (artifacts.Artifact artifact : artifactList) {
+		for (final artifacts.Artifact artifact : artifactList) {
 			ClickableGraphic image = new ClickableGraphic(x, y+getHeight()/3, artifact.getImagePath());
 			image.setAction(new Action() {
 				
-				@Override
 				public void act() {
 					description.setText(artifact.getDescription());
 				}

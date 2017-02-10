@@ -3,14 +3,9 @@
  */
 package main;
 
-import java.awt.Color;
 import java.util.ArrayList;
 
 import guiPractice.GUIApplication;
-import guiPractice.components.Action;
-import guiPractice.components.Button;
-import guiPractice.components.TextLabel;
-import guiPractice.components.Visible;
 
 /**
  * @author Student8
