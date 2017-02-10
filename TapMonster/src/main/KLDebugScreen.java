@@ -54,15 +54,18 @@ public class KLDebugScreen extends Screen implements KeyListener {
 			System.out.println("Right key pressed");
 			mc.setVx(10);
 		}
-		else if(k.getKeyCode() == KeyEvent.VK_RIGHT){
-			System.out.println("Right key pressed");
-			mc.setVx(10);
+		else if(k.getKeyCode() == KeyEvent.VK_LEFT){
+			System.out.println("Left key pressed");
+			mc.setVx(-10);
 		}
 	}
 
 	@Override
 	public void keyReleased(KeyEvent k) {
 		if(k.getKeyCode() == KeyEvent.VK_RIGHT){
+			mc.setVx(0);
+		}
+		else if(k.getKeyCode() == KeyEvent.VK_LEFT){
 			mc.setVx(0);
 		}
 	}
