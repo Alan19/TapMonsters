@@ -45,6 +45,7 @@ public class DeathScreen extends ClickableScreen implements Runnable{
 		app.start();
 	}
 
+	
 	public void run() {
 		g.setColor(new Color(43, 53, 255));
 		playerInfo = new TextArea(0, 0, getWidth()-1, getHeight()/3, "You Died! \nLevel: " + level + "Score: " + score);
