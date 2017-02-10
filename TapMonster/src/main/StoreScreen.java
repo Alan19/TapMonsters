@@ -3,6 +3,8 @@ package main;
 import java.util.ArrayList;
 import java.util.List;
 
+import artifacts.Artifact;
+
 import guiPractice.ClickableScreen;
 import guiPractice.Screen;
 import guiPractice.components.Graphic;
@@ -28,7 +30,10 @@ public class StoreScreen extends ClickableScreen {
 	@Override
 	public void initAllObjects(List<Visible> viewObjects) {
 		greeting = new TextLabel(20, 40, getWidth(), getHeight(), "Welcome to the shop Adventurer!!!!111!!!!!!111!!!!!");
-		background = new Graphic(0, 0, getWidth(), getHeight(), "storeImages/")
+		background = new Graphic(0, 0, getWidth(), getHeight(), "storeImages/bgimage.jpg");
+		
+		viewObjects.add(background);
+		viewObjects.add(greeting);
 	}
 
 }
