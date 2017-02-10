@@ -1,8 +1,8 @@
 package sequenceFront;
 
-public class PlayerSequence {
+public class SequenceDemo {
 
-	public PlayerSequence() {
+	public SequenceDemo() {
 		// TODO Auto-generated constructor stub
 	}
 
