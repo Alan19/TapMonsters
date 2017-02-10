@@ -10,7 +10,7 @@ public class Reward {
 	public Reward(String description, String image, RewardEffect effect) {
 		this.description = description;
 		this.effect = effect;
-		this.image = image;
+		this.setImage(image);
 	}
 	
 	public void takeEffect(RewardTarget target){
@@ -77,5 +77,13 @@ public class Reward {
 			}
 		});
 		return rewards;
+	}
+
+	public String getImage() {
+		return image;
+	}
+
+	public void setImage(String image) {
+		this.image = image;
 	}
 }

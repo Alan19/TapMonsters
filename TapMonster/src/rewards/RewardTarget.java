@@ -1,8 +1,7 @@
 package rewards;
 
 public interface RewardTarget {
-	void earnReward(Reward r);
-	//gives a reward to the target
+
 	void increaseHearts(int i);
 	//method that adds i extra HEART CONTAINERS
 	void addExtraLife(int i);
