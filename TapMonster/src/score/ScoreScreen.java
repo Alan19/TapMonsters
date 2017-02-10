@@ -5,10 +5,12 @@ package score;
 
 import java.awt.Color;
 import java.util.ArrayList;
+import java.util.List;
 
+import guiPractice.ClickableScreen;
 import guiPractice.components.Action;
 import guiPractice.components.Button;
-import guiPractice.components.ClickableScreen;
+
 import guiPractice.components.Visible;
 
 
@@ -36,15 +38,16 @@ public class ScoreScreen extends ClickableScreen {
 	/* (non-Javadoc)
 	 * @see guiPractice.components.ClickableScreen#initAllObjects(java.util.ArrayList)
 	 */
+
 	@Override
-	public void initAllObjects(ArrayList<Visible> view) {
+	public void initAllObjects(List<Visible> viewObjects) {
 		score = new Score(200, 40);
 		artifact = new Button(20, 50, 100, 40, "Get an artifact", Color.green, new Action() {
 			
 			@Override
 			public void act() {
 				int rareness = (int) (Math.random()*10);
-				System.out.println("Got a artifact with " + rareness);
+				System.out.println("Got an artifact with " + rareness);
 				score.addArtifact(rareness);
 			}
 		});
@@ -53,6 +56,7 @@ public class ScoreScreen extends ClickableScreen {
 			@Override
 			public void act() {
 				int type = (int) (Math.random()*10);
+				System.out.println("Got a reward with " + type);
 				
 				score.addReward(type);
 			}
@@ -66,10 +70,10 @@ public class ScoreScreen extends ClickableScreen {
 				score.addSequenceMultiplier(seqRight, 100);
 			}
 		});
-		view.add(artifact);
-		 view.add(score);
-		 view.add(reward);
-		 view.add(sequence);
+		viewObjects.add(artifact);
+		viewObjects.add(score);
+		viewObjects.add(reward);
+		viewObjects.add(sequence);
 		
 	}
 

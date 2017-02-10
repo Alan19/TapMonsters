@@ -2,7 +2,6 @@
  * 
  */
 package score;
-
 import java.awt.Color;
 import java.awt.Graphics2D;
 import java.util.ArrayList;
@@ -10,6 +9,7 @@ import java.util.ArrayList;
 import artifacts.Artifact;
 import guiPractice.components.Component;
 import rewards.Reward;
+import score.ScoreKeeper;
 
 /**
  * @author Joyce
@@ -27,10 +27,6 @@ public class Score extends Component implements ScoreKeeper{
 	
 	public static int playerExp = 0;
 	public static int maxExp = 0;
-	
-//	public static Reward[] rewardAdd;
-//	public static ArrayList<Artifact> artifactAdd;
-//	public static ArrayList<Monster> monsterAdd;
 	
 	public Score(int x, int y) {
 		super(x, y, 100, 80);
@@ -52,7 +48,8 @@ public class Score extends Component implements ScoreKeeper{
 	
 	@Override
 	public void addMonster(int sequenceLength) {
-		
+		score += sequenceLength*10;
+		update();
 	}
 	
 	@Override
@@ -82,13 +79,13 @@ public class Score extends Component implements ScoreKeeper{
 		g.drawString("score = " + score + "", 5, 30);
 		
 		//exp
-		int expBarHeight = 20;
+		/**int expBarHeight = 20;
 		g.setColor(Color.blue);
 		if (maxExp != 0) g.fillRect(0, getHeight() + 10, getWidth() * (playerExp/maxExp), expBarHeight);
 		else g.fillRect(0, getHeight() + 10, 0, 20);
 		g.setColor(Color.black);
 		g.drawRect(0, getHeight() + 10, getWidth()-1, expBarHeight - 1);
 		g.drawString("Exp = " + playerExp + "/" + maxExp + "", 5, 30);
-		
+		*/
 	}
 }
