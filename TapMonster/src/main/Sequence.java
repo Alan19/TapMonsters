@@ -14,6 +14,11 @@ public class Sequence {
 	/**
 	 * 
 	 */
+
+	public static int W = 0;
+	public static int A = 1;
+	public static int S = 2;
+	public static int D = 3;
 	
 //	public static void main(String[] args) {
 //		for (int i = 0; i < 250; i++) {
