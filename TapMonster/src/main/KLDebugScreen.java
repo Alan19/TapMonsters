@@ -53,7 +53,10 @@ public class KLDebugScreen extends Screen implements KeyListener {
 		if(k.getKeyCode() == KeyEvent.VK_RIGHT){
 			System.out.println("Right key pressed");
 			mc.setVx(10);
-			
+		}
+		else if(k.getKeyCode() == KeyEvent.VK_RIGHT){
+			System.out.println("Right key pressed");
+			mc.setVx(10);
 		}
 	}
 
