@@ -1,10 +1,13 @@
 package main;
 
+import java.awt.Color;
+import java.awt.Graphics2D;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.util.ArrayList;
 
 import guiPractice.Screen;
+import guiPractice.components.MovingComponent;
 import guiPractice.components.TextLabel;
 import guiPractice.components.Visible;
 
@@ -13,50 +16,62 @@ import guiPractice.components.Visible;
  *
  */
 
-public class KLDebugScreen extends Screen implements KeyListener, KeyReceiver, Runnable {
+public class KLDebugScreen extends Screen implements KeyListener {
 	
+	private MovingComponent mc;
 	private TextLabel label;
-	private KeyListener keyL;
 
 	public KLDebugScreen(int width, int height) {
 		super(width, height);
-		// TODO Auto-generated constructor stub
-		Thread app = new Thread(this);
-		app.start();
+
 	}
 
 	@Override
 	public void initObjects(ArrayList<Visible> viewObjects) {
-		// TODO Auto-generated method stub
-		keyL = getKeyListener();
+		mc = new MovingComponent(30,30,100,100) {
+			
+			@Override
+			public void drawImage(Graphics2D g) {
+				g.setColor(Color.red);
+				g.drawRect(1, 1, 98, 98);
+			}
+			
+			@Override
+			public void checkBehaviors() {
+				// TODO Auto-generated method stub
+				
+			}
+		};
+		viewObjects.add(mc);
+		mc.play();
+
 	}
 
 	@Override
-	public void keyPressed(KeyEvent arg0) {
+	public void keyPressed(KeyEvent k) {
 		// TODO Auto-generated method stub
-		System.out.println("Hi");
+		if(k.getKeyCode() == KeyEvent.VK_RIGHT){
+			System.out.println("Right key pressed");
+			mc.setVx(10);
+			
+		}
 	}
 
 	@Override
-	public void keyReleased(KeyEvent arg0) {
-		// TODO Auto-generated method stub
-		
+	public void keyReleased(KeyEvent k) {
+		if(k.getKeyCode() == KeyEvent.VK_RIGHT){
+			mc.setVx(0);
+		}
 	}
 
 	@Override
 	public void keyTyped(KeyEvent arg0) {
-		// TODO Auto-generated method stub
-		System.out.println("Hi");
 	}
 	
 	public KeyListener getKeyListener(){
 		return this;
 	}
 
-	@Override
-	public void run() {
-		// TODO Auto-generated method stub
-		
-	}
+
 
 }
