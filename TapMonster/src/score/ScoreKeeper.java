@@ -8,5 +8,7 @@ public interface ScoreKeeper {
 	
 	void addMonster(int lengthOfSequence);
 	
-	void addSequenceMultiplier(int sequenceRight);
+	void addSequenceMultiplier(int sequenceRight, int totalseqLength);
+
+	void addExp();
 }

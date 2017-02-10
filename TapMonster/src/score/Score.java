@@ -21,6 +21,10 @@ public class Score extends Component implements ScoreKeeper{
 	public static int achieved;
 	public static int threshold;
 	
+	public boolean newLevel = false;
+	private int seqLength = 0;
+	private int playerMaxSeq;
+	
 //	public static Reward[] rewardAdd;
 //	public static ArrayList<Artifact> artifactAdd;
 //	public static ArrayList<Monster> monsterAdd;
@@ -53,12 +57,25 @@ public class Score extends Component implements ScoreKeeper{
 	}
 	
 	@Override
-	public void addSequenceMultiplier(int sequenceRight) {
-		// TODO Auto-generated method stub
+	public void addSequenceMultiplier(int sequenceRight, int totalSeqLength) {
+		if (totalSeqLength != seqLength) newLevel = true;
+		if (newLevel){
+			playerMaxSeq = 0;
+			seqLength = totalSeqLength;
+		}
+		else{
+			if (sequenceRight >= playerMaxSeq) score += (score + score*(sequenceRight/seqLength));
+			else
+		}
+		playerMaxSeq = sequenceRight;
+		newLevel = false;
 		
 	}
-	
-	public static void main(String[] args) {
+
+	@Override
+	public void addExp() {
+		// TODO Auto-generated method stub
+		
 	}
 
 	@Override
@@ -70,6 +87,4 @@ public class Score extends Component implements ScoreKeeper{
 		g.drawString("score = " + score + "", 5, 30);
 		
 	}
-
-	
 }
