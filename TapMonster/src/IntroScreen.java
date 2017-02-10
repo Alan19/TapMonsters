@@ -1,14 +1,15 @@
 import java.util.ArrayList;
+import java.util.List;
 
 import guiPractice.components.Action;
 import guiPractice.components.Button;
 import guiPractice.components.Clickable;
-import guiPractice.components.ClickableScreen;
 import guiPractice.components.TextLabel;
 import guiPractice.components.Visible;
 import java.awt.Color;
-public class IntroScreen extends ClickableScreen implements Visible, Clickable, Runnable {
-
+import java.awt.image.BufferedImage;
+public class IntroScreen extends guiPractice.ClickableScreen implements Visible, Clickable, Runnable {
+	private String[] instructions;
 	private TextLabel label;
 	private Button startButton;
 	
@@ -50,13 +51,6 @@ public class IntroScreen extends ClickableScreen implements Visible, Clickable, 
 		return false;
 	}
 
-	@Override
-	public void initAllObjects(ArrayList<Visible> viewObjects) {
-		label = new TextLabel(getWidth()/2-60, getHeight()/2-30, 120, 60, "Instructions will be here");
-		viewObjects.add(label);
-		startButton = new Button(getWidth()/2,(int) (.75*getHeight()),38,20,"START",Color.RED,startGame());
-	}
-
 	private Action startGame() {
 		// TODO Auto-generated method stub
 		return null;
@@ -68,5 +62,59 @@ public class IntroScreen extends ClickableScreen implements Visible, Clickable, 
 		// TODO Auto-generated method stub
 		
 	}
+
+
+	@Override
+	public int getHeight() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+
+	@Override
+	public BufferedImage getImage() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+	@Override
+	public int getWidth() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+
+	@Override
+	public void update() {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+
+	public void initAllObjects(List<Visible> viewObjects) {
+		
+		
+		label = new TextLabel(getWidth()/2-60, getHeight()/2-30, 120, 60, "Instructions will be here");
+		viewObjects.add(label);
+		startButton = new Button(getWidth()/2,(int) (.75*getHeight()),38,20,"START",Color.RED,startGame());
+	}
+	
+	
+	public ArrayList<String> spliceString(String s) {
+		int last = 0;
+		ArrayList<String> out = new ArrayList<String>();
+		for (int i = 0; i < s.length(); i++) {
+			if (s.charAt(i) == 32) {
+				out.add(s.substring(last, i));
+				last = i+1;
+			}
+		}
+		return out;
+	}
+
+
+
 
 }

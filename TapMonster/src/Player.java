@@ -45,6 +45,12 @@ public void setMove(int move){
 		g.drawImage(moveSet[currentState].getImage(),0,0,null);
 	}
 
+	@Override
+	public void checkBehaviors() {
+		// TODO Auto-generated method stub
+		
+	}
+
 }
 
 

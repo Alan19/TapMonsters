@@ -1,21 +1,39 @@
 package main;
 
 import java.util.ArrayList;
+import java.util.List;
 
+import artifacts.Artifact;
+
+import guiPractice.ClickableScreen;
 import guiPractice.Screen;
+import guiPractice.components.Graphic;
+import guiPractice.components.TextLabel;
 import guiPractice.components.Visible;
 
-public class StoreScreen extends Screen {
+public class StoreScreen extends ClickableScreen {
+	
+	private TextLabel greeting;
+	private TextLabel itemsInfo;
+	private Graphic background;
+	private Artifact currentArtifact;
 
 	public StoreScreen(int width, int height) {
 		super(width, height);
-		// TODO Auto-generated constructor stub
 	}
 
 	@Override
 	public void initObjects(ArrayList<Visible> arg0) {
-		// TODO Auto-generated method stub
+		
+	}
 
+	@Override
+	public void initAllObjects(List<Visible> viewObjects) {
+		greeting = new TextLabel(20, 40, getWidth(), getHeight(), "Welcome to the shop Adventurer!!!!111!!!!!!111!!!!!");
+		background = new Graphic(0, 0, getWidth(), getHeight(), "storeImages/bgimage.jpg");
+		
+		viewObjects.add(background);
+		viewObjects.add(greeting);
 	}
 
 }
