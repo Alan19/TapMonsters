@@ -53,6 +53,8 @@ public class SamDemo extends guiPractice.GUIApplication {
 		app.start();
 	}
 	
+
+	
 	//nested inner class
 	private class PlayerValues implements RewardTarget{
 		private int heartCont = 0;
