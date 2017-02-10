@@ -33,8 +33,9 @@ public class ZhenDemo extends GUIApplication {
 	 */
 	@Override
 	protected void initScreen() {
-		DemoScreen demo = new DemoScreen(getWidth(), getHeight());
-		setScreen(demo);
+		ArrayList<artifacts.Artifact>
+		DeathScreen deathScreen = new DeathScreen(0, 0, getWidth(), getHeight(), null);
+		setScreen(deathScreen);
 	}
 
 	/**

@@ -11,6 +11,7 @@ import guiPractice.components.Action;
 import guiPractice.components.Clickable;
 import guiPractice.components.ClickableGraphic;
 import guiPractice.components.TextArea;
+import guiPractice.components.TextLabel;
 import guiPractice.components.Visible;
 import guiPractice.sampleGames.ClickableScreen;
 
@@ -26,20 +27,22 @@ public class DeathScreen extends ClickableScreen implements Visible, Clickable, 
 	 */
 		
 	private Thread app;
-	private ArrayList<Artifact> artifactList;
+	private ArrayList<artifacts.Artifact> artifactList;
 	private Graphics2D g;
 	private int x;
 	private int y;
-	private int ax;
-	private int ay = getHeight() + 100;
-	private int aw = getWidth();
-	private int ah = ay + 100;
 	private TextArea playerInfo;
 	private ArrayList<Visible> viewObjects;
+	private int level;
+	private int score;
+	private int finalY;
+	private TextLabel description;
 	
-	public DeathScreen(int width, int height, int level, int score, ArrayList<Artifact> artifactList){
+	public DeathScreen(int width, int height, int level, int score, ArrayList<artifacts.Artifact> artifactList){
 		super(width, height);
 		this.artifactList = artifactList;
+		this.level = level;
+		this.score = score;
 		app = new Thread(this);
 		app.start();
 	}
@@ -74,28 +77,23 @@ public class DeathScreen extends ClickableScreen implements Visible, Clickable, 
 	@Override
 	public void run() {
 		g.setColor(new Color(43, 53, 255));
-		g.drawRect(getX(), getY(), getWidth(), getHeight());
-		/**
-		 * Reference numbers later
-		 */
-		String level = null;
-		String round = null;
-		playerInfo = new TextArea(0, 0, getWidth()-1, getHeight()-1, "You Died! \nLevel: " + level + "Round: " + round);
+		playerInfo = new TextArea(0, 0, getWidth()-1, getHeight()/3, "You Died! \nLevel: " + level + "Score: " + score);
 		drawArtifacts();
 	}
 
 	private void drawArtifacts() {
 		int x = 5;
-		int y = 10;
-		for (Artifact artifact : artifactList) {
-			ClickableGraphic image = new ClickableGraphic(x, y, artifact.getImagePath());
+		int y = 10+getHeight()/3;
+		for (artifacts.Artifact artifact : artifactList) {
+			ClickableGraphic image = new ClickableGraphic(x, y+getHeight()/3, artifact.getImagePath());
 			image.setAction(new Action() {
 				
 				@Override
 				public void act() {
-					// TODO Auto-generated method stub
-					
+					description.setText(artifact.getDescription());
 				}
+
+				
 			});
 			addObject(image);
 			if(x >= getWidth()) {
@@ -105,8 +103,10 @@ public class DeathScreen extends ClickableScreen implements Visible, Clickable, 
 			else x += 20;
 			viewObjects.add(image);
 		}
+		finalY = y + 30;
+		description = new TextLabel(x, finalY, getWidth(), 30, "");
 	}
-
+	
 	@Override
 	public void initAllObjects(ArrayList<Visible> viewObjects) {
 		viewObjects.add(playerInfo);
