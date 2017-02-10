@@ -9,7 +9,6 @@ import java.util.ArrayList;
 import guiPractice.GUIApplication;
 import guiPractice.components.Action;
 import guiPractice.components.Button;
-import guiPractice.components.ClickableScreen;
 import guiPractice.components.TextLabel;
 import guiPractice.components.Visible;
 
@@ -25,7 +24,7 @@ public class ZhenDemo extends GUIApplication {
 	 * 
 	 */
 	public ZhenDemo() {
-		death = new DeathScreen(getX(), getY(), 5, 5, new ArrayList<Artifact>());
+		death = new DeathScreen(getX(), getY(), 5, 5, new ArrayList<artifacts.Artifact>());
 	}
 
 	/* (non-Javadoc)
@@ -33,7 +32,7 @@ public class ZhenDemo extends GUIApplication {
 	 */
 	@Override
 	protected void initScreen() {
-		ArrayList<artifacts.Artifact>
+		ArrayList<artifacts.Artifact> = new ArrayList<artifacts.Artifact>();
 		DeathScreen deathScreen = new DeathScreen(0, 0, getWidth(), getHeight(), null);
 		setScreen(deathScreen);
 	}
@@ -52,28 +51,28 @@ public class ZhenDemo extends GUIApplication {
 	}
 	
 	//nested inner class
-	private class DemoScreen extends ClickableScreen{
-
-		private TextLabel rewardDisplay;
-		private guiPractice.components.Button beatAMonster;
-		
-		public DemoScreen(int width, int height) {
-			super(width, height);
-		}
-
-		@Override
-		public void initAllObjects(ArrayList<Visible> view) {
-			rewardDisplay = new TextLabel(20, 40, 100, 25, "");
-			beatAMonster = new Button(40, 100, 150, 40, "Beat a monster", Color.blue, new Action() {
-				
-				@Override
-				public void act() {
-					ZhenDemo.death.run();
-				}
-			});
-			view.add(rewardDisplay);
-			view.add(beatAMonster);
-		}
-		
-	}
+//	private class DemoScreen extends ClickableScreen{
+//
+//		private TextLabel rewardDisplay;
+//		private guiPractice.components.Button beatAMonster;
+//		
+//		public DemoScreen(int width, int height) {
+//			super(width, height);
+//		}
+//
+//		@Override
+//		public void initAllObjects(ArrayList<Visible> view) {
+//			rewardDisplay = new TextLabel(20, 40, 100, 25, "");
+//			beatAMonster = new Button(40, 100, 150, 40, "Beat a monster", Color.blue, new Action() {
+//				
+//				@Override
+//				public void act() {
+//					ZhenDemo.death.run();
+//				}
+//			});
+//			view.add(rewardDisplay);
+//			view.add(beatAMonster);
+//		}
+//		
+//	}
 }
