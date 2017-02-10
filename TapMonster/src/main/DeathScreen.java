@@ -6,20 +6,20 @@ package main;
 import java.awt.Color;
 import java.awt.Graphics2D;
 import java.util.ArrayList;
+import java.util.List;
 
+import guiPractice.ClickableScreen;
 import guiPractice.components.Action;
-import guiPractice.components.Clickable;
 import guiPractice.components.ClickableGraphic;
 import guiPractice.components.TextArea;
 import guiPractice.components.TextLabel;
 import guiPractice.components.Visible;
-import guiPractice.sampleGames.ClickableScreen;
 
 /**
  * @author Alan19
  *
  */
-public class DeathScreen extends ClickableScreen implements Visible, Clickable, Runnable{
+public class DeathScreen extends ClickableScreen implements Runnable{
 
 	/**
 	 * @param width
@@ -45,33 +45,6 @@ public class DeathScreen extends ClickableScreen implements Visible, Clickable, 
 		this.score = score;
 		app = new Thread(this);
 		app.start();
-	}
-
-	@Override
-	public int getX() {
-		return x;
-	}
-
-	@Override
-	public int getY() {
-		return y;
-	}
-
-	@Override
-	public boolean isAnimated() {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	@Override
-	public void act() {
-		
-	}
-
-	@Override
-	public boolean isHovered(int arg0, int arg1) {
-		// TODO Auto-generated method stub
-		return false;
 	}
 
 	@Override
@@ -108,8 +81,8 @@ public class DeathScreen extends ClickableScreen implements Visible, Clickable, 
 	}
 	
 	@Override
-	public void initAllObjects(ArrayList<Visible> viewObjects) {
-		viewObjects.add(playerInfo);
+	public void initAllObjects(List<Visible> viewObjects) {
+		viewObjects.add(playerInfo);		
 	}
 
 }
