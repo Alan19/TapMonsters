@@ -6,4 +6,6 @@ public interface ArtifactInterface {
 	public int getPrice();
 	
 	public String getDescription();
+	
+	public String getImagePath();
 }
