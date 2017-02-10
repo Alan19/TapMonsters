@@ -16,6 +16,7 @@ import guiPractice.components.Visible;
  * @author Student8
  *
  */
+@SuppressWarnings("serial")
 public class ZhenDemo extends GUIApplication {
 
 	public static DeathScreen death;
@@ -24,6 +25,7 @@ public class ZhenDemo extends GUIApplication {
 	 * 
 	 */
 	public ZhenDemo() {
+		super(0, 0);
 		death = new DeathScreen(getX(), getY(), 5, 5, new ArrayList<artifacts.Artifact>());
 	}
 
@@ -32,7 +34,7 @@ public class ZhenDemo extends GUIApplication {
 	 */
 	@Override
 	protected void initScreen() {
-		ArrayList<artifacts.Artifact> = new ArrayList<artifacts.Artifact>();
+		ArrayList<artifacts.Artifact> artifacts = new ArrayList<artifacts.Artifact>();
 		DeathScreen deathScreen = new DeathScreen(0, 0, getWidth(), getHeight(), null);
 		setScreen(deathScreen);
 	}
