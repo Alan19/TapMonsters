@@ -1,14 +1,21 @@
 import java.awt.Image;
 
-import guiPractice.components.Graphic;
+import interfaces.MonsterInterface;
 
-public class Monster {
+public class Monster implements MonsterInterface{
 	
-	private Image[] AllMons;
-	static Graphic[] encounters;
+	
 
-	public Monster() {
+	@Override
+	public void setName(String name) {
 		
 	}
+
+	@Override
+	public int RaiseEnCounter(int encounters) {
+		return 0;
+	}
+
+	
 
 }
