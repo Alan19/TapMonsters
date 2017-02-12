@@ -1,20 +1,15 @@
+package main;
 import java.awt.Graphics2D;
-import java.util.ArrayList;
-import java.util.List;
-import guiPractice.GUIApplication;
-import guiPractice.Screen;
+
 import guiPractice.components.Graphic;
 import guiPractice.components.MovingComponent;
 import interfaces.Attack;
 import interfaces.PlayerInterface;
-import java.awt.image.BufferedImage;
 
-import javax.swing.ImageIcon;
 public class Player extends MovingComponent  {
-	private Graphics2D image;
+
 	private static final int playerX = 50;
 	private static final int playerY = 50;
-	private static Screen main;
 
 	static final Graphic playerDefault = new Graphic(playerX, playerY, 1, "ColorScheme/PlayerPics/default transparent.png");
 	static final Graphic playerAttack = new Graphic(playerX, playerY, 1, "ColorScheme/PlayerPics/attack transparent.png");

@@ -1,3 +1,4 @@
+package main;
 import java.awt.Image;
 
 import guiPractice.components.Graphic;
