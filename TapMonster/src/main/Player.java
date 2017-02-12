@@ -11,11 +11,11 @@ public class Player extends MovingComponent  {
 	private static final int playerX = 50;
 	private static final int playerY = 50;
 
-	static final Graphic playerDefault = new Graphic(playerX, playerY, 1, "ColorScheme/PlayerPics/default transparent.png");
-	static final Graphic playerAttack = new Graphic(playerX, playerY, 1, "ColorScheme/PlayerPics/attack transparent.png");
-	static final Graphic playerDodgeLeft= new Graphic(playerX-5, playerY, 1, "ColorScheme/PlayerPics/dodge left transparent.png");
-	static final Graphic playerDodgeRight= new Graphic(playerX+5, playerY, 1, "ColorScheme/PlayerPics/dodge right transparent.png");
-	static final Graphic playerGuard= new Graphic(playerX, playerY, 1, "ColorScheme/PlayerPics/guard transparent.png");
+	static final Graphic playerDefault = new Graphic(playerX, playerY, 1, "resources/default transparent.png");
+	static final Graphic playerAttack = new Graphic(playerX, playerY, 1, "resources/attack transparent.png");
+	static final Graphic playerDodgeLeft= new Graphic(playerX-5, playerY, 1, "resources/dodge left transparent.png");
+	static final Graphic playerDodgeRight= new Graphic(playerX+5, playerY, 1, "resources/dodge right transparent.png");
+	static final Graphic playerGuard= new Graphic(playerX, playerY, 1, "resources/guard transparent.png");
 	static final Graphic[] moveSet ={playerDefault,playerAttack,playerDodgeRight,playerGuard,playerDodgeLeft};
 	
 	private int currentState=Attack.DEFAULT;
