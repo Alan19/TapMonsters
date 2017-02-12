@@ -51,7 +51,7 @@ public class ScoreScreen extends ClickableScreen {
 				score.addArtifact(rareness);
 			}
 		});
-		reward = new Button(20, 100, 100, 40, "Get a reward", Color.green, new Action() {
+		reward = new Button(20, 100, 100, 40, "Get a reward", Color.orange, new Action() {
 			
 			@Override
 			public void act() {
@@ -61,11 +61,12 @@ public class ScoreScreen extends ClickableScreen {
 				score.addReward(type);
 			}
 		});
-		sequence = new Button(20, 100, 100, 40, "Sequence Multiplier!", Color.green, new Action() {
+		sequence = new Button(20, 150, 100, 40, "Sequence Multiplier!", Color.red, new Action() {
 			
 			@Override
 			public void act() {
 				int seqRight = (int) (Math.random()*10);
+				System.out.println("Got a sequence with " + seqRight);
 				
 				score.addSequenceMultiplier(seqRight, 100);
 			}
