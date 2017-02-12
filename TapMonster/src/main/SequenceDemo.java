@@ -17,7 +17,7 @@ public class SequenceDemo extends GUIApplication{
 	}
 
 	public static void main(String[] args) {
-		ScoreDemo demo = new ScoreDemo();
+		SequenceDemo demo = new SequenceDemo(800, 600);
 		Thread app = new Thread(demo);
 		app.start();
 
