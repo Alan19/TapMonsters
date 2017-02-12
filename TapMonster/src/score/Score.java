@@ -25,11 +25,11 @@ public class Score extends Component implements ScoreKeeper{
 	private int seqLength = 0;
 	private int playerMaxSeq;
 	
-	public static int playerExp = 0;
-	public static int maxExp = 5;
+	public static int playerExp = 4;
+	public static int maxExp = 100;
 	
 	public Score(int x, int y) {
-		super(x, y, 100, 80);
+		super(x, y, 100, 200);
 		score = 0;
 	}
 
@@ -73,18 +73,18 @@ public class Score extends Component implements ScoreKeeper{
 	public void update(Graphics2D g) {
 		//score
 		g.setColor(Color.white);
-		g.fillRect(0, 0, getWidth(), getHeight());
+		g.fillRect(0, 0, getWidth(), getHeight()/2-10);
 		g.setColor(Color.black);
-		g.drawRect(0, 0, getWidth()-1, getHeight()-1);
+		g.drawRect(0, 0, getWidth()-1, (getHeight()-1)/2-10);
 		g.drawString("score = " + score + "", 5, 30);
 		
 		//exp
-		/**int expBarHeight = 20;
+		int expBarHeight = 20;
 		g.setColor(Color.blue);
-		if (maxExp > 0) g.fillRect(0, 0, getWidth() * (playerExp/maxExp), expBarHeight);
-		else g.fillRect(0, getHeight() + 10, 0, 20);
+		if (playerExp > 0) g.fillRect(0, getHeight()/2+10, getWidth() * playerExp/maxExp, expBarHeight);
+		else g.fillRect(0, getHeight()/2+10, 0, expBarHeight);
 		g.setColor(Color.black);
-		g.drawRect(0, getHeight() + 10, getWidth()-1, expBarHeight - 1);
-		g.drawString("Exp = " + playerExp + "/" + maxExp + "", 5, 30);*/
+		g.drawRect(0, getHeight()/2+10, getWidth()-1, expBarHeight - 1);
+		g.drawString("Exp = " + playerExp + "/" + maxExp + "", 5, getHeight()/2+25);
 	}
 }
