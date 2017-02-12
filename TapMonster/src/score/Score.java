@@ -98,7 +98,7 @@ public class Score extends Component implements ScoreKeeper{
 		int expBarHeight = 20;
 		g.setColor(Color.white);
 		g.fillRect(0, getHeight()/2+10, getWidth()-1, expBarHeight - 1);
-		g.setColor(Color.blue);
+		g.setColor(new Color(102, 179, 255));
 		if (playerExp > 0) g.fillRect(0, getHeight()/2+10, getWidth() * playerExp/maxExp, expBarHeight);
 		else g.fillRect(0, getHeight()/2+10, 0, expBarHeight);
 		g.setColor(Color.black);

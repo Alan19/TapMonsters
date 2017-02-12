@@ -10,7 +10,7 @@ import java.util.List;
 import guiPractice.ClickableScreen;
 import guiPractice.components.Action;
 import guiPractice.components.Button;
-
+import guiPractice.components.Graphic;
 import guiPractice.components.Visible;
 
 
@@ -20,7 +20,7 @@ import guiPractice.components.Visible;
  */
 public class ScoreScreen extends ClickableScreen {
 
-	
+	private Graphic background;
 	private Button artifact;
 	private Button reward;
 	private Button enemyKilled;
@@ -41,6 +41,7 @@ public class ScoreScreen extends ClickableScreen {
 
 	@Override
 	public void initAllObjects(List<Visible> viewObjects) {
+		//background = new Graphic(height, height, height, height, null);
 		score = new Score(200, 40);
 		artifact = new Button(20, 50, 100, 40, "Get an artifact", Color.green, new Action() {
 			
