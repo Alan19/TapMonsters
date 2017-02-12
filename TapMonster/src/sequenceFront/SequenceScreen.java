@@ -15,11 +15,7 @@ public class SequenceScreen extends Screen implements KeyListener{
 	public SequenceScreen(int width, int height) {
 		super(width, height);
 		monsterSequence = new ArrayList<Sequence>();
-		fillArrayList(monsterSequence);
-	}
-
-	public void fillArrayList(ArrayList<Sequence> arr){
-		
+		//fillArrayList(monsterSequence);
 	}
 	
 	public void initObjects(ArrayList<Visible> arg0) {

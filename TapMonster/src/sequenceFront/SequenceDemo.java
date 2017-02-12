@@ -5,7 +5,10 @@ import score.ScoreDemo;
 
 public class SequenceDemo extends GUIApplication{
 
-	public SequenceDemo() {
+
+
+	public SequenceDemo(int width2, int height2) {
+		super(width2, height2);
 		// TODO Auto-generated constructor stub
 	}
 
@@ -16,7 +19,7 @@ public class SequenceDemo extends GUIApplication{
 	}
 
 	public static void main(String[] args) {
-		SequenceDemo demo = new SequenceDemo();
+		SequenceDemo demo = new SequenceDemo(800, 600);
 		Thread app = new Thread(demo);
 		app.start();
 
