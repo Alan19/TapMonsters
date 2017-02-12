@@ -11,7 +11,11 @@ import java.util.ArrayList;
  */
 public class Sequence {
 
+	private ArrayList<Integer> sequence;
+
 	/**
+	 * @return 
+	 * @return 
 	 * 
 	 */
 	
@@ -29,7 +33,16 @@ public class Sequence {
 			int num = (int) (4*rand);
 			sequence.add(num);
 		}
+		this.setSequence(sequence);
 //		System.out.println(sequence.toString());
+	}
+
+	public ArrayList<Integer> getSequence() {
+		return sequence;
+	}
+
+	public void setSequence(ArrayList<Integer> sequence) {
+		this.sequence = sequence;
 	}
 
 }
