@@ -46,7 +46,7 @@ public class ScoreScreen extends ClickableScreen {
 			
 			@Override
 			public void act() {
-				int rareness = (int) (Math.random()*10);
+				int rareness = (int) (Math.random()*10+1);
 				System.out.println("Got an artifact with " + rareness);
 				score.addArtifact(rareness);
 			}
@@ -55,25 +55,36 @@ public class ScoreScreen extends ClickableScreen {
 			
 			@Override
 			public void act() {
-				int type = (int) (Math.random()*10);
+				int type = (int) (Math.random()*10+1);
 				System.out.println("Got a reward with " + type);
 				
 				score.addReward(type);
 			}
 		});
-		sequence = new Button(20, 150, 100, 40, "Sequence Multiplier!", Color.red, new Action() {
+		enemyKilled = new Button(20, 150, 100, 40, "Kill Monster", Color.yellow, new Action() {
 			
 			@Override
 			public void act() {
-				int seqRight = (int) (Math.random()*10);
+				int monsterLvl = (int) (Math.random()*10+1);
+				System.out.println("Killed a monster with level " + monsterLvl);
+				
+				score.addMonster(monsterLvl);
+			}
+		});
+		sequence = new Button(20, 200, 100, 40, "Sequence Multiplier!", Color.red, new Action() {
+			
+			@Override
+			public void act() {
+				int seqRight = (int) (Math.random()*10+1);
 				System.out.println("Got a sequence with " + seqRight);
 				
 				score.addSequenceMultiplier(seqRight, 100);
 			}
 		});
-		viewObjects.add(artifact);
 		viewObjects.add(score);
+		viewObjects.add(artifact);
 		viewObjects.add(reward);
+		viewObjects.add(enemyKilled);
 		viewObjects.add(sequence);
 		
 	}

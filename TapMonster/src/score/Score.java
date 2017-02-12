@@ -25,7 +25,7 @@ public class Score extends Component implements ScoreKeeper{
 	private int seqLength = 0;
 	private int playerMaxSeq;
 	
-	public static int playerExp = 4;
+	public static int playerExp = 0;
 	public static int maxExp = 100;
 	
 	public Score(int x, int y) {
@@ -36,19 +36,25 @@ public class Score extends Component implements ScoreKeeper{
 	@Override
 	public void addReward(int percent) {
 		//System.out.println("Got a reward with " + percent);
-		score += score*percent;
+		score += score*((percent/100)+1);
+		playerExp+=percent;
+		checkExp(playerExp);
 		update();
 	}
 	
 	@Override
 	public void addArtifact(int cost) {
 		score += cost;
+		playerExp+=cost;
+		checkExp(playerExp);
 		update();
 	}
 	
 	@Override
 	public void addMonster(int sequenceLength) {
 		score += sequenceLength*10;
+		playerExp+= sequenceLength;
+		checkExp(playerExp);
 		update();
 	}
 	
@@ -60,15 +66,25 @@ public class Score extends Component implements ScoreKeeper{
 			seqLength = totalSeqLength;
 		}
 		if (sequenceRight >= playerMaxSeq){
-			score += sequenceRight * 100 * ((sequenceRight/seqLength)+1);
-			playerMaxSeq = score * sequenceRight;
+			score += sequenceRight * 10 * ((sequenceRight/seqLength)+1);
+			playerMaxSeq = sequenceRight;
 		}
 		else score += (sequenceRight/seqLength)+1;
 		
+		playerExp+= sequenceRight;
+		checkExp(playerExp);
 		newLevel = false;
 		update();
 	}
 
+	public void checkExp(int exp){
+		if (playerExp >= maxExp){
+			score += maxExp;
+			playerExp = playerExp - maxExp;
+			maxExp += 50;
+		}
+	}
+	
 	@Override
 	public void update(Graphics2D g) {
 		//score
@@ -80,6 +96,8 @@ public class Score extends Component implements ScoreKeeper{
 		
 		//exp
 		int expBarHeight = 20;
+		g.setColor(Color.white);
+		g.fillRect(0, getHeight()/2+10, getWidth()-1, expBarHeight - 1);
 		g.setColor(Color.blue);
 		if (playerExp > 0) g.fillRect(0, getHeight()/2+10, getWidth() * playerExp/maxExp, expBarHeight);
 		else g.fillRect(0, getHeight()/2+10, 0, expBarHeight);
