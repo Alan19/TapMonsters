@@ -56,7 +56,7 @@ public class ZhenDemo extends GUIApplication {
 
 		private TextLabel deathMessage;
 		private TextLabel artifactDescription;
-		private Graphic artifact;
+		private ClickableGraphic artifact;
 		
 		public DeathScreenTest(int width, int height, ArrayList<Artifact> artifacts) {
 			super(width, height);
@@ -65,14 +65,15 @@ public class ZhenDemo extends GUIApplication {
 		@Override
 		public void initAllObjects(final List<Visible> viewObjects) {
 			deathMessage = new TextLabel(20, 40, 300, 25, "You died! Level:1 Round:1");
-//			artifact = new Graphic(50, 100, "/src/resources/death_dance.png");
-//			artifact.setAction(new Action() {
-//				
-//				public void act() {
-//					viewObjects.add(artifactDescription);
-//				}
-//			});
-//			viewObjects.add(artifact);
+			artifact = new ClickableGraphic(50, 100, "src/resources/death_dance.png");
+			artifact.setAction(new Action() {
+				
+				public void act() {
+					artifactDescription = new TextLabel(20, 150, 100, 100, "Hello");
+					viewObjects.add(artifactDescription);
+				}
+			});
+			viewObjects.add(artifact);
 			viewObjects.add(deathMessage);
 		}
 		
