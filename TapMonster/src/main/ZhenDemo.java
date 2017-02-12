@@ -68,6 +68,12 @@ public class ZhenDemo extends GUIApplication {
 			deathMessage = new TextLabel(20, 40, 300, 25, "You died! Level:1 Round:1");
 			artifactDescription = new TextLabel(20, 150, 500, 100, "Click on an artifact!");
 			ClickableGraphic artifactImage = new ClickableGraphic(50, 100, "src/resources/death_dance.png");
+			artifactImage.setAction(new Action() {
+				
+				public void act() {
+					artifactDescription.setText("Increases damage by 100%");
+				}
+			});
 			viewObjects.add(artifactImage);
 //			for (artifacts.Artifact artifact : artifactList) {
 //				artifactList.add(new artifacts.Artifact("Death's Dance", "Increases damage by 100%", 300, null, "src/resources/death_dance.png"));
