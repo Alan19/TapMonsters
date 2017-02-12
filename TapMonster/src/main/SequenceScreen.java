@@ -21,33 +21,38 @@ public class SequenceScreen extends Screen implements KeyListener{
 	private Graphic arrowLeft = new Graphic(x, y, w, h, "sequenceArrows/arrowLeft.jpg");
 	private Graphic arrowRight = new Graphic(x, y, w, h, "sequenceArrows/arrowRight.jpeg");
 	
-	private Sequence s = new Sequence(10);
+	private static Sequence s = new Sequence(10);
 	
 	public SequenceScreen(int width, int height) {
 		super(width, height);
 		// TODO Auto-generated constructor stub
 	}
+	
+//	public static void main(String[] args){
+//		System.out.print(s.getSequence().size());
+//	}
 
 	@Override
 	public void initObjects(ArrayList<Visible> viewObjects) {
-		for (int i = 0; i < s.getSequence().size(); i++){
-			if (s.getSequence().get(i) == 1){
-				viewObjects.add(arrowUp);
-				x+=100;
-			}
-			if (s.getSequence().get(i) == 2){
-				viewObjects.add(arrowRight);
-				x+=100;
-			}
-			if (s.getSequence().get(i) == 3){
-				viewObjects.add(arrowDown);
-				x+=100;
-			}
-			if (s.getSequence().get(i) == 4){
-				viewObjects.add(arrowLeft);
-				x+=100;
-			}
-		}
+//		for (int i = 0; i < s.getSequence().size(); i++){
+//			if (s.getSequence().get(i) == 1){
+//				viewObjects.add(arrowUp);
+//				x+=100;
+//			}
+//			if (s.getSequence().get(i) == 2){
+//				viewObjects.add(arrowRight);
+//				x+=100;
+//			}
+//			if (s.getSequence().get(i) == 3){
+//				viewObjects.add(arrowDown);
+//				x+=100;
+//			}
+//			if (s.getSequence().get(i) == 4){
+//				viewObjects.add(arrowLeft);
+//				x+=100;
+//			}
+//		}
+		viewObjects.add(arrowDown);
 	}
 
 	public void keyPressed(KeyEvent arg0) {
