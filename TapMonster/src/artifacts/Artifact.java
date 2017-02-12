@@ -17,6 +17,7 @@ public class Artifact implements ArtifactInterface{
 		this.price = price;
 		this.name = name;
 		this.action = action;
+		this.imagePath = imagePath;
 	}
 	
 	public Artifact buyItem(){
@@ -38,6 +39,10 @@ public class Artifact implements ArtifactInterface{
 
 	public String getImagePath() {
 		return imagePath;
+	}
+
+	public BufferedImage getIcon() {
+		return null;
 	}
 
 }

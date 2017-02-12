@@ -11,7 +11,6 @@ import guiPractice.ClickableScreen;
 import guiPractice.GUIApplication;
 import guiPractice.components.Action;
 import guiPractice.components.ClickableGraphic;
-import guiPractice.components.Graphic;
 import guiPractice.components.TextLabel;
 import guiPractice.components.Visible;
 
@@ -37,7 +36,8 @@ public class ZhenDemo extends GUIApplication {
 	@Override
 	protected void initScreen() {
 		ArrayList<artifacts.Artifact> artifacts = new ArrayList<artifacts.Artifact>();
-//		artifacts.add(new Artifact("Test", "Test Item", 300, null, "resources/Death_Seeker.png"));
+		artifacts.add(new Artifact("Increases damage by 100%", "Death's Dance", 100, null, "src/resources/death_dance.png"));
+		System.out.println(artifacts.get(0).getImagePath());
 		DeathScreenTest death = new DeathScreenTest(getWidth(), getHeight(), artifacts);
 		setScreen(death);
 	}
@@ -56,24 +56,31 @@ public class ZhenDemo extends GUIApplication {
 
 		private TextLabel deathMessage;
 		private TextLabel artifactDescription;
-		private ClickableGraphic artifact;
+		private ArrayList<artifacts.Artifact> artifactList;
 		
-		public DeathScreenTest(int width, int height, ArrayList<Artifact> artifacts) {
+		public DeathScreenTest(int width, int height, ArrayList<artifacts.Artifact> artifacts) {
 			super(width, height);
+			this.artifactList = artifacts;
 		}
 
 		@Override
-		public void initAllObjects(final List<Visible> viewObjects) {
+		public void initAllObjects(List<Visible> viewObjects) {
 			deathMessage = new TextLabel(20, 40, 300, 25, "You died! Level:1 Round:1");
-			artifact = new ClickableGraphic(50, 100, "src/resources/death_dance.png");
-			artifact.setAction(new Action() {
-				
-				public void act() {
-					artifactDescription = new TextLabel(20, 150, 100, 100, "Hello");
-					viewObjects.add(artifactDescription);
-				}
-			});
-			viewObjects.add(artifact);
+			artifactDescription = new TextLabel(20, 150, 500, 100, "Click on an artifact!");
+			ClickableGraphic artifactImage = new ClickableGraphic(50, 100, "src/resources/death_dance.png");
+			viewObjects.add(artifactImage);
+//			for (artifacts.Artifact artifact : artifactList) {
+//				artifactList.add(new artifacts.Artifact("Death's Dance", "Increases damage by 100%", 300, null, "src/resources/death_dance.png"));
+//				artifactImage.setAction(new Action() {
+//					
+//					public void act() {
+////						artifactDescription.setText(artifact.getDescription());
+//					}
+//				});
+//				viewObjects.add(artifactImage);
+//				
+//			}
+			viewObjects.add(artifactDescription);
 			viewObjects.add(deathMessage);
 		}
 		
