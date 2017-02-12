@@ -35,28 +35,16 @@ public class IntroScreen extends ClickableScreen implements Visible, Clickable, 
 		app.start();
 	}
 
-	private Action startGame() {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
-	@Override
-	public int getHeight() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
 
+	
 	@Override
 	public BufferedImage getImage() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	@Override
-	public int getWidth() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
+
 
 	@Override
 	public void update() {
