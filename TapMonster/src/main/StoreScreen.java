@@ -7,7 +7,9 @@ import artifacts.Artifact;
 
 import guiPractice.ClickableScreen;
 import guiPractice.Screen;
+import guiPractice.components.Action;
 import guiPractice.components.Button;
+import guiPractice.components.ClickableGraphic;
 import guiPractice.components.Graphic;
 import guiPractice.components.TextLabel;
 import guiPractice.components.TransparentRoundedRect;
@@ -24,6 +26,7 @@ public class StoreScreen extends ClickableScreen implements Runnable {
 	private Graphic background;
 	private Artifact currentArtifact;
 	private ArrayList<Artifact> artifacts;
+	private ArrayList<ClickableGraphic> artifactPictures;
 	
 
 	public StoreScreen(int width, int height) {
@@ -61,10 +64,21 @@ public class StoreScreen extends ClickableScreen implements Runnable {
 
 	public void run() {
 		createArtifacts();
+		createArtifactPics();
+	}
+
+	private void createArtifactPics() {
+		//go thru artifact list and make parallel artifact pics list
 	}
 
 	private void createArtifacts() {
 		artifacts = new ArrayList();
+		Artifact arti1 = new Artifact("Placeholder", "Worldly Illuminator", 50, new Action(){
+			public void act() {
+				
+			}
+		}, "src/storeImages/arti1.png");
+		//Artifact arti2 = new Artifact();
 		
 	}
 
