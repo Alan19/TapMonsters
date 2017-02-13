@@ -70,7 +70,7 @@ public class ZhenDemo extends GUIApplication {
 			artifactList.add(new Artifact("Increases damage by 100%", "Death Seeker", 100, null, "src/resources/death_dance"));
 			int x = 20;
 			int y = 80;
-			for (final Artifact artifact : artifactList) {
+			for (Artifact artifact : artifactList) {
 				ClickableGraphic artifactImage = new ClickableGraphic(x, y, artifact.getImagePath());
 				artifactImage.setAction(new Action() {
 					public void act() {
