@@ -68,9 +68,9 @@ public class SequenceScreen extends Screen implements KeyListener{
 	}
 
 	public void keyTyped(KeyEvent e) {
-		if (e.getKeyCode() == KeyEvent.VK_W){
+		if (e.getKeyChar() == 'w'){
 			addObject(new Graphic(x, y, w, h, "src/sequenceArrows/arrowUp.jpg"));
-			System.out.println("W was pressed");
+			System.out.println(e.getKeyChar());
 		}
 	}
 	
