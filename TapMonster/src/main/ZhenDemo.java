@@ -67,17 +67,21 @@ public class ZhenDemo extends GUIApplication {
 			artifactDescription = new TextLabel(20, 150, 500, 100, "Click on an artifact!");
 			artifactList = new ArrayList<Artifact>();
 			artifactList.add(new Artifact("Increases damage", "Crafter's Elixir", 100, null, "src/resources/Crafter's_Elixir.png"));
-			artifactList.add(new Artifact("Increases damage by 100%", "Death Seeker", 100, null, "src/resources/death_dance"));
+			artifactList.add(new Artifact("Increases damage by 100%", "Death Seeker", 100, null, "src/resources/death_dance.png"));
 			int x = 20;
 			int y = 80;
+			int width = 100;
+			int height = 100;
 			for (Artifact artifact : artifactList) {
-				ClickableGraphic artifactImage = new ClickableGraphic(x, y, artifact.getImagePath());
+				ClickableGraphic artifactImage = new ClickableGraphic(x, y,width, height, artifact.getImagePath());
 				artifactImage.setAction(new Action() {
 					public void act() {
-						artifactDescription.setText(artifact.getDescription());
+//						artifactDescription.setText(artifact.getDescription());
 					}
 				});
 				viewObjects.add(artifactImage);				
+				x += 110;
+				
 			}
 			viewObjects.add(artifactDescription);
 			viewObjects.add(deathMessage);
