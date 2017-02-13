@@ -9,7 +9,7 @@ import interfaces.MonDexInterface;
 
 public class MonsterDex extends ClickableScreen implements Runnable{
 	
-	private static ArrayList<Monster> Monsters;
+	private static ArrayList<MonDexInterface> Monsters;
 	private Button Next;
 	private Button Back;
 	
@@ -17,20 +17,17 @@ public class MonsterDex extends ClickableScreen implements Runnable{
 	private static int PosY = 100;
 	private int MonID = 1;
 	
-	public MonsterDex(int x, int y, int w, int h, String imageLocation) {
-		super(x, y, w, h, imageLocation);
-		
+	public MonsterDex(int width,int height) {
+		super(width, height);
+		timeLeft = 30.0;
+		Thread play = new Thread(this);
+		play.start();
 	}
 	
 	
 	public void initObjects(Visible viewObjects){
-		Monsters = new ArrayList<Monster>();
-		for(int i = MonID; i < (MonID + 6); i++){
-			//Monsters.setDescription(still unsure how to go about this/maybe scrap?
-			//Monster.setNumEncountered(1+variable)
-			
-			MonID++;
-		}
+		Monsters = new ArrayList<MonDexInterface>();
+		
 	}
 
 
