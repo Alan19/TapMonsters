@@ -70,7 +70,7 @@ public class InventoryScreen extends ClickableScreen implements Runnable{
 	}
 	
 	private void changeName(){
-		//changes name of artifact in the info space
+		//changes name of artifact in the info space1
 	}
 	
 	private void addArtifact(){
