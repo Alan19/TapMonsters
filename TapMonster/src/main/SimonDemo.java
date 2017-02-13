@@ -9,19 +9,19 @@ import guiPractice.GUIApplication;
  * @author swk11
  *
  */
-public class SimonDemo extends GUIApplication {
+public final class SimonDemo extends GUIApplication {
 	public static IntroScreen intro;
 
-	public SimonDemo() {
-		super(500,500);
-		intro = new IntroScreen(600,500);
+	public SimonDemo(int width, int height) {
+		super(width,height);
+		
 	}
 
 	/**
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		SimonDemo demo = new SimonDemo();
+		SimonDemo demo = new SimonDemo(1000,500);
 		Thread app = new Thread(demo);
 		app.start();
 
@@ -29,7 +29,7 @@ public class SimonDemo extends GUIApplication {
 
 	@Override
 	protected void initScreen() {
-		IntroScreen intro = new IntroScreen(600,500);
+		IntroScreen intro = new IntroScreen(getWidth(),getHeight());
 		setScreen(intro);
 		
 	}
