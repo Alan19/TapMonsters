@@ -4,6 +4,7 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics2D;
 import java.awt.RenderingHints;
+import java.awt.event.KeyListener;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
 import java.awt.image.BufferedImage;
@@ -179,6 +180,10 @@ public abstract class Screen {
 
 	public void setHeight(int height) {
 		this.height = height;
+	}
+
+	public KeyListener getKeyListener() {
+		return null;
 	}
 
 

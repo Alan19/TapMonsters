@@ -21,7 +21,7 @@ public class Artifact implements ArtifactInterface{
 	}
 	
 	public Artifact buyItem(){
-		//action.act();
+		action.act();
 		return this;
 	}
 

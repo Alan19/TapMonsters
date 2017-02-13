@@ -36,8 +36,6 @@ public class ZhenDemo extends GUIApplication {
 	@Override
 	protected void initScreen() {
 		ArrayList<artifacts.Artifact> artifacts = new ArrayList<artifacts.Artifact>();
-		artifacts.add(new Artifact("Increases damage by 100%", "Death's Dance", 100, null, "src/resources/death_dance.png"));
-		System.out.println(artifacts.get(0).getImagePath());
 		DeathScreenTest death = new DeathScreenTest(getWidth(), getHeight(), artifacts);
 		setScreen(death);
 	}
@@ -67,25 +65,20 @@ public class ZhenDemo extends GUIApplication {
 		public void initAllObjects(List<Visible> viewObjects) {
 			deathMessage = new TextLabel(20, 40, 300, 25, "You died! Level:1 Round:1");
 			artifactDescription = new TextLabel(20, 150, 500, 100, "Click on an artifact!");
-			ClickableGraphic artifactImage = new ClickableGraphic(50, 100, "src/resources/death_dance.png");
-			artifactImage.setAction(new Action() {
-				
-				public void act() {
-					artifactDescription.setText("Increases damage by 100%");
-				}
-			});
-			viewObjects.add(artifactImage);
-//			for (artifacts.Artifact artifact : artifactList) {
-//				artifactList.add(new artifacts.Artifact("Death's Dance", "Increases damage by 100%", 300, null, "src/resources/death_dance.png"));
-//				artifactImage.setAction(new Action() {
-//					
-//					public void act() {
-////						artifactDescription.setText(artifact.getDescription());
-//					}
-//				});
-//				viewObjects.add(artifactImage);
-//				
-//			}
+			artifactList = new ArrayList<Artifact>();
+			artifactList.add(new Artifact("Increases damage", "Crafter's Elixir", 100, null, "src/resources/Crafter's_Elixir.png"));
+			artifactList.add(new Artifact("Increases damage by 100%", "Death Seeker", 100, null, "src/resources/death_dance"));
+			int x = 20;
+			int y = 80;
+			for (Artifact artifact : artifactList) {
+				ClickableGraphic artifactImage = new ClickableGraphic(x, y, artifact.getImagePath());
+				artifactImage.setAction(new Action() {
+					public void act() {
+						artifactDescription.setText(artifact.getDescription());
+					}
+				});
+				viewObjects.add(artifactImage);				
+			}
 			viewObjects.add(artifactDescription);
 			viewObjects.add(deathMessage);
 		}
