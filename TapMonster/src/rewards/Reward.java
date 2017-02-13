@@ -2,7 +2,7 @@ package rewards;
 
 public class Reward {
 
-	public static final int NUMBER_OF_REWARDS = 5;
+	public static final int NUMBER_OF_REWARDS = 8;
 	private String description;
 	private RewardEffect effect;
 	private String image;
@@ -10,7 +10,7 @@ public class Reward {
 	public Reward(String description, String image, RewardEffect effect) {
 		this.description = description;
 		this.effect = effect;
-		this.image = image;
+		this.setImage(image);
 	}
 	
 	public void takeEffect(RewardTarget target){
@@ -77,5 +77,13 @@ public class Reward {
 			}
 		});
 		return rewards;
+	}
+
+	public String getImage() {
+		return image;
+	}
+
+	public void setImage(String image) {
+		this.image = image;
 	}
 }
