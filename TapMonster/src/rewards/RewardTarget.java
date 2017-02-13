@@ -10,4 +10,6 @@ public interface RewardTarget {
 	//method to add i seconds to the timer
 	void fillHeart(int i);
 	//method should make unfilled hearts full, adding HP, not heart containers.
+	void getGold(int i);
+	//money money money money, money!
 }

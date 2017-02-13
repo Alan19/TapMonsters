@@ -2,7 +2,7 @@ package rewards;
 
 public class Reward {
 
-	public static final int NUMBER_OF_REWARDS = 8;
+	public static final int NUMBER_OF_REWARDS = 11;
 	private String description;
 	private RewardEffect effect;
 	private String image;
@@ -76,7 +76,29 @@ public class Reward {
 				target.fillHeart(6);
 			}
 		});
+		rewards[8] = new Reward("Small Pouch - 25 Gold", "resources/images/smallpouch.png", new RewardEffect() {
+			
+			@Override
+			public void affect(RewardTarget target) {
+				target.getGold(25);
+			}
+		});
+		rewards[9] = new Reward("Large Pouch - 50 Gold", "resources/images/largepouch.png", new RewardEffect() {
+			
+			@Override
+			public void affect(RewardTarget target) {
+				target.getGold(50);
+			}
+		});
+		rewards[10] = new Reward("Treasure Chest - 100 Gold!", "resources/images/chest.png", new RewardEffect() {
+			
+			@Override
+			public void affect(RewardTarget target) {
+				target.getGold(100);
+			}
+		});
 		return rewards;
+		
 	}
 
 	public String getImage() {
