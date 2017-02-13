@@ -12,6 +12,4 @@ public interface ArtifactInterface {
 	public String getImagePath();
 		
 	public String getName();
-	
-	public BufferedImage getIcon();
 }
