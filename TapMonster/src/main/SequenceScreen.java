@@ -9,8 +9,6 @@ import java.util.List;
 
 import guiPractice.Screen;
 import guiPractice.components.Graphic;
-import guiPractice.components.MovingComponent;
-import guiPractice.components.TextLabel;
 import guiPractice.components.Visible;
 
 public class SequenceScreen extends Screen implements KeyListener{
@@ -68,13 +66,14 @@ public class SequenceScreen extends Screen implements KeyListener{
 	}
 
 	public void keyTyped(KeyEvent e) {
-		if (e.getKeyChar() == 'w'){
+		if (e.getKeyCode() == KeyEvent.VK_W){
 			addObject(new Graphic(x, y, w, h, "src/sequenceArrows/arrowUp.jpg"));
-			System.out.println(e.getKeyChar());
+			System.out.println("D");
 		}
 	}
-	
-
+	public KeyListener getKeyListener(){
+		return this;
+	}
 }
 /**public class KLDebugScreen extends Screen implements KeyListener {
 
