@@ -19,12 +19,14 @@ public class Sequence {
 	 * 
 	 */
 	
-//	public static void main(String[] args) {
-//		for (int i = 0; i < 250; i++) {
-//			
-//			Sequence x = new Sequence((int) (30*Math.random()));
-//		}
-//	}
+/**	public static void main(String[] args) {
+		Sequence x = new Sequence(10);
+		/**for (int i = 0; i < x.getSequence().size(); i++) {
+			System.out.println(x.getSequence().get(i));
+		}
+		System.out.println(x.getSequence().get(1));
+
+	}*/
 	
 	public Sequence(int numKeys) {
 		ArrayList<Integer> sequence = new ArrayList<Integer>();
