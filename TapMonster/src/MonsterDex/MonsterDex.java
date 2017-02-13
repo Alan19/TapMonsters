@@ -7,15 +7,12 @@ import guiPractice.components.Graphic;
 import guiPractice.components.Visible;
 import interfaces.MonDexInterface;
 
-public class MonsterDex extends Graphic implements MonDexInterface{
+public class MonsterDex extends ClickableScreen implements Runnable{
 	
-
-
 	private static ArrayList<Monster> Monsters;
 	private Button Next;
 	private Button Back;
 	
-	private Graphic MonPic;
 	private static int PosX = 100;
 	private static int PosY = 100;
 	private int MonID = 1;
