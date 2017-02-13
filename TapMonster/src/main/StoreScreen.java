@@ -23,6 +23,7 @@ public class StoreScreen extends ClickableScreen implements Runnable {
 	private Button buyButton;
 	private Graphic background;
 	private Artifact currentArtifact;
+	private ArrayList<Artifact> artifacts;
 	
 
 	public StoreScreen(int width, int height) {
@@ -63,6 +64,7 @@ public class StoreScreen extends ClickableScreen implements Runnable {
 	}
 
 	private void createArtifacts() {
+		artifacts = new ArrayList();
 		
 	}
 
