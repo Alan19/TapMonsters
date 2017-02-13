@@ -1,9 +1,8 @@
-import java.awt.Image;
-import java.awt.image.BufferedImage;
 import java.util.ArrayList;
+import java.util.List;
 
+import guiPractice.ClickableScreen;
 import guiPractice.components.Button;
-import guiPractice.components.Graphic;
 import guiPractice.components.Visible;
 import interfaces.MonDexInterface;
 
@@ -19,7 +18,6 @@ public class MonsterDex extends ClickableScreen implements Runnable{
 	
 	public MonsterDex(int width,int height) {
 		super(width, height);
-		timeLeft = 30.0;
 		Thread play = new Thread(this);
 		play.start();
 	}
@@ -31,89 +29,17 @@ public class MonsterDex extends ClickableScreen implements Runnable{
 	}
 
 
-	@Override
-	public void SetDescription(String des) {
-		
-		
-	}
-
-
-	@Override
-	public int setNumEncountered(int encounters) {
-		return 1;
-	}
-
-
-	@Override
-	public void act() {
+	public void run() {
 		// TODO Auto-generated method stub
 		
 	}
 
 
 	@Override
-	public boolean isHovered(int arg0, int arg1) {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-
-	@Override
-	public int getHeight() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-
-	@Override
-	public BufferedImage getImage() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-
-	@Override
-	public int getWidth() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-
-	@Override
-	public int getX() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-
-	@Override
-	public int getY() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-
-	@Override
-	public boolean isAnimated() {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-
-	@Override
-	public void update() {
+	public void initAllObjects(List<Visible> viewObjects) {
 		// TODO Auto-generated method stub
 		
 	}
-
-
-	public void setName(String name) {
-		// TODO Auto-generated method stub
-		
-	}
-
-
-
 	
 
 }
