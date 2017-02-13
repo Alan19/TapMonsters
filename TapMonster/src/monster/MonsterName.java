@@ -1,4 +1,4 @@
-package monster;
+package JaviyDemo;
 
 import guiPractice.components.Visible;
 

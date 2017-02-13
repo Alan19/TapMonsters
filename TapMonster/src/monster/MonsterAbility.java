@@ -1,4 +1,4 @@
-package monster;
+package JaviyDemo;
 
 public interface MonsterAbility{
 	void use();

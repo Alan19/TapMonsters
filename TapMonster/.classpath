@@ -2,7 +2,11 @@
 <classpath>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+<<<<<<< HEAD
 	<classpathentry kind="lib" path="C:/Users/Student 8/Desktop/TapGUI.jar"/>
 	<classpathentry kind="lib" path="lib/GUI.jar"/>
+=======
+	<classpathentry kind="lib" path="lib/TapGUI.jar"/>
+>>>>>>> branch 'back-end' of https://github.com/Alan19/TapMonsters.git
 	<classpathentry kind="output" path="bin"/>
 </classpath>
