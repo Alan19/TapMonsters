@@ -11,15 +11,15 @@ import guiPractice.components.Visible;
 
 public class SequenceScreen extends Screen implements KeyListener{
 
-	private int x = 0;
-	private int y = 0;
-	private int w = 50;
-	private int h = 50;
+	public static int x = 50;
+	public static int y = 50;
+	public static int w = 50;
+	public static int h = 50;
 	
-	private Graphic arrowUp = new Graphic(x, y, w, h, "sequenceArrows/arrowUp.jpg");
-	private Graphic arrowDown = new Graphic(x, y, w, h, "sequenceArrows/arrowDown.jpg");
-	private Graphic arrowLeft = new Graphic(x, y, w, h, "sequenceArrows/arrowLeft.jpg");
-	private Graphic arrowRight = new Graphic(x, y, w, h, "sequenceArrows/arrowRight.jpeg");
+	private static Graphic arrowUp = new Graphic(x, y, w, h, "src/sequenceArrows/arrowUp.jpg");
+	private static Graphic arrowDown = new Graphic(x, y, w, h, "src/sequenceArrows/arrowDown.jpg");
+	private static Graphic arrowLeft = new Graphic(x, y, w, h, "src/sequenceArrows/arrowLeft.jpg");
+	private static Graphic arrowRight = new Graphic(x, y, w, h, "src/sequenceArrows/arrowRight.jpeg");
 	
 	private static Sequence s = new Sequence(10);
 	
@@ -32,27 +32,25 @@ public class SequenceScreen extends Screen implements KeyListener{
 //		System.out.print(s.getSequence().size());
 //	}
 
-	@Override
 	public void initObjects(ArrayList<Visible> viewObjects) {
-//		for (int i = 0; i < s.getSequence().size(); i++){
-//			if (s.getSequence().get(i) == 1){
-//				viewObjects.add(arrowUp);
-//				x+=100;
-//			}
-//			if (s.getSequence().get(i) == 2){
-//				viewObjects.add(arrowRight);
-//				x+=100;
-//			}
-//			if (s.getSequence().get(i) == 3){
-//				viewObjects.add(arrowDown);
-//				x+=100;
-//			}
-//			if (s.getSequence().get(i) == 4){
-//				viewObjects.add(arrowLeft);
-//				x+=100;
-//			}
-//		}
-		viewObjects.add(arrowDown);
+		for (int i = 0; i < s.getSequence().size(); i++){
+			if (s.getSequence().get(i) == 0){
+				viewObjects.add(new Graphic(x, y, w, h, "src/sequenceArrows/arrowUp.jpg"));
+				x+=60;
+			}
+			if (s.getSequence().get(i) == 1){
+				viewObjects.add(new Graphic(x, y, w, h, "src/sequenceArrows/arrowRight.jpeg"));
+				x+=60;
+			}
+			if (s.getSequence().get(i) == 2){
+				viewObjects.add(new Graphic(x, y, w, h, "src/sequenceArrows/arrowDown.jpg"));
+				x+=60;
+			}
+			if (s.getSequence().get(i) == 3){
+				viewObjects.add(new Graphic(x, y, w, h, "src/sequenceArrows/arrowLeft.jpg"));
+				x+=60;
+			}
+		}
 	}
 
 	public void keyPressed(KeyEvent arg0) {
