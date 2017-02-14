@@ -45,14 +45,14 @@ public class InventoryScreen extends ClickableScreen implements Runnable{
 	@Override
 	public void initObjects(ArrayList<Visible> viewObjects) {
 		title = new TextLabel((int)(getWidth()/2.5),40,getWidth()/2,50, "Inventory");
-		artifactName = new TextLabel(700,135,getWidth()/3,50,"");
+		
 		//artifactDescription = new TextLabel();
 		info = new TransparentRoundedRect(700,120,getWidth()/3,300,50,50);
 		bkgd = new Graphic(0,0,getWidth(),getHeight(),"src/resources/background.jpg");
 		viewObjects.add(bkgd);
 		viewObjects.add(title);	
 		viewObjects.add(info);
-		viewObjects.add(artifactName);
+		//viewObjects.add(artifactName);
 		
 	}
 
@@ -82,14 +82,14 @@ public class InventoryScreen extends ClickableScreen implements Runnable{
 			
 			artifact.setAction(new Action(){
 				public void act(){
-					System.out.println("test");
+					//System.out.println("test");
 					//artifactName.setText("test");
-					//artifactsPurchased.get(0).getDescription()
+					artifactsPurchased.get(0).getDescription();
 				}
 			});
 			viewObjects.add(artifact);
 		}
-		
+		artifactName = new TextLabel(700,135,getWidth()/3,50,"");
 	}
 	
 	private void changeDescription(){
