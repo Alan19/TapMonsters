@@ -9,7 +9,7 @@ import guiPractice.GUIApplication;
  * @author swk11
  *
  */
-public final class SimonDemo extends GUIApplication {
+public class SimonDemo extends GUIApplication {
 	public static IntroScreen intro;
 
 	public SimonDemo(int width, int height) {

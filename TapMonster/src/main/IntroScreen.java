@@ -126,7 +126,7 @@ public class IntroScreen extends ClickableScreen implements Visible, Clickable, 
 		startButton = new Button(getWidth() / 2, getHeight() - 40, 100, 30, "Button", Color.RED, new Action() {
 
 			public void act() {
-				TapMonsters.game.setScreen(TapMonstersGame.tapScreen);
+				//TapMonsters.game.setScreen(TapMonstersGame.tapScreen);
 			}
 
 		});
