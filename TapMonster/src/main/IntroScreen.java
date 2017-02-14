@@ -10,13 +10,28 @@ import guiPractice.components.Graphic;
 import guiPractice.components.TextArea;
 import guiPractice.components.TextLabel;
 import guiPractice.components.Visible;
+import interfaces.Attack;
 
 import java.awt.Color;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionListener;
 import java.awt.image.BufferedImage;
 
-public class IntroScreen extends ClickableScreen implements Visible, Clickable, Runnable,MouseMotionListener {
+public class IntroScreen extends ClickableScreen implements Attack  {
+	
+	
+	
+	public IntroScreen(int width, int height) {
+		super(width, height);
+	}
+
+
+
+
+
+
+
+
 	private String instructions = "You are on a journey to fight monsters and get to the highest stage possible. "
 			+ "You kill a monster from completing an arrow key sequence in a certain amount of time, bosses also use (A,S,W,D) for their sequence. "
 			+ "Certain monsters have abilities that can make things harder on you depending on their abilities. "
@@ -29,28 +44,14 @@ public class IntroScreen extends ClickableScreen implements Visible, Clickable, 
 	private TextArea text;
 	private Button startButton;
 	private Graphic picture;
-	public IntroScreen(int width, int height) {
-		super(width, height);
-		Thread app = new Thread(this);
-		app.start();
-	}
+	private Player player;
 
 
 
-	
-	@Override
-	public BufferedImage getImage() {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
 
 
-	@Override
-	public void update() {
-		// TODO Auto-generated method stub
 
-	}
 
 	//
 	// public ArrayList<String> spliceString(String s) {
@@ -89,66 +90,32 @@ public class IntroScreen extends ClickableScreen implements Visible, Clickable, 
 	// }
 	// }
 
-	public void run() {
-		// TODO Auto-generated method stub
 
-	}
 
-	public boolean isHovered(int x, int y) {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	public void act() {
-		// TODO Auto-generated method stub
-
-	}
-
-	public int getX() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	public int getY() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	public boolean isAnimated() {
-		// TODO Auto-generated method stub
-		return false;
-	}
+	
 
 	@Override
-	public void initAllObjects(List<Visible> viewObjects) {
+	public void initAllObjects(final List<Visible> viewObjects) {
 		Graphic picture= new Graphic(0,0,getWidth(),getHeight(),"INSERT BACKGROND FILE PATH HERE");
 		text = new TextArea(30, 30, getWidth() - 60, getHeight() - 60, instructions);
+		final Player player = new Player(500,250);
 		startButton = new Button(getWidth() / 2, getHeight() - 40, 100, 30, "Button", Color.RED, new Action() {
-
+		
 			public void act() {
 				//TapMonsters.game.setScreen(TapMonstersGame.tapScreen);
+				//viewObjects.remove(viewObjects.size()-1);
+				player.setMove(1);
+				System.out.println("BUTTON IS WORKING");
 			}
 
 		});
+		text.setText(instructions);
 		viewObjects.add(picture);
 		viewObjects.add(text);
 		viewObjects.add(startButton);
-
-	}
-	public void mouseClicked(MouseEvent m){
-	if(startButton.isHovered(m.getX(),m.getY())){
-		startButton.act();
-	}
-}
-
-	public void mouseDragged(MouseEvent arg0) {
-		// TODO Auto-generated method stub
 		
-	}
 
-	public void mouseMoved(MouseEvent arg0) {
-		// TODO Auto-generated method stub
-		
 	}
+	
 
 }

@@ -11,17 +11,17 @@ public class Player extends MovingComponent  {
 	private static final int playerX = 50;
 	private static final int playerY = 50;
 
-	static final Graphic playerDefault = new Graphic(playerX, playerY, 1, "resources/default transparent.png");
-	static final Graphic playerAttack = new Graphic(playerX, playerY, 1, "resources/attack transparent.png");
-	static final Graphic playerDodgeLeft= new Graphic(playerX-5, playerY, 1, "resources/dodge left transparent.png");
-	static final Graphic playerDodgeRight= new Graphic(playerX+5, playerY, 1, "resources/dodge right transparent.png");
-	static final Graphic playerGuard= new Graphic(playerX, playerY, 1, "resources/guard transparent.png");
+	static final Graphic playerDefault = new Graphic(playerX, playerY, 1, "src/resources/default transparent.png");
+	static final Graphic playerAttack = new Graphic(playerX, playerY, 1, "src/resources/attack transparent.png");
+	static final Graphic playerDodgeLeft= new Graphic(playerX-5, playerY, 1, "src/resources/dodge left transparent.png");
+	static final Graphic playerDodgeRight= new Graphic(playerX+5, playerY, 1, "src/resources/dodge right transparent.png");
+	static final Graphic playerGuard= new Graphic(playerX, playerY, 1, "src/resources/guard transparent.png");
 	static final Graphic[] moveSet ={playerDefault,playerAttack,playerDodgeRight,playerGuard,playerDodgeLeft};
 	
 	private int currentState=Attack.DEFAULT;
 
 	//private moveSet[5] = {playerDefault,playerAttack,playerDodgeLeft,playerDodgeRight,playerGuard};
-	public Player() {
+	public Player(int x, int y) {
 		super(playerX,playerY,playerDefault.getWidth(),playerDefault.getHeight());
 
 		// TODO Auto-generated constructor stub

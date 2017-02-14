@@ -11,12 +11,22 @@ public class TextLabel extends Component {
 	private String text;
 	private String font;
 	private int size;
+	private Color color = Color.BLACK;
 
 	public TextLabel(int x, int y, int w, int h, String text) {
 		super(x, y, w, h);
 		this.text = text;
 		font = "Helvetica";
 		size = 20;
+		update();
+	}
+	
+	public TextLabel(int x, int y, int w, int h, String font, int size, Color color, String text){
+		super(x, y, w, h);
+		this.text = text;
+		this.font = font;
+		this.size = size;
+		this.color = color;
 		update();
 	}
 
@@ -54,7 +64,7 @@ public class TextLabel extends Component {
 		g=clear();//clears image and gets new graphics
 		g.setRenderingHint(RenderingHints.KEY_ANTIALIASING,
 				RenderingHints.VALUE_ANTIALIAS_ON);
-		g.setColor(Color.black);
+		g.setColor(color);
 		if(text != null){
 			g.setFont(new Font(font,Font.PLAIN,size));
 			g.drawString(text, 4, getHeight()-5);
