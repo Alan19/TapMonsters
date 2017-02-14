@@ -48,7 +48,7 @@ public class TextLabel extends Component {
 
 
 	public String getText() {
-		return text;
+		return this.text;
 	}
 
 	public String getFont() {
@@ -65,9 +65,9 @@ public class TextLabel extends Component {
 		g.setRenderingHint(RenderingHints.KEY_ANTIALIASING,
 				RenderingHints.VALUE_ANTIALIAS_ON);
 		g.setColor(color);
-		if(text != null){
-			g.setFont(new Font(font,Font.PLAIN,size));
-			g.drawString(text, 4, getHeight()-5);
+		if(this.text != null){
+//			g.setFont(new Font(font,Font.PLAIN,size));
+			g.drawString(this.text, 4, getHeight()-5);
 		}
 	}
 
