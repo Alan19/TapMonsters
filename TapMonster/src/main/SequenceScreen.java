@@ -11,7 +11,8 @@ import guiPractice.Screen;
 import guiPractice.components.Graphic;
 import guiPractice.components.TextLabel;
 import guiPractice.components.Visible;
-
+//check why the sequence is disappearing quicker than playersequence
+//do this by displaying playersequence and matchign up
 public class SequenceScreen extends Screen implements KeyListener{
 
 	public static int sequencex = 50;
