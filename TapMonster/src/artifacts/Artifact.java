@@ -44,5 +44,9 @@ public class Artifact implements ArtifactInterface{
 	public BufferedImage getIcon() {
 		return null;
 	}
+	
+	public Action getAction(){
+		return action;
+	}
 
 }

@@ -11,6 +11,7 @@ import guiPractice.components.Action;
 import guiPractice.components.Button;
 import guiPractice.components.ClickableGraphic;
 import guiPractice.components.Graphic;
+import guiPractice.components.TextArea;
 import guiPractice.components.TextLabel;
 import guiPractice.components.TransparentRoundedRect;
 import guiPractice.components.Visible;
@@ -18,7 +19,7 @@ import guiPractice.components.Visible;
 public class StoreScreen extends ClickableScreen implements Runnable {
 	
 	private TextLabel greeting;
-	private TextLabel itemsInfo;
+	private TextArea itemsInfo;
 	private TransparentRoundedRect artifactsBG;
 	private TransparentRoundedRect greetingBG;
 	private TransparentRoundedRect itemInfoBG;
@@ -39,6 +40,7 @@ public class StoreScreen extends ClickableScreen implements Runnable {
 	public void initObjects(ArrayList<Visible> viewObjects) {
 		greeting = new TextLabel((int)(getWidth()/5.5), 60, getWidth()-30, 40, "Welcome to the shop Adventurer!");
 		greeting.setSize(50);
+		itemsInfo = new TextArea(getWidth()-310, 140, 270, (int)(getHeight()/1.4), "Placeholder. This is a placeholder and nothing but a placeholder. Placeholders are good and serve as good stuff for testing.");
 		
 		greetingBG = new TransparentRoundedRect(15, 50, getWidth()-30, 60, 60, 60);
 		artifactsBG = new TransparentRoundedRect(15, 130, getWidth()-350, (int)(getHeight()/1.3), 80, 80);
@@ -50,6 +52,7 @@ public class StoreScreen extends ClickableScreen implements Runnable {
 		viewObjects.add(greetingBG);
 		viewObjects.add(artifactsBG);
 		viewObjects.add(itemInfoBG);
+		viewObjects.add(itemsInfo);
 		viewObjects.add(greeting);
 	}
 
@@ -68,12 +71,24 @@ public class StoreScreen extends ClickableScreen implements Runnable {
 	}
 
 	private void createArtifactPics() {
-		//go thru artifact list and make parallel artifact pics list
+		artifactPictures = new ArrayList();
+		
 		for(int i = 0; i<artifacts.size(); i++){
-			ClickableGraphic arti = new ClickableGraphic(240, 240, artifacts.get(i).getImagePath());
-			//setaction
-			//ishovered code
-			viewObjects.add(arti);
+			final int index = i;
+			ClickableGraphic artifact = new ClickableGraphic(240, 240, artifacts.get(i).getImagePath());
+			artifact.setAction(new Action(){
+				public void act() {
+//					artifacts.remove(artifacts.get(index).buyItem());
+//					artifactPictures.remove(index);
+//					viewObjects.remove(artifacts.get(index));
+					artifacts.get(0).getAction().act();
+				}
+			});
+			
+			//onHover code
+			
+			viewObjects.add(artifact);
+			artifactPictures.add(artifact);
 		}	
 	}
 
@@ -81,12 +96,12 @@ public class StoreScreen extends ClickableScreen implements Runnable {
 		artifacts = new ArrayList();
 		Artifact arti1 = new Artifact("Placeholder", "Worldly Illuminator", 50, new Action(){
 			public void act() {
-				
+				System.out.println("Ya ya yeet.");
 			}
 		}, "src/storeImages/arti1.png");
-		artifacts.add(arti1);
 		//Artifact arti2 = new Artifact();
 		
+		artifacts.add(arti1);
 	}
 
 }

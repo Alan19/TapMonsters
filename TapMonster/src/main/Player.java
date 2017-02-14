@@ -29,7 +29,7 @@ public class Player extends Component  {
 	}
 
 public void setMove(int move){
-	System.out.println("PLAYER IS WEIRD");
+	//System.out.println("PLAYER IS WEIRD");
 	Graphic newState = moveSet[move];
 	currentState= move;
 	setWidth(newState.getWidth());
