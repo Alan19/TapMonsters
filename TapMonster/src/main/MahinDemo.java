@@ -18,7 +18,7 @@ public class MahinDemo extends GUIApplication {
 	 * 
 	 */
 	public MahinDemo(int width, int height) {
-		super(width, height);
+		super();
 	}
 
 	/* (non-Javadoc)
