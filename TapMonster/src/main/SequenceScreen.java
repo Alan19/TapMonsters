@@ -35,10 +35,11 @@ public class SequenceScreen extends Screen implements KeyListener{
 	}
 	
 	public void initObjects(ArrayList<Visible> viewObjects) {
-		int length;
-		if (s.getSequence().size() > 4) length = 4;
-		else length = s.getSequence().size();
-		for (int i = 0; i < length; i++){
+//		int length;
+//		if (s.getSequence().size() > 4) length = 4;
+//		else length = s.getSequence().size();
+		
+		for (int i = 0; i < s.getSequence().size(); i++){
 			if (s.getSequence().get(i) == 0){
 				viewObjects.add(new Graphic(x, y, w, h, "src/sequenceArrows/arrowUp.jpg"));
 				playerMatch.add("W");
@@ -83,10 +84,17 @@ public class SequenceScreen extends Screen implements KeyListener{
 	}
 
 	public void keyReleased(KeyEvent e) {
-		if (Character.toLowerCase(playerMatch.get(0).charAt(0)) == Character.toLowerCase(e.getKeyChar())){
+		if (!playerMatch.isEmpty()){
+			if (Character.toLowerCase(playerMatch.get(0).charAt(0)) == Character.toLowerCase(e.getKeyChar())){
 			s.getSequence().remove(0);
 			playerMatch.remove(0);
 			viewObjects.remove(0);
+			for (int i = 0; i < viewObjects.size() -1; i++){
+				viewObjects.get(i).setX(viewObjects.get(i).getX() - 60);
+			}
+		}
+		
+		//System.out.println(playerMatch.get(0));
 		}else{
 			
 		}
