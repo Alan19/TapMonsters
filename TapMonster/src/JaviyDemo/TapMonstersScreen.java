@@ -2,10 +2,11 @@ package JaviyDemo;
 
 import java.awt.Color;
 import java.util.ArrayList;
+import java.util.List;
 
+import guiPractice.ClickableScreen;
 import guiPractice.components.Action;
 import guiPractice.components.Button;
-import guiPractice.components.ClickableScreen;
 import guiPractice.components.Graphic;
 import guiPractice.components.TextLabel;
 import guiPractice.components.Visible;
@@ -165,13 +166,14 @@ public class TapMonstersScreen extends ClickableScreen implements Runnable,Game{
 		System.out.println(Monster.description());
 	}
 
-	public void initAllObjects(ArrayList<Visible> viewObjects) {
+	@Override
+	public void initAllObjects(List<Visible> viewObjects) {
 //		background = new Graphic(0,0,.5,"resources/images/background.jpg");
 //		viewObjects.add(background);
 		hp = 100;
+		time = new TextLabel(40,getHeight()-175,75,60,"");
 		stageLevel = 1;
 		title = new TextLabel(getWidth()/2-60,20,300,40,"TAP MONSTERS");
-		time = new TextLabel(40,getWidth()-150,75,60,"");
 		hitPoints = new TextLabel(25,25,120,60,"HP " + hp);
 		stage = new TextLabel(getWidth()/2-50,30,120,60,"STAGE " + stageLevel);
 		addAMonster();

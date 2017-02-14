@@ -6,7 +6,7 @@ import guiPractice.Screen;
 public class TapMonstersGame extends GUIApplication {
 
 	public TapMonstersGame(int width, int height) {
-		super();
+		super(1000,500);
 	}
 
 	@Override
