@@ -73,16 +73,21 @@ public class ZhenDemo extends GUIApplication {
 			int width = 100;
 			int height = 100;
 			for (Artifact artifact : artifactList) {
+				final Artifact artifact2 = artifact;
 				ClickableGraphic artifactImage = new ClickableGraphic(x, y,width, height, artifact.getImagePath());
 				artifactImage.setAction(new Action() {
 					public void act() {
-//						artifactDescription.setText(artifact.getDescription());
+						artifactDescription.setText(artifact2.getDescription());
 					}
 				});
 				viewObjects.add(artifactImage);				
 				x += 110;
-				
+				if(x > 299){
+					x = 20;
+					y += 100;
+				}
 			}
+			artifactDescription.setY(y+100);
 			viewObjects.add(artifactDescription);
 			viewObjects.add(deathMessage);
 		}
