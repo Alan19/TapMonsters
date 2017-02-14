@@ -28,8 +28,29 @@ public class SamDemo extends guiPractice.GUIApplication {
 	public SamDemo(int w, int h) {
 		super(w, h);
 		rewardList = Reward.getAllRewards();
-		int randNum = (int) (Math.random() * 8);
-		reward = rewardList[randNum];
+		int rewardTier = 0;
+		int probNum = (int) (Math.random() * 10 +1);
+		if (probNum <= 6){
+			rewardTier = 0;
+		}
+		else if (probNum <= 9){
+			rewardTier = 1;
+		}
+		else{
+			rewardTier = 2;
+		}
+		if (rewardTier == 0){
+			int randNum = (int) (Math.random() * 2);
+			reward = rewardList[randNum];
+		}
+		else if (rewardTier == 1){
+			int randNum = (int) (Math.random() * 2+2);
+			reward = rewardList[randNum];
+		}
+		else{
+			int randNum = (int) (Math.random() * 4+4);
+			reward = rewardList[randNum];
+		}
 	}
 
 	/* (non-Javadoc)
@@ -57,16 +78,20 @@ public class SamDemo extends guiPractice.GUIApplication {
 	
 	//nested inner class
 	private class PlayerValues implements RewardTarget{
-		private int heartCont = 0;
+		private int heartCont = 3;
 		private int timeValue = 0;
-		private int heartValue = 0;
+		private int heartValue = 1;
 		private int lifeCounter = 0;
 		private int goldCounter = 0;
+		private int fullHealth = 0;
 
 
 		@Override
 		public void increaseHearts(int i) {
 			heartCont += i;
+			if (heartCont > 6){
+				heartCont = 6;
+			}
 			
 		}
 
@@ -85,7 +110,9 @@ public class SamDemo extends guiPractice.GUIApplication {
 		@Override
 		public void fillHeart(int i) {
 			heartValue += i;
-			
+			if (heartValue > heartCont){
+				heartValue = heartCont;
+			}
 		}
 
 		public int getHeartCont() {
@@ -119,10 +146,14 @@ public class SamDemo extends guiPractice.GUIApplication {
 			return goldCounter;
 		}
 
+		
+
 	}
 	private class DemoScreen extends guiPractice.ClickableScreen{
 
 		private TextLabel rewardDisplay;
+		private TextLabel rewardDescription;
+		private TextLabel goldDescription;
 		private Button beatAMonster;
 		private Button clearRewards;
 		private PlayerValues player;
@@ -136,6 +167,8 @@ public class SamDemo extends guiPractice.GUIApplication {
 		public void initAllObjects(List<Visible> view) {
 			// TODO Auto-generated method stub
 			rewardDisplay = new TextLabel(20, 40, 1000, 25, "");
+			rewardDescription = new TextLabel(20, 200, 300, 25, "");
+			goldDescription = new TextLabel(350, 200, 1000, 25, "");
 			player = new PlayerValues();
 			beatAMonster = new Button(40, 100, 90, 40, "Beat A Monster", Color.blue, new Action() {
 				
@@ -143,6 +176,7 @@ public class SamDemo extends guiPractice.GUIApplication {
 				public void act() {
 					// TODO Auto-generated method stub
 					SamDemo.reward.takeEffect(player);
+					rewardDescription.setText(reward.getDescription());
 					int goldNum = (int) (Math.random() * 10 + 1);
 					if (goldNum <= 6){
 						reward = rewardList[8];
@@ -154,6 +188,7 @@ public class SamDemo extends guiPractice.GUIApplication {
 						reward = rewardList[10];
 					}
 					SamDemo.reward.takeEffect(player);
+					goldDescription.setText(reward.getDescription());
 					rewardDisplay.setText("Cont: "+ player.getHeartCont()+", Time: "+player.getTimeValue()+", Lives: "+ player.getLifeCounter()+", Hearts: "+player.getHeartValue()+", Gold: "+player.getGoldCount());
 					update();
 					int randNum = (int) (Math.random() * 8);
@@ -165,15 +200,18 @@ public class SamDemo extends guiPractice.GUIApplication {
 				@Override
 				public void act() {
 					// TODO Auto-generated method stub
-					player.heartCont = 0;
+					player.heartCont = 3;
 					player.timeValue = 0;
-					player.heartValue = 0;
+					player.heartValue = 1;
 					player.lifeCounter = 0;
 					player.goldCounter = 0;
+					rewardDisplay.setText("Cont: "+ player.getHeartCont()+", Time: "+player.getTimeValue()+", Lives: "+ player.getLifeCounter()+", Hearts: "+player.getHeartValue()+", Gold: "+player.getGoldCount());
 					update();
 				}
 			});
 			view.add(rewardDisplay);
+			view.add(rewardDescription);
+			view.add(goldDescription);
 			view.add(beatAMonster);
 			view.add(clearRewards);
 		}
