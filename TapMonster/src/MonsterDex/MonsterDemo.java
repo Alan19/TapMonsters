@@ -13,7 +13,7 @@ public class MonsterDemo extends GUIApplication {
 	public static MonsterDex Dex;
 
 	public MonsterDemo() {
-		Dex = new MonsterDex();
+		super();;
 	}
 
 	@Override

@@ -12,7 +12,7 @@ public abstract class GUIApplication extends JFrame implements Runnable{
 	
 	
 	
-	public GUIApplication(int width2, int height2) {
+	public GUIApplication() {
 		//terminate program when window is closed
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setUndecorated(false);

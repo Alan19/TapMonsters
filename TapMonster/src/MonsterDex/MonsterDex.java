@@ -1,3 +1,6 @@
+package MonsterDex;
+
+import java.awt.Color;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -25,7 +28,8 @@ public class MonsterDex extends ClickableScreen implements Runnable{
 	
 	public void initObjects(Visible viewObjects){
 		Monsters = new ArrayList<MonDexInterface>();
-		
+		Next = new Button(0,50,50,50,"Next",Color.BLACK,null);
+		Back = new Button(getWidth()-50,50,50,50,"Back",Color.BLACK,null);
 	}
 
 
