@@ -74,9 +74,10 @@ public abstract class GUIApplication extends JFrame implements Runnable{
 		while(true){
 			currentScreen.update();
 			//updates the Window
-			repaint();
+//			repaint();
 			try {
-				Thread.sleep(40);
+				Thread.sleep(20);
+				repaint();
 			} catch (InterruptedException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
