@@ -14,10 +14,12 @@ import guiPractice.components.Graphic;
  *
  */
 public class RewardIcon extends Graphic {
+	private Reward reward;
 
 	public RewardIcon(int x, int y, double scale, Reward reward) {
 		super(x, y, scale, reward.getImage());
 		// TODO Auto-generated constructor stub
+		this.reward = reward;
 	}
 	/**
 	 * @param x
@@ -30,6 +32,10 @@ public class RewardIcon extends Graphic {
 	private int y;
 	private BufferedImage image;
 	private boolean loadedImages;
+	
+	public void setReward(Reward reward){
+		this.reward = reward;
+	}
 	
 	
 

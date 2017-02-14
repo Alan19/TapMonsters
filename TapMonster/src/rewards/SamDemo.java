@@ -166,7 +166,7 @@ public class SamDemo extends guiPractice.GUIApplication {
 		@Override
 		public void initAllObjects(List<Visible> view) {
 			// TODO Auto-generated method stub
-			rewardDisplay = new TextLabel(20, 40, 1000, 25, "");
+			rewardDisplay = new TextLabel(20, 40, 500, 25, "");
 			rewardDescription = new TextLabel(20, 200, 300, 25, "");
 			goldDescription = new TextLabel(350, 200, 1000, 25, "");
 			player = new PlayerValues();
