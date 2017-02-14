@@ -5,7 +5,7 @@ import guiPractice.GUIApplication;
 public class AhmedDemo extends GUIApplication{
 
 	public AhmedDemo(int width, int height) {
-		super(width, height);
+		super();
 	}
 
 	@Override

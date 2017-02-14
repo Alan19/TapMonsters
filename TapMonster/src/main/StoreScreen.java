@@ -69,6 +69,12 @@ public class StoreScreen extends ClickableScreen implements Runnable {
 
 	private void createArtifactPics() {
 		//go thru artifact list and make parallel artifact pics list
+		for(int i = 0; i<artifacts.size(); i++){
+			ClickableGraphic arti = new ClickableGraphic(240, 240, artifacts.get(i).getImagePath());
+			//setaction
+			//ishovered code
+			viewObjects.add(arti);
+		}	
 	}
 
 	private void createArtifacts() {
@@ -78,6 +84,7 @@ public class StoreScreen extends ClickableScreen implements Runnable {
 				
 			}
 		}, "src/storeImages/arti1.png");
+		artifacts.add(arti1);
 		//Artifact arti2 = new Artifact();
 		
 	}
