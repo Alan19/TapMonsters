@@ -8,7 +8,6 @@ import java.util.ArrayList;
 
 import guiPractice.Screen;
 import guiPractice.components.MovingComponent;
-import guiPractice.components.TextLabel;
 import guiPractice.components.Visible;
 
 /**
@@ -19,7 +18,6 @@ import guiPractice.components.Visible;
 public class KLDebugScreen extends Screen implements KeyListener {
 	
 	private MovingComponent mc;
-	private TextLabel label;
 
 	public KLDebugScreen(int width, int height) {
 		super(width, height);
