@@ -35,7 +35,10 @@ public class SequenceScreen extends Screen implements KeyListener{
 	}
 	
 	public void initObjects(ArrayList<Visible> viewObjects) {
-		for (int i = 0; i < s.getSequence().size(); i++){
+		int length;
+		if (s.getSequence().size() > 4) length = 4;
+		else length = s.getSequence().size();
+		for (int i = 0; i < length; i++){
 			if (s.getSequence().get(i) == 0){
 				viewObjects.add(new Graphic(x, y, w, h, "src/sequenceArrows/arrowUp.jpg"));
 				playerMatch.add("W");
