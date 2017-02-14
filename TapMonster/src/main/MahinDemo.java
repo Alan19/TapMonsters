@@ -18,7 +18,7 @@ public class MahinDemo extends GUIApplication {
 	 * 
 	 */
 	public MahinDemo(int width, int height) {
-		super();
+		super(width, height);
 	}
 
 	/* (non-Javadoc)
@@ -38,7 +38,7 @@ public class MahinDemo extends GUIApplication {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		MahinDemo demo = new MahinDemo(300,300);
+		MahinDemo demo = new MahinDemo(1200,800);
 		Thread app = new Thread(demo);
 		app.start();
 
