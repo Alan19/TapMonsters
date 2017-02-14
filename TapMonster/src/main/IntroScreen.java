@@ -90,7 +90,7 @@ public class IntroScreen extends ClickableScreen implements Attack, PlayerInterf
 
 	@Override
 	public void initAllObjects(final List<Visible> viewObjects) {
-		Graphic picture= new Graphic(0,0,getWidth(),getHeight(),"INSERT BACKGROND FILE PATH HERE");
+		Graphic picture= new Graphic(0,0,getWidth(),getHeight(),"src/resources/background.jpg");
 		instructions =  "You are on a journey to fight monsters and get to the highest stage possible. "
 				+ "You kill a monster from completing an arrow key sequence in a certain amount of time, bosses also use (A,S,W,D) for their sequence. "
 				+ "Certain monsters have abilities that can make things harder on you depending on their abilities. "
@@ -109,7 +109,7 @@ public class IntroScreen extends ClickableScreen implements Attack, PlayerInterf
 				//viewObjects.remove(viewObjects.size()-1);
 				player.setMove(zz%5);
 				zz++;
-				System.out.println("BUTTON IS WORKING");
+				//System.out.println("BUTTON IS WORKING");
 			}
 
 		});

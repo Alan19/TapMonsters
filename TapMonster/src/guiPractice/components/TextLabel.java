@@ -58,7 +58,9 @@ public class TextLabel extends Component {
 	public int getSize() {
 		return size;
 	}
-
+	public void setTextColor(Color c){
+	this.color = c;
+	}
 	@Override
 	public void update(Graphics2D g) {
 		g=clear();//clears image and gets new graphics
@@ -66,7 +68,7 @@ public class TextLabel extends Component {
 				RenderingHints.VALUE_ANTIALIAS_ON);
 		g.setColor(color);
 		if(this.text != null){
-//			g.setFont(new Font(font,Font.PLAIN,size));
+			g.setFont(new Font(font,Font.PLAIN,size));
 			g.drawString(this.text, 4, getHeight()-5);
 		}
 	}
