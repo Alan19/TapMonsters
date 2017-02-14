@@ -66,7 +66,7 @@ public class TextLabel extends Component {
 				RenderingHints.VALUE_ANTIALIAS_ON);
 		g.setColor(color);
 		if(this.text != null){
-//			g.setFont(new Font(font,Font.PLAIN,size));
+			g.setFont(new Font(font,Font.PLAIN,size));
 			g.drawString(this.text, 4, getHeight()-5);
 		}
 	}

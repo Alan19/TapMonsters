@@ -3,6 +3,7 @@
  */
 package main;
 
+import java.awt.Color;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -38,7 +39,7 @@ public class ZhenDemo extends GUIApplication {
 	@Override
 	protected void initScreen() {
 		ArrayList<artifacts.Artifact> artifacts = new ArrayList<artifacts.Artifact>();
-		DeathScreenTest death = new DeathScreenTest(getWidth(), getHeight(), artifacts);
+		DeathScreenTest death = new DeathScreenTest(5, 1, getWidth(), getHeight(), artifacts);
 		setScreen(death);
 	}
 
@@ -54,21 +55,28 @@ public class ZhenDemo extends GUIApplication {
 //	nested inner class
 	private class DeathScreenTest extends ClickableScreen{
 
+		private int level;
+		private int round;
 		private TextLabel deathMessage;
 		private TextLabel artifactDescription;
 		private ArrayList<artifacts.Artifact> artifactList;
 		
-		public DeathScreenTest(int width, int height, ArrayList<artifacts.Artifact> artifacts) {
+		public DeathScreenTest(int level, int round, int width, int height, ArrayList<artifacts.Artifact> artifacts) {
 			super(width, height);
 			this.artifactList = artifacts;
+			this.level = level;
+			this.round = round;
 		}
 
 		@Override
 		public void initAllObjects(List<Visible> viewObjects) {
+			level = 10;
+			round = 5;
 			Graphic background = new Graphic(0, 0, getWidth(), getHeight(), "src/resources/background.jpg");
 			viewObjects.add(background);
-			deathMessage = new TextLabel(20, 40, 300, 25, "You died! Level:1 Round:1");
-			artifactDescription = new TextLabel(20, 150, 500, 100, "Click on an artifact!");
+			
+			deathMessage = new TextLabel(20, 40, 400, 25, "Copperplate Gothic Bold", 20, new Color(98, 106, 102), "You died! Level:" + level + " Round:" + round);
+			artifactDescription = new TextLabel(20, 150, 500, 100, "Copperplate Gothic Bold", 20, new Color(112, 119, 102), "Click on an artifact!");
 			artifactList = new ArrayList<Artifact>();
 			artifactList.add(new Artifact("Increases damage", "Crafter's Elixir", 100, null, "src/resources/Crafter's_Elixir.png"));
 			artifactList.add(new Artifact("Increases damage by 100%", "Death Seeker", 100, null, "src/resources/death_dance.png"));
