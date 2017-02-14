@@ -11,6 +11,8 @@ import guiPractice.ClickableScreen;
 import guiPractice.GUIApplication;
 import guiPractice.components.Action;
 import guiPractice.components.ClickableGraphic;
+import guiPractice.components.Graphic;
+import guiPractice.components.TextArea;
 import guiPractice.components.TextLabel;
 import guiPractice.components.Visible;
 
@@ -27,7 +29,7 @@ public class ZhenDemo extends GUIApplication {
 	 * 
 	 */
 	public ZhenDemo() {
-		super(300, 300);
+		super(854, 500);
 	}
 
 	/* (non-Javadoc)
@@ -63,6 +65,8 @@ public class ZhenDemo extends GUIApplication {
 
 		@Override
 		public void initAllObjects(List<Visible> viewObjects) {
+			Graphic background = new Graphic(0, 0, getWidth(), getHeight(), "src/resources/background.jpg");
+			viewObjects.add(background);
 			deathMessage = new TextLabel(20, 40, 300, 25, "You died! Level:1 Round:1");
 			artifactDescription = new TextLabel(20, 150, 500, 100, "Click on an artifact!");
 			artifactList = new ArrayList<Artifact>();

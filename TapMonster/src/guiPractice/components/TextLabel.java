@@ -19,6 +19,14 @@ public class TextLabel extends Component {
 		size = 20;
 		update();
 	}
+	
+	public TextLabel(int x, int y, int w, int h, String font, int size, Color color, String text){
+		super(x, y, w, h);
+		this.text = text;
+		font = "Helvetica";
+		size = 20;
+		update();
+	}
 
 	public void setText(String s){
 		this.text = s;
