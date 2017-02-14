@@ -17,9 +17,8 @@ public class TextArea extends TextLabel {
 		g.setFont(new Font(getFont(), Font.PLAIN, getSize()));
 		FontMetrics fm = g.getFontMetrics();
 		g.setColor(Color.black);
-		System.out.println("text not works");
 		if(getText() != null){
-			System.out.println("text works");
+		
 			//split text into array of words
 			String[] words = getText().split(" ");
 			if(words.length >0){
