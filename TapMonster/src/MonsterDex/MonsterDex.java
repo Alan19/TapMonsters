@@ -15,7 +15,7 @@ public class MonsterDex extends ClickableScreen implements Runnable{
 	private static ArrayList<MonDexInterface> Monsters;
 	private Button Next;
 	private Button Back;
-	//temporary cause i don't want to get bogged down with unnecessary stuff
+	private Graphic Background;
 	private Graphic MonsterImg;
 	
 	private static int PosX = 100;
@@ -32,15 +32,18 @@ public class MonsterDex extends ClickableScreen implements Runnable{
 	public void initObjects(ArrayList<Visible> viewObjects){
 		Monsters = new ArrayList<MonDexInterface>();
 		Next = new Button(getWidth() - 110, getHeight() - 70, 90, 50, "Next", Color.decode("#a52a2a"), null);
-		Back = new Button(20, getHeight() - 70, 90, 50, "Back", Color.decode("#a52a2a"), null);	
+		Back = new Button(20, getHeight() - 70, 90, 50, "Back", Color.decode("#a52a2a"), null);
+		MonsterImg = new Graphic(PosX,PosY, 100,100,"src/MonsterSprites/1.gif");
+		Background = new Graphic(0,0,getWidth(),getHeight(),"src/resources/background.jpg");
+		viewObjects.add(MonsterImg);
 		viewObjects.add(Next);
 		viewObjects.add(Back);	
-		for(int i = MonID; i < MonID+2; i++){
-			MonsterImg = new Graphic(PosX,PosY, 100,100,"src/MonsterSprites/"+MonID+".gif");
-			PosX += 200;
-			MonID++;
-			viewObjects.add(MonsterImg);
-		}
+//		for(int i = MonID; i < MonID+2; i++){
+//			MonsterImg = new Graphic(PosX,PosY, 100,100,"src/MonsterSprites/"+MonID+".gif");
+//			PosX += 200;
+//			MonID++;
+//			viewObjects.add(MonsterImg);
+//		}
 	}
 
 

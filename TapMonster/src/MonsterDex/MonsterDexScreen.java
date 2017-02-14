@@ -5,7 +5,7 @@ import guiPractice.GUIApplication;
 public class MonsterDexScreen extends GUIApplication{
 
 	public MonsterDexScreen() {
-		super();
+		super(1200,900);
 		// TODO Auto-generated constructor stub
 	}
 
