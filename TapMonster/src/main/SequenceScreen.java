@@ -14,71 +14,82 @@ import guiPractice.components.Visible;
 
 public class SequenceScreen extends Screen implements KeyListener{
 
-	public static int x = 50;
+	public static int sequencex = 50;
+	public static int playerx = 50;
 	public static int y = 50;
 	public static int w = 50;
 	public static int h = 50;
 	
-	private static Graphic arrowUp = new Graphic(x, y, w, h, "src/sequenceArrows/arrowUp.jpg");
-	private static Graphic arrowDown = new Graphic(x, y, w, h, "src/sequenceArrows/arrowDown.jpg");
-	private static Graphic arrowLeft = new Graphic(x, y, w, h, "src/sequenceArrows/arrowLeft.jpg");
-	private static Graphic arrowRight = new Graphic(x, y, w, h, "src/sequenceArrows/arrowRight.jpeg");
+	public int playery = y+100;
+	
+	private static Graphic arrowUp = new Graphic(sequencex, y, w, h, "src/sequenceArrows/arrowUp.jpg");
+	private static Graphic arrowDown = new Graphic(sequencex, y, w, h, "src/sequenceArrows/arrowDown.jpg");
+	private static Graphic arrowLeft = new Graphic(sequencex, y, w, h, "src/sequenceArrows/arrowLeft.jpg");
+	private static Graphic arrowRight = new Graphic(sequencex, y, w, h, "src/sequenceArrows/arrowRight.jpeg");
 	
 	private static Sequence s = new Sequence(10);
 	private static ArrayList<String> playerMatch = new ArrayList<String>();
+	private static ArrayList<Graphic> displayedSequence = new ArrayList<Graphic>();
 	
 	private static Graphic playerChoice; 
 	private static TextLabel text;
+	private static int idx = 0;
 	
 	public SequenceScreen(int width, int height) {
 		super(width, height);
 	}
 	
-	public void initObjects(ArrayList<Visible> viewObjects) {
-//		int length;
-//		if (s.getSequence().size() > 4) length = 4;
-//		else length = s.getSequence().size();
-		
-		for (int i = 0; i < s.getSequence().size(); i++){
+	public void addToDisplayedSequence(int numOfTimes){
+		for (int i = 0; i < numOfTimes; i++){
 			if (s.getSequence().get(i) == 0){
-				viewObjects.add(new Graphic(x, y, w, h, "src/sequenceArrows/arrowUp.jpg"));
+				displayedSequence.add(new Graphic(sequencex, y, w, h, "src/sequenceArrows/arrowUp.jpg"));
 				playerMatch.add("W");
 			}
 			if (s.getSequence().get(i) == 1){
-				viewObjects.add(new Graphic(x, y, w, h, "src/sequenceArrows/arrowRight.jpeg"));
+				displayedSequence.add(new Graphic(sequencex, y, w, h, "src/sequenceArrows/arrowRight.jpeg"));
 				playerMatch.add("D");
 			}
 			if (s.getSequence().get(i) == 2){
-				viewObjects.add(new Graphic(x, y, w, h, "src/sequenceArrows/arrowDown.jpg"));
+				displayedSequence.add(new Graphic(sequencex, y, w, h, "src/sequenceArrows/arrowDown.jpg"));
 				playerMatch.add("S");
 			}
 			if (s.getSequence().get(i) == 3){
-				viewObjects.add(new Graphic(x, y, w, h, "src/sequenceArrows/arrowLeft.jpg"));
+				displayedSequence.add(new Graphic(sequencex, y, w, h, "src/sequenceArrows/arrowLeft.jpg"));
 				playerMatch.add("A");
 			}
-			x+=60;
-			System.out.print(playerMatch.get(i));
+			sequencex+=60;
 		}
-		x = 50;
-		y += 100;
+	}
+	
+	public void addToViewObjects(int l){
+		for(int i = 0 ; i < l; i++){
+			viewObjects.add(displayedSequence.get(0));
+			displayedSequence.remove(0);
+		}
+	}
+	
+	public void initObjects(ArrayList<Visible> viewObjects) {
+		int length = 4;
+		addToDisplayedSequence(length);
+		addToViewObjects(length);
 	}
 
 	public void keyPressed(KeyEvent e) {
 		if (playerChoice != null) remove(playerChoice);
 		if (e.getKeyCode() == KeyEvent.VK_W){
-			playerChoice = new Graphic(x, y, w, h, "src/sequenceArrows/arrowUp.jpg");
+			playerChoice = new Graphic(playerx, playery, w, h, "src/sequenceArrows/arrowUp.jpg");
 			addObject(playerChoice);
 		}
 		if (e.getKeyCode() == KeyEvent.VK_D){
-			playerChoice = new Graphic(x, y, w, h, "src/sequenceArrows/arrowRight.jpeg");
+			playerChoice = new Graphic(playerx, playery, w, h, "src/sequenceArrows/arrowRight.jpeg");
 			addObject(playerChoice);
 		}
 		if (e.getKeyCode() == KeyEvent.VK_S){
-			playerChoice = new Graphic(x, y, w, h, "src/sequenceArrows/arrowDown.jpg");
+			playerChoice = new Graphic(playerx, playery, w, h, "src/sequenceArrows/arrowDown.jpg");
 			addObject(playerChoice);
 		}
 		if (e.getKeyCode() == KeyEvent.VK_A){
-			playerChoice = new Graphic(x, y, w, h, "src/sequenceArrows/arrowLeft.jpg");
+			playerChoice = new Graphic(playerx, playery, w, h, "src/sequenceArrows/arrowLeft.jpg");
 			addObject(playerChoice);
 		}
 	}
@@ -86,17 +97,19 @@ public class SequenceScreen extends Screen implements KeyListener{
 	public void keyReleased(KeyEvent e) {
 		if (!playerMatch.isEmpty()){
 			if (Character.toLowerCase(playerMatch.get(0).charAt(0)) == Character.toLowerCase(e.getKeyChar())){
-			s.getSequence().remove(0);
-			playerMatch.remove(0);
-			viewObjects.remove(0);
-			for (int i = 0; i < viewObjects.size() -1; i++){
-				viewObjects.get(i).setX(viewObjects.get(i).getX() - 60);
+				s.getSequence().remove(0);
+				playerMatch.remove(0);
+				viewObjects.remove(0);
+				for (int i = 0; i < viewObjects.size() -1; i++){
+						viewObjects.get(i).setX(viewObjects.get(i).getX() - 60);
+					}
+				System.out.println(playerMatch);
+				System.out.println(s.getSequence());
+				addToDisplayedSequence(1);
+				addToViewObjects(1);
+			}else{
+				System.out.print("Wrong");
 			}
-		}
-		
-		//System.out.println(playerMatch.get(0));
-		}else{
-			
 		}
 	}
 

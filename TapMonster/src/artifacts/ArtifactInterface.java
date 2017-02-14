@@ -1,5 +1,7 @@
 package artifacts;
 
+import guiPractice.components.Action;
+
 import java.awt.image.BufferedImage;
 
 public interface ArtifactInterface {
@@ -12,4 +14,6 @@ public interface ArtifactInterface {
 	public String getImagePath();
 		
 	public String getName();
+	
+	public Action getAction();
 }
