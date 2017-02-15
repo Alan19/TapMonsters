@@ -103,7 +103,7 @@ public class ZhenDemo extends GUIApplication {
 				});
 				viewObjects.add(artifactImage);				
 				x += 110;
-				if(x > 299){
+				if(x > getWidth()-10){
 					x = 20;
 					y += 100;
 				}
