@@ -15,7 +15,7 @@ public class AhmedDemo extends GUIApplication{
 	}
 
 	public static void main(String[] args){
-		AhmedDemo game = new AhmedDemo(2000, 2000);
+		AhmedDemo game = new AhmedDemo(1200, 700);
 		Thread app = new Thread(game);
 		app.start();
 	}

@@ -6,6 +6,7 @@ import java.util.List;
 
 import guiPractice.ClickableScreen;
 import guiPractice.components.Button;
+import guiPractice.components.Graphic;
 import guiPractice.components.Visible;
 import interfaces.MonDexInterface;
 
@@ -14,6 +15,8 @@ public class MonsterDex extends ClickableScreen implements Runnable{
 	private static ArrayList<MonDexInterface> Monsters;
 	private Button Next;
 	private Button Back;
+	private Graphic Background;
+	private Graphic MonsterImg;
 	
 	private static int PosX = 100;
 	private static int PosY = 100;
@@ -26,10 +29,22 @@ public class MonsterDex extends ClickableScreen implements Runnable{
 	}
 	
 	
-	public void initObjects(Visible viewObjects){
+	public void initObjects(ArrayList<Visible> viewObjects){
 		Monsters = new ArrayList<MonDexInterface>();
-		Next = new Button(0,50,50,50,"Next",Color.BLACK,null);
-		Back = new Button(getWidth()-50,50,50,50,"Back",Color.BLACK,null);
+		Next = new Button(getWidth() - 110, getHeight() - 70, 90, 50, "Next", Color.decode("#a52a2a"), null);
+		Back = new Button(20, getHeight() - 70, 90, 50, "Back", Color.decode("#a52a2a"), null);
+		MonsterImg = new Graphic(PosX,PosY, 100,100,"src/MonsterSprites/1.gif");
+		Background = new Graphic(0,0,getWidth(),getHeight(),"src/resources/background.jpg");
+		viewObjects.add(Background);
+		viewObjects.add(MonsterImg);
+		viewObjects.add(Next);
+		viewObjects.add(Back);	
+//		for(int i = MonID; i < MonID+2; i++){
+//			MonsterImg = new Graphic(PosX,PosY, 100,100,"src/MonsterSprites/"+MonID+".gif");
+//			PosX += 200;
+//			MonID++;
+//			viewObjects.add(MonsterImg);
+//		}
 	}
 
 

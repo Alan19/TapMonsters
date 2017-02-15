@@ -7,8 +7,7 @@ import player.ScoreScreen;
 public class SequenceDemo extends GUIApplication{
 
 	public SequenceDemo(int width2, int height2) {
-		super();
-		// TODO Auto-generated constructor stub
+		super(height2, height2);
 	}
 
 	protected void initScreen() {
