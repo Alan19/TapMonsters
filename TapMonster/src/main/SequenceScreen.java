@@ -1,5 +1,8 @@
 package main;
-
+/**
+ * @author Joyce
+ *
+ */
 import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.event.KeyEvent;
@@ -120,7 +123,7 @@ public class SequenceScreen extends Screen implements KeyListener{
 					System.out.println("You've won!");
 				}
 //				System.out.println("ctr = " + ctr + "");
-//					System.out.println("idx = " + idx + "");
+//				System.out.println("idx = " + idx + "");
 			}else{
 				System.out.println("Wrong");
 			}
