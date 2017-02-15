@@ -75,7 +75,7 @@ public class ZhenDemo extends GUIApplication {
 			Graphic background = new Graphic(0, 0, getWidth(), getHeight(), "src/resources/background.jpg");
 			viewObjects.add(background);
 			
-			//Information
+			//Game Over information
 			deathMessage = new TextLabel(20, 40, 400, 25, "Copperplate Gothic Bold", 20, new Color(140, 146, 143), "You died! Level:" + level + " Round:" + round);
 			artifactName = new TextLabel(20, 150, 500, 100, "Copperplate Gothic Bold", 20, new Color(112, 119, 102), "Click on an artifact!");
 			artifactDescription = new TextLabel(20, 200, 500, 100, "Copperplate Gothic Bold", 20, new Color(112, 119, 102), "");
@@ -107,8 +107,11 @@ public class ZhenDemo extends GUIApplication {
 					y += width + 25;
 				}
 			}
+			//Move artifact description under artifact images
 			artifactName.setY(y+100);
 			artifactDescription.setY(y+150);
+			
+			//Add components for display
 			viewObjects.add(deathMessage);
 			viewObjects.add(artifactName);
 			viewObjects.add(artifactDescription);
