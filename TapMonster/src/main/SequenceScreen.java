@@ -35,6 +35,7 @@ public class SequenceScreen extends Screen implements KeyListener{
 	private static Graphic playerChoice; 
 	private static TextLabel text;
 	private static int idx = 0;
+	private static int ctr = 0;
 	
 	public SequenceScreen(int width, int height) {
 		super(width, height);
@@ -61,9 +62,6 @@ public class SequenceScreen extends Screen implements KeyListener{
 				sequencex+=60;
 			//	System.out.println(sequencex);
 				if (idx < s.getSequence().size() ) idx++;
-		//	}
-		//}else{
-			//System.out.println("You've won!");
 		}
 	}
 	
@@ -104,7 +102,6 @@ public class SequenceScreen extends Screen implements KeyListener{
 	public void keyReleased(KeyEvent e) {
 		if (!playerMatch.isEmpty()){
 			if (Character.toLowerCase(playerMatch.get(0).charAt(0)) == Character.toLowerCase(e.getKeyChar())){
-				//s.getSequence().remove(0);
 				playerMatch.remove(0);
 				viewObjects.remove(0);
 				for (int i = 0; i < viewObjects.size() -1; i++){
@@ -115,11 +112,15 @@ public class SequenceScreen extends Screen implements KeyListener{
 //				System.out.println(s.getSequence());
 				if(idx < s.getSequence().size()){
 					addToDisplayedSequence(1);
-					System.out.println("idx = " + idx + "");
+					
 					addToViewObjects(1);
-				}else{
+				}
+				ctr++;
+				if (ctr == s.getSequence().size()){
 					System.out.println("You've won!");
 				}
+//				System.out.println("ctr = " + ctr + "");
+//					System.out.println("idx = " + idx + "");
 			}else{
 				System.out.print("Wrong");
 			}
