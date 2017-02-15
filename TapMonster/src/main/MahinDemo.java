@@ -38,7 +38,7 @@ public class MahinDemo extends GUIApplication {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		MahinDemo demo = new MahinDemo(1200,800);
+		MahinDemo demo = new MahinDemo(1200,750);
 		Thread app = new Thread(demo);
 		app.start();
 

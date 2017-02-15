@@ -10,6 +10,7 @@ import java.util.List;
 import artifacts.Artifact;
 import guiPractice.Screen;
 import guiPractice.components.Action;
+import guiPractice.components.Button;
 import guiPractice.components.Clickable;
 import guiPractice.components.ClickableGraphic;
 import guiPractice.components.Graphic;
@@ -23,6 +24,9 @@ public class InventoryScreen extends ClickableScreen implements Runnable{
 	private TextLabel title;
 	private TextLabel artifactName;
 	private TextLabel artifactDescription;
+	private TextLabel artifactNum;
+	private int collected;
+	private Button purchaseAllArtifacts;
 	
 	private ArrayList<Artifact> artifactsPurchased;
 	private Graphics2D g;
@@ -42,7 +46,7 @@ public class InventoryScreen extends ClickableScreen implements Runnable{
 		app.start();
 	}
 
-	@Override
+	/*@Override
 	public void initObjects(ArrayList<Visible> viewObjects) {
 		title = new TextLabel((int)(getWidth()/2.5),40,getWidth()/2,50, "Inventory");
 		artifactName = new TextLabel(700,135,getWidth()/3,50,"artifact name");
@@ -55,7 +59,7 @@ public class InventoryScreen extends ClickableScreen implements Runnable{
 		viewObjects.add(artifactName);
 		viewObjects.add(artifactDescription);
 		
-	}
+	}*/
 
 	//@Override
 	//public void initAllObjects(ArrayList<Visible> viewObjects) {
@@ -66,6 +70,34 @@ public class InventoryScreen extends ClickableScreen implements Runnable{
 	//each artifact has a name and description
 	//shows how many artifacts are collected
 	
+	@Override
+	public void initAllObjects(List<Visible> viewObjects) {
+		collected = 9;
+		title = new TextLabel((int)(getWidth()/1.2),40,getWidth()/2,50, "Inventory");
+		artifactName = new TextLabel(700,135,getWidth()/3,50,"artifact name");
+		artifactDescription = new TextLabel(700,200,getWidth()/3,50,"artifact desc");
+		artifactNum = new TextLabel(700, 265, getWidth()/3, 50, "You have "+ collected+ " artifacts");
+		info = new TransparentRoundedRect(700,120,getWidth()/3,300,50,50);
+		bkgd = new Graphic(0,0,getWidth(),getHeight(),"src/resources/background.jpg");
+		
+		/*purchaseAllArtifacts = new Button(10,10,100,50, "Show all artifacts", Color.red, new Action(){
+			public void act(){
+				collected = 9;
+				artifactNum.setText("You have "+ collected+ " artifacts");
+				displayArtifacts();
+			}
+		});*/
+		viewObjects.add(bkgd);
+		viewObjects.add(title);	
+		viewObjects.add(info);
+		viewObjects.add(artifactName);
+		viewObjects.add(artifactDescription);
+		viewObjects.add(artifactNum);
+		//viewObjects.add(purchaseAllArtifacts);
+		addArtifact();
+		displayArtifacts();
+
+	}
 	
 	private void displayArtifacts(){
 		//displays purchased artifacts
@@ -81,13 +113,14 @@ public class InventoryScreen extends ClickableScreen implements Runnable{
 		int[] yCoord = {150, 150, 150, 350, 350, 350, 550, 550, 550};
 		
 		for(int i = 0; i < artifactsPurchased.size(); i++){
+			final Artifact theArtifact = artifactsPurchased.get(i);
 			ClickableGraphic artifact = new ClickableGraphic(xCoord[i],yCoord[i],
 					artifactsPurchased.get(i).getImagePath());
 			
 			artifact.setAction(new Action(){
 				public void act(){
 					//System.out.println("test");
-					artifactName.setText("test");
+					artifactName.setText(theArtifact.getName());
 					//artifactsPurchased.get(0).getDescription();
 				}
 			});
@@ -153,15 +186,10 @@ public class InventoryScreen extends ClickableScreen implements Runnable{
 		//g.setColor(Color.black);
 		//g.drawRect(x, y, width, height);
 		
-		addArtifact();
-		displayArtifacts();
+		
 	}
 
 	
-	@Override
-	public void initAllObjects(List<Visible> viewObjects) {
-		
-
-	}
+	
 
 }
