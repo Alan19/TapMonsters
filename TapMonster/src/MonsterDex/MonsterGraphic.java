@@ -10,7 +10,7 @@ public class MonsterGraphic extends Graphic{
 		super(x, y, w, h," MonsterSprites/"+MonsterId+".gif");
 	}
 	
-	public void NextEntry(){
+	public void NextMon(){
 		MonsterId++;
 	}
 	
@@ -18,7 +18,7 @@ public class MonsterGraphic extends Graphic{
 		MonsterId += 10;
 	}
 	
-	public void BackEntry(){
+	public void BackMon(){
 		while(MonsterId == 1)
 		MonsterId--;
 	}
@@ -26,6 +26,14 @@ public class MonsterGraphic extends Graphic{
 	public void BackSpecies(){
 		while(MonsterId == 10)
 		MonsterId -= 10;
+	}
+	
+	public void NextEntry(){
+		MonsterId += 6;
+	}
+	
+	public void BackEntry(){
+		MonsterId -= 6;
 	}
 
 }
