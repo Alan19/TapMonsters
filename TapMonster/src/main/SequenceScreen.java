@@ -35,30 +35,33 @@ public class SequenceScreen extends Screen implements KeyListener{
 	private static Graphic playerChoice; 
 	private static TextLabel text;
 	private static int idx = 0;
+	private static int ctr = 0;
 	
 	public SequenceScreen(int width, int height) {
 		super(width, height);
 	}
 	
 	public void addToDisplayedSequence(int numOfTimes){
-		for (int i = 0; i < numOfTimes; i++){
-			if (s.getSequence().get(i) == 0){
-				displayedSequence.add(new Graphic(sequencex, y, w, h, "src/sequenceArrows/arrowUp.jpg"));
-				playerMatch.add("W");
-			}
-			if (s.getSequence().get(i) == 1){
-				displayedSequence.add(new Graphic(sequencex, y, w, h, "src/sequenceArrows/arrowRight.jpeg"));
-				playerMatch.add("D");
-			}
-			if (s.getSequence().get(i) == 2){
-				displayedSequence.add(new Graphic(sequencex, y, w, h, "src/sequenceArrows/arrowDown.jpg"));
-				playerMatch.add("S");
-			}
-			if (s.getSequence().get(i) == 3){
-				displayedSequence.add(new Graphic(sequencex, y, w, h, "src/sequenceArrows/arrowLeft.jpg"));
-				playerMatch.add("A");
-			}
-			sequencex+=60;
+			for (int i = 0; i < numOfTimes; i++){
+				if (s.getSequence().get(idx) == 0){
+					displayedSequence.add(new Graphic(sequencex, y, w, h, "src/sequenceArrows/arrowUp.jpg"));
+					playerMatch.add("W");
+				}
+				if (s.getSequence().get(idx) == 1){
+					displayedSequence.add(new Graphic(sequencex, y, w, h, "src/sequenceArrows/arrowRight.jpeg"));
+					playerMatch.add("D");
+				}
+				if (s.getSequence().get(idx) == 2){
+					displayedSequence.add(new Graphic(sequencex, y, w, h, "src/sequenceArrows/arrowDown.jpg"));
+					playerMatch.add("S");
+				}
+				if (s.getSequence().get(idx) == 3){
+					displayedSequence.add(new Graphic(sequencex, y, w, h, "src/sequenceArrows/arrowLeft.jpg"));
+					playerMatch.add("A");
+				}
+				sequencex+=60;
+			//	System.out.println(sequencex);
+				if (idx < s.getSequence().size() ) idx++;
 		}
 	}
 	
@@ -71,6 +74,7 @@ public class SequenceScreen extends Screen implements KeyListener{
 	
 	public void initObjects(ArrayList<Visible> viewObjects) {
 		int length = 4;
+		System.out.println(s.getSequence());
 		addToDisplayedSequence(length);
 		addToViewObjects(length);
 	}
@@ -98,18 +102,27 @@ public class SequenceScreen extends Screen implements KeyListener{
 	public void keyReleased(KeyEvent e) {
 		if (!playerMatch.isEmpty()){
 			if (Character.toLowerCase(playerMatch.get(0).charAt(0)) == Character.toLowerCase(e.getKeyChar())){
-				s.getSequence().remove(0);
 				playerMatch.remove(0);
 				viewObjects.remove(0);
 				for (int i = 0; i < viewObjects.size() -1; i++){
 						viewObjects.get(i).setX(viewObjects.get(i).getX() - 60);
 					}
-				System.out.println(playerMatch);
-				System.out.println(s.getSequence());
-				addToDisplayedSequence(1);
-				addToViewObjects(1);
+				sequencex = sequencex - 60;
+//				System.out.println(playerMatch);
+//				System.out.println(s.getSequence());
+				if(idx < s.getSequence().size()){
+					addToDisplayedSequence(1);
+					
+					addToViewObjects(1);
+				}
+				ctr++;
+				if (ctr == s.getSequence().size()){
+					System.out.println("You've won!");
+				}
+//				System.out.println("ctr = " + ctr + "");
+//					System.out.println("idx = " + idx + "");
 			}else{
-				System.out.print("Wrong");
+				System.out.println("Wrong");
 			}
 		}
 	}
