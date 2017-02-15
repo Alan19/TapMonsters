@@ -26,9 +26,10 @@ public class InventoryScreen extends ClickableScreen implements Runnable{
 	private TextLabel artifactDescription;
 	private TextLabel artifactNum;
 	private int collected;
-	private Button purchaseAllArtifacts;
+	private Button back;
+	//private Button purchaseAllArtifactss;
 	
-	private ArrayList<Artifact> artifactsPurchased;
+	public ArrayList<Artifact> artifactsPurchased;
 	private Graphics2D g;
 	
 	private TransparentRoundedRect info;
@@ -121,6 +122,7 @@ public class InventoryScreen extends ClickableScreen implements Runnable{
 				public void act(){
 					//System.out.println("test");
 					artifactName.setText(theArtifact.getName());
+					artifactDescription.setText(theArtifact.getDescription());
 					//artifactsPurchased.get(0).getDescription();
 				}
 			});
@@ -146,6 +148,7 @@ public class InventoryScreen extends ClickableScreen implements Runnable{
 		//for now artifacts will be displayed independent of artifacts
 		//purchased
 		artifactsPurchased = new ArrayList();
+		//below i added all artifacts for demo purposes
 		Artifact first = new Artifact("desc","worldly illuminator",50,
 				//new Action(){
 					//public void act(){
