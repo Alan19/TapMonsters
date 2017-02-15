@@ -120,7 +120,7 @@ public class SequenceScreen extends Screen implements KeyListener{
 					System.out.println("You've won!");
 				}
 //				System.out.println("ctr = " + ctr + "");
-//					System.out.println("idx = " + idx + "");
+//				System.out.println("idx = " + idx + "");
 			}else{
 				System.out.println("Wrong");
 			}
