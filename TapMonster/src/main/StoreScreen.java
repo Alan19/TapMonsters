@@ -1,5 +1,6 @@
 package main;
 
+import java.awt.Color;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -21,15 +22,17 @@ public class StoreScreen extends ClickableScreen implements Runnable {
 	private TextLabel greeting;
 	private TextArea playerMoney;
 	private TextArea itemsInfo;
+	private TextArea playerLifeBox;
 	private TransparentRoundedRect artifactsBG;
 	private TransparentRoundedRect greetingBG;
 	private TransparentRoundedRect itemInfoBG;
-	private Button buyButton;
+	private Button backButton;
 	private Graphic background;
 	private Artifact currentArtifact;
 	private ArrayList<Artifact> artifacts;
 	private ArrayList<ClickableGraphic> artifactPictures;
 	private int playerBalance;
+	private int playerLife;
 	
 
 	public StoreScreen(int width, int height) {
@@ -61,14 +64,22 @@ public class StoreScreen extends ClickableScreen implements Runnable {
 	@Override
 	public void initAllObjects(List<Visible> viewObjects) {
 		playerBalance = 10000;
+		playerLife = 3;
 		greeting = new TextLabel((int)(getWidth()/5.5), 60, getWidth()-30, 40, "Welcome to the shop Adventurer!");
 		greeting.setSize(50);
+		playerLifeBox = new TextArea(getWidth()-310, 510, 270, 40, "You have: " + playerLife + " Lives");
 		playerMoney = new TextArea(getWidth()-310, 470, 270, 40, "You have: " + playerBalance + " Relics");
 		itemsInfo = new TextArea(getWidth()-310, 140, 270, (int)(getHeight()/1.4), "Placeholder. This is a placeholder and nothing but a placeholder. Placeholders are good and serve as good stuff for testing.");
 		
 		greetingBG = new TransparentRoundedRect(15, 50, getWidth()-30, 60, 60, 60);
 		artifactsBG = new TransparentRoundedRect(15, 130, getWidth()-350, (int)(getHeight()/1.3), 80, 80);
 		itemInfoBG = new TransparentRoundedRect((int)(getWidth()-330), 130, 310, (int)(getHeight()/1.3), 80, 80);
+		
+		backButton = new Button(getWidth()-310, 590, 250, 50, "Back", Color.GRAY, new Action(){
+			public void act() {
+				
+			}
+		});
 		
 		background = new Graphic(0, 0, getWidth(), getHeight(), "src/storeImages/bgimage.jpg");
 		
@@ -78,6 +89,8 @@ public class StoreScreen extends ClickableScreen implements Runnable {
 		viewObjects.add(itemInfoBG);
 		viewObjects.add(itemsInfo);
 		viewObjects.add(playerMoney);
+		viewObjects.add(playerLifeBox);
+		viewObjects.add(backButton);
 		viewObjects.add(greeting);
 		createArtifacts();
 		createArtifactPics();
@@ -102,6 +115,8 @@ public class StoreScreen extends ClickableScreen implements Runnable {
 		for(int i = 0; i<artifacts.size(); i++){
 			final Artifact boughtArtifact = artifacts.get(i);
 			ClickableGraphic artifact = new ClickableGraphic(xCoords[i], yCoords[i], artifacts.get(i).getImagePath());
+			//artifact.addMouseListener();
+			//will need mouse listener on clickable graphic
 			artifact.setAction(new Action(){
 				public void act() {
 					if(playerBalance >= boughtArtifact.getPrice()){
@@ -129,6 +144,8 @@ public class StoreScreen extends ClickableScreen implements Runnable {
 		artifacts = new ArrayList();
 		Artifact arti1 = new Artifact("Placeholder", "Worldly Illuminator", 50, new Action(){
 			public void act() {
+				playerLife++;
+				playerLifeBox.setText("You have: " + playerLife + " Lives");
 				System.out.println("Somebody");
 			}
 		}, "src/storeImages/arti1.png");
