@@ -11,6 +11,7 @@ public class AhmedDemo extends GUIApplication{
 	@Override
 	protected void initScreen() {
 		StoreScreen store = new StoreScreen(getWidth(), getHeight());
+		//TestClick store = new TestClick(getWidth(), getHeight());
 		setScreen(store);
 	}
 
