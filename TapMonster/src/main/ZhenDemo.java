@@ -13,7 +13,6 @@ import guiPractice.GUIApplication;
 import guiPractice.components.Action;
 import guiPractice.components.ClickableGraphic;
 import guiPractice.components.Graphic;
-import guiPractice.components.TextArea;
 import guiPractice.components.TextLabel;
 import guiPractice.components.Visible;
 
@@ -30,7 +29,7 @@ public class ZhenDemo extends GUIApplication {
 	 * 
 	 */
 	public ZhenDemo() {
-		super(854, 500);
+		super(1000, 700);
 	}
 
 	/* (non-Javadoc)
@@ -58,6 +57,7 @@ public class ZhenDemo extends GUIApplication {
 		private int level;
 		private int round;
 		private TextLabel deathMessage;
+		private TextLabel artifactName;
 		private TextLabel artifactDescription;
 		private ArrayList<artifacts.Artifact> artifactList;
 		
@@ -75,11 +75,19 @@ public class ZhenDemo extends GUIApplication {
 			Graphic background = new Graphic(0, 0, getWidth(), getHeight(), "src/resources/background.jpg");
 			viewObjects.add(background);
 			
-			deathMessage = new TextLabel(20, 40, 400, 25, "Copperplate Gothic Bold", 20, new Color(98, 106, 102), "You died! Level:" + level + " Round:" + round);
-			artifactDescription = new TextLabel(20, 150, 500, 100, "Copperplate Gothic Bold", 20, new Color(112, 119, 102), "Click on an artifact!");
+			//Information
+			deathMessage = new TextLabel(20, 40, 400, 25, "Copperplate Gothic Bold", 20, new Color(140, 146, 143), "You died! Level:" + level + " Round:" + round);
+			artifactName = new TextLabel(20, 150, 500, 100, "Copperplate Gothic Bold", 20, new Color(112, 119, 102), "Click on an artifact!");
+			artifactDescription = new TextLabel(20, 200, 500, 100, "Copperplate Gothic Bold", 20, new Color(112, 119, 102), "");
+			
+			//Artifacts
 			artifactList = new ArrayList<Artifact>();
-			artifactList.add(new Artifact("Increases damage", "Crafter's Elixir", 100, null, "src/resources/Crafter's_Elixir.png"));
-			artifactList.add(new Artifact("Increases damage by 100%", "Death Seeker", 100, null, "src/resources/death_dance.png"));
+			artifactList.add(new Artifact("Increases damage by 25% and heals you", "Crafter's Elixir", 100, null, "src/resources/crafters_elixir.png"));
+			artifactList.add(new Artifact("Increases damage by 100%", "Death Seeker", 100, null, "src/resources/death_seeker.png"));
+			artifactList.add(new Artifact("Prevents certain death once", "Warrior's Revival", 100, null, "src/resources/warriors_revival.png"));
+			artifactList.add(new Artifact("Increases the amount of relics earned", "Amulet of the Valrunes", 100, null, "src/resources/amulet_of_the_valrunes.png"));
+			
+			
 			int x = 20;
 			int y = 80;
 			int width = 100;
@@ -89,19 +97,22 @@ public class ZhenDemo extends GUIApplication {
 				ClickableGraphic artifactImage = new ClickableGraphic(x, y,width, height, artifact.getImagePath());
 				artifactImage.setAction(new Action() {
 					public void act() {
+						artifactName.setText(artifact2.getName());
 						artifactDescription.setText(artifact2.getDescription());
 					}
 				});
 				viewObjects.add(artifactImage);				
 				x += 110;
-				if(x > 299){
+				if(x > getWidth()-10){
 					x = 20;
 					y += 100;
 				}
 			}
-			artifactDescription.setY(y+100);
-			viewObjects.add(artifactDescription);
+			artifactName.setY(y+100);
+			artifactDescription.setY(y+150);
 			viewObjects.add(deathMessage);
+			viewObjects.add(artifactName);
+			viewObjects.add(artifactDescription);
 		}
 		
 	}

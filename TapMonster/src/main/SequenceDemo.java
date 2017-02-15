@@ -1,5 +1,8 @@
 package main;
-
+/**
+ * @author Joyce
+ *
+ */
 import guiPractice.GUIApplication;
 import player.ScoreDemo;
 import player.ScoreScreen;
