@@ -45,14 +45,15 @@ public class InventoryScreen extends ClickableScreen implements Runnable{
 	@Override
 	public void initObjects(ArrayList<Visible> viewObjects) {
 		title = new TextLabel((int)(getWidth()/2.5),40,getWidth()/2,50, "Inventory");
-		
-		//artifactDescription = new TextLabel();
+		artifactName = new TextLabel(700,135,getWidth()/3,50,"artifact name");
+		artifactDescription = new TextLabel(700,200,getWidth()/3,50,"artifact desc");
 		info = new TransparentRoundedRect(700,120,getWidth()/3,300,50,50);
 		bkgd = new Graphic(0,0,getWidth(),getHeight(),"src/resources/background.jpg");
 		viewObjects.add(bkgd);
 		viewObjects.add(title);	
 		viewObjects.add(info);
-		//viewObjects.add(artifactName);
+		viewObjects.add(artifactName);
+		viewObjects.add(artifactDescription);
 		
 	}
 
@@ -76,20 +77,23 @@ public class InventoryScreen extends ClickableScreen implements Runnable{
 		//for now artifacts will be displayed independent of
 		//items bought
 		
+		int[] xCoord = {50, 250, 450, 50, 250, 450, 50, 250, 450};
+		int[] yCoord = {150, 150, 150, 350, 350, 350, 550, 550, 550};
+		
 		for(int i = 0; i < artifactsPurchased.size(); i++){
-			ClickableGraphic artifact = new ClickableGraphic(200,200,
+			ClickableGraphic artifact = new ClickableGraphic(xCoord[i],yCoord[i],
 					artifactsPurchased.get(i).getImagePath());
 			
 			artifact.setAction(new Action(){
 				public void act(){
 					//System.out.println("test");
-					//artifactName.setText("test");
-					artifactsPurchased.get(0).getDescription();
+					artifactName.setText("test");
+					//artifactsPurchased.get(0).getDescription();
 				}
 			});
 			viewObjects.add(artifact);
 		}
-		artifactName = new TextLabel(700,135,getWidth()/3,50,"");
+		
 	}
 	
 	private void changeDescription(){
@@ -110,12 +114,39 @@ public class InventoryScreen extends ClickableScreen implements Runnable{
 		//purchased
 		artifactsPurchased = new ArrayList();
 		Artifact first = new Artifact("desc","worldly illuminator",50,
-				new Action(){
-					public void act(){
-						
-					}
-				}, "src/storeImages/arti1.png");
+				//new Action(){
+					//public void act(){
+						//artifactName.setText(artifactsPurchased.get(0).getDescription());
+					//}
+				//}
+	null, "src/storeImages/arti1.png");
+		
+		Artifact second = new Artifact("desc","two",50,
+	null, "src/storeImages/arti2.png");
+		Artifact third = new Artifact("desc","three",50,
+	null, "src/storeImages/arti3.png");
+		Artifact fourth = new Artifact("desc","four",50,
+	null, "src/storeImages/arti4.png");
+		Artifact fifth = new Artifact("desc","five",50,
+	null, "src/storeImages/arti5.png");
+		Artifact sixth = new Artifact("desc","six",50,
+	null, "src/storeImages/arti6.png");
+		Artifact seventh = new Artifact("desc","seven",50,
+	null, "src/storeImages/arti7.png");
+		Artifact eighth = new Artifact("desc","eight",50,
+	null, "src/storeImages/arti8.png");
+		Artifact ninth = new Artifact("desc","nine",50,
+	null, "src/storeImages/arti9.png");
+		
 		artifactsPurchased.add(first);
+		artifactsPurchased.add(second);
+		artifactsPurchased.add(third);
+		artifactsPurchased.add(fourth);
+		artifactsPurchased.add(fifth);
+		artifactsPurchased.add(sixth);
+		artifactsPurchased.add(seventh);
+		artifactsPurchased.add(eighth);
+		artifactsPurchased.add(ninth);
 	}
 
 	public void run() {
