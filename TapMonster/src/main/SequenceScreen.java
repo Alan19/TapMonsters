@@ -35,14 +35,12 @@ public class SequenceScreen extends Screen implements KeyListener{
 	private static Graphic playerChoice; 
 	private static TextLabel text;
 	private static int idx = 0;
-	private static int ctr = 0;
 	
 	public SequenceScreen(int width, int height) {
 		super(width, height);
 	}
 	
 	public void addToDisplayedSequence(int numOfTimes){
-		//if(ctr < s.getSequence().size() ){
 			for (int i = 0; i < numOfTimes; i++){
 				if (s.getSequence().get(idx) == 0){
 					displayedSequence.add(new Graphic(sequencex, y, w, h, "src/sequenceArrows/arrowUp.jpg"));
@@ -61,13 +59,12 @@ public class SequenceScreen extends Screen implements KeyListener{
 					playerMatch.add("A");
 				}
 				sequencex+=60;
+			//	System.out.println(sequencex);
 				if (idx < s.getSequence().size() ) idx++;
-				ctr++;
 		//	}
 		//}else{
 			//System.out.println("You've won!");
 		}
-		//System.out.println(ctr);
 	}
 	
 	public void addToViewObjects(int l){
@@ -113,11 +110,12 @@ public class SequenceScreen extends Screen implements KeyListener{
 				for (int i = 0; i < viewObjects.size() -1; i++){
 						viewObjects.get(i).setX(viewObjects.get(i).getX() - 60);
 					}
-				System.out.println(playerMatch);
-				System.out.println(s.getSequence());
-				if(ctr < s.getSequence().size()){
+				sequencex = sequencex - 60;
+//				System.out.println(playerMatch);
+//				System.out.println(s.getSequence());
+				if(idx < s.getSequence().size()){
 					addToDisplayedSequence(1);
-					ctr++;
+					System.out.println("idx = " + idx + "");
 					addToViewObjects(1);
 				}else{
 					System.out.println("You've won!");
