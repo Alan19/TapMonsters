@@ -90,11 +90,10 @@ public class ZhenDemo extends GUIApplication {
 			
 			int x = 20;
 			int y = 80;
-			int width = 100;
-			int height = 100;
+			int width = 75;
 			for (Artifact artifact : artifactList) {
 				final Artifact artifact2 = artifact;
-				ClickableGraphic artifactImage = new ClickableGraphic(x, y,width, height, artifact.getImagePath());
+				ClickableGraphic artifactImage = new ClickableGraphic(x, y,width, width, artifact.getImagePath());
 				artifactImage.setAction(new Action() {
 					public void act() {
 						artifactName.setText(artifact2.getName());
@@ -102,10 +101,10 @@ public class ZhenDemo extends GUIApplication {
 					}
 				});
 				viewObjects.add(artifactImage);				
-				x += 110;
+				x += width + 10;
 				if(x > getWidth()-10){
 					x = 20;
-					y += 100;
+					y += width + 25;
 				}
 			}
 			artifactName.setY(y+100);
