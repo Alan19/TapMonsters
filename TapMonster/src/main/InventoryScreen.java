@@ -80,6 +80,11 @@ public class InventoryScreen extends ClickableScreen implements Runnable{
 		artifactNum = new TextLabel(700, 265, getWidth()/3, 50, "You have "+ collected+ " artifacts");
 		info = new TransparentRoundedRect(700,120,getWidth()/3,300,50,50);
 		bkgd = new Graphic(0,0,getWidth(),getHeight(),"src/resources/background.jpg");
+		back = new Button(10,10,100,50, "Back", Color.red, new Action(){
+			public void act(){
+				//back to main screen
+			}
+		});
 		
 		/*purchaseAllArtifacts = new Button(10,10,100,50, "Show all artifacts", Color.red, new Action(){
 			public void act(){
@@ -94,6 +99,7 @@ public class InventoryScreen extends ClickableScreen implements Runnable{
 		viewObjects.add(artifactName);
 		viewObjects.add(artifactDescription);
 		viewObjects.add(artifactNum);
+		viewObjects.add(back);
 		//viewObjects.add(purchaseAllArtifacts);
 		addArtifact();
 		displayArtifacts();
@@ -149,7 +155,7 @@ public class InventoryScreen extends ClickableScreen implements Runnable{
 		//purchased
 		artifactsPurchased = new ArrayList();
 		//below i added all artifacts for demo purposes
-		Artifact first = new Artifact("desc","worldly illuminator",50,
+		Artifact first = new Artifact("desc","WORLDLY ILLUMINATOR",50,
 				//new Action(){
 					//public void act(){
 						//artifactName.setText(artifactsPurchased.get(0).getDescription());
@@ -157,22 +163,28 @@ public class InventoryScreen extends ClickableScreen implements Runnable{
 				//}
 	null, "src/storeImages/arti1.png");
 		
-		Artifact second = new Artifact("desc","two",50,
+		Artifact second = new Artifact("PREVENTS CERTAIN DEATH ONCE","WARRIOR'S REVIVAL",50,
 	null, "src/storeImages/arti2.png");
-		Artifact third = new Artifact("desc","three",50,
+		Artifact third = new Artifact("desc","DIVINE CHALICE",50,
 	null, "src/storeImages/arti3.png");
-		Artifact fourth = new Artifact("desc","four",50,
+		Artifact fourth = new Artifact("INCREASES DAMAGE BY 25%, HEALS YOU","CRAFTER'S ELIXIR",50,
 	null, "src/storeImages/arti4.png");
-		Artifact fifth = new Artifact("desc","five",50,
+		Artifact fifth = new Artifact("desc","KNIGHT'S SHIELD",50,
 	null, "src/storeImages/arti5.png");
-		Artifact sixth = new Artifact("desc","six",50,
+		Artifact sixth = new Artifact("desc","UNDEAD AURA",50,
 	null, "src/storeImages/arti6.png");
-		Artifact seventh = new Artifact("desc","seven",50,
+		Artifact seventh = new Artifact("desc","DARK CLOAK",50,
 	null, "src/storeImages/arti7.png");
-		Artifact eighth = new Artifact("desc","eight",50,
+		Artifact eighth = new Artifact("desc","CROWN EGG",50,
 	null, "src/storeImages/arti8.png");
-		Artifact ninth = new Artifact("desc","nine",50,
+		Artifact ninth = new Artifact("desc","HERO'S SWORD",50,
 	null, "src/storeImages/arti9.png");
+		Artifact tenth = new Artifact("INCREASES THE AMOUNT OF RELICS EARNED","AMULET OF THE VALRUNES",50,
+				null, "src/resources/amulet_of_the_valrunes.png");
+		Artifact eleventh = new Artifact("desc","DEATH DANCE",50,
+				null, "src/resources/death_dance.png");
+		Artifact twelfth = new Artifact("INCREASES DAMAGE BY 100%","DEATH SEEKER",50,
+				null, "src/resources/death_seeker.png");
 		
 		artifactsPurchased.add(first);
 		artifactsPurchased.add(second);
