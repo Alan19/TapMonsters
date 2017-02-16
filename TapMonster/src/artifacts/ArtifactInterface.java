@@ -9,11 +9,16 @@ public interface ArtifactInterface {
 	
 	public int getPrice();
 	
+	public Action getAction();
+	
+	/**
+	 * @author Alan19
+	 *
+	 */
 	public String getDescription();
 	
 	public String getImagePath();
 		
 	public String getName();
 	
-	public Action getAction();
 }
