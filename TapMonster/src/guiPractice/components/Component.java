@@ -35,7 +35,6 @@ public abstract class Component implements Visible {
 		return image;
 	}
 
-	@Override
 	public int getX() {
 		return x;
 	}
@@ -48,7 +47,6 @@ public abstract class Component implements Visible {
 		this.y = y;
 	}
 
-	@Override
 	public int getY() {
 		return y;
 	}
@@ -59,23 +57,19 @@ public abstract class Component implements Visible {
 	public void setHeight(int h) {
 		this.h=h;
 	}
-	@Override
 	public int getWidth() {
 		return w;
 	}
 
-	@Override
 	public int getHeight() {
 		return h;
 	}
 
-	@Override
 	public boolean isAnimated() {
 		// TODO Auto-generated method stub
 		return false;
 	}
 
-	@Override
 	public void update() {
 		update(image.createGraphics());
 

@@ -30,7 +30,6 @@ public abstract class MovingComponent extends Component implements Runnable {
 		// TODO Auto-generated method stub
 		posx = getX();
 		posy = getY();
-		running = true;
 		//
 		//
 		moveTime = System.currentTimeMillis();

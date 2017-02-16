@@ -74,14 +74,11 @@ public int getW(){
 
 
 
-	@Override
+	
 	public boolean isHovered(int x, int y) {
 		return x>getX()&&x<getX()+getWidth()&&y>getY()&&y<getY()+getHeight();
 	}
 
-
-
-	@Override
 	public void act() {
 		action.act();
 		

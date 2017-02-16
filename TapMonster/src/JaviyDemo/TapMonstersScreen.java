@@ -2,13 +2,14 @@ package JaviyDemo;
 
 import java.awt.Color;
 import java.util.ArrayList;
+import java.util.List;
 
-import guiPractice.component.Action;
-import guiPractice.component.Button;
-import guiPractice.component.Graphic;
-import guiPractice.component.TextLabel;
-import guiPractice.component.Visible;
-import guiPractice.sampleGames.ClickableScreen;
+import guiPractice.ClickableScreen;
+import guiPractice.components.Action;
+import guiPractice.components.Button;
+import guiPractice.components.Graphic;
+import guiPractice.components.TextLabel;
+import guiPractice.components.Visible;
 
 public class TapMonstersScreen extends ClickableScreen implements Runnable,Game{
 
@@ -67,10 +68,10 @@ public class TapMonstersScreen extends ClickableScreen implements Runnable,Game{
 				e.printStackTrace();
 			}
 			timeLeft = timeLeft-.1*effect;
-			if(effect==0.5){
+			if(effect==2.0){
 				if(25<=timeLeft&&timeLeft<=30)time.setText(""+(int)(timeLeft*10.)/10.0);
 				if(0<=timeLeft&&timeLeft<=5)time.setText(""+(int)(timeLeft*10.)/10.0);
-			}else if(effect==2.0){
+			}else if(effect==0.5){
 				if(timeLeft==25.0){
 					HitPoints.hpDecrease(10);
 					System.out.println("HP DECREASE");
@@ -166,7 +167,8 @@ public class TapMonstersScreen extends ClickableScreen implements Runnable,Game{
 		System.out.println(Monster.description());
 	}
 
-	public void initAllObjects(ArrayList<Visible> viewObjects) {
+	@Override
+	public void initAllObjects(List<Visible> viewObjects) {
 		hpBar = new HitPoints(100,100);
 		background = new Graphic(0,0,.5,"resources/SampleImages/background.jpg");
 		viewObjects.add(background);

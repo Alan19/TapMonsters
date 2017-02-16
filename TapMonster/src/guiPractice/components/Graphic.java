@@ -14,6 +14,7 @@ public class Graphic implements Visible {
 	private boolean loadedImages;
 	private int x;
 	private int y;
+	private String imagePath;
 
 	public Graphic(int x, int y, int w, int h, String imageLocation){	
 		this.x = x;
@@ -50,6 +51,7 @@ public class Graphic implements Visible {
 		this.x = x;
 		this.y = y;
 		loadedImages = false;
+		this.imagePath = imageLocation;
 		loadImages(imageLocation, 0,0);
 	}
 
@@ -101,6 +103,10 @@ public class Graphic implements Visible {
 
 	public int getHeight() {
 		return image.getHeight();
+	}
+	
+	public String getImagePath(){
+		return imagePath;
 	}
 
 	public void update() {

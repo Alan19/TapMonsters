@@ -9,7 +9,7 @@ public static Screen deathScreen;
 public static Screen inventoryScreen;
 public static TapMonstersGame game;
 	public TapMonstersGame(int width, int height) {
-		super();
+		super(1000, 800);
 	}
 
 	@Override
