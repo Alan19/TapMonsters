@@ -170,7 +170,7 @@ public class TapMonstersScreen extends ClickableScreen implements Runnable,Game{
 	@Override
 	public void initAllObjects(List<Visible> viewObjects) {
 		hpBar = new HitPoints(100,100);
-		background = new Graphic(getWidth(),getHeight(),.5,"resources/SampleImages/background.jpg");
+		background = new Graphic(getWidth(),getHeight(),.5,"src/JaviyDemo/background.jpg");
 		viewObjects.add(background);
 		stageLevel = 1;
 		title = new TextLabel(getWidth()/2-60,20,300,40,"TAP MONSTERS");
@@ -190,7 +190,7 @@ public class TapMonstersScreen extends ClickableScreen implements Runnable,Game{
 		viewObjects.add(inventory);
 		viewObjects.add(monster);
 		viewObjects.add(hpBar);
-		System.out.println(getHeight());
+		//System.out.println(.1 * .5);
 	}
 	
 }
