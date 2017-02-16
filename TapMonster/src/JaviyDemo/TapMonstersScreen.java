@@ -73,7 +73,7 @@ public class TapMonstersScreen extends ClickableScreen implements Runnable,Game{
 				if(0<=timeLeft&&timeLeft<=5)time.setText(""+(int)(timeLeft*10.)/10.0);
 			}else if(effect==0.5){
 				if(timeLeft==25.0){
-					HitPoints.hpDecrease(10);
+					hpBar.hpDecrease(10);
 					System.out.println("HP DECREASE");
 					time.setText(""+(int)(timeLeft*10.)/10.0);
 				}else{
@@ -170,7 +170,7 @@ public class TapMonstersScreen extends ClickableScreen implements Runnable,Game{
 	@Override
 	public void initAllObjects(List<Visible> viewObjects) {
 		hpBar = new HitPoints(100,100);
-		background = new Graphic(0,0,.5,"resources/SampleImages/background.jpg");
+		background = new Graphic(getWidth(),getHeight(),.5,"resources/SampleImages/background.jpg");
 		viewObjects.add(background);
 		stageLevel = 1;
 		title = new TextLabel(getWidth()/2-60,20,300,40,"TAP MONSTERS");
@@ -190,6 +190,7 @@ public class TapMonstersScreen extends ClickableScreen implements Runnable,Game{
 		viewObjects.add(inventory);
 		viewObjects.add(monster);
 		viewObjects.add(hpBar);
+		System.out.println(getHeight());
 	}
 	
 }

@@ -29,7 +29,7 @@ public class HitPoints extends Component{
 			playerHp = 0;
 		}
 	}
-	public static void hpDecrease(int x){
+	public void hpDecrease(int x){
 		playerHp = playerHp - 10;
 		update();
 	}
