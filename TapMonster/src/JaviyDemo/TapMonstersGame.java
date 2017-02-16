@@ -4,7 +4,10 @@ import guiPractice.GUIApplication;
 import guiPractice.Screen;
 
 public class TapMonstersGame extends GUIApplication {
-
+public static Screen storeScreen;
+public static Screen deathScreen;
+public static Screen inventoryScreen;
+public static TapMonstersGame game;
 	public TapMonstersGame(int width, int height) {
 		super(1000,500);
 	}

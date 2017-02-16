@@ -192,7 +192,7 @@ public class Monster extends Component implements MonsterName{
 	@Override
 	public void update(Graphics2D g) {
 		if(name!=null){
-			g.setColor(Color.white);
+			g.setColor(Color.black);
 			g.drawString(name, 0, 20);
 		}
 	}
