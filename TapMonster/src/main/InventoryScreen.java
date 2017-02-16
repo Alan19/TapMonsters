@@ -70,6 +70,8 @@ public class InventoryScreen extends ClickableScreen implements Runnable{
 
 	//each artifact has a name and description
 	//shows how many artifacts are collected
+	//can make interface for adding "you gained +something" for
+	//every artifact that is collected in the inventory
 	
 	@Override
 	public void initAllObjects(List<Visible> viewObjects) {
