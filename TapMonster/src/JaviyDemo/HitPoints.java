@@ -31,19 +31,20 @@ public class HitPoints extends Component{
 	}
 	public static void hpDecrease(int x){
 		playerHp = playerHp - 10;
+		update();
 	}
 
 	@Override
 	public void update(Graphics2D g) {
 		//hp
-				int expBarHeight = 20;
-				g.setColor(Color.white);
-				g.fillRect(0, getHeight()/2+10, getWidth()-1, expBarHeight - 1);
-				g.setColor(new Color(102, 179, 255));
-				if (playerHp > 0) g.fillRect(0, getHeight()/2+10, getWidth() * playerHp/maxHp, expBarHeight);
-				else g.fillRect(0, getHeight()/2+10, 0, expBarHeight);
-				g.setColor(Color.black);
-				g.drawRect(0, getHeight()/2+10, getWidth()-1, expBarHeight - 1);
-				g.drawString("Exp = " + playerHp + "/" + maxHp + "", 5, getHeight()/2+25);
+			int expBarHeight = 20;
+			g.setColor(Color.white);
+			g.fillRect(0, getHeight()/2+10, getWidth()-1, expBarHeight - 1);
+			g.setColor(new Color(102, 179, 255));
+			if (playerHp > 0) g.fillRect(0, getHeight()/2+10, getWidth() * playerHp/maxHp, expBarHeight);
+			else g.fillRect(0, getHeight()/2+10, 0, expBarHeight);
+			g.setColor(Color.black);
+			g.drawRect(0, getHeight()/2+10, getWidth()-1, expBarHeight - 1);
+			g.drawString("Exp = " + playerHp + "/" + maxHp + "", 5, getHeight()/2+25);
 	}
 }
