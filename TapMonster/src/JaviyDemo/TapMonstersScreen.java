@@ -2,14 +2,13 @@ package JaviyDemo;
 
 import java.awt.Color;
 import java.util.ArrayList;
-import java.util.List;
 
-import guiPractice.ClickableScreen;
-import guiPractice.components.Action;
-import guiPractice.components.Button;
-import guiPractice.components.Graphic;
-import guiPractice.components.TextLabel;
-import guiPractice.components.Visible;
+import guiPractice.component.Action;
+import guiPractice.component.Button;
+import guiPractice.component.Graphic;
+import guiPractice.component.TextLabel;
+import guiPractice.component.Visible;
+import guiPractice.sampleGames.ClickableScreen;
 
 public class TapMonstersScreen extends ClickableScreen implements Runnable,Game{
 
@@ -29,6 +28,7 @@ public class TapMonstersScreen extends ClickableScreen implements Runnable,Game{
 	private Graphic background;
 	private TextLabel hitPoints;
 	private int hp;
+	private HitPoints hpBar;
 
 	//DOETWAC00M001vl50g
 
@@ -71,9 +71,9 @@ public class TapMonstersScreen extends ClickableScreen implements Runnable,Game{
 				if(25<=timeLeft&&timeLeft<=30)time.setText(""+(int)(timeLeft*10.)/10.0);
 				if(0<=timeLeft&&timeLeft<=5)time.setText(""+(int)(timeLeft*10.)/10.0);
 			}else if(effect==2.0){
-				if(timeLeft%10==0){
-					hp = hp-10;
-					//updateHp(viewObjects);
+				if(timeLeft==25.0){
+					HitPoints.hpDecrease(10);
+					System.out.println("HP DECREASE");
 					time.setText(""+(int)(timeLeft*10.)/10.0);
 				}else{
 					time.setText(""+(int)(timeLeft*10.)/10.0);
@@ -166,12 +166,10 @@ public class TapMonstersScreen extends ClickableScreen implements Runnable,Game{
 		System.out.println(Monster.description());
 	}
 
-	@Override
-	public void initAllObjects(List<Visible> viewObjects) {
-//		background = new Graphic(0,0,.5,"resources/images/background.jpg");
-//		viewObjects.add(background);
-		hp = 100;
-		time = new TextLabel(40,getHeight()-175,75,60,"");
+	public void initAllObjects(ArrayList<Visible> viewObjects) {
+		hpBar = new HitPoints(100,100);
+		background = new Graphic(0,0,.5,"resources/SampleImages/background.jpg");
+		viewObjects.add(background);
 		stageLevel = 1;
 		title = new TextLabel(getWidth()/2-60,20,300,40,"TAP MONSTERS");
 		hitPoints = new TextLabel(25,25,120,60,"HP " + hp);
@@ -182,12 +180,14 @@ public class TapMonstersScreen extends ClickableScreen implements Runnable,Game{
 		viewObjects.add(stage);
 		viewObjects.add(hitPoints);
 		viewObjects.add(timerBackground);
+		time = new TextLabel(40,getHeight()-150,75,60,"");
 		viewObjects.add(time);
 		viewObjects.add(nextLevel);
 		viewObjects.add(prestige);
 		viewObjects.add(store);
 		viewObjects.add(inventory);
 		viewObjects.add(monster);
+		viewObjects.add(hpBar);
 	}
 	
 }
