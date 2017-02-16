@@ -11,21 +11,22 @@ import java.util.ArrayList;
  */
 public class Sequence {
 
+	private ArrayList<Integer> sequence;
+
 	/**
+	 * @return 
+	 * @return 
 	 * 
 	 */
-
-	public static int W = 0;
-	public static int A = 1;
-	public static int S = 2;
-	public static int D = 3;
 	
-//	public static void main(String[] args) {
-//		for (int i = 0; i < 250; i++) {
-//			
-//			Sequence x = new Sequence((int) (30*Math.random()));
-//		}
-//	}
+/**	public static void main(String[] args) {
+		Sequence x = new Sequence(10);
+		/**for (int i = 0; i < x.getSequence().size(); i++) {
+			System.out.println(x.getSequence().get(i));
+		}
+		System.out.println(x.getSequence().get(1));
+
+	}*/
 	
 	public Sequence(int numKeys) {
 		ArrayList<Integer> sequence = new ArrayList<Integer>();
@@ -34,7 +35,16 @@ public class Sequence {
 			int num = (int) (4*rand);
 			sequence.add(num);
 		}
+		this.setSequence(sequence);
 //		System.out.println(sequence.toString());
+	}
+
+	public ArrayList<Integer> getSequence() {
+		return sequence;
+	}
+
+	public void setSequence(ArrayList<Integer> sequence) {
+		this.sequence = sequence;
 	}
 
 }
