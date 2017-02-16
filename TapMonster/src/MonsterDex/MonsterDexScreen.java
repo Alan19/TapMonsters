@@ -3,12 +3,15 @@ package MonsterDex;
 import guiPractice.GUIApplication;
 
 public class MonsterDexScreen extends GUIApplication{
+	
+	public static MonsterDexScreen profile;
 
-	public MonsterDexScreen() {
-		super(1200,900);
-		// TODO Auto-generated constructor stub
+	public static void main(String[] args) {
+		MonsterDexScreen profile = new MonsterDexScreen();
+		Thread app = new Thread(profile);
+		app.start();
 	}
-
+	
 	@Override
 	protected void initScreen() {
 		MonsterDex dex = 
@@ -16,10 +19,9 @@ public class MonsterDexScreen extends GUIApplication{
 		setScreen(dex);
 	}
 	
-	public static void main(String[] args) {
-		MonsterDexScreen profile = new MonsterDexScreen();
-		Thread app = new Thread(profile);
-		app.start();
+	public MonsterDexScreen() {
+		super(1000,800);
 	}
+	
 
 }

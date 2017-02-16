@@ -1,5 +1,6 @@
 package MonsterDex;
 
+import guiPractice.components.Action;
 import guiPractice.components.Graphic;
 
 public class MonsterGraphic extends Graphic{
@@ -20,6 +21,11 @@ public class MonsterGraphic extends Graphic{
 	
 	private static String randInt() {
 		return Integer.toString((int)(Math.random()*10));
+	}
+
+	public void act() {
+		// TODO Auto-generated method stub
+		
 	}
 
 	
