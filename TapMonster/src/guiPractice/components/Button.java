@@ -65,7 +65,7 @@ public int getW(){
 		g.fillRoundRect(0, 0, getWidth(), getHeight(), arcWidth, arcHeight);
 		if (getText() != null) {
 			g.setFont(new Font(getFont(), Font.PLAIN, getSize()));
-			g.setColor(Color.black);
+			g.setColor(Color.white);
 			g.drawString(getText(), 4, getHeight() - 5);
 		}
 

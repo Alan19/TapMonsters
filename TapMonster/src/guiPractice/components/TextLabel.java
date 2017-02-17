@@ -11,7 +11,7 @@ public class TextLabel extends Component {
 	private String text;
 	private String font;
 	private int size;
-	private Color color = Color.BLACK;
+	private Color color = Color.WHITE;
 
 	public TextLabel(int x, int y, int w, int h, String text) {
 		super(x, y, w, h);

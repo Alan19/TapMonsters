@@ -1,15 +1,13 @@
-package main;
+package JaviyDemo;
 
 import java.awt.Graphics2D;
 import java.util.ArrayList;
 import java.util.List;
-
-import artifacts.Artifact;
-import guiPractice.ClickableScreen;
 import guiPractice.components.TextArea;
 import guiPractice.components.Visible;
+import guiPractice.sampleGames.ClickGraphicsScreen;
 
-public class InventoryScreen extends ClickableScreen implements Runnable{
+public class InventoryScreen extends ClickGraphicsScreen implements Runnable{
 	
 	private TextArea title;
 	private ArrayList<Artifact> artifacts;
@@ -21,12 +19,12 @@ public class InventoryScreen extends ClickableScreen implements Runnable{
 		app.start();
 	}
 
+	@Override
 	public void run() {
 		g.drawRect(100, 100, 100, 100);
 		
 	}
 
-	@Override
 	public void initAllObjects(List<Visible> viewObjects) {
 		title = new TextArea(40,85,700,25, "Inventory");
 		viewObjects.add(title);
