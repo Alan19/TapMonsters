@@ -35,10 +35,8 @@ public class MonsterDex extends ClickableScreen implements Runnable{
 	
 	
 	public void initObjects(final ArrayList<Visible> viewObjects){
-		Monsters = new ArrayList<MonDexInterface>();
 		Next = new Button(getWidth() - 110, getHeight() - 70, 90, 50, "Next", Color.decode("#a52a2a"), null);
 		Back = new Button(20, getHeight() - 70, 90, 50, "Back", Color.decode("#a52a2a"), new Action() {
-			
 			public void act() {
 				MonID++;
 			}
