@@ -33,7 +33,6 @@ public class Score extends Component implements ScoreKeeper{
 		score = 0;
 	}
 
-	@Override
 	public void addReward(int percent) {
 		//System.out.println("Got a reward with " + percent);
 		score += score*((percent/100)+1);
@@ -42,7 +41,6 @@ public class Score extends Component implements ScoreKeeper{
 		update();
 	}
 	
-	@Override
 	public void addArtifact(int cost) {
 		score += cost;
 		playerExp+=cost;
@@ -50,7 +48,6 @@ public class Score extends Component implements ScoreKeeper{
 		update();
 	}
 	
-	@Override
 	public void addMonster(int sequenceLength) {
 		score += sequenceLength*10;
 		playerExp+= sequenceLength;
@@ -58,7 +55,6 @@ public class Score extends Component implements ScoreKeeper{
 		update();
 	}
 	
-	@Override
 	public void addSequenceMultiplier(int sequenceRight, int totalSeqLength) {
 		if (totalSeqLength != seqLength) newLevel = true;
 		if (newLevel){
