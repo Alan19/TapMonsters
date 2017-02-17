@@ -20,11 +20,12 @@ public class SequenceScreen extends Screen implements KeyListener{
 
 	public static int sequencex = 50;
 	public static int playerx = 50;
-	public int playery = y+100;
 	public static int y = 50;
 	public static int w = 50;
 	public static int h = 50;
 	
+	public int playery = y+100;
+
 	private static Sequence s = new Sequence(10);
 	private static ArrayList<String> playerMatch = new ArrayList<String>();
 	private static ArrayList<Graphic> displayedSequence = new ArrayList<Graphic>();
