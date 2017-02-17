@@ -5,6 +5,7 @@ import guiPractice.components.Component;
 import guiPractice.components.Graphic;
 import guiPractice.components.MovingComponent;
 import interfaces.Attack;
+import interfaces.KeysToPlayer;
 import interfaces.PlayerInterface;
 
 public class Player extends Component  {
