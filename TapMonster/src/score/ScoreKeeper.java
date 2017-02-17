@@ -1,9 +1,14 @@
 package score;
 
-public class ScoreKeeper {
+public interface ScoreKeeper {
 
-	public ScoreKeeper() {
-		// TODO Auto-generated constructor stub
-	}
+	void addReward(int percent);
+	
+	void addArtifact(int cost);
+	
+	void addMonster(int sequenceLength);
+	
+	void addSequenceMultiplier(int sequenceRight, int totalseqLength);
 
+	//void addExp();
 }
