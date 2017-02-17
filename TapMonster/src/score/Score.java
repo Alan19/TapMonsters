@@ -29,7 +29,7 @@ public class Score extends Component implements ScoreKeeper{
 	public static int maxExp = 100;
 	
 	public Score(int x, int y) {
-		super(x, y, 100, 200);
+		super(x, y, 300, 300);
 		score = 0;
 	}
 

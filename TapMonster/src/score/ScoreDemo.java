@@ -24,7 +24,7 @@ public class ScoreDemo extends GUIApplication {
 	}
 
 	public static void main(String[] args) {
-		ScoreDemo demo = new ScoreDemo(300, 300);
+		ScoreDemo demo = new ScoreDemo(1000, 500);
 		Thread app = new Thread(demo);
 		app.start();
 

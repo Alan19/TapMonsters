@@ -1,6 +1,3 @@
-/**
- * 
- */
 package score;
 
 import java.awt.Color;
