@@ -25,12 +25,7 @@ public class SequenceScreen extends Screen implements KeyListener{
 	public static int h = 50;
 	
 	public int playery = y+100;
-	
-	private static Graphic arrowUp = new Graphic(sequencex, y, w, h, "src/sequenceArrows/arrowUp.jpg");
-	private static Graphic arrowDown = new Graphic(sequencex, y, w, h, "src/sequenceArrows/arrowDown.jpg");
-	private static Graphic arrowLeft = new Graphic(sequencex, y, w, h, "src/sequenceArrows/arrowLeft.jpg");
-	private static Graphic arrowRight = new Graphic(sequencex, y, w, h, "src/sequenceArrows/arrowRight.jpeg");
-	
+
 	private static Sequence s = new Sequence(10);
 	private static ArrayList<String> playerMatch = new ArrayList<String>();
 	private static ArrayList<Graphic> displayedSequence = new ArrayList<Graphic>();

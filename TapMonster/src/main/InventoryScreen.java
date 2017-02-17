@@ -2,19 +2,16 @@ package main;
 
 import java.awt.Color;
 import java.awt.Graphics2D;
-import java.awt.TextArea;
-import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 import java.util.List;
 
 import artifacts.Artifact;
-import guiPractice.Screen;
+import guiPractice.ClickableScreen;
 import guiPractice.components.Action;
 import guiPractice.components.Button;
-import guiPractice.components.Clickable;
 import guiPractice.components.ClickableGraphic;
 import guiPractice.components.Graphic;
-import guiPractice.ClickableScreen;
+import guiPractice.components.TextArea;
 import guiPractice.components.TextLabel;
 import guiPractice.components.TransparentRoundedRect;
 import guiPractice.components.Visible;
@@ -205,8 +202,5 @@ public class InventoryScreen extends ClickableScreen implements Runnable{
 		
 		
 	}
-
-	
-	
 
 }

@@ -1,23 +1,22 @@
-package guiPractice.TapMonsters;
+package JaviyDemo;
 
 import guiPractice.GUIApplication;
-import guiPractice.Simon.SimonGameSimon;
-import guiPractice.Simon.SimonScreenSimon;
+import guiPractice.Screen;
 
 public class TapMonstersGame extends GUIApplication {
 
 	public TapMonstersGame(int width, int height) {
-		super(width, height);
+		super();
 	}
 
 	@Override
 	public void initScreen() {
-		TapMonstersScreen tapScreen = new TapMonstersScreen(getWidth(), getHeight());
+		Screen tapScreen = new TapMonstersScreen(getWidth(), getHeight());
 		setScreen(tapScreen);
 	}
 
 	public static void main(String[] args) {
-		TapMonstersGame game = new TapMonstersGame(600, 500);
+		TapMonstersGame game = new TapMonstersGame(1000, 500);
 		Thread app = new Thread(game);
 		app.start();
 	}

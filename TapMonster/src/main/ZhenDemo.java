@@ -66,12 +66,11 @@ public class ZhenDemo extends GUIApplication {
 			this.artifactList = artifacts;
 			this.level = level;
 			this.round = round;
+			deathMessage.setText("You died! Level:" + level + " Round:" + round);
 		}
 
 		@Override
 		public void initAllObjects(List<Visible> viewObjects) {
-			level = 10;
-			round = 5;
 			Graphic background = new Graphic(0, 0, getWidth(), getHeight(), "src/resources/background.jpg");
 			viewObjects.add(background);
 			
