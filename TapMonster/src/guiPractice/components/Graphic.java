@@ -30,6 +30,7 @@ public class Graphic implements Visible {
 		loadImages(imageLocation, scale);
 	}
 
+	//you can change this one
 	public void loadImages(String imageLocation, double scale) {
 		try{
 			//get the full-size image
@@ -55,6 +56,7 @@ public class Graphic implements Visible {
 		loadImages(imageLocation, 0,0);
 	}
 
+	//please do not change to private
 	public void loadImages(String imageLocation, int w, int h) {
 		try{
 			//get the full-size image
