@@ -127,7 +127,8 @@ public class Monster extends Component implements MonsterName{
 	private static String[] name2 = {"Calm","Hasty","Lazy","Casual","Caring","Emotional","Brave","Honest","Fluffy","Safe"};
 	private static String[] name3 = {"Beast","Fiend","Titan","Demon","Colossus","Savage","Monster","Animal","Thingy"};
 	private static ArrayList<String> names = new ArrayList<String>();
-	private static String[][] abilities = {{"Normal", "0"},{"Frost","1"},{"Pyro","2"},{"Poisonous","3"},{"Godly","4"}};
+//	private static String[][] abilities = {{"Normal", "0"},{"Frost","1"},{"Pyro","2"},{"Poisonous","3"},{"Godly","4"}};
+	private static String[][] abilities = {{"Pyro", "0"},{"Pyro","1"},{"Pyro","2"},{"Pyro","3"},{"Pyro","4"}};
 	private static final int[] RANGE_1 = {0,56,76,91,99};
 	private static final int[] RANGE_2 = {55,75,90,98,100};
 
@@ -192,7 +193,7 @@ public class Monster extends Component implements MonsterName{
 	@Override
 	public void update(Graphics2D g) {
 		if(name!=null){
-			g.setColor(Color.white);
+			g.setColor(Color.black);
 			g.drawString(name, 0, 20);
 		}
 	}
