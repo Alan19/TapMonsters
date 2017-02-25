@@ -38,9 +38,10 @@ public class IntroScreen extends ClickableScreen implements Attack, PlayerInterf
 	private TextArea text;
 	private Button startButton;
 	private Graphic picture;
-	private Player player;
-	private int zz = 1;
-
+	//for demo{
+	//private Player player;
+	//private int zz = 1;
+	//}
 
 
 
@@ -101,14 +102,21 @@ public class IntroScreen extends ClickableScreen implements Attack, PlayerInterf
 				+ "Prestige is something that you can press to reset your stage to the beginning, but you save all of your artifacts and hearts and use those to get further into the game. "
 				+ "So if you defeat the monster in the set amount of time given, then the entire main screen freezes, until you are ready to move on to the next stage.";
 		text = new TextArea(30, 30, getWidth() - 60, getHeight() - 60, instructions);
-		final Player player = new Player(500,250);
+		
+		//for demo{
+		//final Player player = new Player(500,250);
+		//}
 		startButton = new Button(getWidth() / 2, getHeight() - 40, 100, 30, "Button", Color.RED, new Action() {
 		
 			public void act() {
 				//TapMonsters.game.setScreen(TapMonstersGame.tapScreen);
 				//viewObjects.remove(viewObjects.size()-1);
-				player.setMove(zz%5);
-				zz++;
+				
+				//for demo{
+				//player.setMove(zz%5);
+				//zz++;
+				//}
+				
 				//System.out.println("BUTTON IS WORKING");
 			}
 
@@ -117,8 +125,10 @@ public class IntroScreen extends ClickableScreen implements Attack, PlayerInterf
 		viewObjects.add(picture);
 		viewObjects.add(text);
 		viewObjects.add(startButton);
-		viewObjects.add(player);
-
+		
+		//for demo{
+		//viewObjects.add(player);
+		//}
 	}
 
 
