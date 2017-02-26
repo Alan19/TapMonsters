@@ -115,7 +115,7 @@ public class Monster extends Component implements MonsterName{
 
 	private static String[] name1 = {"Terrifying","Big","Tiny","Dangerous","Angry","Cruel","Awesome","Friendly","Deathly","Lonely"};
 	private static String[] name2 = {"Calm","Hasty","Lazy","Casual","Caring","Emotional","Brave","Honest","Fluffy","Safe"};
-	private static String[] name3 = {"Beast","Fiend","Titan","Demon","Colossus","Savage","Monster","Animal","Thingy"};
+	private static String[] name3 = {"Beast","Fiend","Titan","Demon","Monster","Thingy"};
 	private static ArrayList<String> names = new ArrayList<String>();
 	private static String[][] abilities = {{"Normal", "0"},{"Frost","1"},{"Pyro","2"},{"Poisonous","3"},{"Godly","4"}};
 //	private static String[][] abilities = {{"Pyro", "0"},{"Pyro","1"},{"Pyro","2"},{"Pyro","3"},{"Pyro","4"}};
