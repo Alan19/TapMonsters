@@ -60,6 +60,7 @@ public class TextLabel extends Component {
 	}
 	public void setTextColor(Color c){
 	this.color = c;
+	update();
 	}
 	@Override
 	public void update(Graphics2D g) {

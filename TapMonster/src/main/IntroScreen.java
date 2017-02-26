@@ -32,15 +32,19 @@ public class IntroScreen extends ClickableScreen implements Attack, PlayerInterf
 
 
 
-
-
+	public static ArrayList<String> art;
+	private int difficulty;
 	private String instructions;
 	private TextArea text;
 	private Button startButton;
+	private Button diffButton;
+	private TextLabel diffLabel;
 	private Graphic picture;
-	private Player player;
-	private int zz = 1;
-
+	private String[] diffArray;
+	//for demo{
+	//private Player player;
+	//private int zz = 1;
+	//}
 
 
 
@@ -90,6 +94,8 @@ public class IntroScreen extends ClickableScreen implements Attack, PlayerInterf
 
 	@Override
 	public void initAllObjects(final List<Visible> viewObjects) {
+	difficulty=0;
+	final String[] diffArray={"normal","hard","extreme"};
 		Graphic picture= new Graphic(0,0,getWidth(),getHeight(),"src/resources/background.jpg");
 		instructions =  "You are on a journey to fight monsters and get to the highest stage possible. "
 				+ "You kill a monster from completing an arrow key sequence in a certain amount of time, bosses also use (A,S,W,D) for their sequence. "
@@ -100,25 +106,45 @@ public class IntroScreen extends ClickableScreen implements Attack, PlayerInterf
 				+ "There are buttons on the left for you to click after you aren’t in battle such as store, inventory, next level, and prestige. "
 				+ "Prestige is something that you can press to reset your stage to the beginning, but you save all of your artifacts and hearts and use those to get further into the game. "
 				+ "So if you defeat the monster in the set amount of time given, then the entire main screen freezes, until you are ready to move on to the next stage.";
+		//text.setTextColor(Color.WHITE);
 		text = new TextArea(30, 30, getWidth() - 60, getHeight() - 60, instructions);
-		final Player player = new Player(500,250);
-		startButton = new Button(getWidth() / 2, getHeight() - 40, 100, 30, "Button", Color.RED, new Action() {
+		diffLabel= new TextLabel(getWidth() / 3, getHeight() - 40, 100, 30,"Helvetica",20,Color.WHITE,diffArray[(difficulty%3)]);
+		diffButton = new Button(getWidth() / 5, getHeight() - 40, 100, 30, "difficulty", Color.RED, new Action() {
 		
 			public void act() {
+				difficulty++;
+				diffLabel.setText(diffArray[(difficulty%3)]);
+			}
+		});
+		startButton = new Button(getWidth() / 2, getHeight() - 40, 100, 30, "START", Color.RED, new Action() {
+		
+			public void act() {
+				int i = difficulty;
+				while(i>0){
 				//TapMonsters.game.setScreen(TapMonstersGame.tapScreen);
+				int tempInt = (int) ((art.size()) * Math.random());
+				art.remove(tempInt);
+				}
 				//viewObjects.remove(viewObjects.size()-1);
-				player.setMove(zz%5);
-				zz++;
+				
+				//for demo{
+				//player.setMove(zz%5);
+			//	zz++;
+				//}
+				
 				//System.out.println("BUTTON IS WORKING");
 			}
 
 		});
-		text.setText(instructions);
+	//	text.setText(instructions);
 		viewObjects.add(picture);
 		viewObjects.add(text);
 		viewObjects.add(startButton);
-		viewObjects.add(player);
-
+		viewObjects.add(diffButton);
+		viewObjects.add(diffLabel);
+		//for demo{
+		//viewObjects.add(player);
+		//}
 	}
 
 
