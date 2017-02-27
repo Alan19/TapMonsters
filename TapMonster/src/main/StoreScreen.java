@@ -77,7 +77,7 @@ public class StoreScreen extends ClickableScreen implements Runnable {
 		
 		backButton = new Button(getWidth()-310, 590, 250, 50, "Back", Color.GRAY, new Action(){
 			public void act() {
-				
+				TapMonsterGame.game.setScreen(TapMonsterGame.main);
 			}
 		});
 		
