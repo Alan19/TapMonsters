@@ -1,32 +1,22 @@
 package MonsterDex;
 
+import java.util.ArrayList;
+
 import guiPractice.components.Action;
 import guiPractice.components.Graphic;
+import interfaces.MonDexInterface;
 
 public class MonsterGraphic extends Graphic{
 	
-	public static int MonX;
-	public static int MonY;
+	public static int MonX = 100;
+	public static int MonY = 100;
+	private static int randInt;
 	
-	static final Graphic Mon1 = new Graphic(GetX(), GetY(), 1, "MonsterSprites/Beast/1");
-	static final Graphic Mon2 = new Graphic(GetX(), GetY(), 1, "MonsterSprites/Beast/1");
-	static final Graphic Mon3 = new Graphic(GetX(), GetY(), 1, "MonsterSprites/Beast/1");
-	static final Graphic Mon4 = new Graphic(GetX(), GetY(), 1, "MonsterSprites/Beast/1");
-	static final Graphic Mon5 = new Graphic(GetX(), GetY(), 1, "MonsterSprites/Beast/1");
-	static final Graphic Mon6 = new Graphic(GetX(), GetY(), 1, "MonsterSprites/Beast/1");
-	static final Graphic Mon7 = new Graphic(GetX(), GetY(), 1, "MonsterSprites/Beast/1");
-	static final Graphic Mon8 = new Graphic(GetX(), GetY(), 1, "MonsterSprites/Beast/1");
-	static final Graphic Mon9 = new Graphic(GetX(), GetY(), 1, "MonsterSprites/Beast/1");
-	static final Graphic Mon10 = new Graphic(GetX(), GetY(), 1, "MonsterSprites/Beast/1");
-	static final Graphic Mon11 = new Graphic(GetX(), GetY(), 1, "MonsterSprites/Beast/1");
-	static final Graphic Mon12 = new Graphic(GetX(), GetY(), 1, "MonsterSprites/Beast/1");
-	static final Graphic Mon13 = new Graphic(GetX(), GetY(), 1, "MonsterSprites/Beast/1");
-	static final Graphic Mon14 = new Graphic(GetX(), GetY(), 1, "MonsterSprites/Beast/1");
-	static final Graphic Mon15 = new Graphic(GetX(), GetY(), 1, "MonsterSprites/Beast/1");
-	static final Graphic Mon16 = new Graphic(GetX(), GetY(), 1, "MonsterSprites/Beast/1");
+	public static String[] FilePaths = {""};
+	public int[] Encounters = new int[FilePaths.length];
 	
 	public MonsterGraphic(int x, int y, int w, int h, String species) {
-		super(x, y, species);
+		super(x, y, getMonster(species));
 	}
 	
 	public static void SetX(int x){
@@ -37,12 +27,73 @@ public class MonsterGraphic extends Graphic{
 		MonY = y;
 	}
 	
-	public static int GetX(){
+	public int getX(){
 		return MonX;
 	}
-	public static int GetY(){
+	public int getY(){
 		return MonY;
 	}
+	
+	public static String getMonster(String type){
+		if(type == "Beast"){
+			getRandInt(type);
+			return "MonsterSprites/Beast"+FilePaths[randInt]+".gif"; 
+		}
+		
+		if(type == "Demon"){
+			getRandInt(type);
+			return "MonsterSprites/Demon"+FilePaths[randInt]+".gif";
+		}
+
+		if(type == "Fiend"){
+			getRandInt(type);
+			return "MonsterSprites/Fiend"+FilePaths[randInt]+".gif";
+		}
+		
+		if(type == "Monster"){
+			getRandInt(type);
+			return "MonsterSprites/Monster"+FilePaths[randInt]+".gif";
+		}
+
+		if(type == "Thingy"){
+			getRandInt(type);
+			return "MonsterSprites/Thingy"+FilePaths[randInt]+".gif";
+		}
+		
+		else if(type == "Titan"){
+			getRandInt(type);
+			return "MonsterSprites/Titan"+FilePaths[randInt]+".gif";
+		}
+		return null;
+	}
+
+	private static void getRandInt(String type) {
+		if(type == "Beast"){
+			randInt = (int) (Math.random()*12);
+		}
+		
+		if(type == "Demon"){
+			randInt = (int) (Math.random()*11) + 12;
+		}
+
+		if(type == "Fiend"){
+			randInt = (int) (Math.random()*11) + 23;
+		}
+		
+		if(type == "Monster"){
+			randInt = (int) (Math.random()*8) + 44;
+		}
+
+		if(type == "Thingy"){
+			randInt = (int) (Math.random()*8) + 52;
+		}
+		
+		if(type == "Titan"){
+			randInt = (int) (Math.random()*11) + 60;
+		}
+	}
+
+	
 	
 	
 

@@ -1,6 +1,8 @@
 package interfaces;
 
-import guiPractice.components.Clickable;
+import java.util.ArrayList;
+
+import MonsterDex.MonsterGraphic;
 
 public interface MonDexInterface{
 		
@@ -8,11 +10,12 @@ public interface MonDexInterface{
 	
 	int setNumEncountered(int encounters);
 
-	String get
 	/**
 	 *@Alan
 	 */
 	String getImagePath();
 
 	String getName();
+	
+	ArrayList<MonsterGraphic> getMonsters();
 }

@@ -13,9 +13,11 @@ import guiPractice.components.TextLabel;
 import guiPractice.components.Visible;
 import interfaces.MonDexInterface;
 
-public class MonsterDexScreen extends ClickableScreen implements Runnable{
+public class MonsterDexScreen extends ClickableScreen implements Runnable,MonDexInterface{
 	
-	private static ArrayList<MonDexInterface> Monsters;
+	private static ArrayList<MonsterGraphic> Monsters;
+
+
 	private Button Next;
 	private Button Back;
 	private Graphic Background;
@@ -53,10 +55,9 @@ public class MonsterDexScreen extends ClickableScreen implements Runnable{
 	
 	private static int PosX = 100;
 	private static int PosY = 100;
-	private int MonID = 1;
 	
 	public MonsterDexScreen(int width,int height) {
-		super(width, height);
+		super(1000, 800);
 		Thread play = new Thread(this);
 		play.start();
 	}
@@ -66,7 +67,7 @@ public class MonsterDexScreen extends ClickableScreen implements Runnable{
 		Next = new Button(getWidth() - 110, getHeight() - 70, 90, 50, "Next", Color.decode("#a52a2a"), null);
 		Back = new Button(20, getHeight() - 70, 90, 50, "Back", Color.decode("#a52a2a"), new Action() {
 			public void act() {
-				MonsterImg.loadImages("src/MonsterSprites/"+MonID+++".gif", MonsterImg.getWidth(), MonsterImg.getHeight());
+				
 			}
 		});
 		
@@ -92,6 +93,41 @@ public class MonsterDexScreen extends ClickableScreen implements Runnable{
 		// TODO Auto-generated method stub
 		
 	}
+	
+	
+	public static void setMonsters(ArrayList<MonsterGraphic> monsters) {
+		Monsters = monsters;
+	}
+
+
+	public void SetDescription(String des) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	public int setNumEncountered(int encounters) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+
+	public String getImagePath() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+	public String getName() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public ArrayList<MonsterGraphic> getMonsters() {
+		return Monsters;
+	}
+
+	
 	
 
 }
