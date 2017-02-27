@@ -29,8 +29,17 @@ public class Graphic implements Visible {
 		loadedImages = false;
 		loadImages(imageLocation, scale);
 	}
+	
+	public Graphic(int x, int y, String imageLocation){
+		this.x = x;
+		this.y = y;
+		loadedImages = false;
+		this.imagePath = imageLocation;
+		loadImages(imageLocation, 0,0);
+	}
 
-	private void loadImages(String imageLocation, double scale) {
+	//you can change this one
+	public void loadImages(String imageLocation, double scale) {
 		try{
 			//get the full-size image
 			ImageIcon icon = new ImageIcon(imageLocation);
@@ -47,15 +56,31 @@ public class Graphic implements Visible {
 		}
 	}
 
-	public Graphic(int x, int y, String imageLocation){
+	//please do not change to private
+	public void loadImages(String imageLocation, int w, int h) {
+		try{
+			//get the full-size image
+			ImageIcon icon = new ImageIcon(imageLocation);
+
+			//use image size of original
+			if(w==0 && h == 0){
+				image = new BufferedImage(icon.getIconWidth(),icon.getIconHeight(),BufferedImage.TYPE_INT_ARGB);
+				Graphics2D g = image.createGraphics();
+				g.drawImage(icon.getImage(), 0, 0, null);
+			}else{
+				image = new BufferedImage(w,h,BufferedImage.TYPE_INT_ARGB);
+				Graphics2D g = image.createGraphics();
+				g.drawImage(icon.getImage(), 0, 0, w, h, 0,0,icon.getIconWidth(), icon.getIconHeight(), null);
+			}
+			loadedImages = true;
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+	}
+	
+	public void loadImages(String imageLocation, int w, int h, int x, int y) {
 		this.x = x;
 		this.y = y;
-		loadedImages = false;
-		this.imagePath = imageLocation;
-		loadImages(imageLocation, 0,0);
-	}
-
-	private void loadImages(String imageLocation, int w, int h) {
 		try{
 			//get the full-size image
 			ImageIcon icon = new ImageIcon(imageLocation);

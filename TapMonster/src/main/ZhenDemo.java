@@ -54,8 +54,6 @@ public class ZhenDemo extends GUIApplication {
 //	nested inner class
 	private class DeathScreenTest extends ClickableScreen{
 
-		private int level;
-		private int round;
 		private TextLabel deathMessage;
 		private TextLabel artifactName;
 		private TextLabel artifactDescription;
@@ -63,21 +61,15 @@ public class ZhenDemo extends GUIApplication {
 		
 		public DeathScreenTest(int level, int round, int width, int height, ArrayList<artifacts.Artifact> artifacts) {
 			super(width, height);
-			this.artifactList = artifacts;
-			this.level = level;
-			this.round = round;
-			deathMessage.setText("You died! Level:" + level + " Round:" + round);
-		}
-
-		@Override
-		public void initAllObjects(List<Visible> viewObjects) {
-			Graphic background = new Graphic(0, 0, getWidth(), getHeight(), "src/resources/background.jpg");
-			viewObjects.add(background);
 			
 			//Game Over information
 			deathMessage = new TextLabel(20, 40, 400, 25, "Copperplate Gothic Bold", 20, new Color(140, 146, 143), "You died! Level:" + level + " Round:" + round);
 			artifactName = new TextLabel(20, 150, 500, 100, "Copperplate Gothic Bold", 20, new Color(112, 119, 102), "Click on an artifact!");
 			artifactDescription = new TextLabel(20, 200, 500, 100, "Copperplate Gothic Bold", 20, new Color(112, 119, 102), "");
+			deathMessage.setText("You died! Level:" + level + " Round:" + round);
+			Graphic background = new Graphic(0, 0, getWidth(), getHeight(), "src/resources/background.jpg");
+			viewObjects.add(background);
+			
 			
 			//Artifacts
 			artifactList = new ArrayList<Artifact>();
@@ -86,24 +78,24 @@ public class ZhenDemo extends GUIApplication {
 			artifactList.add(new Artifact("Prevents certain death once", "Warrior's Revival", 100, null, "src/resources/warriors_revival.png"));
 			artifactList.add(new Artifact("Increases the amount of relics earned", "Amulet of the Valrunes", 100, null, "src/resources/amulet_of_the_valrunes.png"));
 			
-			
 			int x = 20;
 			int y = 80;
-			int width = 75;
+			int imageWidth = 75;
 			for (Artifact artifact : artifactList) {
 				final Artifact artifact2 = artifact;
-				ClickableGraphic artifactImage = new ClickableGraphic(x, y,width, width, artifact.getImagePath());
+				ClickableGraphic artifactImage = new ClickableGraphic(x, y,imageWidth, imageWidth, artifact.getImagePath());
 				artifactImage.setAction(new Action() {
 					public void act() {
 						artifactName.setText(artifact2.getName());
 						artifactDescription.setText(artifact2.getDescription());
 					}
 				});
+				addObject(artifactImage);
 				viewObjects.add(artifactImage);				
-				x += width + 10;
+				x += imageWidth + 10;
 				if(x > getWidth()-10){
 					x = 20;
-					y += width + 25;
+					y += imageWidth + 25;
 				}
 			}
 			//Move artifact description under artifact images
@@ -114,6 +106,11 @@ public class ZhenDemo extends GUIApplication {
 			viewObjects.add(deathMessage);
 			viewObjects.add(artifactName);
 			viewObjects.add(artifactDescription);
+		}
+
+		@Override
+		public void initAllObjects(List<Visible> viewObjects) {
+			
 		}
 		
 	}

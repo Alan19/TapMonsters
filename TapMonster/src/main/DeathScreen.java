@@ -4,18 +4,18 @@
 package main;
 
 import java.awt.Color;
-import java.awt.Graphics2D;
 import java.util.ArrayList;
 import java.util.List;
 
+import MonsterDex.MonsterDexScreen;
 import artifacts.Artifact;
 import guiPractice.ClickableScreen;
 import guiPractice.components.Action;
 import guiPractice.components.ClickableGraphic;
 import guiPractice.components.Graphic;
-import guiPractice.components.TextArea;
 import guiPractice.components.TextLabel;
 import guiPractice.components.Visible;
+import interfaces.MonDexInterface;
 
 /**
  * @author Alan19
@@ -23,65 +23,86 @@ import guiPractice.components.Visible;
  */
 public class DeathScreen extends ClickableScreen{
 
-	private static int level;
-	private static int round;
 	private TextLabel deathMessage;
 	private TextLabel artifactName;
 	private TextLabel artifactDescription;
+	private TextLabel epicKills;
 	private ArrayList<artifacts.Artifact> artifactList;
 	
-	public DeathScreen(int level, int round, int width, int height, ArrayList<artifacts.Artifact> artifacts) {
+	public DeathScreen(int level, int round, int width, int height, ArrayList<artifacts.Artifact> artifacts, ArrayList<MonDexInterface> monsters) {
 		super(width, height);
-		this.artifactList = artifacts;
-	}
-
-	@Override
-	public void initAllObjects(List<Visible> viewObjects) {
-		level = 10;
-		round = 5;
+		
+		//Game Over information and add background
+		deathMessage = new TextLabel(20, 40, 400, 25, "Copperplate Gothic Bold", 20, new Color(140, 146, 143), "You died! Level:" + level + " Round:" + round);
+		deathMessage.setText("You died! Level:" + level + " Round:" + round);
+		viewObjects.add(deathMessage);
+		
+		artifactName = new TextLabel(20, 150, 500, 100, "Copperplate Gothic Bold", 20, new Color(112, 119, 102), "Click on an artifact!");
+		artifactDescription = new TextLabel(20, 200, 500, 100, "Copperplate Gothic Bold", 20, new Color(112, 119, 102), "");
 		Graphic background = new Graphic(0, 0, getWidth(), getHeight(), "src/resources/background.jpg");
 		viewObjects.add(background);
 		
-		//Game Over information
-		deathMessage = new TextLabel(20, 40, 400, 25, "Copperplate Gothic Bold", 20, new Color(140, 146, 143), "You died! Level:" + level + " Round:" + round);
-		artifactName = new TextLabel(20, 150, 500, 100, "Copperplate Gothic Bold", 20, new Color(112, 119, 102), "Click on an artifact!");
-		artifactDescription = new TextLabel(20, 200, 500, 100, "Copperplate Gothic Bold", 20, new Color(112, 119, 102), "");
-		
-		//Artifacts
+		/**Hard-coded artifact example
 		artifactList = new ArrayList<Artifact>();
 		artifactList.add(new Artifact("Increases damage by 25% and heals you", "Crafter's Elixir", 100, null, "src/resources/crafters_elixir.png"));
 		artifactList.add(new Artifact("Increases damage by 100%", "Death Seeker", 100, null, "src/resources/death_seeker.png"));
 		artifactList.add(new Artifact("Prevents certain death once", "Warrior's Revival", 100, null, "src/resources/warriors_revival.png"));
 		artifactList.add(new Artifact("Increases the amount of relics earned", "Amulet of the Valrunes", 100, null, "src/resources/amulet_of_the_valrunes.png"));
+		**/
 		
-		
+		//Loop through artifacts sent in to set width and description on click
 		int x = 20;
 		int y = 80;
-		int width = 75;
+		int imageWidth = 75;
 		for (Artifact artifact : artifactList) {
 			final Artifact artifact2 = artifact;
-			ClickableGraphic artifactImage = new ClickableGraphic(x, y,width, width, artifact.getImagePath());
+			ClickableGraphic artifactImage = new ClickableGraphic(x, y,imageWidth, imageWidth, artifact.getImagePath());
 			artifactImage.setAction(new Action() {
 				public void act() {
 					artifactName.setText(artifact2.getName());
 					artifactDescription.setText(artifact2.getDescription());
 				}
 			});
+			addObject(artifactImage);
 			viewObjects.add(artifactImage);				
-			x += width + 10;
-			if(x > getWidth()-10){
+			
+			//Set next image to go to next line if an image would go past half the screen
+			if(x + imageWidth > getWidth()/2){
 				x = 20;
-				y += width + 25;
+				y += imageWidth + 25;
 			}
+			else x += imageWidth + 10;
 		}
+		
 		//Move artifact description under artifact images
 		artifactName.setY(y+100);
 		artifactDescription.setY(y+150);
 		
 		//Add components for display
-		viewObjects.add(deathMessage);
 		viewObjects.add(artifactName);
 		viewObjects.add(artifactDescription);
+		
+		addBossMonsterKillList(monsters);
 	}
+	
+
+	private void addBossMonsterKillList(ArrayList<MonDexInterface> monsters) {
+		int x = getWidth()/2;
+		int y = 75;
+		epicKills = new TextLabel(getWidth()/2, y, 400, 25, "Copperplate Gothic Bold", 15, new Color(112, 119, 102), "Here is a list of your heroic feats");
+		for (MonDexInterface monster : monsters) {
+			new Graphic(x, y, 100, 100, monster.getImagePath());
+			TextLabel name = new TextLabel(x+110, y, 400, 25, monster.getName());
+			x = getWidth()/2;
+			y += 120;
+		}
+	}
+
+
+	@Override
+	public void initAllObjects(List<Visible> viewObjects) {
+		
+	}
+	
 	
 }

@@ -52,8 +52,8 @@ public class MonsterDex extends ClickableScreen implements Runnable{
 	}
 
 	private Graphic getMonster() {
-		MonID++;
-		return new MonsterGraphic(PosX, PosY, 100, 100, MonID);
+		return null;
+		
 	}
 
 	public void run() {

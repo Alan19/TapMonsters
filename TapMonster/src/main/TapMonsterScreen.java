@@ -10,6 +10,7 @@ import guiPractice.components.Button;
 import guiPractice.components.Graphic;
 import guiPractice.components.TextLabel;
 import guiPractice.components.Visible;
+import score.Score;
 
 public class TapMonsterScreen extends ClickableScreen implements Runnable,Game{
 
@@ -29,6 +30,7 @@ public class TapMonsterScreen extends ClickableScreen implements Runnable,Game{
 	private Graphic background;
 	private int hp;
 	private HitPoints hpBar;
+	public static Score score;
 	
 	public static boolean wasSequenceCompleted = false;
 
@@ -171,6 +173,7 @@ public class TapMonsterScreen extends ClickableScreen implements Runnable,Game{
 		title = new TextLabel(getWidth()/2-60,20,300,40,"TAP MONSTERS");
 	
 		stage = new TextLabel(getWidth()/2-50,30,120,60,"STAGE " + stageLevel);
+		score = new Score(200, 40);
 		addAMonster();
 		addButtons();
 		viewObjects.add(title);
@@ -184,6 +187,7 @@ public class TapMonsterScreen extends ClickableScreen implements Runnable,Game{
 		viewObjects.add(inventoryButton);
 		viewObjects.add(monster);
 		viewObjects.add(hpBar);
+		viewObjects.add(score);
 	}
 	
 }

@@ -29,7 +29,7 @@ public class Score extends Component implements ScoreKeeper{
 	public static int maxExp = 100;
 	
 	public Score(int x, int y) {
-		super(x, y, 300, 300);
+		super(x, y, 150, 100);
 		score = 0;
 	}
 
@@ -88,7 +88,7 @@ public class Score extends Component implements ScoreKeeper{
 		g.fillRect(0, 0, getWidth(), getHeight()/2-10);
 		g.setColor(Color.black);
 		g.drawRect(0, 0, getWidth()-1, (getHeight()-1)/2-10);
-		g.drawString("score = " + score + "", 5, 30);
+		g.drawString("Score = " + score + "", 5, 30);
 		
 		//exp
 		int expBarHeight = 20;
