@@ -12,4 +12,5 @@ public interface RewardTarget {
 	void fillHeart(int i);
 	//method should make unfilled hearts full, adding HP, not heart containers.
 	void getGold(int i);
+	void increaseScore(int i);
 }
