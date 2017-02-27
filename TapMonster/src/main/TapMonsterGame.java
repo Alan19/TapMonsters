@@ -22,7 +22,7 @@ public class TapMonsterGame extends GUIApplication {
 		intro = new IntroScreen(getWidth(),getHeight());
 		store = new StoreScreen(getWidth(),getHeight());
 		inventory = new InventoryScreen(getWidth(),getHeight());
-		death = new DeathScreen(getWidth(),getHeight(), getDefaultCloseOperation(), getDefaultCloseOperation(), null);
+	//	death = new DeathScreen(getWidth(),getHeight(), getDefaultCloseOperation(), getDefaultCloseOperation(), null);
 		setScreen(main);
 	}
 

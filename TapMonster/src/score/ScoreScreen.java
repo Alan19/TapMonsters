@@ -9,6 +9,7 @@ import guiPractice.components.Action;
 import guiPractice.components.Button;
 import guiPractice.components.Graphic;
 import guiPractice.components.Visible;
+import main.TapMonsterScreen;
 
 
 /**
@@ -46,6 +47,7 @@ public class ScoreScreen extends ClickableScreen {
 				int rareness = (int) (Math.random()*10+1);
 				System.out.println("Got an artifact with " + rareness);
 				score.addArtifact(rareness);
+				//System.out.println(TapMonsterScreen.score.score);
 			}
 		});
 		reward = new Button(20, 100, 100, 40, "Get a reward", Color.orange, new Action() {
