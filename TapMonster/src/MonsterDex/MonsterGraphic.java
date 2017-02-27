@@ -1,5 +1,7 @@
 package MonsterDex;
 
+import java.util.ArrayList;
+
 import guiPractice.components.Action;
 import guiPractice.components.Graphic;
 import interfaces.MonDexInterface;
@@ -10,7 +12,7 @@ public class MonsterGraphic extends Graphic implements MonDexInterface{
 	public static int MonY = 100;
 	private static int randInt;
 	
-	public String[] FilePaths = {""};
+	public static String[] FilePaths = {""};
 	public int[] Encounters = new int[FilePaths.length];
 	
 	public MonsterGraphic(int x, int y, int w, int h, String species) {
@@ -34,7 +36,8 @@ public class MonsterGraphic extends Graphic implements MonDexInterface{
 	
 	public static String getMonster(String type){
 		if(type == "Beast"){
-			return Monster 
+			getRandInt(type)
+			return "MonsterSprites/Beast"+FilePaths[randInt]+""; 
 		}
 		
 		if(type == "Demon"){
@@ -59,6 +62,32 @@ public class MonsterGraphic extends Graphic implements MonDexInterface{
 
 	}
 
+	private static void getRandInt(String type) {
+		if(type == "Beast"){
+			randInt = (int) (Math.random()*12);
+		}
+		
+		if(type == "Demon"){
+			
+		}
+
+		if(type == "Fiend"){
+	
+		}
+		
+		if(type == "Monster"){
+			
+		}
+
+		if(type == "Thingy"){
+			
+		}
+		
+		if(type == "Titan"){
+			
+		}
+	}
+
 	public void SetDescription(String des) {
 		// TODO Auto-generated method stub
 		
@@ -72,6 +101,10 @@ public class MonsterGraphic extends Graphic implements MonDexInterface{
 	public String getName() {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	public ArrayList<MonsterGraphic> getMonsters() {
+		
 	}
 	
 	

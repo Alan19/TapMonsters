@@ -16,6 +16,8 @@ import interfaces.MonDexInterface;
 public class MonsterDexScreen extends ClickableScreen implements Runnable{
 	
 	private static ArrayList<MonsterGraphic> Monsters;
+
+
 	private Button Next;
 	private Button Back;
 	private Graphic Background;
@@ -90,6 +92,14 @@ public class MonsterDexScreen extends ClickableScreen implements Runnable{
 	public void initAllObjects(List<Visible> viewObjects) {
 		// TODO Auto-generated method stub
 		
+	}
+	
+	public static ArrayList<MonsterGraphic> getMonsters() {
+		return Monsters;
+	}
+	
+	public static void setMonsters(ArrayList<MonsterGraphic> monsters) {
+		Monsters = monsters;
 	}
 	
 
