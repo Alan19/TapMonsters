@@ -123,7 +123,7 @@ public class IntroScreen extends ClickableScreen implements Attack, PlayerInterf
 			public void act() {
 				int i = difficulty;
 				while(i>0){
-				//TapMonsters.game.setScreen(TapMonstersGame.tapScreen);
+				TapMonsterGame.game.setScreen(TapMonsterGame.main);
 				int tempInt = (int) ((art.size()) * Math.random());
 				viewObjects.remove(TapMonsterGame.artifactPictures.get(tempInt));
 				TapMonsterGame.artifactPictures.remove(tempInt);
