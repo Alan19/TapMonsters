@@ -3,7 +3,6 @@ package interfaces;
 import java.util.ArrayList;
 
 import MonsterDex.MonsterGraphic;
-import guiPractice.components.Clickable;
 
 public interface MonDexInterface{
 		
