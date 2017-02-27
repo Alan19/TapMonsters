@@ -82,6 +82,7 @@ public class InventoryScreen extends ClickableScreen implements Runnable{
 		back = new Button(10,10,100,50, "Back", Color.red, new Action(){
 			public void act(){
 				//back to main screen
+				TapMonsterGame.game.setScreen(TapMonsterGame.main);
 			}
 		});
 		

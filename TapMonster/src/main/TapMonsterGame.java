@@ -5,12 +5,15 @@ import guiPractice.Screen;
 
 public class TapMonsterGame extends GUIApplication {
 
-	//public static TapMonsterGame game;
-	
-	public static Screen intro;
-	public static Screen store;
+
+	public static TapMonsterGame game;
+	public static IntroScreen intro;
+	public static StoreScreen store;
 	public static InventoryScreen inventory;
-	public static Screen death;
+	public static DeathScreen death;
+	//public static MonsterDex monsterScreen;
+	public static Screen main;
+	
 	
 	public TapMonsterGame(int width, int height) {
 		super(width,height);
@@ -18,16 +21,17 @@ public class TapMonsterGame extends GUIApplication {
 
 	@Override
 	public void initScreen() {
-		Screen main = new TapMonsterScreen(getWidth(),getHeight());
+		main = new TapMonsterScreen(getWidth(),getHeight());
 		intro = new IntroScreen(getWidth(),getHeight());
 		store = new StoreScreen(getWidth(),getHeight());
 		inventory = new InventoryScreen(getWidth(),getHeight());
-		//death = new DeathScreen(getWidth(),getHeight(), getDefaultCloseOperation(), getDefaultCloseOperation(), null);
-		setScreen(main);
+		//monsterScreen = new MonsterDex(getWidth(),getHeight());
+		//death = new DeathScreen(1,5, getWidth(), getHeight(), null,null);
+		setScreen(intro);
 	}
 
 	public static void main(String[] args) {
-		TapMonsterGame game = new TapMonsterGame(1200, 800);
+		game = new TapMonsterGame(1200, 800);
 		Thread app = new Thread(game);
 		app.start();
 	}

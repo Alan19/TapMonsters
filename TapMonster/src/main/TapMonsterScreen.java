@@ -11,7 +11,6 @@ import guiPractice.components.Graphic;
 import guiPractice.components.TextLabel;
 import guiPractice.components.Visible;
 
-
 public class TapMonsterScreen extends ClickableScreen implements Runnable,Game{
 
 	private TextLabel title;
@@ -23,15 +22,16 @@ public class TapMonsterScreen extends ClickableScreen implements Runnable,Game{
 	private TextLabel stage;
 	private int stageLevel;//must implement a method to increase this after each time you press next level
 	private Button nextLevel;
-	private Button prestige;
+	private Button monsterDex;
 	private Button store;
 	private Button inventoryButton;
 	private Button timerBackground;
 	private Graphic background;
 	private int hp;
 	private HitPoints hpBar;
-	
+
 	public static boolean wasSequenceCompleted = false;
+	public static boolean win;
 
 	//DOETWAC00M001vl50g
 
@@ -62,40 +62,47 @@ public class TapMonsterScreen extends ClickableScreen implements Runnable,Game{
 
 	private void timer(double effect){
 		time.setText(""+timeLeft);
-		while(timeLeft>0.0){
-			try {
-				Thread.sleep(100);
-			} catch (InterruptedException e) {
-				e.printStackTrace();
-			}
-			timeLeft = timeLeft-.1*effect;
-			if(effect==0.5){
-				if(25<=timeLeft&&timeLeft<=30)time.setText(""+(int)(timeLeft*10.)/10.0);
-				if(0<=timeLeft&&timeLeft<=5)time.setText(""+(int)(timeLeft*10.)/10.0);
-			}else if(effect==2.0){
-				if(timeLeft>=19.7 && timeLeft<20.0 || timeLeft>=9.7 && timeLeft<10.0){
-					hpBar.hpDecrease(10);
-					System.out.println("DECREASE HP");
-					time.setText(""+(int)(timeLeft*10.)/10.0);
-				}else if(timeLeft>=0.0 && timeLeft<=0.3){
-					timeLeft = 0.0;
-					time.setText(""+(int)(timeLeft*10.)/10.0);
-				}else{
-					time.setText(""+(int)(timeLeft*10.)/10.0);
+		while(timeLeft>=0.0){
+			if(timeLeft<=0.2 && timeLeft>=0.0)winOrLose();
+			else{
+				try {
+					Thread.sleep(100);
+				} catch (InterruptedException e) {
+					e.printStackTrace();
 				}
+				timeLeft = timeLeft-.1*effect;
+				if(effect==0.5){
+					if(25<=timeLeft&&timeLeft<=30)time.setText(""+(int)(timeLeft*10.)/10.0);
+					if(0<=timeLeft&&timeLeft<=5)time.setText(""+(int)(timeLeft*10.)/10.0);
+				}else if(effect==2.0){
+					if(timeLeft>=19.7 && timeLeft<20.0 || timeLeft>=9.7 && timeLeft<10.0){
+						hpBar.hpDecrease(10);
+						System.out.println("DECREASE HP");
+						time.setText(""+(int)(timeLeft*10.)/10.0);
+					}else if(timeLeft>=0.0 && timeLeft<=0.3){
+						timeLeft = 0.0;
+						time.setText(""+(int)(timeLeft*10.)/10.0);
+					}else{
+						time.setText(""+(int)(timeLeft*10.)/10.0);
+					}
+				}
+				else time.setText(""+(int)(timeLeft*10)/10.0);
 			}
-			else time.setText(""+(int)(timeLeft*10)/10.0);
 		}
 	}
-	
+
 	private Monster getName() {
 		return new Monster(this,getWidth()/2-50,100);
 	}
-	
+
 
 	public void addButtons(){
-		timerBackground = new Button(40,getHeight()-150,75,60,"TIMER",new Color(153,153,153), null);
-		nextLevel = new Button(getWidth()-150,75,130,40,"NEXT LEVEL",new Color(153,153,153), new Action() {
+		timerBackground = new Button(40,getHeight()-150,75,60,"TIMER",new Color(153,153,153), new Action() {
+
+			public void act() {		
+				return;
+			}
+		});		nextLevel = new Button(getWidth()-200,75,150,40,"NEXT LEVEL",new Color(153,153,153), new Action() {
 
 			public void act() {
 				//Resets the entire level after timer runs out
@@ -105,22 +112,22 @@ public class TapMonsterScreen extends ClickableScreen implements Runnable,Game{
 				else return;
 			}
 		});
-		prestige = new Button(getWidth()-150,25,130,40,"PRESTIGE",new Color(153,153,153), new Action() {
+		monsterDex = new Button(getWidth()-200,25,150,40,"MONSTERDEX",new Color(153,153,153), new Action() {
 
 			public void act() {
-				//resets for the next level
+				TapMonsterGame.game.setScreen(TapMonsterGame.monsterScreen);
 			}
 		});
-		store = new Button(getWidth()-150,125,130,40,"STORE",new Color(153,153,153), new Action() {
+		store = new Button(getWidth()-200,125,150,40,"STORE",new Color(153,153,153), new Action() {
 
 			public void act() {
-				//goes to the store screen
+				TapMonsterGame.game.setScreen(TapMonsterGame.store);
 			}
 		});
-		inventoryButton = new Button(getWidth()-150,175,130,40,"INVENTORY",new Color(153,153,153), new Action() {
+		inventoryButton = new Button(getWidth()-200,175,150,40,"INVENTORY",new Color(153,153,153), new Action() {
 
 			public void act() {
-			//	TapMonsterGame.setScreen(TapMonsterGame.inventory);
+				TapMonsterGame.game.setScreen(TapMonsterGame.inventory);
 			}
 		});
 
@@ -134,43 +141,41 @@ public class TapMonsterScreen extends ClickableScreen implements Runnable,Game{
 
 	public void decreaseLife() {
 		timeAlter = 2.0;
-		System.out.println(Monster.description());
+		//System.out.println(Monster.description());
 	}
 
 	public void addBossSequence() {
-		//Max needs to add the boss sequence here
 		timeAlter = 2.0;
-		System.out.println(Monster.description());
+		//System.out.println(Monster.description());
 	}
 
 	public void speedTimer() {
 		timeAlter = 7.5;
-		System.out.println("Speed timer");
-		System.out.println(Monster.description());
+		//System.out.println(Monster.description());
 
 	}
 
 	public void freezeTimer() {
 		timeAlter = 0.5;
-		System.out.println(Monster.description());
+		//System.out.println(Monster.description());
 
 	}
 
 	public void nothing() {
 		timeAlter = 1.0;
-		System.out.println(Monster.description());
+		//System.out.println(Monster.description());
 	}
 
 	@Override
 	public void initAllObjects(List<Visible> viewObjects) {
 		hpBar = new HitPoints(50,25);
-		background = new Graphic(0,0,0.75,"src/JaviyDemo/background.jpg");
+		background = new Graphic(0,0,0.75,"src/main/background.jpg");
 		viewObjects.add(background);
 		hp = 100;
 		time = new TextLabel(40,getHeight()-175,75,60,"");
 		stageLevel = 1;
 		title = new TextLabel(getWidth()/2-60,20,300,40,"TAP MONSTERS");
-	
+
 		stage = new TextLabel(getWidth()/2-50,30,120,60,"STAGE " + stageLevel);
 		addAMonster();
 		addButtons();
@@ -180,11 +185,34 @@ public class TapMonsterScreen extends ClickableScreen implements Runnable,Game{
 		viewObjects.add(timerBackground);
 		viewObjects.add(time);
 		viewObjects.add(nextLevel);
-		viewObjects.add(prestige);
+		viewObjects.add(monsterDex);
 		viewObjects.add(store);
 		viewObjects.add(inventoryButton);
 		viewObjects.add(monster);
 		viewObjects.add(hpBar);
 	}
 
+	private void pauseTimer(){
+
+	}
+
+	private void winOrLose(){
+		//code here to check if the sequence was completed in the given time
+		//if(playerFinishesSequenceOnTime)wasSequenceCompleted=true;
+
+		
+		//WIN
+		if(timeLeft==0.0 && wasSequenceCompleted){
+			win = true;
+		}
+		//LOSE
+		else{
+			win = false;
+		}
+		if(win==true){
+			return;
+		}else{
+			TapMonsterGame.game.setScreen(TapMonsterGame.death);
+		}
+	}
 }
