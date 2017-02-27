@@ -10,8 +10,7 @@ import guiPractice.components.Button;
 import guiPractice.components.Graphic;
 import guiPractice.components.TextLabel;
 import guiPractice.components.Visible;
-import rewards.Reward;
-import rewards.RewardTarget;
+
 
 public class TapMonsterScreen extends ClickableScreen implements Runnable,Game{
 
