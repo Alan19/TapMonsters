@@ -47,23 +47,23 @@ public class MonsterGraphic extends Graphic{
 			return "MonsterSprites/Beast"+monsterNames[randInt]+".gif"; 
 		}
 		
-		if(type == "Demon"){
+		else if(type == "Demon"){
 			getRandInt(type);
 			encounters[randInt] += 1;
 			return "MonsterSprites/Demon"+monsterNames[randInt]+".gif";
 		}
 
-		if(type == "Fiend"){
+		else if(type == "Fiend"){
 			getRandInt(type);
 			return "MonsterSprites/Fiend"+monsterNames[randInt]+".gif";
 		}
 		
-		if(type == "Monster"){
+		else if(type == "Monster"){
 			getRandInt(type);
 			return "MonsterSprites/Monster"+monsterNames[randInt]+".gif";
 		}
 
-		if(type == "Thingy"){
+		else if(type == "Thingy"){
 			getRandInt(type);
 			return "MonsterSprites/Thingy"+monsterNames[randInt]+".gif";
 		}
@@ -72,7 +72,8 @@ public class MonsterGraphic extends Graphic{
 			getRandInt(type);
 			return "MonsterSprites/Titan"+monsterNames[randInt]+".gif";
 		}
-		return null;
+		getRandInt(type);
+		return "MonsterSprites/Beast"+monsterNames[randInt]+".gif"; 
 	}
 
 	private static void getRandInt(String type) {
@@ -80,25 +81,26 @@ public class MonsterGraphic extends Graphic{
 			randInt = (int) (Math.random()*12);
 		}
 		
-		if(type == "Demon"){
+		else if(type == "Demon"){
 			randInt = (int) (Math.random()*11) + 12;
 		}
 
-		if(type == "Fiend"){
+		else if(type == "Fiend"){
 			randInt = (int) (Math.random()*11) + 23;
 		}
 		
-		if(type == "Monster"){
+		else if(type == "Monster"){
 			randInt = (int) (Math.random()*8) + 44;
 		}
 
-		if(type == "Thingy"){
+		else if(type == "Thingy"){
 			randInt = (int) (Math.random()*8) + 52;
 		}
 		
-		if(type == "Titan"){
+		else if(type == "Titan"){
 			randInt = (int) (Math.random()*11) + 60;
 		}
+		randInt = (int) (Math.random()*12);
 	}
 
 	

@@ -50,11 +50,7 @@ public class MonsterDexScreen extends ClickableScreen implements Runnable,MonDex
 			"They exist mainly in the other world, but can sometimes enter our world. When they do they can stir up any amount of trouble",
 			"The things are despicable creatures, whose appetites consist mainly of anything it can get its hands/tentacles/etc. on",
 			"It can hardly be called a creature, much less a 'thing'. Due to their rarity, they are difficult to fight, since few have seen them and even fewer kill them."};
-	
-	
-	private static int PosX = 100;
-	private static int PosY = 100;
-	
+		
 	public MonsterDexScreen(int width,int height) {
 		super(1000, 800);
 		Thread play = new Thread(this);
@@ -64,12 +60,12 @@ public class MonsterDexScreen extends ClickableScreen implements Runnable,MonDex
 	
 	public void initObjects(final ArrayList<Visible> viewObjects){
 		Next = new Button(getWidth() - 110, getHeight() - 70, 90, 50, "Next", Color.decode("#a52a2a"), null);
-		back = new Button(20, getHeight() - 70, 90, 50, "Back", Color.decode("#a52a2a"), new Action() {
-			public void act() {
-				MonsterImg = new Graphic(PosX,PosY,MonsterGraphic.getMonster("Beast"));
-			}
-		});
-		MonsterImg = new Graphic(PosX,PosY,MonsterGraphic.getMonster("Beast"));
+		back = new Button(20, getHeight() - 70, 90, 50, "Back", Color.decode("#a52a2a"),null //new Action() {
+//			public void act() {
+//				MonsterImg = new Graphic(,,100,100,MonsterGraphic.getMonster("Beast"));
+//			}
+		);//});
+		MonsterImg = new Graphic(100,100,100,100,MonsterGraphic.getMonster("Beast"));
 		
 		background = new Graphic(0,0,getWidth(),getHeight(),"src/resources/background.jpg");
 		//MonsterImg = getMonster();
