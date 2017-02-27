@@ -69,7 +69,7 @@ public class InventoryScreen extends ClickableScreen implements Runnable{
 	//shows how many artifacts are collected
 	//can make interface for adding "you gained +something" for
 	//every artifact that is collected in the inventory
-	//when player loses, pass in artifacts arraylist
+	//when player loses, pass in artifacts ArrayList
 	
 	@Override
 	public void initAllObjects(List<Visible> viewObjects) {
