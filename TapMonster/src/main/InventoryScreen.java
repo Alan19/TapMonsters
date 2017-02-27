@@ -77,7 +77,7 @@ public class InventoryScreen extends ClickableScreen implements Runnable{
 		artifactName = new TextLabel(700,135,getWidth()/3,50,"artifact name");
 		artifactDescription = new TextLabel(700,200,getWidth()/3,50,"artifact desc");
 		artifactNum = new TextLabel(700, 265, getWidth()/3, 50, "You have "+ collected+ " artifacts");
-		info = new TransparentRoundedRect(700,120,getWidth()/3,300,50,50);
+		info = new TransparentRoundedRect(getWidth()/2,120,getWidth()/3,300,50,50);
 		bkgd = new Graphic(0,0,getWidth(),getHeight(),"src/resources/background.jpg");
 		back = new Button(10,10,100,50, "Back", Color.red, new Action(){
 			public void act(){
