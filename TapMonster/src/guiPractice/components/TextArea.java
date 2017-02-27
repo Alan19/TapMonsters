@@ -18,7 +18,7 @@ public class TextArea extends TextLabel {
 		g = clear();
 		g.setFont(new Font(getFont(), Font.PLAIN, getSize()));
 		FontMetrics fm = g.getFontMetrics();
-		g.setColor(Color.black);
+		g.setColor(Color.WHITE);
 		
 		if(getText() != null){
 		
