@@ -6,10 +6,12 @@ import guiPractice.ClickableScreen;
 import guiPractice.components.Action;
 import guiPractice.components.Button;
 import guiPractice.components.Clickable;
+import guiPractice.components.ClickableGraphic;
 import guiPractice.components.Graphic;
 import guiPractice.components.TextArea;
 import guiPractice.components.TextLabel;
 import guiPractice.components.Visible;
+import artifacts.Artifact;
 import interfaces.Attack;
 import interfaces.PlayerInterface;
 
@@ -19,7 +21,7 @@ import java.awt.event.MouseMotionListener;
 import java.awt.image.BufferedImage;
 
 public class IntroScreen extends ClickableScreen implements Attack, PlayerInterface  {
-	
+	public Artifact Art;
 	
 	
 	public IntroScreen(int width, int height) {
@@ -123,7 +125,9 @@ public class IntroScreen extends ClickableScreen implements Attack, PlayerInterf
 				while(i>0){
 				//TapMonsters.game.setScreen(TapMonstersGame.tapScreen);
 				int tempInt = (int) ((art.size()) * Math.random());
-				art.remove(tempInt);
+				viewObjects.remove(TapMonsterGame.artifactPictures.get(tempInt));
+				TapMonsterGame.artifactPictures.remove(tempInt);
+				TapMonsterGame.artifacts.remove(tempInt);
 				}
 				//viewObjects.remove(viewObjects.size()-1);
 				
