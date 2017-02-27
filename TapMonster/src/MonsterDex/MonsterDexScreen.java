@@ -13,7 +13,7 @@ import guiPractice.components.TextLabel;
 import guiPractice.components.Visible;
 import interfaces.MonDexInterface;
 
-public class MonsterDexScreen extends ClickableScreen implements Runnable{
+public class MonsterDexScreen extends ClickableScreen implements Runnable,MonDexInterface{
 	
 	private static ArrayList<MonsterGraphic> Monsters;
 
@@ -94,13 +94,40 @@ public class MonsterDexScreen extends ClickableScreen implements Runnable{
 		
 	}
 	
-	public static ArrayList<MonsterGraphic> getMonsters() {
-		return Monsters;
-	}
 	
 	public static void setMonsters(ArrayList<MonsterGraphic> monsters) {
 		Monsters = monsters;
 	}
+
+
+	public void SetDescription(String des) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	public int setNumEncountered(int encounters) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+
+	public String getImagePath() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+	public String getName() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public ArrayList<MonsterGraphic> getMonsters() {
+		return Monsters;
+	}
+
+	
 	
 
 }

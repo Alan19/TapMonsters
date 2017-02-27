@@ -6,7 +6,7 @@ import guiPractice.components.Action;
 import guiPractice.components.Graphic;
 import interfaces.MonDexInterface;
 
-public class MonsterGraphic extends Graphic implements MonDexInterface{
+public class MonsterGraphic extends Graphic{
 	
 	public static int MonX = 100;
 	public static int MonY = 100;
@@ -93,26 +93,6 @@ public class MonsterGraphic extends Graphic implements MonDexInterface{
 		}
 	}
 
-	public void SetDescription(String des) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	public int setNumEncountered(int encounters) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	public String getName() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	public ArrayList<MonsterGraphic> getMonsters() {
-		return null;
-		
-	}
-	
 	
 	
 	
