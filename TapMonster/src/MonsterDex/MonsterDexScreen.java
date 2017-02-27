@@ -12,6 +12,7 @@ import guiPractice.components.TextArea;
 import guiPractice.components.TextLabel;
 import guiPractice.components.Visible;
 import interfaces.MonDexInterface;
+import main.TapMonsterGame;
 
 public class MonsterDexScreen extends ClickableScreen implements Runnable{
 	
@@ -26,6 +27,7 @@ public class MonsterDexScreen extends ClickableScreen implements Runnable{
 	private static int PosX = 100;
 	private static int PosY = 100;
 	private int MonID = 1;
+	private Button back;
 	
 	public MonsterDexScreen(int width,int height) {
 		super(width, height);
@@ -41,14 +43,18 @@ public class MonsterDexScreen extends ClickableScreen implements Runnable{
 				MonsterImg.loadImages( "src/MonsterSprites/"+MonID+++".gif", MonsterImg.getWidth(), MonsterImg.getHeight());
 			}
 		});
-		
+		back = new Button(20, getHeight() - 70, 90, 50, "Back", Color.decode("#a52a2a"), new Action() {
+			public void act() {
+				TapMonsterGame.game.setScreen(TapMonsterGame.main);
+			}
+		});
 		Background = new Graphic(0,0,getWidth(),getHeight(),"src/resources/background.jpg");
 		MonsterImg = getMonster();
 		viewObjects.add(Background);
 		viewObjects.add(Next);
 		viewObjects.add(Back);	
 		viewObjects.add(MonsterImg);
-
+		viewObjects.add(back);
 	}
 
 	private Graphic getMonster() {

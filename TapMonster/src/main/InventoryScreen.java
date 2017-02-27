@@ -81,7 +81,7 @@ public class InventoryScreen extends ClickableScreen implements Runnable{
 		bkgd = new Graphic(0,0,getWidth(),getHeight(),"src/resources/background.jpg");
 		back = new Button(10,10,100,50, "Back", Color.red, new Action(){
 			public void act(){
-				//back to main screen
+				TapMonsterGame.game.setScreen(TapMonsterGame.main);
 			}
 		});
 		

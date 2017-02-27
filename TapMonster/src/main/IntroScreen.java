@@ -102,10 +102,10 @@ public class IntroScreen extends ClickableScreen implements Attack, PlayerInterf
 		instructions =  "You are on a journey to fight monsters and get to the highest stage possible. "
 				+ "You kill a monster from completing an arrow key sequence in a certain amount of time, bosses also use (A,S,W,D) for their sequence. "
 				+ "Certain monsters have abilities that can make things harder on you depending on their abilities. "
-				+ "Don’t fret because you have a currency called relics, you gather these relics to buy artifacts for permanent bonuses. "
+				+ "Donï¿½t fret because you have a currency called relics, you gather these relics to buy artifacts for permanent bonuses. "
 				+ "There are also things called rewards, these rewards appear randomly and grant different effects. Of course better rewards are harder to come by. "
-				+ "You start the game with three hearts, when you don’t complete a sequence in time you will lose a heart, when you run out of hearts it’s ”GAME OVER,” and a death screen with your score and artifacts will show up. "
-				+ "There are buttons on the left for you to click after you aren’t in battle such as store, inventory, next level, and prestige. "
+				+ "You start the game with three hearts, when you donï¿½t complete a sequence in time you will lose a heart, when you run out of hearts itï¿½s ï¿½GAME OVER,ï¿½ and a death screen with your score and artifacts will show up. "
+				+ "There are buttons on the left for you to click after you arenï¿½t in battle such as store, inventory, next level, and prestige. "
 				+ "Prestige is something that you can press to reset your stage to the beginning, but you save all of your artifacts and hearts and use those to get further into the game. "
 				+ "So if you defeat the monster in the set amount of time given, then the entire main screen freezes, until you are ready to move on to the next stage.";
 		//text.setTextColor(Color.WHITE);
@@ -121,13 +121,13 @@ public class IntroScreen extends ClickableScreen implements Attack, PlayerInterf
 		startButton = new Button(getWidth() / 2, getHeight() - 40, 100, 30, "START", Color.RED, new Action() {
 		
 			public void act() {
-				int i = difficulty;
+				int i = difficulty%3;
 				while(i>0){
-				TapMonsterGame.game.setScreen(TapMonsterGame.main);
-				int tempInt = (int) ((art.size()) * Math.random());
+				int tempInt = (int) ((TapMonsterGame.artifacts.size()) * Math.random());
 				viewObjects.remove(TapMonsterGame.artifactPictures.get(tempInt));
 				TapMonsterGame.artifactPictures.remove(tempInt);
 				TapMonsterGame.artifacts.remove(tempInt);
+				i--;
 				}
 				//viewObjects.remove(viewObjects.size()-1);
 				
@@ -137,6 +137,7 @@ public class IntroScreen extends ClickableScreen implements Attack, PlayerInterf
 				//}
 				
 				//System.out.println("BUTTON IS WORKING");
+				TapMonsterGame.game.setScreen(TapMonsterGame.main);
 			}
 
 		});

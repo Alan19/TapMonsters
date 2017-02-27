@@ -104,22 +104,22 @@ public class TapMonsterScreen extends ClickableScreen implements Runnable,Game{
 				else return;
 			}
 		});
-		prestige = new Button(getWidth()-150,25,130,40,"PRESTIGE",new Color(153,153,153), new Action() {
+		prestige = new Button(getWidth()-150,25,130,40,"Monsterdex",new Color(153,153,153), new Action() {
 
 			public void act() {
-				//resets for the next level
+				TapMonsterGame.game.setScreen(TapMonsterGame.monsterdex);
 			}
 		});
 		store = new Button(getWidth()-150,125,130,40,"STORE",new Color(153,153,153), new Action() {
 
 			public void act() {
-				//goes to the store screen
+				TapMonsterGame.game.setScreen(TapMonsterGame.store);
 			}
 		});
 		inventoryButton = new Button(getWidth()-150,175,130,40,"INVENTORY",new Color(153,153,153), new Action() {
 
 			public void act() {
-			//	TapMonsterGame.setScreen(TapMonsterGame.inventory);
+				TapMonsterGame.game.setScreen(TapMonsterGame.inventory);
 			}
 		});
 
