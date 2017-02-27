@@ -47,7 +47,8 @@ public class ScoreScreen extends ClickableScreen {
 				int rareness = (int) (Math.random()*10+1);
 				System.out.println("Got an artifact with " + rareness);
 				score.addArtifact(rareness);
-				//System.out.println(TapMonsterScreen.score.score);
+//				System.out.println(TapMonsterScreen.score.score);
+//				System.out.println(TapMonsterScreen.score.playerExp);
 			}
 		});
 		reward = new Button(20, 100, 100, 40, "Get a reward", Color.orange, new Action() {
