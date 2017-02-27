@@ -12,8 +12,8 @@ public class MonsterGraphic extends Graphic{
 	public static int MonY = 100;
 	private static int randInt;
 	
-	public static String[] FilePaths = {""};
-	public int[] Encounters = new int[FilePaths.length];
+	public static String[] MonsterNames;
+	public int[] Encounters = new int[MonsterNames.length];
 	
 	public MonsterGraphic(int x, int y, int w, int h, String species) {
 		super(x, y, getMonster(species));

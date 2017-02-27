@@ -17,10 +17,9 @@ public class MonsterDexScreen extends ClickableScreen implements Runnable,MonDex
 	
 	private static ArrayList<MonsterGraphic> Monsters;
 
-
 	private Button Next;
-	private Button Back;
-	private Graphic Background;
+	private Button back;
+	private Graphic background;
 	private static Graphic MonsterImg;
 	private static TextArea Description;
 	private TextLabel Name;
@@ -65,17 +64,18 @@ public class MonsterDexScreen extends ClickableScreen implements Runnable,MonDex
 	
 	public void initObjects(final ArrayList<Visible> viewObjects){
 		Next = new Button(getWidth() - 110, getHeight() - 70, 90, 50, "Next", Color.decode("#a52a2a"), null);
-		Back = new Button(20, getHeight() - 70, 90, 50, "Back", Color.decode("#a52a2a"), new Action() {
+		back = new Button(20, getHeight() - 70, 90, 50, "Back", Color.decode("#a52a2a"), new Action() {
 			public void act() {
-				
+				MonsterImg = new Graphic(PosX,PosY,MonsterGraphic.getMonster("Beast"));
 			}
 		});
+		MonsterImg = new Graphic(PosX,PosY,MonsterGraphic.getMonster("Beast"));
 		
-		Background = new Graphic(0,0,getWidth(),getHeight(),"src/resources/background.jpg");
+		background = new Graphic(0,0,getWidth(),getHeight(),"src/resources/background.jpg");
 		//MonsterImg = getMonster();
-		viewObjects.add(Background);
+		viewObjects.add(background);
 		viewObjects.add(Next);
-		viewObjects.add(Back);	
+		viewObjects.add(back);	
 		viewObjects.add(MonsterImg);
 
 	}
@@ -95,9 +95,6 @@ public class MonsterDexScreen extends ClickableScreen implements Runnable,MonDex
 	}
 	
 	
-	public static void setMonsters(ArrayList<MonsterGraphic> monsters) {
-		Monsters = monsters;
-	}
 
 
 	public void SetDescription(String des) {
@@ -121,6 +118,10 @@ public class MonsterDexScreen extends ClickableScreen implements Runnable,MonDex
 	public String getName() {
 		// TODO Auto-generated method stub
 		return null;
+	}
+	
+	public static void setMonsters(ArrayList<MonsterGraphic> monsters) {
+		Monsters = monsters;
 	}
 
 	public ArrayList<MonsterGraphic> getMonsters() {
