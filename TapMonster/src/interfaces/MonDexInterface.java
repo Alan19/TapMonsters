@@ -8,7 +8,7 @@ public interface MonDexInterface{
 	
 	int setNumEncountered(int encounters);
 
-	String get
+	String getFilePath();
 	/**
 	 *@Alan
 	 */

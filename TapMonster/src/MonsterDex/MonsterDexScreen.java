@@ -56,7 +56,7 @@ public class MonsterDexScreen extends ClickableScreen implements Runnable{
 	private int MonID = 1;
 	
 	public MonsterDexScreen(int width,int height) {
-		super(width, height);
+		super(900, 700);
 		Thread play = new Thread(this);
 		play.start();
 	}
@@ -66,7 +66,7 @@ public class MonsterDexScreen extends ClickableScreen implements Runnable{
 		Next = new Button(getWidth() - 110, getHeight() - 70, 90, 50, "Next", Color.decode("#a52a2a"), null);
 		Back = new Button(20, getHeight() - 70, 90, 50, "Back", Color.decode("#a52a2a"), new Action() {
 			public void act() {
-				MonsterImg.loadImages("src/MonsterSprites/"+MonID+++".gif", MonsterImg.getWidth(), MonsterImg.getHeight());
+				
 			}
 		});
 		
