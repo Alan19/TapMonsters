@@ -1,9 +1,5 @@
 package interfaces;
 
-import java.util.ArrayList;
-
-import MonsterDex.MonsterGraphic;
-
 public interface MonDexInterface{
 		
 	void SetDescription(String des);
@@ -17,5 +13,4 @@ public interface MonDexInterface{
 
 	String getName();
 	
-	ArrayList<MonsterGraphic> getMonsters();
 }
