@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import MonsterDex.MonsterDexScreen;
+import MonsterDex.MonsterGraphic;
 import artifacts.Artifact;
 import guiPractice.ClickableScreen;
 import guiPractice.components.Action;
@@ -82,15 +83,18 @@ public class DeathScreen extends ClickableScreen{
 		viewObjects.add(artifactName);
 		viewObjects.add(artifactDescription);
 		
-		addBossMonsterKillList(monsters);
+		addBossMonsterKillList();
 	}
 	
 
-	private void addBossMonsterKillList(ArrayList<MonDexInterface> monsters) {
+	private void addBossMonsterKillList() {
 		int x = getWidth()/2;
 		int y = 75;
 		epicKills = new TextLabel(getWidth()/2, y, 400, 25, "Copperplate Gothic Bold", 15, new Color(112, 119, 102), "Here is a list of your heroic feats");
-		for (MonDexInterface monster : monsters) {
+		for (Visible visible : viewObjects) {
+			
+		}
+		for (MonsterGraphic monsters : MonsterDexScreen.getMonsters()) {
 			new Graphic(x, y, 100, 100, monster.getImagePath());
 			TextLabel name = new TextLabel(x+110, y, 400, 25, monster.getName());
 			x = getWidth()/2;
