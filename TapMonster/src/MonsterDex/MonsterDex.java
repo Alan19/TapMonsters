@@ -43,7 +43,7 @@ public class MonsterDex extends ClickableScreen implements Runnable{
 		});
 		
 		Background = new Graphic(0,0,getWidth(),getHeight(),"src/resources/background.jpg");
-		MonsterImg = getMonster();
+		MonsterImg = new Graphic(0,0,100,100,"MonsterSprites/Beast/1.gif");
 		viewObjects.add(Background);
 		viewObjects.add(Next);
 		viewObjects.add(Back);	
