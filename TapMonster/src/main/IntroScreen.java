@@ -5,7 +5,7 @@ import java.util.List;
 import guiPractice.ClickableScreen;
 import guiPractice.components.Action;
 import guiPractice.components.Button;
-
+import guiPractice.components.Clickable;
 import guiPractice.components.Graphic;
 import guiPractice.components.TextArea;
 import guiPractice.components.TextLabel;
@@ -14,7 +14,9 @@ import interfaces.Attack;
 import interfaces.PlayerInterface;
 
 import java.awt.Color;
-
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseMotionListener;
+import java.awt.image.BufferedImage;
 
 public class IntroScreen extends ClickableScreen implements Attack, PlayerInterface  {
 	
