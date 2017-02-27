@@ -1,7 +1,12 @@
 package main;
 
+import java.util.ArrayList;
+
+import artifacts.Artifact;
+
 import guiPractice.GUIApplication;
 import guiPractice.Screen;
+import guiPractice.components.ClickableGraphic;
 
 public class TapMonsterGame extends GUIApplication {
 
@@ -11,6 +16,8 @@ public class TapMonsterGame extends GUIApplication {
 	public static Screen store;
 	public static InventoryScreen inventory;
 	public static Screen death;
+	public static ArrayList<Artifact> artifacts;
+	public static ArrayList<ClickableGraphic> artifactPictures;
 	
 	public TapMonsterGame(int width, int height) {
 		super(width,height);
