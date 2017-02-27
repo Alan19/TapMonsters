@@ -11,7 +11,7 @@ public class MonsterDexGame extends GUIApplication{
 	@Override
 	protected void initScreen() {
 		MonsterDexScreen dex = 
-				new MonsterDexScreen(getWidth(),getHeight());
+				new MonsterDexScreen(1000,800);
 		setScreen(dex);
 	}
 	

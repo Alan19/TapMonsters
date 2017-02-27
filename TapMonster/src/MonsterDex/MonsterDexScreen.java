@@ -15,7 +15,7 @@ import interfaces.MonDexInterface;
 
 public class MonsterDexScreen extends ClickableScreen implements Runnable{
 	
-	private static ArrayList<MonDexInterface> Monsters;
+	private static ArrayList<MonsterGraphic> Monsters;
 	private Button Next;
 	private Button Back;
 	private Graphic Background;
@@ -53,10 +53,9 @@ public class MonsterDexScreen extends ClickableScreen implements Runnable{
 	
 	private static int PosX = 100;
 	private static int PosY = 100;
-	private int MonID = 1;
 	
 	public MonsterDexScreen(int width,int height) {
-		super(900, 700);
+		super(1000, 800);
 		Thread play = new Thread(this);
 		play.start();
 	}
