@@ -104,7 +104,7 @@ public class TapMonsterScreen extends ClickableScreen implements Runnable,Game{
 				else return;
 			}
 		});
-		prestige = new Button(getWidth()-150,25,130,40,"Monsterdex",new Color(153,153,153), new Action() {
+		prestige = new Button(getWidth()-150,25,150,40,"MONSTERDEX",new Color(153,153,153), new Action() {
 
 			public void act() {
 				TapMonsterGame.game.setScreen(TapMonsterGame.monsterdex);

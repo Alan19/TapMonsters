@@ -33,7 +33,7 @@ public class TapMonsterGame extends GUIApplication {
 		store = new StoreScreen(getWidth(),getHeight());
 		inventory = new InventoryScreen(getWidth(),getHeight());
 		monsterdex = new MonsterDexScreen(getWidth(),getHeight());
-		//death = new DeathScreen(getWidth(),getHeight(), getDefaultCloseOperation(), getDefaultCloseOperation(), null);
+		//death = new DeathScreen(1,5,getWidth(),getHeight(), null,null);
 		setScreen(intro);
 	}
 
