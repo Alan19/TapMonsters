@@ -12,6 +12,7 @@ import MonsterDex.MonsterGraphic;
  *
  */
 public interface MonDexScreenInterface {
+	
 	ArrayList<MonsterGraphic> getMonsters();
 
 }
