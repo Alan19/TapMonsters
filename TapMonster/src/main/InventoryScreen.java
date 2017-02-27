@@ -15,8 +15,9 @@ import guiPractice.components.TextArea;
 import guiPractice.components.TextLabel;
 import guiPractice.components.TransparentRoundedRect;
 import guiPractice.components.Visible;
+import interfaces.InventoryArtifacts;
 
-public class InventoryScreen extends ClickableScreen implements Runnable{
+public class InventoryScreen extends ClickableScreen implements Runnable, InventoryArtifacts{
 	
 	private TextLabel title;
 	private TextLabel artifactName;
@@ -106,7 +107,7 @@ public class InventoryScreen extends ClickableScreen implements Runnable{
 
 	}
 	
-	private void displayArtifacts(){
+	public void displayArtifacts(){
 		//displays purchased artifacts
 		
 		/*for(Artifact artifact:artifacts){
@@ -137,19 +138,19 @@ public class InventoryScreen extends ClickableScreen implements Runnable{
 		
 	}
 	
-	private void changeDescription(){
+	public void changeDescription(){
 		//dont need this
 		//changes desc of artifact in the info space
 		
 		//artifactDescription = new TextLabel(120,85,500,25, );
 	}
 	
-	private void changeName(){
+	public void changeName(){
 		//dont need this
 		//changes name of artifact in the info space11
 	}
 	
-	private void addArtifact(){
+	public void addArtifact(){
 		//adds artifact to artifact array once it is purchased
 		//for now artifacts will be displayed independent of artifacts
 		//purchased
