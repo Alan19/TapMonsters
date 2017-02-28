@@ -19,7 +19,7 @@ public class Reward {
 	
 	public static Reward[] getAllRewards(){
 		Reward[] rewards = new Reward[NUMBER_OF_REWARDS];
-		rewards[0] = new Reward("Small Potion - +1 Health",  "resources/images/spotion.png", new RewardEffect() {
+		rewards[0] = new Reward("Small Potion - +10 Health",  "resources/images/spotion.png", new RewardEffect() {
 			
 			public void affect(RewardTarget target) {
 				target.fillHeart(1);
@@ -48,7 +48,7 @@ public class Reward {
 				target.increaseScore(200);
 			}
 		});
-		rewards[4] = new Reward("Super Bonus Heart - +40 HP", "resources/images/sheart.png", new RewardEffect() {
+		rewards[4] = new Reward("Super Bonus Heart - +40 health", "resources/images/sheart.png", new RewardEffect() {
 			
 			public void affect(RewardTarget target) {
 				target.fillHeart(40);
@@ -73,7 +73,7 @@ public class Reward {
 		rewards[7] = new Reward("Ultra Potion - Full Health", "resources/images/fullpotion.png", new RewardEffect() {
 			
 			public void affect(RewardTarget target) {
-				target.fillHeart(50);
+				target.fillHeart(target.giveHpMax());
 				target.increaseScore(1000);
 			}
 		});
