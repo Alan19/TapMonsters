@@ -75,8 +75,8 @@ public class StoreScreen extends ClickableScreen implements Runnable {
 		artifactsBG = new TransparentRoundedRect(15, 130, getWidth()-350, (int)(getHeight()/1.3), 80, 80);
 		itemInfoBG = new TransparentRoundedRect((int)(getWidth()-330), 130, 310, (int)(getHeight()/1.3), 80, 80);
 		
-		backButton = new Button(getWidth()-310, 590, 250, 50, "Back", Color.GRAY, new Action(){
-			public void act() {
+		backButton = new Button(10,10,100,50, "Back", Color.red, new Action(){
+			public void act(){
 				TapMonsterGame.game.setScreen(TapMonsterGame.main);
 			}
 		});
