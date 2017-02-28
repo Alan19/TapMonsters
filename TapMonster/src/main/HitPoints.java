@@ -33,6 +33,14 @@ public class HitPoints extends Component{
 		playerHp = playerHp - 10;
 		update();
 	}
+	
+	public void changeMax(int x){
+		maxHp += x;
+	}
+	
+	public int getMax(){
+		return maxHp;
+	}
 
 	@Override
 	public void update(Graphics2D g) {
