@@ -11,13 +11,15 @@ public class Artifact implements ArtifactInterface{
 	private String imagePath;
 	private String name;
 	private Action action;
+	private int scoreValue;
 
-	public Artifact(String desc, String name, int price, Action action, String imagePath) {
+	public Artifact(String desc, String name, int price, Action action, String imagePath, int scoreVal) {
 		this.description = desc;
 		this.price = price;
 		this.name = name;
 		this.action = action;
 		this.imagePath = imagePath;
+		this.scoreValue = scoreVal;
 	}
 	
 	public Artifact buyItem(){
