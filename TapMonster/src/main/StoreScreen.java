@@ -33,6 +33,7 @@ public class StoreScreen extends ClickableScreen implements Runnable {
 	private ArrayList<ClickableGraphic> artifactPictures;
 	private int playerBalance;
 	private int playerLife;
+	private TextLabel score;
 	
 
 	public StoreScreen(int width, int height) {
@@ -82,6 +83,7 @@ public class StoreScreen extends ClickableScreen implements Runnable {
 		});
 		
 		background = new Graphic(0, 0, getWidth(), getHeight(), "src/storeImages/bgimage.jpg");
+		score = new TextLabel(getWidth()-310, 600, 270, 20, Integer.toString(TapMonsterScreen.score.score));
 		
 		viewObjects.add(background);
 		viewObjects.add(greetingBG);
@@ -92,6 +94,8 @@ public class StoreScreen extends ClickableScreen implements Runnable {
 		viewObjects.add(playerLifeBox);
 		viewObjects.add(backButton);
 		viewObjects.add(greeting);
+		viewObjects.add(score);
+		
 		createArtifacts();
 		createArtifactPics();
 	}

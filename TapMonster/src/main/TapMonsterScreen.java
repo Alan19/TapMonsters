@@ -33,7 +33,7 @@ public class TapMonsterScreen extends ClickableScreen implements Runnable,Game, 
 	private Graphic background;
 	private int hp;
 	private HitPoints hpBar;
-	private Score score;
+	public static Score score;
 	
 	public static boolean wasSequenceCompleted = false;
 
