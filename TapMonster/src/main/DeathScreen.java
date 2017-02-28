@@ -15,7 +15,7 @@ import guiPractice.components.Graphic;
 import guiPractice.components.TextLabel;
 import guiPractice.components.Visible;
 import interfaces.MonDexInterface;
-import monsterDex.MonsterDexScreen;
+import main.MonsterDexScreen;
 
 /**
  * @author Alan19
