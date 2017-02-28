@@ -10,6 +10,7 @@ import guiPractice.components.Button;
 import guiPractice.components.Graphic;
 import guiPractice.components.TextLabel;
 import guiPractice.components.Visible;
+import score.Score;
 
 public class TapMonsterScreen extends ClickableScreen implements Runnable,Game{
 
@@ -29,6 +30,7 @@ public class TapMonsterScreen extends ClickableScreen implements Runnable,Game{
 	private Graphic background;
 	private int hp;
 	private HitPoints hpBar;
+	private Score score;
 	
 	public static boolean wasSequenceCompleted = false;
 
@@ -162,7 +164,8 @@ public class TapMonsterScreen extends ClickableScreen implements Runnable,Game{
 
 	@Override
 	public void initAllObjects(List<Visible> viewObjects) {
-		hpBar = new HitPoints(50,25);
+		score = new Score(50,50);
+		hpBar = new HitPoints(50,100);
 		background = new Graphic(0,0,0.75,"src/JaviyDemo/background.jpg");
 		viewObjects.add(background);
 		hp = 100;
@@ -184,6 +187,7 @@ public class TapMonsterScreen extends ClickableScreen implements Runnable,Game{
 		viewObjects.add(inventoryButton);
 		viewObjects.add(monster);
 		viewObjects.add(hpBar);
+		viewObjects.add(score);
 	}
 	
 }
