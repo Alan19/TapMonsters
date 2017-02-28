@@ -197,6 +197,11 @@ public class InventoryScreen extends ClickableScreen implements Runnable, Invent
 		artifactsPurchased.add(eighth);
 		artifactsPurchased.add(ninth);
 	}
+	
+	public void showGains(){
+		//for each item in artifacts purchased list, display its gains
+		//could add gains field in artifact and getGains method
+	}
 
 	public void run() {
 		//g.setColor(Color.black);
