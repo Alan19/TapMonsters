@@ -1,6 +1,7 @@
 package MonsterDex;
 
 import guiPractice.GUIApplication;
+import main.MonsterDexScreen;
 
 public class MonsterDexGame extends GUIApplication{
 	
