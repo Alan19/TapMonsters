@@ -227,13 +227,12 @@ public class TapMonsterScreen extends ClickableScreen implements Runnable,Game, 
 	}
 
 	public void increaseScore(int i) {
-		// TODO Auto-generated method stub
+		score.addReward(i);
 		
 	}
 
 	public int giveHpMax() {
-		// TODO Auto-generated method stub
-		return 0;
+		return hpBar.getMax();
 	}
 	
 }
