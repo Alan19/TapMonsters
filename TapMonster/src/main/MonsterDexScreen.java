@@ -4,7 +4,6 @@ import java.awt.Color;
 import java.util.ArrayList;
 import java.util.List;
 
-import MonsterDex.MonsterGraphic;
 import guiPractice.ClickableScreen;
 import guiPractice.components.Action;
 import guiPractice.components.Button;
@@ -13,6 +12,7 @@ import guiPractice.components.TextArea;
 import guiPractice.components.TextLabel;
 import guiPractice.components.Visible;
 import interfaces.MonDexInterface;
+import monsterDex.MonsterGraphic;
 
 public class MonsterDexScreen extends ClickableScreen implements Runnable,MonDexInterface{
 	
@@ -73,7 +73,7 @@ public class MonsterDexScreen extends ClickableScreen implements Runnable,MonDex
 			}
 		});
 		background = new Graphic(0,0,getWidth(),getHeight(),"src/resources/background.jpg");
-		monsterImg = new Graphic(100,100,100,100,MonsterDex.MonsterGraphic.getMonster("Beast")); 
+		monsterImg = new Graphic(100,100,100,100,monsterDex.MonsterGraphic.getMonster("Beast")); 
 		viewObjects.add(background);
 		viewObjects.add(next);
 		viewObjects.add(back);	

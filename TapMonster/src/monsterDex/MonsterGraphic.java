@@ -1,4 +1,4 @@
-package MonsterDex;
+package monsterDex;
 
 import java.util.ArrayList;
 
@@ -44,36 +44,36 @@ public class MonsterGraphic extends Graphic{
 	public static String getMonster(String type){
 		if(type == "Beast"){
 			getRandInt(type);
-			return "MonsterSprites/Beast"+monsterNames[randInt]+".gif"; 
+			return "MonsterSprites/Beast/"+monsterNames[randInt]+".gif"; 
 		}
 		
 		else if(type == "Demon"){
 			getRandInt(type);
 			encounters[randInt] += 1;
-			return "MonsterSprites/Demon"+monsterNames[randInt]+".gif";
+			return "MonsterSprites/Demon/"+monsterNames[randInt]+".gif";
 		}
 
 		else if(type == "Fiend"){
 			getRandInt(type);
-			return "MonsterSprites/Fiend"+monsterNames[randInt]+".gif";
+			return "MonsterSprites/Fiend/"+monsterNames[randInt]+".gif";
 		}
 		
 		else if(type == "Monster"){
 			getRandInt(type);
-			return "MonsterSprites/Monster"+monsterNames[randInt]+".gif";
+			return "MonsterSprites/Monster/"+monsterNames[randInt]+".gif";
 		}
 
 		else if(type == "Thingy"){
 			getRandInt(type);
-			return "MonsterSprites/Thingy"+monsterNames[randInt]+".gif";
+			return "MonsterSprites/Thingy/"+monsterNames[randInt]+".gif";
 		}
 		
 		else if(type == "Titan"){
 			getRandInt(type);
-			return "MonsterSprites/Titan"+monsterNames[randInt]+".gif";
+			return "MonsterSprites/Titan/"+monsterNames[randInt]+".gif";
 		}
 		getRandInt(type);
-		return "MonsterSprites/Beast"+monsterNames[randInt]+".gif"; 
+		return "MonsterSprites/Beast/"+monsterNames[randInt]+".gif"; 
 	}
 
 	private static void getRandInt(String type) {
