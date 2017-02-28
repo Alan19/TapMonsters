@@ -11,14 +11,17 @@ import guiPractice.components.Graphic;
 import guiPractice.components.TextLabel;
 import guiPractice.components.Visible;
 import score.Score;
+import rewards.Reward;
+import rewards.RewardTarget;
 
-public class TapMonsterScreen extends ClickableScreen implements Runnable,Game{
+public class TapMonsterScreen extends ClickableScreen implements Runnable,Game, RewardTarget{
 
 	private TextLabel title;
 	private TextLabel monsterName;
 	private MonsterName monster;
 	private double timeLeft;
 	private TextLabel time;
+	private TextLabel reward;
 	private double timeAlter;
 	private TextLabel stage;
 	private int stageLevel;//must implement a method to increase this after each time you press next level
@@ -170,6 +173,7 @@ public class TapMonsterScreen extends ClickableScreen implements Runnable,Game{
 		viewObjects.add(background);
 		hp = 100;
 		time = new TextLabel(40,getHeight()-175,75,60,"");
+		reward = new TextLabel(550,getHeight()-150,75,60,"");
 		stageLevel = 1;
 		title = new TextLabel(getWidth()/2-60,20,300,40,"TAP MONSTERS");
 	
@@ -186,8 +190,44 @@ public class TapMonsterScreen extends ClickableScreen implements Runnable,Game{
 		viewObjects.add(store);
 		viewObjects.add(inventoryButton);
 		viewObjects.add(monster);
+		viewObjects.add(reward);
 		viewObjects.add(hpBar);
 		viewObjects.add(score);
+	}
+
+	public void earnReward(Reward r) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void increaseHearts(int i) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void addExtraLife(int i) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void increaseTimer(int i) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void fillHeart(int i) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void getGold(int i) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void increaseScore(int i) {
+		// TODO Auto-generated method stub
+		
 	}
 	
 }
