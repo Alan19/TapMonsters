@@ -1,9 +1,10 @@
-package MonsterDex;
+package main;
 
 import java.awt.Color;
 import java.util.ArrayList;
 import java.util.List;
 
+import MonsterDex.MonsterGraphic;
 import guiPractice.ClickableScreen;
 import guiPractice.components.Action;
 import guiPractice.components.Button;
@@ -31,30 +32,8 @@ public class MonsterDexScreen extends ClickableScreen implements Runnable{
 	
 	public MonsterDexScreen(int width,int height) {
 		super(width, height);
-		Thread play = new Thread(this);
-		play.start();
-	}
-	
-	
-	public void initObjects(final ArrayList<Visible> viewObjects){
-		Next = new Button(getWidth() - 110, getHeight() - 70, 90, 50, "Next", Color.decode("#a52a2a"), null);
-		Back = new Button(20, getHeight() - 70, 90, 50, "Back", Color.decode("#a52a2a"), new Action() {
-			public void act() {
-				MonsterImg.loadImages( "src/MonsterSprites/"+MonID+++".gif", MonsterImg.getWidth(), MonsterImg.getHeight());
-			}
-		});
-		back = new Button(20, getHeight() - 70, 90, 50, "Back", Color.decode("#a52a2a"), new Action() {
-			public void act() {
-				TapMonsterGame.game.setScreen(TapMonsterGame.main);
-			}
-		});
-		Background = new Graphic(0,0,getWidth(),getHeight(),"src/resources/background.jpg");
-		MonsterImg = getMonster();
-		viewObjects.add(Background);
-		viewObjects.add(Next);
-		viewObjects.add(Back);	
-		viewObjects.add(MonsterImg);
-		viewObjects.add(back);
+//		Thread play = new Thread(this);
+//		play.start();
 	}
 
 	private Graphic getMonster() {
@@ -70,8 +49,28 @@ public class MonsterDexScreen extends ClickableScreen implements Runnable{
 
 	@Override
 	public void initAllObjects(List<Visible> viewObjects) {
-		// TODO Auto-generated method stub
-		
+		Next = new Button(getWidth() - 110, getHeight() - 70, 90, 50, "Next", Color.decode("#a52a2a"), new Action() {
+			public void act() {
+				//put action here
+			}
+		});
+		Back = new Button(20, getHeight() - 70, 90, 50, "Back", Color.decode("#a52a2a"), new Action() {
+			public void act() {
+				MonsterImg.loadImages( "src/MonsterSprites/"+MonID+++".gif", MonsterImg.getWidth(), MonsterImg.getHeight());
+			}
+		});
+		back = new Button(10,10,100,50, "Back", Color.red, new Action(){
+			public void act(){
+				TapMonsterGame.game.setScreen(TapMonsterGame.main);
+			}
+		});
+		Background = new Graphic(0,0,getWidth(),getHeight(),"src/resources/background.jpg");
+		MonsterImg = getMonster();
+		viewObjects.add(Background);
+		viewObjects.add(Next);
+		viewObjects.add(Back);	
+		viewObjects.add(MonsterImg);
+		viewObjects.add(back);
 	}
 	
 
