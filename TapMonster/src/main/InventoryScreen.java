@@ -162,30 +162,30 @@ public class InventoryScreen extends ClickableScreen implements Runnable, Invent
 						//artifactName.setText(artifactsPurchased.get(0).getDescription());
 					//}
 				//}
-	null, "src/storeImages/arti1.png");
+	null, "src/storeImages/arti1.png",0);
 		
 		Artifact second = new Artifact("PREVENTS CERTAIN DEATH ONCE","WARRIOR'S REVIVAL",50,
-	null, "src/storeImages/arti2.png");
+	null, "src/storeImages/arti2.png",0);
 		Artifact third = new Artifact("desc","DIVINE CHALICE",50,
-	null, "src/storeImages/arti3.png");
+	null, "src/storeImages/arti3.png",0);
 		Artifact fourth = new Artifact("INCREASES DAMAGE BY 25%, HEALS YOU","CRAFTER'S ELIXIR",50,
-	null, "src/storeImages/arti4.png");
+	null, "src/storeImages/arti4.png",0);
 		Artifact fifth = new Artifact("desc","KNIGHT'S SHIELD",50,
-	null, "src/storeImages/arti5.png");
+	null, "src/storeImages/arti5.png",0);
 		Artifact sixth = new Artifact("desc","UNDEAD AURA",50,
-	null, "src/storeImages/arti6.png");
+	null, "src/storeImages/arti6.png",0);
 		Artifact seventh = new Artifact("desc","DARK CLOAK",50,
-	null, "src/storeImages/arti7.png");
+	null, "src/storeImages/arti7.png",0);
 		Artifact eighth = new Artifact("desc","CROWN EGG",50,
-	null, "src/storeImages/arti8.png");
+	null, "src/storeImages/arti8.png",0);
 		Artifact ninth = new Artifact("desc","HERO'S SWORD",50,
-	null, "src/storeImages/arti9.png");
+	null, "src/storeImages/arti9.png",0);
 		Artifact tenth = new Artifact("INCREASES THE AMOUNT OF RELICS EARNED","AMULET OF THE VALRUNES",50,
-				null, "src/resources/amulet_of_the_valrunes.png");
+				null, "src/resources/amulet_of_the_valrunes.png",0);
 		Artifact eleventh = new Artifact("desc","DEATH DANCE",50,
-				null, "src/resources/death_dance.png");
+				null, "src/resources/death_dance.png",0);
 		Artifact twelfth = new Artifact("INCREASES DAMAGE BY 100%","DEATH SEEKER",50,
-				null, "src/resources/death_seeker.png");
+				null, "src/resources/death_seeker.png",0);
 		
 		artifactsPurchased.add(first);
 		artifactsPurchased.add(second);
