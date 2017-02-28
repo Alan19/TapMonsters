@@ -1,6 +1,7 @@
 package MonsterDex;
 
 import guiPractice.GUIApplication;
+import main.MonsterDexScreen;
 
 public class MonsterDexGame extends GUIApplication{
 	
@@ -11,7 +12,7 @@ public class MonsterDexGame extends GUIApplication{
 	@Override
 	protected void initScreen() {
 		MonsterDexScreen dex = 
-				new MonsterDexScreen(getWidth(),getHeight());
+				new MonsterDexScreen(1000,800);
 		setScreen(dex);
 	}
 	
