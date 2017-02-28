@@ -7,7 +7,6 @@ import java.awt.Color;
 import java.util.ArrayList;
 import java.util.List;
 
-import MonsterDex.MonsterDexScreen;
 import artifacts.Artifact;
 import guiPractice.ClickableScreen;
 import guiPractice.components.Action;
@@ -16,6 +15,7 @@ import guiPractice.components.Graphic;
 import guiPractice.components.TextLabel;
 import guiPractice.components.Visible;
 import interfaces.MonDexInterface;
+import main.MonsterDexScreen;
 
 /**
  * @author Alan19

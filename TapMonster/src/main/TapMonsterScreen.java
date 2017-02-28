@@ -25,9 +25,11 @@ public class TapMonsterScreen extends ClickableScreen implements Runnable,Game, 
 	private double timeAlter;
 	private TextLabel stage;
 	private int stageLevel;//must implement a method to increase this after each time you press next level
+	private int timeBonus;
 	private Button nextLevel;
 	private Button prestige;
 	private Button store;
+	private int gold;
 	private Button inventoryButton;
 	private Button timerBackground;
 	private Graphic background;
@@ -172,6 +174,8 @@ public class TapMonsterScreen extends ClickableScreen implements Runnable,Game, 
 		background = new Graphic(0,0,0.75,"src/JaviyDemo/background.jpg");
 		viewObjects.add(background);
 		hp = 100;
+		gold = 0;
+		timeBonus = 0;
 		time = new TextLabel(40,getHeight()-175,75,60,"");
 		reward = new TextLabel(550,getHeight()-150,75,60,"");
 		stageLevel = 1;
@@ -201,33 +205,35 @@ public class TapMonsterScreen extends ClickableScreen implements Runnable,Game, 
 	}
 
 	public void increaseHearts(int i) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	public void addExtraLife(int i) {
-		// TODO Auto-generated method stub
+		hpBar.changeMax(i);
 		
 	}
 
 	public void increaseTimer(int i) {
-		// TODO Auto-generated method stub
+		timeBonus += i;
 		
 	}
 
 	public void fillHeart(int i) {
-		// TODO Auto-generated method stub
-		
+		hp += i;
+		if (hp > hpBar.getMax()){
+			hp = hpBar.getMax();
+		}
 	}
 
 	public void getGold(int i) {
-		// TODO Auto-generated method stub
+		gold += i;
 		
 	}
 
 	public void increaseScore(int i) {
 		// TODO Auto-generated method stub
 		
+	}
+
+	public int giveHpMax() {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 	
 }
