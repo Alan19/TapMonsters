@@ -31,3 +31,4 @@ public class ScoreDemo extends GUIApplication {
 	}
 
 }
+

@@ -40,7 +40,8 @@ public class ScoreScreen extends ClickableScreen {
 	@Override
 	public void initAllObjects(List<Visible> viewObjects) {
 		//background = new Graphic(height, height, height, height, null);
-		score = new Score(200, 40);
+		
+		score = TapMonsterScreen.score;// new Score(200, 40);
 		artifact = new Button(20, 50, 100, 40, "Get an artifact", Color.green, new Action() {
 			
 			public void act() {
