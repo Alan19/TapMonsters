@@ -144,7 +144,7 @@ public class StoreScreen extends ClickableScreen implements Runnable {
 		}	
 	}
 
-	private void createArtifacts() {
+	public void createArtifacts() {
 		artifacts = new ArrayList();
 		Artifact arti1 = new Artifact("Placeholder", "Worldly Illuminator", 50, new Action(){
 			public void act() {
@@ -152,55 +152,55 @@ public class StoreScreen extends ClickableScreen implements Runnable {
 				playerLifeBox.setText("You have: " + playerLife + " Lives");
 				System.out.println("Somebody");
 			}
-		}, "src/storeImages/arti1.png");
+		}, "src/storeImages/arti1.png", 50);
 		
 		Artifact arti2 = new Artifact("Placeholder", "Name#2", 50, new Action(){
 			public void act() {
 				System.out.println("once");
 			}
-		}, "src/storeImages/arti2.png");
+		}, "src/storeImages/arti2.png", 100);
 		
 		Artifact arti3 = new Artifact("Placeholder", "Name#3", 50, new Action(){
 			public void act() {
 				System.out.println("told");
 			}
-		}, "src/storeImages/arti3.png");
+		}, "src/storeImages/arti3.png", 150);
 		
 		Artifact arti4 = new Artifact("Placeholder", "Name#4", 50, new Action(){
 			public void act() {
 				System.out.println("me");
 			}
-		}, "src/storeImages/arti4.png");
+		}, "src/storeImages/arti4.png", 200);
 		
 		Artifact arti5 = new Artifact("Placeholder", "Name#5", 50, new Action(){
 			public void act() {
 				System.out.println("the");
 			}
-		}, "src/storeImages/arti5.png");
+		}, "src/storeImages/arti5.png", 250);
 		
 		Artifact arti6 = new Artifact("Placeholder", "Name#6", 50, new Action(){
 			public void act() {
 				System.out.println("world");
 			}
-		}, "src/storeImages/arti6.png");
+		}, "src/storeImages/arti6.png", 300);
 		
 		Artifact arti7 = new Artifact("Placeholder", "Name#7", 50, new Action(){
 			public void act() {
 				System.out.println("is");
 			}
-		}, "src/storeImages/arti7.png");
+		}, "src/storeImages/arti7.png", 350);
 		
 		Artifact arti8 = new Artifact("Placeholder", "Name#8", 50, new Action(){
 			public void act() {
 				System.out.println("gonna");
 			}
-		}, "src/storeImages/arti8.png");
+		}, "src/storeImages/arti8.png", 400);
 		
 		Artifact arti9 = new Artifact("Placeholder", "Name#9", 50, new Action(){
 			public void act() {
 				System.out.println("roll me.");
 			}
-		}, "src/storeImages/arti9.png");
+		}, "src/storeImages/arti9.png", 450);
 		
 		artifacts.add(arti1);
 		artifacts.add(arti2);
