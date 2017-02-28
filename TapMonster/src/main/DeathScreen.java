@@ -27,7 +27,6 @@ public class DeathScreen extends ClickableScreen{
 	private TextLabel deathMessage;
 	private TextLabel artifactName;
 	private TextLabel artifactDescription;
-	private TextLabel epicKills;
 	private ArrayList<artifacts.Artifact> artifactList;
 	
 	public DeathScreen(int level, int round, int width, int height, ArrayList<artifacts.Artifact> artifacts, ArrayList<MonDexInterface> monsters) {
