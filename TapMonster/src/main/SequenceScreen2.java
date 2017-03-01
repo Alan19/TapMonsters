@@ -1,7 +1,8 @@
 package main;
 /**
  * @author Joyce
- *
+ * @author Max
+ * 
  */
 import java.awt.Color;
 import java.awt.Graphics2D;
@@ -118,8 +119,8 @@ public class SequenceScreen2 extends Screen implements KeyListener, KeysToPlayer
 
 	public void keyReleased(KeyEvent e) {
 		if (!playerMatch.isEmpty()){
+			viewObjects.remove(viewObjects.indexOf(p));
 			if (Character.toLowerCase(playerMatch.get(0).charAt(0)) == Character.toLowerCase(e.getKeyChar())){
-				viewObjects.remove(viewObjects.indexOf(p));
 				playerMatch.remove(0);
 				viewObjects.remove(0);
 				for (int i = 0; i < viewObjects.size() -1; i++){
@@ -141,9 +142,13 @@ public class SequenceScreen2 extends Screen implements KeyListener, KeysToPlayer
 				}
 //				System.out.println("ctr = " + ctr + "");
 //				System.out.println("idx = " + idx + "");
-			}else{
+			}
+			else {
 				System.out.println("Wrong");
 			}
+			p.setX(200);
+			playerChoice.setX(playerx);
+			viewObjects.add(p);
 		}
 	}
 
