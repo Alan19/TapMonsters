@@ -111,7 +111,7 @@ public class StoreScreen extends ClickableScreen implements Runnable {
 //		artifactPictures.get(0).act();
 	}
 
-	private void createArtifactPics() {
+	public void createArtifactPics() {
 		artifactPictures = new ArrayList();
 		int[] xCoords = {70, 370, 670, 70, 370, 670, 70, 370, 670};
 		int[] yCoords = {160, 160, 160, 340, 340, 340, 530, 530, 530};
