@@ -36,6 +36,7 @@ public class TapMonsterScreen extends ClickableScreen implements Runnable,Game, 
 	private int hp;
 	private HitPoints hpBar;
 	public static Score score;
+	//public static TextLabel scoreOnScreen;
 	private Reward[] rewardList;
 	private static Reward rewardObject;
 	
@@ -172,6 +173,7 @@ public class TapMonsterScreen extends ClickableScreen implements Runnable,Game, 
 	@Override
 	public void initAllObjects(List<Visible> viewObjects) {
 		score = new Score(50,50);
+		//scoreOnScreen = new TextLabel(score.getX(), score.getY(), score.getWidth(), score.getHeight(), Integer.toString(score.score));
 		hpBar = new HitPoints(50,100);
 		background = new Graphic(0,0,0.75,"src/JaviyDemo/background.jpg");
 		viewObjects.add(background);
