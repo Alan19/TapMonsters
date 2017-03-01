@@ -100,7 +100,7 @@ public class InventoryScreen extends ClickableScreen implements Runnable{
 		viewObjects.add(artifactNum);
 		viewObjects.add(back);
 		//viewObjects.add(purchaseAllArtifacts);
-		addArtifact();
+	//	addArtifact();
 		displayArtifacts();
 
 	}
@@ -148,53 +148,53 @@ public class InventoryScreen extends ClickableScreen implements Runnable{
 		//changes name of artifact in the info space11
 	}
 	
-	private void addArtifact(){
-		//adds artifact to artifact array once it is purchased
-		//for now artifacts will be displayed independent of artifacts
-		//purchased
-		artifactsPurchased = new ArrayList();
-		//below i added all artifacts for demo purposes
-		Artifact first = new Artifact("desc","WORLDLY ILLUMINATOR",50,
-				//new Action(){
-					//public void act(){
-						//artifactName.setText(artifactsPurchased.get(0).getDescription());
-					//}
-				//}
-	null, "src/storeImages/arti1.png");
-		
-		Artifact second = new Artifact("PREVENTS CERTAIN DEATH ONCE","WARRIOR'S REVIVAL",50,
-	null, "src/storeImages/arti2.png");
-		Artifact third = new Artifact("desc","DIVINE CHALICE",50,
-	null, "src/storeImages/arti3.png");
-		Artifact fourth = new Artifact("INCREASES DAMAGE BY 25%, HEALS YOU","CRAFTER'S ELIXIR",50,
-	null, "src/storeImages/arti4.png");
-		Artifact fifth = new Artifact("desc","KNIGHT'S SHIELD",50,
-	null, "src/storeImages/arti5.png");
-		Artifact sixth = new Artifact("desc","UNDEAD AURA",50,
-	null, "src/storeImages/arti6.png");
-		Artifact seventh = new Artifact("desc","DARK CLOAK",50,
-	null, "src/storeImages/arti7.png");
-		Artifact eighth = new Artifact("desc","CROWN EGG",50,
-	null, "src/storeImages/arti8.png");
-		Artifact ninth = new Artifact("desc","HERO'S SWORD",50,
-	null, "src/storeImages/arti9.png");
-		Artifact tenth = new Artifact("INCREASES THE AMOUNT OF RELICS EARNED","AMULET OF THE VALRUNES",50,
-				null, "src/resources/amulet_of_the_valrunes.png");
-		Artifact eleventh = new Artifact("desc","DEATH DANCE",50,
-				null, "src/resources/death_dance.png");
-		Artifact twelfth = new Artifact("INCREASES DAMAGE BY 100%","DEATH SEEKER",50,
-				null, "src/resources/death_seeker.png");
-		
-		artifactsPurchased.add(first);
-		artifactsPurchased.add(second);
-		artifactsPurchased.add(third);
-		artifactsPurchased.add(fourth);
-		artifactsPurchased.add(fifth);
-		artifactsPurchased.add(sixth);
-		artifactsPurchased.add(seventh);
-		artifactsPurchased.add(eighth);
-		artifactsPurchased.add(ninth);
-	}
+//	private void addArtifact(){
+//		//adds artifact to artifact array once it is purchased
+//		//for now artifacts will be displayed independent of artifacts
+//		//purchased
+//		artifactsPurchased = new ArrayList();
+//		//below i added all artifacts for demo purposes
+//		Artifact first = new Artifact("desc","WORLDLY ILLUMINATOR",50,
+//				//new Action(){
+//					//public void act(){
+//						//artifactName.setText(artifactsPurchased.get(0).getDescription());
+//					//}
+//				//}
+//	null, "src/storeImages/arti1.png");
+//		
+//		Artifact second = new Artifact("PREVENTS CERTAIN DEATH ONCE","WARRIOR'S REVIVAL",50,
+//	null, "src/storeImages/arti2.png");
+//		Artifact third = new Artifact("desc","DIVINE CHALICE",50,
+//	null, "src/storeImages/arti3.png");
+//		Artifact fourth = new Artifact("INCREASES DAMAGE BY 25%, HEALS YOU","CRAFTER'S ELIXIR",50,
+//	null, "src/storeImages/arti4.png");
+//		Artifact fifth = new Artifact("desc","KNIGHT'S SHIELD",50,
+//	null, "src/storeImages/arti5.png");
+//		Artifact sixth = new Artifact("desc","UNDEAD AURA",50,
+//	null, "src/storeImages/arti6.png");
+//		Artifact seventh = new Artifact("desc","DARK CLOAK",50,
+//	null, "src/storeImages/arti7.png");
+//		Artifact eighth = new Artifact("desc","CROWN EGG",50,
+//	null, "src/storeImages/arti8.png");
+//		Artifact ninth = new Artifact("desc","HERO'S SWORD",50,
+//	null, "src/storeImages/arti9.png");
+//		Artifact tenth = new Artifact("INCREASES THE AMOUNT OF RELICS EARNED","AMULET OF THE VALRUNES",50,
+//				null, "src/resources/amulet_of_the_valrunes.png");
+//		Artifact eleventh = new Artifact("desc","DEATH DANCE",50,
+//				null, "src/resources/death_dance.png");
+//		Artifact twelfth = new Artifact("INCREASES DAMAGE BY 100%","DEATH SEEKER",50,
+////				null, "src/resources/death_seeker.png");
+//		
+//		artifactsPurchased.add(first);
+//		artifactsPurchased.add(second);
+//		artifactsPurchased.add(third);
+//		artifactsPurchased.add(fourth);
+//		artifactsPurchased.add(fifth);
+//		artifactsPurchased.add(sixth);
+//		artifactsPurchased.add(seventh);
+//		artifactsPurchased.add(eighth);
+//		artifactsPurchased.add(ninth);
+//	}
 
 	public void run() {
 		//g.setColor(Color.black);
