@@ -29,10 +29,10 @@ public class TapMonsterGame extends GUIApplication {
 		main = new TapMonsterScreen(getWidth(),getHeight());
 		intro = new IntroScreen(getWidth(),getHeight());
 		store = new StoreScreen(getWidth(),getHeight());
-		inventory = new InventoryScreen(getWidth(),getHeight());
+	//	inventory = new InventoryScreen(getWidth(),getHeight());
 		monsterdex = new MonsterDexScreen(getWidth(),getHeight());
 		//death = new DeathScreen(1,5,getWidth(),getHeight(), null,null);
-		setScreen(intro);
+		setScreen(main);
 	}
 
 	public static void main(String[] args) {
