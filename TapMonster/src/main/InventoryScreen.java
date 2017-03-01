@@ -25,6 +25,7 @@ public class InventoryScreen extends ClickableScreen implements Runnable, Invent
 	private TextLabel artifactNum;
 	private int collected;
 	private Button back;
+	private TextLabel benefits;
 	//private Button purchaseAllArtifactss;
 	
 	private ArrayList<Artifact> artifactsPurchased;
@@ -86,6 +87,7 @@ public class InventoryScreen extends ClickableScreen implements Runnable, Invent
 				//back to main screen
 			}
 		});
+		//benefits = new TextLabel(7)
 		
 		/*purchaseAllArtifacts = new Button(10,10,100,50, "Show all artifacts", Color.red, new Action(){
 			public void act(){
@@ -198,9 +200,20 @@ public class InventoryScreen extends ClickableScreen implements Runnable, Invent
 		artifactsPurchased.add(ninth);
 	}
 	
-	public void showGains(){
+	public String showLatestGain(){
 		//for each item in artifacts purchased list, display its gains
 		//could add gains field in artifact and getGains method
+		if(artifactsPurchased != null){
+			return retrieveLatestGain(artifactsPurchased.get(artifactsPurchased.size()-1));
+		}
+		return null;
+	}
+	
+	public String retrieveLatestGain(Artifact lastCollectedArtifact){
+		if(lastCollectedArtifact.getName() == "HERO'S SWORD"){
+			return "test";
+		}
+		return null;
 	}
 
 	public void run() {
