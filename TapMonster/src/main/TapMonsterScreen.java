@@ -110,6 +110,7 @@ public class TapMonsterScreen extends ClickableScreen implements Runnable,Game, 
 
 			public void act() {
 				//Resets the entire level after timer runs out
+				reward.setText("");
 				if(timeLeft==0.0){
 
 				}
@@ -275,12 +276,6 @@ public class TapMonsterScreen extends ClickableScreen implements Runnable,Game, 
 		}
 		TapMonsterGame.main.rewardObject.takeEffect(TapMonsterGame.main);
 		reward.setText(""+rewardObject.getDescription());
-		try {
-			Thread.sleep(1000);
-			reward.setText("");
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
 		
 	}
 	
