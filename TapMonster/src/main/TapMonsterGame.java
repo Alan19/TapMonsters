@@ -12,7 +12,7 @@ public class TapMonsterGame extends GUIApplication {
 
 	public static TapMonsterGame game;
 	public static Screen intro;
-	public static Screen store;
+	public static StoreScreen store;
 	public static InventoryScreen inventory;
 	public static Screen death;
 	public static ArrayList<Artifact> artifacts;
@@ -26,12 +26,15 @@ public class TapMonsterGame extends GUIApplication {
 
 	@Override
 	public void initScreen() {
+		
 		main = new TapMonsterScreen(getWidth(),getHeight());
 		intro = new IntroScreen(getWidth(),getHeight());
 		store = new StoreScreen(getWidth(),getHeight());
-		//inventory = new InventoryScreen(getWidth(),getHeight());
-	//	monsterdex = new MonsterDexScreen(getWidth(),getHeight());
-		//death = new DeathScreen(1,5,getWidth(),getHeight(), null,null);
+		store.createArtifacts();
+		store.createArtifactPics();
+		inventory = new InventoryScreen(getWidth(),getHeight());
+		monsterdex = new MonsterDexScreen(getWidth(),getHeight());
+
 		setScreen(intro);
 	}
 
