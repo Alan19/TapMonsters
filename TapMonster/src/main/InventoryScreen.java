@@ -87,7 +87,7 @@ public class InventoryScreen extends ClickableScreen implements Runnable, Invent
 				//back to main screen
 			}
 		});
-		//benefits = new TextLabel(7)
+		
 		
 		/*purchaseAllArtifacts = new Button(10,10,100,50, "Show all artifacts", Color.red, new Action(){
 			public void act(){
@@ -103,10 +103,12 @@ public class InventoryScreen extends ClickableScreen implements Runnable, Invent
 		viewObjects.add(artifactDescription);
 		viewObjects.add(artifactNum);
 		viewObjects.add(back);
+		
 		//viewObjects.add(purchaseAllArtifacts);
 		addArtifact();
 		displayArtifacts();
-
+		benefits = new TextLabel(700,500,getWidth()/2,50, showLatestGain());
+		viewObjects.add(benefits);
 	}
 	
 	public void displayArtifacts(){
@@ -203,17 +205,17 @@ public class InventoryScreen extends ClickableScreen implements Runnable, Invent
 	public String showLatestGain(){
 		//for each item in artifacts purchased list, display its gains
 		//could add gains field in artifact and getGains method
-		if(artifactsPurchased != null){
+		if(artifactsPurchased.size() > 0){
 			return retrieveLatestGain(artifactsPurchased.get(artifactsPurchased.size()-1));
 		}
-		return null;
+			return "nothing";
 	}
 	
 	public String retrieveLatestGain(Artifact lastCollectedArtifact){
 		if(lastCollectedArtifact.getName() == "HERO'S SWORD"){
-			return "test";
+			return "You just gained (benefit from HERO'S SWORD)!";
 		}
-		return null;
+		return "not hero sword";
 	}
 
 	public void run() {
