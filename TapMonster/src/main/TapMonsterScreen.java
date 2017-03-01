@@ -32,6 +32,8 @@ public class TapMonsterScreen extends ClickableScreen implements Runnable,Game, 
 	private int gold;
 	private Button inventoryButton;
 	private Button timerBackground;
+	private Button fightButton;
+	
 	private Graphic background;
 	private int hp;
 	private HitPoints hpBar;
@@ -131,6 +133,12 @@ public class TapMonsterScreen extends ClickableScreen implements Runnable,Game, 
 				TapMonsterGame.game.setScreen(TapMonsterGame.inventory);
 			}
 		});
+		fightButton = new Button(getWidth()-150,225,130,40,"FIGHT",new Color(153,153,153), new Action() {
+
+			public void act() {
+				TapMonsterGame.game.setScreen(TapMonsterGame.fightScreen);
+			}
+		});
 
 	}
 
@@ -196,6 +204,7 @@ public class TapMonsterScreen extends ClickableScreen implements Runnable,Game, 
 		viewObjects.add(prestige);
 		viewObjects.add(store);
 		viewObjects.add(inventoryButton);
+		viewObjects.add(fightButton);
 		viewObjects.add(monster);
 		viewObjects.add(reward);
 		viewObjects.add(hpBar);
