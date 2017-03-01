@@ -32,10 +32,15 @@ public class TapMonsterScreen extends ClickableScreen implements Runnable,Game, 
 	private int gold;
 	private Button inventoryButton;
 	private Button timerBackground;
+	private Button fightButton;
+	
 	private Graphic background;
 	private int hp;
 	private HitPoints hpBar;
 	public static Score score;
+	//public static TextLabel scoreOnScreen;
+	private Reward[] rewardList;
+	private static Reward rewardObject;
 	
 	public static boolean wasSequenceCompleted = false;
 
@@ -105,6 +110,7 @@ public class TapMonsterScreen extends ClickableScreen implements Runnable,Game, 
 
 			public void act() {
 				//Resets the entire level after timer runs out
+				reward.setText("");
 				if(timeLeft==0.0){
 
 				}
@@ -127,6 +133,12 @@ public class TapMonsterScreen extends ClickableScreen implements Runnable,Game, 
 
 			public void act() {
 				TapMonsterGame.game.setScreen(TapMonsterGame.inventory);
+			}
+		});
+		fightButton = new Button(getWidth()-150,225,130,40,"FIGHT",new Color(153,153,153), new Action() {
+
+			public void act() {
+				TapMonsterGame.game.setScreen(TapMonsterGame.fightScreen);
 			}
 		});
 
@@ -170,11 +182,13 @@ public class TapMonsterScreen extends ClickableScreen implements Runnable,Game, 
 	@Override
 	public void initAllObjects(List<Visible> viewObjects) {
 		score = new Score(50,50);
+		//scoreOnScreen = new TextLabel(score.getX(), score.getY(), score.getWidth(), score.getHeight(), Integer.toString(score.score));
 		hpBar = new HitPoints(50,100);
 		background = new Graphic(0,0,0.75,"src/JaviyDemo/background.jpg");
 		viewObjects.add(background);
 		hp = 100;
 		gold = 0;
+		rewardList = Reward.getAllRewards();
 		timeBonus = 0;
 		time = new TextLabel(40,getHeight()-175,75,60,"");
 		reward = new TextLabel(550,getHeight()-150,75,60,"");
@@ -193,6 +207,7 @@ public class TapMonsterScreen extends ClickableScreen implements Runnable,Game, 
 		viewObjects.add(prestige);
 		viewObjects.add(store);
 		viewObjects.add(inventoryButton);
+		viewObjects.add(fightButton);
 		viewObjects.add(monster);
 		viewObjects.add(reward);
 		viewObjects.add(hpBar);
@@ -233,6 +248,49 @@ public class TapMonsterScreen extends ClickableScreen implements Runnable,Game, 
 
 	public int giveHpMax() {
 		return hpBar.getMax();
+	}
+	
+	public void setRandomReward(){
+		int rewardTier = 0;
+		int probNum = (int) (Math.random() * 10 +1);
+		if (probNum <= 6){
+			rewardTier = 0;
+		}
+		else if (probNum <= 9){
+			rewardTier = 1;
+		}
+		else{
+			rewardTier = 2;
+		}
+		if (rewardTier == 0){
+			int randNum = (int) (Math.random() * 2);
+			rewardObject = rewardList[randNum];
+		}
+		else if (rewardTier == 1){
+			int randNum = (int) (Math.random() * 2+2);
+			rewardObject = rewardList[randNum];
+		}
+		else{
+			int randNum = (int) (Math.random() * 4+4);
+			rewardObject = rewardList[randNum];
+		}
+		TapMonsterGame.main.rewardObject.takeEffect(TapMonsterGame.main);
+		reward.setText(""+rewardObject.getDescription());
+		
+	}
+	
+	public void setRandomGold(){
+		int goldNum = (int) (Math.random() * 10 + 1);
+		if (goldNum <= 6){
+			rewardObject = rewardList[8];
+		}
+		else if (goldNum <= 9){
+			rewardObject = rewardList[9];
+		}
+		else{
+			rewardObject = rewardList[10];
+		}
+		TapMonsterGame.main.rewardObject.takeEffect(TapMonsterGame.main);
 	}
 	
 }

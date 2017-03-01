@@ -12,13 +12,14 @@ public class TapMonsterGame extends GUIApplication {
 
 	public static TapMonsterGame game;
 	public static Screen intro;
-	public static Screen store;
+	public static StoreScreen store;
 	public static InventoryScreen inventory;
 	public static Screen death;
 	public static ArrayList<Artifact> artifacts;
 	public static ArrayList<ClickableGraphic> artifactPictures;
 	public static TapMonsterScreen main;
 	public static MonsterDexScreen monsterdex;
+	public static SequenceScreen2 fightScreen;
 	
 	public TapMonsterGame(int width, int height) {
 		super(width,height);
@@ -26,13 +27,21 @@ public class TapMonsterGame extends GUIApplication {
 
 	@Override
 	public void initScreen() {
+		
 		main = new TapMonsterScreen(getWidth(),getHeight());
 		intro = new IntroScreen(getWidth(),getHeight());
-		store = new StoreScreen(getWidth(),getHeight());
-	//	inventory = new InventoryScreen(getWidth(),getHeight());
-		monsterdex = new MonsterDexScreen(getWidth(),getHeight());
-		//death = new DeathScreen(1,5,getWidth(),getHeight(), null,null);
-		setScreen(main);
+		//store = new StoreScreen(getWidth(),getHeight());
+		artifactPictures = new ArrayList<ClickableGraphic>();
+		artifacts = new ArrayList();
+
+		fightScreen = new SequenceScreen2(getWidth(), getHeight());
+
+		//store.createArtifacts();
+		//store.createArtifactPics();
+		//inventory = new InventoryScreen(getWidth(),getHeight());
+		//monsterdex = new MonsterDexScreen(getWidth(),getHeight());
+
+		setScreen(intro);
 	}
 
 	public static void main(String[] args) {
@@ -40,5 +49,13 @@ public class TapMonsterGame extends GUIApplication {
 		Thread app = new Thread(game);
 		app.start();
 	}
+
+	public static void newFightScreen() {
+		// TODO Auto-generated method stub
+		fightScreen = new SequenceScreen2(1200, 800);
+//		return fightScreen;
+	}
+	
+	
 
 }

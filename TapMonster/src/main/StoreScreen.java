@@ -29,8 +29,8 @@ public class StoreScreen extends ClickableScreen implements Runnable {
 	private Button backButton;
 	private Graphic background;
 	private Artifact currentArtifact;
-	private ArrayList<Artifact> artifacts;
-	private ArrayList<ClickableGraphic> artifactPictures;
+//	private ArrayList<Artifact> artifacts;
+//	private ArrayList<ClickableGraphic> artifactPictures;
 	private int playerBalance;
 	private int playerLife;
 	private TextLabel score;
@@ -96,8 +96,8 @@ public class StoreScreen extends ClickableScreen implements Runnable {
 		viewObjects.add(greeting);
 		viewObjects.add(score);
 		
-		createArtifacts();
-		createArtifactPics();
+//		createArtifacts();
+//		createArtifactPics();
 	}
 
 	public void run() {
@@ -111,14 +111,14 @@ public class StoreScreen extends ClickableScreen implements Runnable {
 //		artifactPictures.get(0).act();
 	}
 
-	private void createArtifactPics() {
-		artifactPictures = new ArrayList();
+	public void createArtifactPics() {
+//		TapMonsterGame.artifactPictures = new ArrayList();
 		int[] xCoords = {70, 370, 670, 70, 370, 670, 70, 370, 670};
 		int[] yCoords = {160, 160, 160, 340, 340, 340, 530, 530, 530};
 		
-		for(int i = 0; i<artifacts.size(); i++){
-			final Artifact boughtArtifact = artifacts.get(i);
-			ClickableGraphic artifact = new ClickableGraphic(xCoords[i], yCoords[i], artifacts.get(i).getImagePath());
+		for(int i = 0; i<TapMonsterGame.artifacts.size(); i++){
+			final Artifact boughtArtifact = TapMonsterGame.artifacts.get(i);
+			ClickableGraphic artifact = new ClickableGraphic(xCoords[i], yCoords[i], TapMonsterGame.artifacts.get(i).getImagePath());
 			//artifact.addMouseListener();
 			//will need mouse listener on clickable graphic
 			artifact.setAction(new Action(){
@@ -127,25 +127,28 @@ public class StoreScreen extends ClickableScreen implements Runnable {
 						int index = 0;
 						playerBalance -= boughtArtifact.getPrice();
 						playerMoney.setText("You have: " + playerBalance + " Relics");
-						artifacts.remove(boughtArtifact.buyItem());
-						for(int i=0; i<artifactPictures.size(); i++){
-							if(artifactPictures.get(i).getImagePath().equals(boughtArtifact.getImagePath())){
+						TapMonsterGame.artifacts.remove(boughtArtifact.buyItem());
+						TapMonsterGame.artifacts.remove(boughtArtifact.buyItem());
+						TapMonsterScreen.score.addArtifact(boughtArtifact.getScore());
+						score.setText(Integer.toString(TapMonsterScreen.score.score));
+						for(int i=0; i<TapMonsterGame.artifactPictures.size(); i++){
+							if(TapMonsterGame.artifactPictures.get(i).getImagePath().equals(boughtArtifact.getImagePath())){
 								index = i;
 							}
 						}
-						viewObjects.remove(artifactPictures.get(index));
-						artifactPictures.remove(index);
+						viewObjects.remove(TapMonsterGame.artifactPictures.get(index));
+						TapMonsterGame.artifactPictures.remove(index);
 					}
 				}
 			});
 			
-			artifactPictures.add(artifact);
+			TapMonsterGame.artifactPictures.add(artifact);
 			viewObjects.add(artifact);
 		}	
 	}
 
 	public void createArtifacts() {
-		artifacts = new ArrayList();
+//		TapMonsterGame.artifacts = new ArrayList();
 		Artifact arti1 = new Artifact("Placeholder", "Worldly Illuminator", 50, new Action(){
 			public void act() {
 				playerLife++;
@@ -202,15 +205,15 @@ public class StoreScreen extends ClickableScreen implements Runnable {
 			}
 		}, "src/storeImages/arti9.png", 450);
 		
-		artifacts.add(arti1);
-		artifacts.add(arti2);
-		artifacts.add(arti3);
-		artifacts.add(arti4);
-		artifacts.add(arti5);
-		artifacts.add(arti6);
-		artifacts.add(arti7);
-		artifacts.add(arti8);
-		artifacts.add(arti9);
+		TapMonsterGame.artifacts.add(arti1);
+		TapMonsterGame.artifacts.add(arti2);
+		TapMonsterGame.artifacts.add(arti3);
+		TapMonsterGame.artifacts.add(arti4);
+		TapMonsterGame.artifacts.add(arti5);
+		TapMonsterGame.artifacts.add(arti6);
+		TapMonsterGame.artifacts.add(arti7);
+		TapMonsterGame.artifacts.add(arti8);
+		TapMonsterGame.artifacts.add(arti9);
 	}
 
 }
