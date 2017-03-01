@@ -271,7 +271,7 @@ public class TapMonsterScreen extends ClickableScreen implements Runnable,Game, 
 			int randNum = (int) (Math.random() * 4+4);
 			rewardObject = rewardList[randNum];
 		}
-		this.rewardObject.takeEffect(this);
+		TapMonsterGame.main.rewardObject.takeEffect(TapMonsterGame.main);
 		reward.setText(""+rewardObject.getDescription());
 		try {
 			Thread.sleep(1000);
@@ -293,7 +293,7 @@ public class TapMonsterScreen extends ClickableScreen implements Runnable,Game, 
 		else{
 			rewardObject = rewardList[10];
 		}
-		this.rewardObject.takeEffect(this);
+		TapMonsterGame.main.rewardObject.takeEffect(TapMonsterGame.main);
 	}
 	
 }

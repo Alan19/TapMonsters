@@ -144,6 +144,8 @@ public class SequenceScreen2 extends Screen implements KeyListener, KeysToPlayer
 				}
 				ctr++;
 				if (ctr == s.getSequence().size()){
+					TapMonsterGame.main.setRandomGold();
+					TapMonsterGame.main.setRandomReward();
 					System.out.println("You've won!");
 					try {
 						Thread.sleep(1000);
