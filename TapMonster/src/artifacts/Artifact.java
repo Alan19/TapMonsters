@@ -51,4 +51,8 @@ public class Artifact implements ArtifactInterface{
 		return action;
 	}
 
+	public int getScore() {
+		return scoreValue;
+	}
+
 }
