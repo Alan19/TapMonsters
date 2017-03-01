@@ -128,6 +128,8 @@ public class StoreScreen extends ClickableScreen implements Runnable {
 						playerBalance -= boughtArtifact.getPrice();
 						playerMoney.setText("You have: " + playerBalance + " Relics");
 						artifacts.remove(boughtArtifact.buyItem());
+						TapMonsterScreen.score.score+=boughtArtifact.getScore();
+						score.setText(Integer.toString(TapMonsterScreen.score.score));
 						for(int i=0; i<artifactPictures.size(); i++){
 							if(artifactPictures.get(i).getImagePath().equals(boughtArtifact.getImagePath())){
 								index = i;
