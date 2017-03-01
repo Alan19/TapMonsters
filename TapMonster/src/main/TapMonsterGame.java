@@ -39,7 +39,7 @@ public class TapMonsterGame extends GUIApplication {
 		store.createArtifacts();
 		store.createArtifactPics();
 		//inventory = new InventoryScreen(getWidth(),getHeight());
-		//monsterdex = new MonsterDexScreen(getWidth(),getHeight());
+		monsterdex = new MonsterDexScreen(getWidth(),getHeight());
 
 		setScreen(intro);
 	}
