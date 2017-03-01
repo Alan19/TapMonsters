@@ -272,6 +272,14 @@ public class TapMonsterScreen extends ClickableScreen implements Runnable,Game, 
 			rewardObject = rewardList[randNum];
 		}
 		this.rewardObject.takeEffect(this);
+		reward.setText(""+rewardObject.getDescription());
+		try {
+			Thread.sleep(1000);
+			reward.setText("");
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		
 	}
 	
 	public void setRandomGold(){
