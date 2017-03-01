@@ -32,6 +32,8 @@ public class TapMonsterScreen extends ClickableScreen implements Runnable,Game, 
 	private int gold;
 	private Button inventoryButton;
 	private Button timerBackground;
+	private Button fightButton;
+	
 	private Graphic background;
 	private int hp;
 	private HitPoints hpBar;
@@ -132,6 +134,12 @@ public class TapMonsterScreen extends ClickableScreen implements Runnable,Game, 
 				TapMonsterGame.game.setScreen(TapMonsterGame.inventory);
 			}
 		});
+		fightButton = new Button(getWidth()-150,225,130,40,"FIGHT",new Color(153,153,153), new Action() {
+
+			public void act() {
+				TapMonsterGame.game.setScreen(TapMonsterGame.fightScreen);
+			}
+		});
 
 	}
 
@@ -198,6 +206,7 @@ public class TapMonsterScreen extends ClickableScreen implements Runnable,Game, 
 		viewObjects.add(prestige);
 		viewObjects.add(store);
 		viewObjects.add(inventoryButton);
+		viewObjects.add(fightButton);
 		viewObjects.add(monster);
 		viewObjects.add(reward);
 		viewObjects.add(hpBar);
@@ -264,7 +273,15 @@ public class TapMonsterScreen extends ClickableScreen implements Runnable,Game, 
 			int randNum = (int) (Math.random() * 4+4);
 			rewardObject = rewardList[randNum];
 		}
-		this.rewardObject.takeEffect(this);
+		TapMonsterGame.main.rewardObject.takeEffect(TapMonsterGame.main);
+		reward.setText(""+rewardObject.getDescription());
+		try {
+			Thread.sleep(1000);
+			reward.setText("");
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		
 	}
 	
 	public void setRandomGold(){
@@ -278,7 +295,7 @@ public class TapMonsterScreen extends ClickableScreen implements Runnable,Game, 
 		else{
 			rewardObject = rewardList[10];
 		}
-		this.rewardObject.takeEffect(this);
+		TapMonsterGame.main.rewardObject.takeEffect(TapMonsterGame.main);
 	}
 	
 }

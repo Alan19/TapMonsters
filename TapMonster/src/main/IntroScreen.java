@@ -121,23 +121,24 @@ public class IntroScreen extends ClickableScreen implements Attack, PlayerInterf
 		
 			public void act() {
 				int i = difficulty;
+			
 				while(i>0){
 				
-				int tempInt = (int) ((TapMonsterGame.artifacts.size()) * Math.random());
+				int tempInt =  (int) ((TapMonsterGame.artifacts.size()) * Math.random());
 				viewObjects.remove(TapMonsterGame.artifactPictures.get(tempInt));
 				TapMonsterGame.artifactPictures.remove(tempInt);
 				TapMonsterGame.artifacts.remove(tempInt);
 				i--;
 				}
 				//viewObjects.remove(viewObjects.size()-1);
-				
+				TapMonsterGame.game.setScreen(TapMonsterGame.main);
 				//for demo{
 				//player.setMove(zz%5);
 			//	zz++;
 				//}
 				
 				//System.out.println("BUTTON IS WORKING");
-				TapMonsterGame.game.setScreen(TapMonsterGame.main);
+				
 			}
 
 		});
