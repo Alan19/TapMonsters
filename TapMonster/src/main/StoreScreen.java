@@ -12,6 +12,7 @@ import guiPractice.components.Action;
 import guiPractice.components.Button;
 import guiPractice.components.ClickableGraphic;
 import guiPractice.components.Graphic;
+import guiPractice.components.HoverableClickable;
 import guiPractice.components.TextArea;
 import guiPractice.components.TextLabel;
 import guiPractice.components.TransparentRoundedRect;
@@ -30,7 +31,7 @@ public class StoreScreen extends ClickableScreen implements Runnable {
 	private Graphic background;
 	private Artifact currentArtifact;
 	private ArrayList<Artifact> artifacts;
-	private ArrayList<ClickableGraphic> artifactPictures;
+	private ArrayList<HoverableClickable> artifactPictures;
 	private int playerBalance;
 	private int playerLife;
 	
@@ -77,7 +78,7 @@ public class StoreScreen extends ClickableScreen implements Runnable {
 		
 		backButton = new Button(getWidth()-310, 590, 250, 50, "Back", Color.GRAY, new Action(){
 			public void act() {
-				
+				//TapMonsterGame.game.setScreen(TapMonsterGame.store);
 			}
 		});
 		
@@ -114,7 +115,7 @@ public class StoreScreen extends ClickableScreen implements Runnable {
 		
 		for(int i = 0; i<artifacts.size(); i++){
 			final Artifact boughtArtifact = artifacts.get(i);
-			ClickableGraphic artifact = new ClickableGraphic(xCoords[i], yCoords[i], artifacts.get(i).getImagePath());
+			HoverableClickable artifact = new HoverableClickable(xCoords[i], yCoords[i], artifacts.get(i).getImagePath());
 			//artifact.addMouseListener();
 			//will need mouse listener on clickable graphic
 			artifact.setAction(new Action(){
@@ -135,6 +136,18 @@ public class StoreScreen extends ClickableScreen implements Runnable {
 				}
 			});
 			
+			artifact.setHoverAction(new Action(){
+				public void act() {
+					itemsInfo.setText(boughtArtifact.getDescription());
+				}
+			});
+			
+			artifact.setExitAction(new Action(){
+				public void act() {
+					itemsInfo.setText("");
+				}
+			});
+			
 			artifactPictures.add(artifact);
 			viewObjects.add(artifact);
 		}	
@@ -142,61 +155,61 @@ public class StoreScreen extends ClickableScreen implements Runnable {
 
 	private void createArtifacts() {
 		artifacts = new ArrayList();
-		Artifact arti1 = new Artifact("Placeholder", "Worldly Illuminator", 50, new Action(){
+		Artifact arti1 = new Artifact("Placeholder sssssss", "Worldly Illuminator", 50, new Action(){
 			public void act() {
 				playerLife++;
 				playerLifeBox.setText("You have: " + playerLife + " Lives");
 				System.out.println("Somebody");
 			}
-		}, "src/storeImages/arti1.png");
+		}, "src/storeImages/arti1.png", 40);
 		
-		Artifact arti2 = new Artifact("Placeholder", "Name#2", 50, new Action(){
+		Artifact arti2 = new Artifact("Placeholder sssssssssssssss", "Name#2", 50, new Action(){
 			public void act() {
 				System.out.println("once");
 			}
-		}, "src/storeImages/arti2.png");
+		}, "src/storeImages/arti2.png", 40);
 		
-		Artifact arti3 = new Artifact("Placeholder", "Name#3", 50, new Action(){
+		Artifact arti3 = new Artifact("Placeholder wwdasdcaefdcdvfec", "Name#3", 50, new Action(){
 			public void act() {
 				System.out.println("told");
 			}
-		}, "src/storeImages/arti3.png");
+		}, "src/storeImages/arti3.png", 40);
 		
-		Artifact arti4 = new Artifact("Placeholder", "Name#4", 50, new Action(){
+		Artifact arti4 = new Artifact("Placeholder wefrgdvsdefsrdvsddefr", "Name#4", 50, new Action(){
 			public void act() {
 				System.out.println("me");
 			}
-		}, "src/storeImages/arti4.png");
+		}, "src/storeImages/arti4.png", 40);
 		
-		Artifact arti5 = new Artifact("Placeholder", "Name#5", 50, new Action(){
+		Artifact arti5 = new Artifact("Placeholder srdefdcvfddgrwfecdscfv", "Name#5", 50, new Action(){
 			public void act() {
 				System.out.println("the");
 			}
-		}, "src/storeImages/arti5.png");
+		}, "src/storeImages/arti5.png", 40);
 		
-		Artifact arti6 = new Artifact("Placeholder", "Name#6", 50, new Action(){
+		Artifact arti6 = new Artifact("Placeholder vrdefqwdscdfvgrefd", "Name#6", 50, new Action(){
 			public void act() {
 				System.out.println("world");
 			}
-		}, "src/storeImages/arti6.png");
+		}, "src/storeImages/arti6.png", 40);
 		
-		Artifact arti7 = new Artifact("Placeholder", "Name#7", 50, new Action(){
+		Artifact arti7 = new Artifact("Placeholder wertyujkiollkjnh", "Name#7", 50, new Action(){
 			public void act() {
 				System.out.println("is");
 			}
-		}, "src/storeImages/arti7.png");
+		}, "src/storeImages/arti7.png", 40);
 		
-		Artifact arti8 = new Artifact("Placeholder", "Name#8", 50, new Action(){
+		Artifact arti8 = new Artifact("Placeholder porihjndfmksdwefujreg", "Name#8", 50, new Action(){
 			public void act() {
 				System.out.println("gonna");
 			}
-		}, "src/storeImages/arti8.png");
+		}, "src/storeImages/arti8.png", 40);
 		
-		Artifact arti9 = new Artifact("Placeholder", "Name#9", 50, new Action(){
+		Artifact arti9 = new Artifact("Placeholder polkijhgnhfbudfifwert", "Name#9", 50, new Action(){
 			public void act() {
 				System.out.println("roll me.");
 			}
-		}, "src/storeImages/arti9.png");
+		}, "src/storeImages/arti9.png", 40);
 		
 		artifacts.add(arti1);
 		artifacts.add(arti2);
