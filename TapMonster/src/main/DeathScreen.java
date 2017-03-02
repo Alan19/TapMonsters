@@ -14,8 +14,6 @@ import guiPractice.components.ClickableGraphic;
 import guiPractice.components.Graphic;
 import guiPractice.components.TextLabel;
 import guiPractice.components.Visible;
-import interfaces.MonDexInterface;
-import main.MonsterDexScreen;
 
 /**
  * @author Alan19
@@ -93,6 +91,7 @@ public class DeathScreen extends ClickableScreen{
 			if(monster.isBossMonster())
 			new Graphic(x, y, 100, 100, monster.getImagePath());
 			TextLabel name = new TextLabel(x+110, y, 400, 25, monster.getName());
+			viewObjects.add(name);
 			x = getWidth()/2;
 			y += 120;
 		}
