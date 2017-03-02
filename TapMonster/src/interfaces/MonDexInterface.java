@@ -16,7 +16,6 @@ public interface MonDexInterface{
 	/**
 	 *@Alan
 	 */
-	String getImagePath();
 
 	String getName();
 	

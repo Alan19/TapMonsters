@@ -35,7 +35,6 @@ public class DeathScreen extends ClickableScreen{
 		//Game Over information and add background
 		deathMessage = new TextLabel(20, 40, 400, 25, "Copperplate Gothic Bold", 20, new Color(140, 146, 143), "You died! Level:" + level + " Round:" + round);
 		deathMessage.setText("You died! Level:" + level + " Round:" + round);
-		viewObjects.add(deathMessage);
 		
 		artifactName = new TextLabel(20, 150, 500, 100, "Copperplate Gothic Bold", 20, new Color(112, 119, 102), "Click on an artifact!");
 		artifactDescription = new TextLabel(20, 200, 500, 100, "Copperplate Gothic Bold", 20, new Color(112, 119, 102), "");
@@ -75,6 +74,7 @@ public class DeathScreen extends ClickableScreen{
 		}
 		
 		//Move artifact description under artifact images
+		viewObjects.add(deathMessage);
 		artifactName.setY(y+100);
 		artifactDescription.setY(y+150);
 		
