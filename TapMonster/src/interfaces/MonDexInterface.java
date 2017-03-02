@@ -18,5 +18,5 @@ public interface MonDexInterface{
 
 	String getName();
 	
-	ArrayList<MonsterGraphic> getMonsters();
+	ArrayList<monsterDex.MonsterGraphic> getMonsters();
 }

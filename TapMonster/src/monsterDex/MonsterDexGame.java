@@ -1,4 +1,4 @@
-package MonsterDex;
+package monsterDex;
 
 import guiPractice.GUIApplication;
 
