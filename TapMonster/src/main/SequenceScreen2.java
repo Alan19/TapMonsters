@@ -36,13 +36,18 @@ public class SequenceScreen2 extends Screen implements KeyListener, KeysToPlayer
 	private static Graphic arrowRight = new Graphic(sequencex, y, w, h, "src/sequenceArrows/arrowRight.jpeg");
 
 	private static Sequence s = new Sequence(10);
+//	private static Sequence s;
 	private static ArrayList<String> playerMatch = new ArrayList<String>();
+//	private static ArrayList<String> playerMatch;
 	private static ArrayList<Graphic> displayedSequence = new ArrayList<Graphic>();
+//	private static ArrayList<Graphic> displayedSequence;
 
 	private static Graphic playerChoice; 
 	private static TextLabel text;
 	private static int idx = 0;
 	private static int ctr = 0;
+	
+	private static int lng = 0;
 	
 	private Graphic background;
 
@@ -52,6 +57,15 @@ public class SequenceScreen2 extends Screen implements KeyListener, KeysToPlayer
 		super(width, height);
 		p.setX(getWidth()/2);
 		p.setY(getHeight()/2+100);
+//		s = new Sequence(10);
+		idx = 0;
+		ctr = 0;
+		lng = s.getSequence().size();
+		
+//		playerMatch = new ArrayList<String>();
+//		displayedSequence = new ArrayList<Graphic>();
+//		initObjects(viewObjects);
+		 
 	}
 
 	public void addToDisplayedSequence(int numOfTimes){
@@ -73,8 +87,9 @@ public class SequenceScreen2 extends Screen implements KeyListener, KeysToPlayer
 				playerMatch.add("A");
 			}
 			sequencex+=60;
-			//	System.out.println(sequencex);
-			if (idx < s.getSequence().size() ){
+				System.out.println(sequencex);
+//			if (idx < s.getSequence().size() ){
+			if (idx < lng){
 				idx++;
 			}
 		}
@@ -153,14 +168,16 @@ public class SequenceScreen2 extends Screen implements KeyListener, KeysToPlayer
 				sequencex = sequencex - 60;
 				//				System.out.println(playerMatch);
 				//				System.out.println(s.getSequence());
-				if(idx < s.getSequence().size()){
+//				if(idx < s.getSequence().size()){
+				if(idx < lng){
 					addToDisplayedSequence(1);
 
 					addToViewObjects(1);
 
 				}
 				ctr++;
-				if (ctr == s.getSequence().size()){
+//				if (ctr == s.getSequence().size()){
+				if (ctr >= 14){
 					TapMonsterGame.main.setRandomGold();
 					TapMonsterGame.main.setRandomReward();
 					System.out.println("You've won!");

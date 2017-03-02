@@ -25,7 +25,7 @@ public class TapMonsterScreen extends ClickableScreen implements Runnable,Game,R
 
 	private TextLabel time;
 	private TextLabel reward;
-	private double timeAlter;
+	private static double timeAlter;
 	private TextLabel stage;
 	private int stageLevel;//must implement a method to increase this after each time you press next level
 	private int timeBonus;
@@ -87,10 +87,14 @@ public class TapMonsterScreen extends ClickableScreen implements Runnable,Game,R
 		changeText("Go!");
 		changeText("");
 		title.setText("TAP MONSTERS");
-		timer(timeAlter);
+//		timer(timeAlter);
 	}
 
-	private void timer(double effect){
+	void timer(){
+		timer(timeAlter);
+	}
+	
+	void timer(double effect){
 		time.setText(""+timeLeft);
 		while(timeLeft>0.0){
 			if(setWasSequenceCompleted){
@@ -131,9 +135,11 @@ public class TapMonsterScreen extends ClickableScreen implements Runnable,Game,R
 		nextLevel = new Button(getWidth()-150,75,130,40,"NEXT LEVEL",new Color(153,153,153), new Action() {
 
 			public void act() {
-				if(setWasSequenceCompleted){
-					TapMonsterGame.game.setScreen(TapMonsterGame.fightScreen);
-				}
+//				if(setWasSequenceCompleted){
+//					TapMonsterGame.game.setScreen(TapMonsterGame.fightScreen);
+//				}
+				TapMonsterGame.newFightScreen();
+				TapMonsterGame.game.setScreen(TapMonsterGame.fightScreen);
 			}
 		});
 		prestige = new Button(getWidth()-150,25,150,40,"MONSTERDEX",new Color(153,153,153), new Action() {
@@ -157,7 +163,9 @@ public class TapMonsterScreen extends ClickableScreen implements Runnable,Game,R
 		fightButton = new Button(getWidth()-150,225,130,40,"FIGHT",new Color(153,153,153), new Action() {
 
 			public void act() {
+//				timer(timeAlter);
 				TapMonsterGame.game.setScreen(TapMonsterGame.fightScreen);
+				
 			}
 		});
 
@@ -177,31 +185,31 @@ public class TapMonsterScreen extends ClickableScreen implements Runnable,Game,R
 	}
 
 	public void decreaseLife() {
-		timeAlter = 2.0;
+		setTimeAlter(2.0);
 		System.out.println(Monster.description());
 	}
 
 	public void addBossSequence() {
 		//Max needs to add the boss sequence here
-		timeAlter = 2.0;
+		setTimeAlter(2.0);
 		System.out.println(Monster.description());
 	}
 
 	public void speedTimer() {
-		timeAlter = 7.5;
+		setTimeAlter(7.5);
 		System.out.println("Speed timer");
 		System.out.println(Monster.description());
 
 	}
 
 	public void freezeTimer() {
-		timeAlter = 0.5;
+		setTimeAlter(0.5);
 		System.out.println(Monster.description());
 
 	}
 
 	public void nothing() {
-		timeAlter = 1.0;
+		setTimeAlter(1.0);
 		System.out.println(Monster.description());
 	}
 
@@ -324,6 +332,14 @@ public class TapMonsterScreen extends ClickableScreen implements Runnable,Game,R
 		String x = Monster.returnNames().get(monID);
 		String[] y = x.split("");
 		return y[3];
+	}
+
+	public static double getTimeAlter() {
+		return timeAlter;
+	}
+
+	public void setTimeAlter(double timeAlter) {
+		this.timeAlter = timeAlter;
 	}
 	
 }

@@ -39,6 +39,10 @@ public class TapMonsterGame extends GUIApplication {
 
 		setScreen(intro);
 	}
+	
+	public void newFight(){
+		fightScreen = new SequenceScreen2(getWidth(), getHeight());
+	}
 
 	public static void main(String[] args) {
 		game = new TapMonsterGame(1200, 800);
