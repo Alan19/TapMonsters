@@ -20,6 +20,8 @@ public class TapMonsterScreen extends ClickableScreen implements Runnable,Game, 
 	private TextLabel monsterName;
 	private MonsterName monster;
 	private double timeLeft;
+	
+
 	private TextLabel time;
 	private TextLabel reward;
 	private double timeAlter;
@@ -41,16 +43,30 @@ public class TapMonsterScreen extends ClickableScreen implements Runnable,Game, 
 	//public static TextLabel scoreOnScreen;
 	private Reward[] rewardList;
 	private static Reward rewardObject;
+	public static boolean setWasSequenceCompleted;
 	
-	public static boolean wasSequenceCompleted = false;
+	private boolean wasSequenceCompleted;
 
 	//DOETWAC00M001vl50g
+
+
+	public void setWasSequenceCompleted(boolean wasSequenceCompleted) {
+		this.wasSequenceCompleted = wasSequenceCompleted;
+	}
 
 	public TapMonsterScreen(int width,int height) {
 		super(width, height);
 		timeLeft = 30.0;
 		Thread app = new Thread(this);
 		app.start();
+	}
+	
+	public double getTimeLeft() {
+		return timeLeft;
+	}
+
+	public void setTimeLeft(double timeLeft) {
+		this.timeLeft = timeLeft;
 	}
 
 	private void changeText(String string){
@@ -74,6 +90,10 @@ public class TapMonsterScreen extends ClickableScreen implements Runnable,Game, 
 	private void timer(double effect){
 		time.setText(""+timeLeft);
 		while(timeLeft>0.0){
+			if(setWasSequenceCompleted){
+				timeLeft = 0.0;
+				time.setText("0.0");
+			}
 			try {
 				Thread.sleep(100);
 			} catch (InterruptedException e) {
@@ -99,6 +119,8 @@ public class TapMonsterScreen extends ClickableScreen implements Runnable,Game, 
 		}
 	}
 	
+
+	
 	private Monster getName() {
 		return new Monster(this,getWidth()/2-50,100);
 	}
@@ -109,12 +131,7 @@ public class TapMonsterScreen extends ClickableScreen implements Runnable,Game, 
 		nextLevel = new Button(getWidth()-150,75,130,40,"NEXT LEVEL",new Color(153,153,153), new Action() {
 
 			public void act() {
-				//Resets the entire level after timer runs out
-				reward.setText("");
-				if(timeLeft==0.0){
-
-				}
-				else return;
+				wasSequenceCompleted = false;
 			}
 		});
 		prestige = new Button(getWidth()-150,25,150,40,"MONSTERDEX",new Color(153,153,153), new Action() {
@@ -191,7 +208,7 @@ public class TapMonsterScreen extends ClickableScreen implements Runnable,Game, 
 		rewardList = Reward.getAllRewards();
 		timeBonus = 0;
 		time = new TextLabel(40,getHeight()-175,75,60,"");
-		reward = new TextLabel(550,getHeight()-150,75,60,"");
+		reward = new TextLabel(getWidth()/2-100,getHeight()/2-100,getWidth()/2-100,getHeight()/2-300,"");
 		stageLevel = 1;
 		title = new TextLabel(getWidth()/2-60,20,300,40,"TAP MONSTERS");
 	
