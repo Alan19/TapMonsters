@@ -22,10 +22,11 @@ import interfaces.KeysToPlayer;
 public class SequenceScreen2 extends Screen implements KeyListener, KeysToPlayer, Attack {
 
 	public static int sequencex = 50;
-	public static int playerx = 50;
+	public static int playerx = 100;
 	public static int y = 50;
 	public static int w = 50;
 	public static int h = 50;
+	
 
 	public int playery = y+100;
 
@@ -42,11 +43,15 @@ public class SequenceScreen2 extends Screen implements KeyListener, KeysToPlayer
 	private static TextLabel text;
 	private static int idx = 0;
 	private static int ctr = 0;
+	
+	private Graphic background;
 
 	public static Player p = new Player(200,200);
 
 	public SequenceScreen2(int width, int height) {
 		super(width, height);
+		p.setX(getWidth()/2);
+		p.setY(getHeight()/2+100);
 	}
 
 	public void addToDisplayedSequence(int numOfTimes){
@@ -83,6 +88,8 @@ public class SequenceScreen2 extends Screen implements KeyListener, KeysToPlayer
 	}
 
 	public void initObjects(ArrayList<Visible> viewObjects) {
+		background = new Graphic(0,0,0.75,"src/JaviyDemo/background.jpg");
+		viewObjects.add(background);
 		int length = 4;
 		System.out.println(s.getSequence());
 		addToDisplayedSequence(length);
@@ -93,12 +100,14 @@ public class SequenceScreen2 extends Screen implements KeyListener, KeysToPlayer
 	public void keyPressed(KeyEvent e) {
 		if (playerChoice != null) remove(playerChoice);
 		if (e.getKeyCode() == KeyEvent.VK_W){
+//			viewObjects.add(background);
 			playerChoice = new Graphic(playerx, playery, w, h, "src/sequenceArrows/arrowUp.jpg");
 			addObject(playerChoice);
 			addObject(p);
 			setMove(ATTACK);
 		}
 		if (e.getKeyCode() == KeyEvent.VK_D){
+//			viewObjects.add(background);
 			playerChoice = new Graphic(playerx, playery, w, h, "src/sequenceArrows/arrowRight.jpeg");
 			addObject(playerChoice);
 			addObject(p);
@@ -106,12 +115,14 @@ public class SequenceScreen2 extends Screen implements KeyListener, KeysToPlayer
 
 		}
 		if (e.getKeyCode() == KeyEvent.VK_S){
+//			viewObjects.add(background);
 			playerChoice = new Graphic(playerx, playery, w, h, "src/sequenceArrows/arrowDown.jpg");
 			addObject(playerChoice);
 			addObject(p);
 			setMove(GUARD);
 		}
 		if (e.getKeyCode() == KeyEvent.VK_A){
+//			viewObjects.add(background);
 			playerChoice = new Graphic(playerx, playery, w, h, "src/sequenceArrows/arrowLeft.jpg");
 			addObject(playerChoice);
 			addObject(p);
@@ -125,7 +136,13 @@ public class SequenceScreen2 extends Screen implements KeyListener, KeysToPlayer
 			if (Character.toLowerCase(playerMatch.get(0).charAt(0)) == Character.toLowerCase(e.getKeyChar())){
 				playerMatch.remove(0);
 				
-				viewObjects.remove(0);
+				if (viewObjects.get(0).getImage() == background.getImage()) {
+					viewObjects.remove(1);
+				}
+				else {
+					
+					viewObjects.remove(0);
+				}
 				viewObjects.remove(playerChoice);
 				
 				
@@ -147,12 +164,14 @@ public class SequenceScreen2 extends Screen implements KeyListener, KeysToPlayer
 					TapMonsterGame.main.setRandomGold();
 					TapMonsterGame.main.setRandomReward();
 					System.out.println("You've won!");
+					TapMonsterScreen.setWasSequenceCompleted = true;
 					try {
 						Thread.sleep(1000);
 					} catch (InterruptedException e1) {
 						// TODO Auto-generated catch block
 						e1.printStackTrace();
 					}
+					
 					TapMonsterGame.game.setScreen(TapMonsterGame.main);
 //					TapMonsterGame.newFightScreen();
 				}
@@ -163,12 +182,13 @@ public class SequenceScreen2 extends Screen implements KeyListener, KeysToPlayer
 				System.out.println("Wrong");
 			}
 			p.setX(200);
+			background.setX(0);
 			viewObjects.add(playerChoice);
 			playerChoice.setX(playerx);
 			viewObjects.add(p);
 		}
 		for (int i = 0; i < viewObjects.size(); i++) {
-			if (viewObjects.get(i).getClass() == arrowLeft.getClass() && viewObjects.get(i).getX() < 50) {
+			if (viewObjects.get(i).getClass() == arrowLeft.getClass() && viewObjects.get(i).getX() < 50 && viewObjects.get(i).getY() > 10 && viewObjects.get(i).getWidth() < 400) {
 				viewObjects.remove(i);
 			}
 		}
