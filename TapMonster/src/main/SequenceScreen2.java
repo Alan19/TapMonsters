@@ -61,7 +61,7 @@ public class SequenceScreen2 extends Screen implements KeyListener, KeysToPlayer
 		p.setX(getWidth()/2);
 		p.setY(getHeight()/2+100);
 //		s = new Sequence(10);
-		idx = 0;
+		setIdx(0);
 		ctr = 0;
 		lng = s.getSequence().size();
 		
@@ -73,27 +73,27 @@ public class SequenceScreen2 extends Screen implements KeyListener, KeysToPlayer
 
 	public void addToDisplayedSequence(int numOfTimes){
 		for (int i = 0; i < numOfTimes; i++){
-			if (s.getSequence().get(idx) == 0){
+			if (s.getSequence().get(getIdx()) == 0){
 				displayedSequence.add(new Graphic(sequencex, y, w, h, "src/sequenceArrows/arrowUp.jpg"));
 				playerMatch.add("W");
 			}
-			if (s.getSequence().get(idx) == 1){
+			if (s.getSequence().get(getIdx()) == 1){
 				displayedSequence.add(new Graphic(sequencex, y, w, h, "src/sequenceArrows/arrowRight.jpeg"));
 				playerMatch.add("D");
 			}
-			if (s.getSequence().get(idx) == 2){
+			if (s.getSequence().get(getIdx()) == 2){
 				displayedSequence.add(new Graphic(sequencex, y, w, h, "src/sequenceArrows/arrowDown.jpg"));
 				playerMatch.add("S");
 			}
-			if (s.getSequence().get(idx) == 3){
+			if (s.getSequence().get(getIdx()) == 3){
 				displayedSequence.add(new Graphic(sequencex, y, w, h, "src/sequenceArrows/arrowLeft.jpg"));
 				playerMatch.add("A");
 			}
 			sequencex+=60;
 				System.out.println(sequencex);
 //			if (idx < s.getSequence().size() ){
-			if (idx < lng){
-				idx++;
+			if (getIdx() < lng){
+				setIdx(getIdx() + 1);
 			}
 		}
 	}
@@ -123,7 +123,7 @@ public class SequenceScreen2 extends Screen implements KeyListener, KeysToPlayer
 			
 			round++;
 		}else{
-			monsterImg.loadImages(main.MonsterGraphic.getMonster("Beast"), 100, 100);
+//			monsterImg.loadImages(main.MonsterGraphic.getMonster("Beast"), 100, 100);
 			round++;
 		}
 	}
@@ -191,7 +191,7 @@ public class SequenceScreen2 extends Screen implements KeyListener, KeysToPlayer
 				//				System.out.println(playerMatch);
 				//				System.out.println(s.getSequence());
 //				if(idx < s.getSequence().size()){
-				if(idx < lng){
+				if(getIdx() < lng){
 					addToDisplayedSequence(1);
 
 					addToViewObjects(1);
@@ -247,5 +247,13 @@ public class SequenceScreen2 extends Screen implements KeyListener, KeysToPlayer
 	public void setMove(int move) {
 		// TODO Auto-generated method stub
 		p.setMove(move);
+	}
+
+	public static int getIdx() {
+		return idx;
+	}
+
+	public static void setIdx(int idx) {
+		SequenceScreen2.idx = idx;
 	}
 }

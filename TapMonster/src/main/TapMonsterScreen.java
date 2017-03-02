@@ -141,6 +141,7 @@ public class TapMonsterScreen extends ClickableScreen implements Runnable,Game,R
 //					TapMonsterGame.game.setScreen(TapMonsterGame.fightScreen);
 //				}
 				TapMonsterGame.newFightScreen();
+				SequenceScreen2.setIdx(0);
 				TapMonsterGame.game.setScreen(TapMonsterGame.fightScreen);
 
 			}
@@ -280,47 +281,47 @@ public class TapMonsterScreen extends ClickableScreen implements Runnable,Game,R
 	}
 	
 	public void setRandomReward(){
-		int rewardTier = 0;
-		int probNum = (int) (Math.random() * 10 +1);
-		if (probNum <= 6){
-			rewardTier = 0;
-		}
-		else if (probNum <= 9){
-			rewardTier = 1;
-		}
-		else{
-			rewardTier = 2;
-		}
-		if (rewardTier == 0){
-			int randNum = (int) (Math.random() * 2);
-			rewardObject = TapMonsterGame.rewards.get(randNum);
-		}
-		else if (rewardTier == 1){
-			int randNum = (int) (Math.random() * 2+2);
-			rewardObject = TapMonsterGame.rewards.get(randNum);
-		}
-		else{
-			int randNum = (int) (Math.random() * 4+4);
-			rewardObject = TapMonsterGame.rewards.get(randNum);
-		}
-		listOfRewards.add(rewardObject);
-		listOfRewards.get(0).takeEffect(TapMonsterGame.main);
-		reward.setText(""+rewardObject.getDescription());
+//		int rewardTier = 0;
+//		int probNum = (int) (Math.random() * 10 +1);
+//		if (probNum <= 6){
+//			rewardTier = 0;
+//		}
+//		else if (probNum <= 9){
+//			rewardTier = 1;
+//		}
+//		else{
+//			rewardTier = 2;
+//		}
+//		if (rewardTier == 0){
+//			int randNum = (int) (Math.random() * 2);
+//			rewardObject = TapMonsterGame.rewards.get(randNum);
+//		}
+//		else if (rewardTier == 1){
+//			int randNum = (int) (Math.random() * 2+2);
+//			rewardObject = TapMonsterGame.rewards.get(randNum);
+//		}
+//		else{
+//			int randNum = (int) (Math.random() * 4+4);
+//			rewardObject = TapMonsterGame.rewards.get(randNum);
+//		}
+//		listOfRewards.add(rewardObject);
+//		listOfRewards.get(0).takeEffect(TapMonsterGame.main);
+//		reward.setText(""+rewardObject.getDescription());
 		
 	}
 	
 	public void setRandomGold(){
-		int goldNum = (int) (Math.random() * 10 + 1);
-		if (goldNum <= 6){
-			rewardObject = TapMonsterGame.rewards.get(8);
-		}
-		else if (goldNum <= 9){
-			rewardObject = TapMonsterGame.rewards.get(9);
-		}
-		else{
-			rewardObject = TapMonsterGame.rewards.get(10);
-		}
-		TapMonsterGame.main.rewardObject.takeEffect(TapMonsterGame.main);
+//		int goldNum = (int) (Math.random() * 10 + 1);
+//		if (goldNum <= 6){
+//			rewardObject = TapMonsterGame.rewards.get(8);
+//		}
+//		else if (goldNum <= 9){
+//			rewardObject = TapMonsterGame.rewards.get(9);
+//		}
+//		else{
+//			rewardObject = TapMonsterGame.rewards.get(10);
+//		}
+//		TapMonsterGame.main.rewardObject.takeEffect(TapMonsterGame.main);
 	}
 	
 	
