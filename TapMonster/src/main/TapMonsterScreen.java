@@ -114,14 +114,15 @@ public class TapMonsterScreen extends ClickableScreen implements Runnable,Game,R
 				if(timeLeft>=19.8 && timeLeft<20.0 || timeLeft>=9.8 && timeLeft<10.0){
 					hpBar.hpDecrease(10);
 					System.out.println("DECREASE HP");
-					if(timeLeft>=0.0 && timeLeft<=0.2)time.setText("0.0");
+					if(timeLeft>=0.0 && timeLeft<=0.2)time.setText("0.0");}}
+			else if(effect==1.0){
+				time.setText(""+(int)(timeLeft*10)/10.0);
 			}else if(timeLeft>=0.0 && timeLeft<=0.2){
 				time.setText("0.0");
 			}
 			else time.setText(""+(int)(timeLeft*10)/10.0);
 			}
 		}
-	}
 	
 
 	
