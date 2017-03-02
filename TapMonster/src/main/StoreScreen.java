@@ -12,6 +12,7 @@ import guiPractice.components.Action;
 import guiPractice.components.Button;
 import guiPractice.components.ClickableGraphic;
 import guiPractice.components.Graphic;
+import guiPractice.components.HoverableClickable;
 import guiPractice.components.TextArea;
 import guiPractice.components.TextLabel;
 import guiPractice.components.TransparentRoundedRect;
@@ -28,9 +29,6 @@ public class StoreScreen extends ClickableScreen implements Runnable {
 	private TransparentRoundedRect itemInfoBG;
 	private Button backButton;
 	private Graphic background;
-	private Artifact currentArtifact;
-//	private ArrayList<Artifact> artifacts;
-//	private ArrayList<ClickableGraphic> artifactPictures;
 	private int playerBalance;
 	private int playerLife;
 	private TextLabel score;
@@ -41,26 +39,6 @@ public class StoreScreen extends ClickableScreen implements Runnable {
 		Thread app = new Thread(this);
 		app.start();
 	}
-
-//	@Override
-//	public void initObjects(ArrayList<Visible> viewObjects) {
-//		greeting = new TextLabel((int)(getWidth()/5.5), 60, getWidth()-30, 40, "Welcome to the shop Adventurer!");
-//		greeting.setSize(50);
-//		itemsInfo = new TextArea(getWidth()-310, 140, 270, (int)(getHeight()/1.4), "Placeholder. This is a placeholder and nothing but a placeholder. Placeholders are good and serve as good stuff for testing.");
-//		
-//		greetingBG = new TransparentRoundedRect(15, 50, getWidth()-30, 60, 60, 60);
-//		artifactsBG = new TransparentRoundedRect(15, 130, getWidth()-350, (int)(getHeight()/1.3), 80, 80);
-//		itemInfoBG = new TransparentRoundedRect((int)(getWidth()-330), 130, 310, (int)(getHeight()/1.3), 80, 80);
-//		
-//		background = new Graphic(0, 0, getWidth(), getHeight(), "src/storeImages/bgimage.jpg");
-//		
-//		viewObjects.add(background);
-//		viewObjects.add(greetingBG);
-//		viewObjects.add(artifactsBG);
-//		viewObjects.add(itemInfoBG);
-//		viewObjects.add(itemsInfo);
-//		viewObjects.add(greeting);
-//	}
 
 	@Override
 	public void initAllObjects(List<Visible> viewObjects) {
@@ -76,7 +54,7 @@ public class StoreScreen extends ClickableScreen implements Runnable {
 		artifactsBG = new TransparentRoundedRect(15, 130, getWidth()-350, (int)(getHeight()/1.3), 80, 80);
 		itemInfoBG = new TransparentRoundedRect((int)(getWidth()-330), 130, 310, (int)(getHeight()/1.3), 80, 80);
 		
-		backButton = new Button(10,10,100,50, "Back", Color.red, new Action(){
+		backButton = new Button(getWidth()-310, 620, 250, 50, "Back", Color.GRAY, new Action(){
 			public void act(){
 				TapMonsterGame.game.setScreen(TapMonsterGame.main);
 			}
@@ -96,31 +74,21 @@ public class StoreScreen extends ClickableScreen implements Runnable {
 		viewObjects.add(greeting);
 		viewObjects.add(score);
 		
-//		createArtifacts();
-//		createArtifactPics();
+		createArtifacts();
+		createArtifactPics();
 	}
 
 	public void run() {
-//		createArtifacts();
-//		createArtifactPics();
-//		try {
-//			Thread.sleep(2000);
-//		} catch (InterruptedException e) {
-//			e.printStackTrace();
-//		}
-//		artifactPictures.get(0).act();
 	}
 
 	public void createArtifactPics() {
-//		TapMonsterGame.artifactPictures = new ArrayList();
+		//TapMonsterGame.artifactPictures = new ArrayList();
 		int[] xCoords = {70, 370, 670, 70, 370, 670, 70, 370, 670};
 		int[] yCoords = {160, 160, 160, 340, 340, 340, 530, 530, 530};
 		
 		for(int i = 0; i<TapMonsterGame.artifacts.size(); i++){
 			final Artifact boughtArtifact = TapMonsterGame.artifacts.get(i);
-			ClickableGraphic artifact = new ClickableGraphic(xCoords[i], yCoords[i], TapMonsterGame.artifacts.get(i).getImagePath());
-			//artifact.addMouseListener();
-			//will need mouse listener on clickable graphic
+			HoverableClickable artifact = new HoverableClickable(xCoords[i], yCoords[i], TapMonsterGame.artifacts.get(i).getImagePath());
 			artifact.setAction(new Action(){
 				public void act() {
 					if(playerBalance >= boughtArtifact.getPrice()){
@@ -128,17 +96,27 @@ public class StoreScreen extends ClickableScreen implements Runnable {
 						playerBalance -= boughtArtifact.getPrice();
 						playerMoney.setText("You have: " + playerBalance + " Relics");
 						TapMonsterGame.artifacts.remove(boughtArtifact.buyItem());
-						TapMonsterGame.artifacts.remove(boughtArtifact.buyItem());
-						TapMonsterScreen.score.addArtifact(boughtArtifact.getScore());
-						score.setText(Integer.toString(TapMonsterScreen.score.score));
+//						TapMonsterScreen.score.addArtifact(boughtArtifact.getScore());
+//						score.setText(Integer.toString(TapMonsterScreen.score.score));
 						for(int i=0; i<TapMonsterGame.artifactPictures.size(); i++){
 							if(TapMonsterGame.artifactPictures.get(i).getImagePath().equals(boughtArtifact.getImagePath())){
 								index = i;
 							}
 						}
-						viewObjects.remove(TapMonsterGame.artifactPictures.get(index));
-						TapMonsterGame.artifactPictures.remove(index);
+						viewObjects.remove(TapMonsterGame.artifactPictures.remove(index));
 					}
+				}
+			});
+			
+			artifact.setHoverAction(new Action(){
+				public void act() {
+					itemsInfo.setText(boughtArtifact.getDescription());
+				}
+			});
+			
+			artifact.setExitAction(new Action(){
+				public void act() {
+					itemsInfo.setText("");
 				}
 			});
 			
@@ -148,7 +126,7 @@ public class StoreScreen extends ClickableScreen implements Runnable {
 	}
 
 	public void createArtifacts() {
-//		TapMonsterGame.artifacts = new ArrayList();
+		//TapMonsterGame.artifacts = new ArrayList();
 		Artifact arti1 = new Artifact("Placeholder", "Worldly Illuminator", 50, new Action(){
 			public void act() {
 				playerLife++;
