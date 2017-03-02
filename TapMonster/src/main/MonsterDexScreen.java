@@ -17,7 +17,7 @@ import main.MonsterGraphic;
 
 public class MonsterDexScreen extends ClickableScreen implements Runnable,MonDexInterface,MonsterAbility{
 	
-	static ArrayList<Graphic> monsters;
+	static ArrayList<Graphic> encounteredMonsters;
 
 	private Button next;
 	private Button back;
@@ -99,7 +99,7 @@ public class MonsterDexScreen extends ClickableScreen implements Runnable,MonDex
 		background = new Graphic(0,0,getWidth(),getHeight(),"src/resources/background.jpg");
 		//description has to go after monsterImg so that Javiy's name is put into an array, and so that getDesc can work properly.
 		//monsterImg1 = new Graphic(100,100,1,main.MonsterGraphic.getMonster(getSpecies(monID))); 
-		description = new TextLabel(120, 100, 300, 150, "Garamond" , 1,  Color.decode("#a52a2a"),getDesc());
+		description = new TextLabel(120, 100, 300, 150, "Copperplate Gothic Bold" , 1,  Color.decode("#a52a2a"),getDesc());
 		//monsterImg2 = new Graphic(200,200,1,main.MonsterGraphic.getMonster("Beast")); 
 		description = new TextLabel(220, 200, 300, 150, "Garamond" , 1,  Color.decode("#a52a2a"),getDesc());
 		//monsterImg3 = new Graphic(300,300,100,100,main.MonsterGraphic.getMonster("Titan")); 
@@ -159,7 +159,7 @@ public class MonsterDexScreen extends ClickableScreen implements Runnable,MonDex
 		monsters = monsterList;
 	}
 	
-	public ArrayList<Graphic> getMonsters() {
+	public ArrayList<MonsterGraphic> getMonsters() {
 		return monsters;
 	}
 

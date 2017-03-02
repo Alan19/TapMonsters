@@ -102,7 +102,8 @@ public class SequenceScreen2 extends Screen implements KeyListener, KeysToPlayer
 
 	private void getMonster() {
 		if(round == 0){
-			monsterImg = new Graphic(100,100,100,100,main.MonsterGraphic.getMonster(getSpecies(round))); 
+			monsterImg = new Graphic(100,100,100,100,main.MonsterGraphic.getMonster("Beast")); 
+			viewObjects.add(monsterImg);
 			round++;
 		}else{
 			monsterImg.loadImages(main.MonsterGraphic.getMonster("Beast"), 100, 100);
@@ -110,10 +111,10 @@ public class SequenceScreen2 extends Screen implements KeyListener, KeysToPlayer
 		}
 	}
 
-	private String getSpecies(int round2) {
-			String x = Monster.returnNames().get(monID);
+	private String getSpecies(int rounds) {
+			String x = Monster.returnNames().get(rounds);
 			String[] y = x.split("");
-			return y[];
+			return y[2];
 	}
 
 	public void keyPressed(KeyEvent e) {
