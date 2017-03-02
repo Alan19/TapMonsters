@@ -224,6 +224,8 @@ public class SequenceScreen2 extends Screen implements KeyListener, KeysToPlayer
 			background.setX(0);
 			viewObjects.add(playerChoice);
 			playerChoice.setX(playerx);
+			monsterImg.setX(getWidth()/2-50);
+			viewObjects.add(monsterImg);
 			viewObjects.add(p);
 		}
 		for (int i = 0; i < viewObjects.size(); i++) {
