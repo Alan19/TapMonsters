@@ -171,13 +171,6 @@ public class TapMonsterScreen extends ClickableScreen implements Runnable,Game,R
 		monster = getName();
 		Monster.usablity();
 		Monster.description();
-		if(round == 0){
-			monsterImg = new Graphic(100,100,100,100,main.MonsterGraphic.getMonster(getSpecies(round))); 
-			round++;
-		}else{
-			monsterImg.loadImages(main.MonsterGraphic.getMonster("Beast"), 100, 100);
-			round++;
-		}
 	}
 
 	public void decreaseLife() {
@@ -238,7 +231,6 @@ public class TapMonsterScreen extends ClickableScreen implements Runnable,Game,R
 		viewObjects.add(inventoryButton);
 		viewObjects.add(fightButton);
 		viewObjects.add(monster);
-		viewObjects.add(monsterImg);
 		viewObjects.add(reward);
 		viewObjects.add(hpBar);
 		viewObjects.add(score);
