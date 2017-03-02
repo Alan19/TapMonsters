@@ -37,7 +37,7 @@ public class Score extends Component implements ScoreKeeper{
 		//System.out.println("Got a reward with " + percent);
 		score += score*((percent/100)+1);
 		playerExp+=percent;
-		checkExp(playerExp);
+		while(playerExp >= maxExp)checkExp(playerExp);
 		update();
 	}
 	
@@ -45,14 +45,13 @@ public class Score extends Component implements ScoreKeeper{
 		score += cost;
 		playerExp+=cost;
 		while(playerExp >= maxExp)checkExp(playerExp);
-		
 		update();
 	}
 	
 	public void addMonster(int sequenceLength) {
-		score += sequenceLength*10;
-		playerExp+= sequenceLength;
-		checkExp(playerExp);
+		score += sequenceLength*100;
+		playerExp += sequenceLength;
+		while(playerExp >= maxExp)checkExp(playerExp);
 		update();
 	}
 	
@@ -69,7 +68,7 @@ public class Score extends Component implements ScoreKeeper{
 		else score += (sequenceRight/seqLength)+1;
 		
 		playerExp+= sequenceRight;
-		checkExp(playerExp);
+		while(playerExp >= maxExp)checkExp(playerExp);
 		newLevel = false;
 		update();
 	}
