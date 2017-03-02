@@ -141,6 +141,11 @@ public class MonsterGraphic extends Graphic implements MonsterInterface{
 		return isBoss;
 	}
 
+	public String getName() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 	
 	
 	

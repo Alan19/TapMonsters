@@ -131,6 +131,10 @@ public class TapMonsterScreen extends ClickableScreen implements Runnable,Game,R
 		return new Monster(this,getWidth()/2-50,100);
 	}
 	
+	public void goToMonsterDex(){
+		TapMonsterGame.game.setScreen(TapMonsterGame.monsterdex);
+	}
+	
 
 	public void addButtons(){
 		timerBackground = new Button(40,getHeight()-150,75,60,"TIMER",new Color(153,153,153), null);
@@ -150,7 +154,7 @@ public class TapMonsterScreen extends ClickableScreen implements Runnable,Game,R
 		prestige = new Button(getWidth()-150,25,150,40,"MONSTERDEX",new Color(153,153,153), new Action() {
 
 			public void act() {
-				TapMonsterGame.game.setScreen(TapMonsterGame.monsterdex);
+				goToMonsterDex();
 			}
 		});
 		store = new Button(getWidth()-150,125,130,40,"STORE",new Color(153,153,153), new Action() {
