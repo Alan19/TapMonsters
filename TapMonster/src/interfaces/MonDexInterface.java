@@ -3,6 +3,7 @@ package interfaces;
 import java.util.ArrayList;
 
 import guiPractice.components.Clickable;
+import guiPractice.components.Graphic;
 import main.Monster;
 
 public interface MonDexInterface{
@@ -19,5 +20,5 @@ public interface MonDexInterface{
 
 	String getName();
 	
-	ArrayList<Monster> getMonsters();
+	ArrayList<Graphic> getMonsters();
 }

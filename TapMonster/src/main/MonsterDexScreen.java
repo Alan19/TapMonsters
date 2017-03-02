@@ -94,6 +94,7 @@ public class MonsterDexScreen extends ClickableScreen implements Runnable,MonDex
 		
 		
 		background = new Graphic(0,0,getWidth(),getHeight(),"src/resources/background.jpg");
+		//description has to go after monsterImg so that Javiy's name is put into an array, and so that getDesc can work properly.
 		monsterImg1 = new Graphic(100,100,1,main.MonsterGraphic.getMonster(getSpecies(monID))); 
 		description = new TextLabel(120, 100, 300, 150, "Garamond" , 1,  Color.decode("#a52a2a"),getDesc());
 		monsterImg2 = new Graphic(200,200,1,main.MonsterGraphic.getMonster("Beast")); 
@@ -119,7 +120,7 @@ public class MonsterDexScreen extends ClickableScreen implements Runnable,MonDex
 		viewObjects.add(monsterImg6);
 
 	}
-	
+	//gets the randomized name from javiy and splits it into an array.
 	private String getSpecies(int monID) {
 		String x = Monster.returnNames().get(monID);
 		String[] y = x.split("");
@@ -128,11 +129,7 @@ public class MonsterDexScreen extends ClickableScreen implements Runnable,MonDex
 		return y[2];
 	}	
 	
-	public String getName() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-	
+	//makes a description by using getTrait
 	public static String getDesc(){
 		textHolder += getTrait(Monster.getName1(),nameHolder[0]);
 		System.out.println(textHolder);
@@ -143,6 +140,7 @@ public class MonsterDexScreen extends ClickableScreen implements Runnable,MonDex
 		return textHolder;
 	}
 	
+	//gets Traits by checking index of each part of javiy's name and using that index to get the trait from my array
 	public static int getTrait(String[] name, String trait){
 		 for(int i = 0; i < name.length; i++){
 			 if(name[i] == trait){
@@ -178,5 +176,10 @@ public class MonsterDexScreen extends ClickableScreen implements Runnable,MonDex
 	public String getImagePath() {
 		return null;
 		
+	}
+
+	public String getName() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }
