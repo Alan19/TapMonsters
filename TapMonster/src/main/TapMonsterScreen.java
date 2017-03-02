@@ -48,6 +48,7 @@ public class TapMonsterScreen extends ClickableScreen implements Runnable,Game,R
 	public static boolean setWasSequenceCompleted;
 	
 	private boolean wasSequenceCompleted;
+	private boolean sequenceNotCompleted;
 
 	//DOETWAC00M001vl50g
 
@@ -106,18 +107,15 @@ public class TapMonsterScreen extends ClickableScreen implements Runnable,Game,R
 				if(25<=timeLeft&&timeLeft<=30)time.setText(""+(int)(timeLeft*10.)/10.0);
 				if(0<=timeLeft&&timeLeft<=5)time.setText(""+(int)(timeLeft*10.)/10.0);
 			}else if(effect==2.0){
-				if(timeLeft>=19.7 && timeLeft<20.0 || timeLeft>=9.7 && timeLeft<10.0){
+				if(timeLeft>=19.8 && timeLeft<20.0 || timeLeft>=9.8 && timeLeft<10.0){
 					hpBar.hpDecrease(10);
 					System.out.println("DECREASE HP");
-					time.setText(""+(int)(timeLeft*10.)/10.0);
-				}else if(timeLeft>=0.0 && timeLeft<=0.3){
-					timeLeft = 0.0;
-					time.setText(""+(int)(timeLeft*10.)/10.0);
-				}else{
-					time.setText(""+(int)(timeLeft*10.)/10.0);
-				}
+					if(timeLeft>=0.0 && timeLeft<=0.2)time.setText("0.0");
+			}else if(timeLeft>=0.0 && timeLeft<=0.2){
+				time.setText("0.0");
 			}
 			else time.setText(""+(int)(timeLeft*10)/10.0);
+			}
 		}
 	}
 	
@@ -133,7 +131,9 @@ public class TapMonsterScreen extends ClickableScreen implements Runnable,Game,R
 		nextLevel = new Button(getWidth()-150,75,130,40,"NEXT LEVEL",new Color(153,153,153), new Action() {
 
 			public void act() {
-				wasSequenceCompleted = false;
+				if(setWasSequenceCompleted){
+					TapMonsterGame.game.setScreen(TapMonsterGame.fightScreen);
+				}
 			}
 		});
 		prestige = new Button(getWidth()-150,25,150,40,"MONSTERDEX",new Color(153,153,153), new Action() {
