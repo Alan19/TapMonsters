@@ -108,22 +108,50 @@ public class TapMonsterScreen extends ClickableScreen implements Runnable,Game,R
 			}
 			if(timeLeft>=0 &&timeLeft<=0.2||hp==0)TapMonsterGame.game.setScreen(TapMonsterGame.death);
 			timeLeft = timeLeft-.1*effect;
+			time.setText(""+(int)(timeLeft*10)/10.0);
 			if(effect==0.5){
 				if(25<=timeLeft&&timeLeft<=30)time.setText(""+(int)(timeLeft*10.)/10.0);
 				if(0<=timeLeft&&timeLeft<=5)time.setText(""+(int)(timeLeft*10.)/10.0);
 			}else if(effect==2.0){
 				if(timeLeft>=19.8 && timeLeft<20.0 || timeLeft>=9.8 && timeLeft<10.0){
+					hp= hp-25;
 					hpBar.hpDecrease(25);
 					System.out.println("DECREASE HP");
-					if(timeLeft>=0.0 && timeLeft<=0.2)time.setText("0.0");}}
-			else if(effect==1.0){
-				time.setText(""+(int)(timeLeft*10)/10.0);
-			}else if(timeLeft>=0.0 && timeLeft<=0.2){
-				time.setText("0.0");
-			}
-			else time.setText(""+(int)(timeLeft*10)/10.0);
+					
+					if(timeLeft>=0.0 && timeLeft<=0.2)time.setText("0.0");
+					}
+				}
 			}
 		}
+	
+//	time.setText(""+timeLeft);
+//	while(timeLeft>0.0){
+//		if(setWasSequenceCompleted){
+//			timeLeft = 0.0;
+//			time.setText("0.0");
+//		}
+//		try {
+//			Thread.sleep(100);
+//		} catch (InterruptedException e) {
+//			e.printStackTrace();
+//		}
+//		if(timeLeft>=0 &&timeLeft<=0.2||hp==0)TapMonsterGame.game.setScreen(TapMonsterGame.death);
+//		timeLeft = timeLeft-.1*effect;
+//		if(effect==0.5){
+//			if(25<=timeLeft&&timeLeft<=30)time.setText(""+(int)(timeLeft*10.)/10.0);
+//			if(0<=timeLeft&&timeLeft<=5)time.setText(""+(int)(timeLeft*10.)/10.0);
+//		}else if(effect==2.0){
+//			if(timeLeft>=19.8 && timeLeft<20.0 || timeLeft>=9.8 && timeLeft<10.0){
+//				hpBar.hpDecrease(25);
+//				System.out.println("DECREASE HP");
+//				
+//				if(timeLeft>=0.0 && timeLeft<=0.2)time.setText("0.0");}}
+//		else if(effect==1.0){
+//			time.setText(""+(int)(timeLeft*10)/10.0);
+//		}else if(timeLeft>=0.0 && timeLeft<=0.2){
+//			time.setText("0.0");
+//		}else time.setText(""+(int)(timeLeft*10)/10.0);
+//		}
 	
 
 	
@@ -222,7 +250,7 @@ public class TapMonsterScreen extends ClickableScreen implements Runnable,Game,R
 		hpBar = new HitPoints(50,100);
 		background = new Graphic(0,0,0.75,"src/JaviyDemo/background.jpg");
 		viewObjects.add(background);
-		hp = 100;
+		hp = 50;
 		gold = 0;
 		timeBonus = 0;
 		time = new TextLabel(40,getHeight()-175,75,60,"");
