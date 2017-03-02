@@ -168,10 +168,12 @@ public class TapMonsterScreen extends ClickableScreen implements Runnable,Game,R
 		Monster.usablity();
 		Monster.description();
 		if(round == 0){
-			monsterImg = new Graphic(100,100,100,100,main.MonsterGraphic.getMonster(getSpecies(round))); 
+			monsterImg = new Graphic(100,100,100,100,main.MonsterGraphic.getMonster(getSpecies(round)));
+			MonsterDexScreen.monsters.add(monsterImg);
 			round++;
 		}else{
 			monsterImg.loadImages(main.MonsterGraphic.getMonster("Beast"), 100, 100);
+			MonsterDexScreen.monsters.add(monsterImg);
 			round++;
 		}
 	}

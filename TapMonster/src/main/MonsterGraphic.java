@@ -21,6 +21,7 @@ public class MonsterGraphic extends Graphic{
 			"Veteren","Wart Puck"};
 	public static String[] titan = {"#128","Atma Weapon","Behemoth","Borras","Chimera","Czar Dragon",
 			"Didalos","Kefka","Ultros","Zombone","Zone Eater"};
+	public static String[] encounterNames;
 	
 	
 	public MonsterGraphic(int x, int y, int w, int h, String species) {
