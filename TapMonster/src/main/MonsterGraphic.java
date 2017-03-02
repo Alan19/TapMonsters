@@ -9,13 +9,18 @@ public class MonsterGraphic extends Graphic{
 	private static int randInt;
 	public static String tempname;
 	
-	public static String[] beast = {"Anguiform","Bismarck","Fidor","Harpiai","Nastidon","Palidor","Prussian","Red_Wolf","Sand_Horse","Toe_Cutter","Vulture","Were-Rat"};
-	public static String[] demon = {"Daredevil","Chupon","Crucifix",
-	"Doom Gaze","Harvester","Hidon","Shaman","Slam_Dancer","Steroidite","Tritoch","Trixter"};
-	public static String[] fiend = 	{"BioSoldier","Brawler","Guard","Hemophyte","Ninja","Parasoul","Pipsqueak","Samurai","ShadowDancer","Test Rider","Yojimbo"};
-	public static String[] monster = {"BoneDragon","Cactuar","Esper","Evil_Oscar","MagicPot","Sandcrawler","Uroburos","WhiteFlame",};
-	public static String[] thingy = {"Adamanchyt","Deep Eye","Flan","Mag Roadie","Poplium","Pug","Veteren","Wart Puck"};
-	public static String[] titan = {"#128","Atma Weapon","Behemoth","Borras","Chimera","Czar Dragon","Didalos","Kefka","Ultros","Zombone","Zone Eater"};
+	public static String[] beast = {"Anguiform","Bismarck","Fidor","Harpiai","Nastidon","Palidor",
+			"Prussian","Red_Wolf","Sand_Horse","Toe_Cutter","Vulture","Were-Rat"};
+	public static String[] demon = {"Daredevil","Chupon","Crucifix","Doom Gaze","Harvester","Hidon",
+			"Shaman","Slam_Dancer","Steroidite","Tritoch","Trixter"};
+	public static String[] fiend = 	{"BioSoldier","Brawler","Guard","Hemophyte","Ninja","Parasoul",
+			"Pipsqueak","Samurai","ShadowDancer","Test Rider","Yojimbo"};
+	public static String[] monster = {"BoneDragon","Cactuar","Esper","Evil_Oscar","MagicPot",
+			"Sandcrawler","Uroburos","WhiteFlame",};
+	public static String[] thingy = {"Adamanchyt","Deep Eye","Flan","Mag Roadie","Poplium","Pug",
+			"Veteren","Wart Puck"};
+	public static String[] titan = {"#128","Atma Weapon","Behemoth","Borras","Chimera","Czar Dragon",
+			"Didalos","Kefka","Ultros","Zombone","Zone Eater"};
 	
 	
 	public MonsterGraphic(int x, int y, int w, int h, String species) {

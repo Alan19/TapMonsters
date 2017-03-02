@@ -187,6 +187,10 @@ public class Monster extends Component implements MonsterName{
 			g.drawString(name, 0, 20);
 		}
 	}
+	
+	public static ArrayList<String> returnNames(){
+		return names;
+	}
 
 	//To do list
 	//Create a next level button to test everything out 

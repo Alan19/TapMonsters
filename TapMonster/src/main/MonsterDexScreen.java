@@ -16,7 +16,7 @@ import main.MonsterGraphic;
 
 public class MonsterDexScreen extends ClickableScreen implements Runnable,MonDexInterface{
 	
-	private static ArrayList<Graphic> Monsters;
+	private static ArrayList<Graphic> monsters;
 
 	private Button next;
 	private Button back;
@@ -24,8 +24,13 @@ public class MonsterDexScreen extends ClickableScreen implements Runnable,MonDex
 	private Graphic background;
 	private static Graphic monsterImg1;
 	private static Graphic monsterImg2;
+	private static Graphic monsterImg3;	
+	private static Graphic monsterImg4;	
+	private static Graphic monsterImg5;
+	private static Graphic monsterImg6;
 	private static TextArea Description;
 	private TextLabel Name;
+	private int monID = 0;
 	
 	private String[] trait1 = {"This"+""+"gives out an aura that scare any who come near it",
 			"This"+""+" towers above the others.",
@@ -53,98 +58,103 @@ public class MonsterDexScreen extends ClickableScreen implements Runnable,MonDex
 			"They exist mainly in the other world, but can sometimes enter our world. When they do they can stir up any amount of trouble",
 			"The things are despicable creatures, whose appetites consist mainly of anything it can get its hands/tentacles/etc. on",
 			"It can hardly be called a creature, much less a 'thing'. Due to their rarity, they are difficult to fight, since few have seen them and even fewer kill them."};
-
-	private Graphic monsterImg3;
-
-	private Graphic monsterImg4;
-
-	private Graphic monsterImg5;
-
-	private Graphic monsterImg6;
+	
 		
 	public MonsterDexScreen(int width,int height) {
-		super(1000, 800);
+		super(1200, 800);
 		Thread play = new Thread(this);
 		play.start();
 	}
-	
-	
-//	public void initObjects(ArrayList<Visible> viewObjects){
-//		
-//	}
-//
-
-
-	public void run() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	public void SetDescription(String des) {
-		// TODO Auto-generated method stub
-		
-	}
-
-
-	public int setNumEncountered(int encounters) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-
-	public String getImagePath() {
-		return null;
-		
-	}
-
-
-	public String getName() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-	
-	public static void setMonsters(ArrayList<Graphic> monsters) {
-		Monsters = monsters;
-	}
-
-	public ArrayList<Graphic> getMonsters() {
-		return Monsters;
-	}
-
 
 	@Override
 	public void initAllObjects(List<Visible> viewObjects) {
-		next = new Button(getWidth() - 110, getHeight() - 70, 90, 50, "Next", Color.decode("#a52a2a"), null);
+		
+		next = new Button(getWidth() - 110, getHeight() - 70, 90, 50, "Next", Color.decode("#a52a2a"), new Action() {
+			public void act() {
+				
+			}
+
+		});
+		
 		back = new Button(20, getHeight() - 70, 90, 50, "Back", Color.decode("#a52a2a"), new Action() {
 			public void act() {
+				if ((monID+6)%monsters.size() != 0){
 				monsterImg1.loadImages(main.MonsterGraphic.getMonster("Beast"), 100, 100);
-				monsterImg2.loadImages(main.MonsterGraphic.getMonster("Beast"), 100, 100);
+				}
 			}
 		});
+		
 		home = new Button(10,10,100,50, "Home", Color.red, new Action(){
 			public void act(){
 				TapMonsterGame.game.setScreen(TapMonsterGame.main);
 			}
 		});
-		background = new Graphic(0,0,getWidth(),getHeight(),"src/resources/background.jpg");
-		monsterImg1 = new Graphic(100,100,100,100,main.MonsterGraphic.getMonster("Titan")); 
-		monsterImg2 = new Graphic(200,200,100,100,main.MonsterGraphic.getMonster("Beast")); 
-		monsterImg3 = new Graphic(300,300,100,100,main.MonsterGraphic.getMonster("Titan")); 
-		monsterImg4 = new Graphic(400,400,100,100,main.MonsterGraphic.getMonster("Beast")); 
-		monsterImg5 = new Graphic(500,500,100,100,main.MonsterGraphic.getMonster("Beast")); 
-		monsterImg6 = new Graphic(600,600,100,100,main.MonsterGraphic.getMonster("Titan")); 
 		
+		background = new Graphic(0,0,getWidth(),getHeight(),"src/resources/background.jpg");
+		monsterImg1 = new Graphic(100,100,100,100,main.MonsterGraphic.getMonster(getSpecies(monID))); 
+//		monsterImg2 = new Graphic(200,200,100,100,main.MonsterGraphic.getMonster("Beast")); 
+//		monsterImg3 = new Graphic(300,300,100,100,main.MonsterGraphic.getMonster("Titan")); 
+//		monsterImg4 = new Graphic(400,400,100,100,main.MonsterGraphic.getMonster("Beast")); 
+//		monsterImg5 = new Graphic(500,500,100,100,main.MonsterGraphic.getMonster("Beast")); 
+//		monsterImg6 = new Graphic(600,600,100,100,main.MonsterGraphic.getMonster("Titan")); 
+//		
 		viewObjects.add(background);
 		viewObjects.add(next);
 		viewObjects.add(back);	
 		viewObjects.add(home);	
-		viewObjects.add(monsterImg1);
-		viewObjects.add(monsterImg2);
-		viewObjects.add(monsterImg3);
-		viewObjects.add(monsterImg4);
-		viewObjects.add(monsterImg5);
-		viewObjects.add(monsterImg6);
+		//viewObjects.add(monsterImg1);
+//		viewObjects.add(monsterImg2);
+//		viewObjects.add(monsterImg3);
+//		viewObjects.add(monsterImg4);
+//		viewObjects.add(monsterImg5);
+//		viewObjects.add(monsterImg6);
 
 	}
+	
+	private String getSpecies(int monID) {
+		String x = Monster.returnNames().get(monID);
+		String[] y = x.split("");
+		System.out.println(y[2]);
+	}
 
+	
+
+	public String pullMonsters(int i){
+		return "monsterImg"+"i";
+	}
+	
+	
+	
+	public String getName() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
+	public static void setMonsters(ArrayList<Graphic> monsterList) {
+		monsters = monsterList;
+	}
+	
+	public ArrayList<Graphic> getMonsters() {
+		return monsters;
+	}
+
+	public void run() {
+		// TODO Auto-generated method stub
+		
+	}
+	
+	public void SetDescription(String des) {
+		// TODO Auto-generated method stub
+		
+	}
+	
+	public int setNumEncountered(int encounters) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+	
+	public String getImagePath() {
+		return null;
+		
+	}
 }
