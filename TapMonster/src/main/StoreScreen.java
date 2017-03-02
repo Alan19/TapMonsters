@@ -82,7 +82,6 @@ public class StoreScreen extends ClickableScreen implements Runnable {
 	}
 
 	public void createArtifactPics() {
-		//TapMonsterGame.artifactPictures = new ArrayList();
 		int[] xCoords = {70, 370, 670, 70, 370, 670, 70, 370, 670};
 		int[] yCoords = {160, 160, 160, 340, 340, 340, 530, 530, 530};
 		
@@ -104,6 +103,8 @@ public class StoreScreen extends ClickableScreen implements Runnable {
 							}
 						}
 						viewObjects.remove(TapMonsterGame.artifactPictures.remove(index));
+//						viewObjects.remove(TapMonsterGame.artifactPictures.get(index));
+//						TapMonsterGame.artifactPictures.remove(index);
 					}
 				}
 			});
@@ -126,7 +127,6 @@ public class StoreScreen extends ClickableScreen implements Runnable {
 	}
 
 	public void createArtifacts() {
-		//TapMonsterGame.artifacts = new ArrayList();
 		Artifact arti1 = new Artifact("Placeholder", "Worldly Illuminator", 50, new Action(){
 			public void act() {
 				playerLife++;
@@ -137,6 +137,7 @@ public class StoreScreen extends ClickableScreen implements Runnable {
 		
 		Artifact arti2 = new Artifact("Placeholder", "Name#2", 50, new Action(){
 			public void act() {
+				TapMonsterGame.main.setTimeLeft(35.0);
 				System.out.println("once");
 			}
 		}, "src/storeImages/arti2.png", 100);
