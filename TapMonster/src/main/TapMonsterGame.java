@@ -8,6 +8,7 @@ import guiPractice.GUIApplication;
 import guiPractice.Screen;
 import guiPractice.components.ClickableGraphic;
 import guiPractice.components.HoverableClickable;
+import rewards.Reward;
 
 public class TapMonsterGame extends GUIApplication {
 
@@ -17,6 +18,7 @@ public class TapMonsterGame extends GUIApplication {
 	public static InventoryScreen inventory;
 	public static Screen death;
 	public static ArrayList<Artifact> artifacts;
+	public static ArrayList<Reward> rewards;
 	public static ArrayList<HoverableClickable> artifactPictures;
 	public static TapMonsterScreen main;
 	public static MonsterDexScreen monsterdex;
@@ -32,6 +34,7 @@ public class TapMonsterGame extends GUIApplication {
 		intro = new IntroScreen(getWidth(),getHeight());
 		artifactPictures = new ArrayList<HoverableClickable>();
 		artifacts = new ArrayList<Artifact>();
+		rewards = new ArrayList<Reward>();
 		store = new StoreScreen(getWidth(),getHeight());
 		fightScreen = new SequenceScreen2(getWidth(), getHeight());
 		//inventory = new InventoryScreen(getWidth(),getHeight());

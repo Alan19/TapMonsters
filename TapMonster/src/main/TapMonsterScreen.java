@@ -43,7 +43,7 @@ public class TapMonsterScreen extends ClickableScreen implements Runnable,Game,R
 	private HitPoints hpBar;
 	public static Score score;
 	//public static TextLabel scoreOnScreen;
-	private Reward[] rewardList;
+	private static ArrayList<Reward> listOfRewards = new ArrayList<Reward>();
 	private static Reward rewardObject;
 	public static boolean setWasSequenceCompleted;
 	
@@ -172,13 +172,6 @@ public class TapMonsterScreen extends ClickableScreen implements Runnable,Game,R
 		monster = getName();
 		Monster.usablity();
 		Monster.description();
-		if(round == 0){
-			monsterImg = new Graphic(100,100,100,100,main.MonsterGraphic.getMonster(getSpecies(round))); 
-			round++;
-		}else{
-			monsterImg.loadImages(main.MonsterGraphic.getMonster("Beast"), 100, 100);
-			round++;
-		}
 	}
 
 	public void decreaseLife() {
@@ -219,7 +212,6 @@ public class TapMonsterScreen extends ClickableScreen implements Runnable,Game,R
 		viewObjects.add(background);
 		hp = 100;
 		gold = 0;
-		rewardList = Reward.getAllRewards();
 		timeBonus = 0;
 		time = new TextLabel(40,getHeight()-175,75,60,"");
 		reward = new TextLabel(getWidth()/2-100,getHeight()/2-100,getWidth()/2-100,getHeight()/2-300,"");
@@ -240,7 +232,6 @@ public class TapMonsterScreen extends ClickableScreen implements Runnable,Game,R
 		viewObjects.add(inventoryButton);
 		viewObjects.add(fightButton);
 		viewObjects.add(monster);
-		viewObjects.add(monsterImg);
 		viewObjects.add(reward);
 		viewObjects.add(hpBar);
 		viewObjects.add(score);
@@ -296,17 +287,18 @@ public class TapMonsterScreen extends ClickableScreen implements Runnable,Game,R
 		}
 		if (rewardTier == 0){
 			int randNum = (int) (Math.random() * 2);
-			rewardObject = rewardList[randNum];
+			rewardObject = TapMonsterGame.rewards.get(randNum);
 		}
 		else if (rewardTier == 1){
 			int randNum = (int) (Math.random() * 2+2);
-			rewardObject = rewardList[randNum];
+			rewardObject = TapMonsterGame.rewards.get(randNum);
 		}
 		else{
 			int randNum = (int) (Math.random() * 4+4);
-			rewardObject = rewardList[randNum];
+			rewardObject = TapMonsterGame.rewards.get(randNum);
 		}
-		TapMonsterGame.main.rewardObject.takeEffect(TapMonsterGame.main);
+		listOfRewards.add(rewardObject);
+		listOfRewards.get(0).takeEffect(TapMonsterGame.main);
 		reward.setText(""+rewardObject.getDescription());
 		
 	}
@@ -314,22 +306,18 @@ public class TapMonsterScreen extends ClickableScreen implements Runnable,Game,R
 	public void setRandomGold(){
 		int goldNum = (int) (Math.random() * 10 + 1);
 		if (goldNum <= 6){
-			rewardObject = rewardList[8];
+			rewardObject = TapMonsterGame.rewards.get(8);
 		}
 		else if (goldNum <= 9){
-			rewardObject = rewardList[9];
+			rewardObject = TapMonsterGame.rewards.get(9);
 		}
 		else{
-			rewardObject = rewardList[10];
+			rewardObject = TapMonsterGame.rewards.get(10);
 		}
 		TapMonsterGame.main.rewardObject.takeEffect(TapMonsterGame.main);
 	}
 	
-	private String getSpecies(int monID) {
-		String x = Monster.returnNames().get(monID);
-		String[] y = x.split("");
-		return y[3];
-	}
+	
 
 	public static double getTimeAlter() {
 		return timeAlter;
