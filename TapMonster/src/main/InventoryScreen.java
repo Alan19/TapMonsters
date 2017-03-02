@@ -183,8 +183,6 @@ public class InventoryScreen extends ClickableScreen implements Runnable, Invent
 	}
 	
 	public String showLatestGain(){
-		//for each item in artifacts purchased list, display its gains
-		//could add gains field in artifact and getGains method
 		if(artifactsPurchased.size() > 0){
 			return retrieveLatestGain(artifactsPurchased.get(artifactsPurchased.size()-1));
 		}
