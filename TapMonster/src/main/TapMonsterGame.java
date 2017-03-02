@@ -16,7 +16,7 @@ public class TapMonsterGame extends GUIApplication {
 	public static Screen intro;
 	public static StoreScreen store;
 	public static InventoryScreen inventory;
-	public static Screen death;
+	public static DeathScreen death;
 	public static ArrayList<Artifact> artifacts;
 	public static ArrayList<Reward> rewards;
 	public static ArrayList<HoverableClickable> artifactPictures;
@@ -31,6 +31,7 @@ public class TapMonsterGame extends GUIApplication {
 	@Override
 	public void initScreen() {	
 		main = new TapMonsterScreen(getWidth(),getHeight());
+		death =  new DeathScreen(1,5,getWidth(), getHeight(), null);
 		intro = new IntroScreen(getWidth(),getHeight());
 		artifactPictures = new ArrayList<HoverableClickable>();
 		artifacts = new ArrayList<Artifact>();

@@ -50,25 +50,28 @@ public class DeathScreen extends ClickableScreen{
 		int x = 20;
 		int y = 80;
 		int imageWidth = 75;
-		for (Artifact artifact : artifactList) {
-			final Artifact artifact2 = artifact;
-			ClickableGraphic artifactImage = new ClickableGraphic(x, y,imageWidth, imageWidth, artifact.getImagePath());
-			artifactImage.setAction(new Action() {
-				public void act() {
-					artifactName.setText(artifact2.getName());
-					artifactDescription.setText(artifact2.getDescription());
+		if(artifactList != null){
+			for (Artifact artifact : artifactList) {
+				final Artifact artifact2 = artifact;
+				ClickableGraphic artifactImage = new ClickableGraphic(x, y,imageWidth, imageWidth, artifact.getImagePath());
+				artifactImage.setAction(new Action() {
+					public void act() {
+						artifactName.setText(artifact2.getName());
+						artifactDescription.setText(artifact2.getDescription());
+					}
+				});
+				addObject(artifactImage);
+				viewObjects.add(artifactImage);				
+				
+				//Set next image to go to next line if an image would go past half the screen
+				if(x + imageWidth > getWidth()/2){
+					x = 20;
+					y += imageWidth + 25;
 				}
-			});
-			addObject(artifactImage);
-			viewObjects.add(artifactImage);				
-			
-			//Set next image to go to next line if an image would go past half the screen
-			if(x + imageWidth > getWidth()/2){
-				x = 20;
-				y += imageWidth + 25;
+				else x += imageWidth + 10;
 			}
-			else x += imageWidth + 10;
 		}
+		
 		
 		//Move artifact description under artifact images
 		viewObjects.add(deathMessage);
@@ -84,18 +87,18 @@ public class DeathScreen extends ClickableScreen{
 	
 
 	private void addBossMonsterKillList() {
-		int x = getWidth()/2;
-		int y = 75;
-		new TextLabel(getWidth()/2, y, 400, 25, "Copperplate Gothic Bold", 15, new Color(112, 119, 102), "Here is a list of your heroic feats");
-		for (MonsterGraphic monster : TapMonsterGame.monsterdex.getMonsters()) {
-			if(monster.isBossMonster()){
-				new Graphic(x, y, 100, 100, monster.getImagePath());
-				TextLabel name = new TextLabel(x+110, y, 400, 25, monster.getName());
-				viewObjects.add(name);
-				x = getWidth()/2;
-				y += 120;				
-			}
-		}
+//		int x = getWidth()/2;
+//		int y = 75;
+//		new TextLabel(getWidth()/2, y, 400, 25, "Copperplate Gothic Bold", 15, new Color(112, 119, 102), "Here is a list of your heroic feats");
+//		for (MonsterGraphic monster : TapMonsterGame.monsterdex.getMonsters()) {
+//			if(monster.isBossMonster()){
+//				new Graphic(x, y, 100, 100, monster.getImagePath());
+//				TextLabel name = new TextLabel(x+110, y, 400, 25, monster.getName());
+//				viewObjects.add(name);
+//				x = getWidth()/2;
+//				y += 120;				
+//			}
+//		}
 	}
 
 
