@@ -46,27 +46,6 @@ public class InventoryScreen extends ClickableScreen implements Runnable, Invent
 		app.start();
 	}
 
-	/*@Override
-	public void initObjects(ArrayList<Visible> viewObjects) {
-		title = new TextLabel((int)(getWidth()/2.5),40,getWidth()/2,50, "Inventory");
-		artifactName = new TextLabel(700,135,getWidth()/3,50,"artifact name");
-		artifactDescription = new TextLabel(700,200,getWidth()/3,50,"artifact desc");
-		info = new TransparentRoundedRect(700,120,getWidth()/3,300,50,50);
-		bkgd = new Graphic(0,0,getWidth(),getHeight(),"src/resources/background.jpg");
-		viewObjects.add(bkgd);
-		viewObjects.add(title);	
-		viewObjects.add(info);
-		viewObjects.add(artifactName);
-		viewObjects.add(artifactDescription);
-		
-	}*/
-
-	//@Override
-	//public void initAllObjects(ArrayList<Visible> viewObjects) {
-	//	title = new TextLabel(40,85,700,25, "Inventory");
-	//	viewObjects.add(title);
-	//}
-
 	//each artifact has a name and description
 	//shows how many artifacts are collected
 	//can make interface for adding "you gained +something" for
@@ -108,6 +87,7 @@ public class InventoryScreen extends ClickableScreen implements Runnable, Invent
 		addArtifact();
 		displayArtifacts();
 		benefits = new TextLabel(700,500,getWidth()/2,50,showLatestGain());
+		//benefits = new TextLabel(700,500,getWidth()/2,50, Benefit.benefit);
 		viewObjects.add(benefits);
 	}
 	
