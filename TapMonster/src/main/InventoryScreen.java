@@ -28,7 +28,7 @@ public class InventoryScreen extends ClickableScreen implements Runnable, Invent
 	private TextLabel benefits;
 	//private Button purchaseAllArtifactss;
 	
-	public ArrayList<Artifact> artifactsPurchased;
+	public static ArrayList<Artifact> artifactsPurchased;
 	private Graphics2D g;
 	
 	private TransparentRoundedRect info;
@@ -107,7 +107,7 @@ public class InventoryScreen extends ClickableScreen implements Runnable, Invent
 		//viewObjects.add(purchaseAllArtifacts);
 		addArtifact();
 		displayArtifacts();
-		benefits = new TextLabel(700,500,getWidth()/2,50, showLatestGain());
+		benefits = new TextLabel(700,500,getWidth()/2,50,showLatestGain());
 		viewObjects.add(benefits);
 	}
 	
