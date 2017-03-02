@@ -90,6 +90,7 @@ public class StoreScreen extends ClickableScreen implements Runnable {
 			HoverableClickable artifact = new HoverableClickable(xCoords[i], yCoords[i], TapMonsterGame.artifacts.get(i).getImagePath());
 			artifact.setAction(new Action(){
 				public void act() {
+					//boolean stopPlease = false;
 					if(playerBalance >= boughtArtifact.getPrice()){
 						int index = 0;
 						playerBalance -= boughtArtifact.getPrice();
@@ -102,9 +103,10 @@ public class StoreScreen extends ClickableScreen implements Runnable {
 								index = i;
 							}
 						}
-						viewObjects.remove(TapMonsterGame.artifactPictures.remove(index));
-//						viewObjects.remove(TapMonsterGame.artifactPictures.get(index));
-//						TapMonsterGame.artifactPictures.remove(index);
+						//viewObjects.remove(TapMonsterGame.artifactPictures.remove(index));
+						remove(TapMonsterGame.artifactPictures.get(index));
+						TapMonsterGame.artifactPictures.remove(index);
+						//stopPlease = true;
 					}
 				}
 			});
@@ -127,7 +129,7 @@ public class StoreScreen extends ClickableScreen implements Runnable {
 	}
 
 	public void createArtifacts() {
-		Artifact arti1 = new Artifact("Placeholder", "Worldly Illuminator", 50, new Action(){
+		Artifact arti1 = new Artifact("Placeholder please please", "Worldly Illuminator", 50, new Action(){
 			public void act() {
 				playerLife++;
 				playerLifeBox.setText("You have: " + playerLife + " Lives");
@@ -135,20 +137,20 @@ public class StoreScreen extends ClickableScreen implements Runnable {
 			}
 		}, "src/storeImages/arti1.png", 50);
 		
-		Artifact arti2 = new Artifact("Placeholder", "Name#2", 50, new Action(){
+		Artifact arti2 = new Artifact("Placeholder please please", "Name#2", 50, new Action(){
 			public void act() {
 				TapMonsterGame.main.setTimeLeft(35.0);
 				System.out.println("once");
 			}
 		}, "src/storeImages/arti2.png", 100);
 		
-		Artifact arti3 = new Artifact("Placeholder", "Name#3", 50, new Action(){
+		Artifact arti3 = new Artifact("Placeholder please please", "Name#3", 50, new Action(){
 			public void act() {
 				System.out.println("told");
 			}
 		}, "src/storeImages/arti3.png", 150);
 		
-		Artifact arti4 = new Artifact("Placeholder", "Name#4", 50, new Action(){
+		Artifact arti4 = new Artifact("Placeholder please please", "Name#4", 50, new Action(){
 			public void act() {
 				System.out.println("me");
 			}
