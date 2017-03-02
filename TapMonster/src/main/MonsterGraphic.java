@@ -1,13 +1,15 @@
 package main;
 
 import guiPractice.components.Graphic;
+import interfaces.MonsterInterface;
 
-public class MonsterGraphic extends Graphic{
+public class MonsterGraphic extends Graphic implements MonsterInterface{
 	
 	public static int MonX = 100;
 	public static int MonY = 100;
 	private static int randInt;
 	public static String tempname;
+	private static boolean isBoss;
 	
 	public static String[] beast = {"Anguiform","Bismarck","Fidor","Harpiai","Nastidon","Palidor",
 			"Prussian","Red_Wolf","Sand_Horse","Toe_Cutter","Vulture","Were-Rat"};
@@ -21,6 +23,7 @@ public class MonsterGraphic extends Graphic{
 			"Veteren","Wart Puck"};
 	public static String[] titan = {"#128","Atma Weapon","Behemoth","Borras","Chimera","Czar Dragon",
 			"Didalos","Kefka","Ultros","Zombone","Zone Eater"};
+	public static String[] encounterNames;
 	
 	
 	public MonsterGraphic(int x, int y, int w, int h, String species) {
@@ -81,6 +84,7 @@ public class MonsterGraphic extends Graphic{
 		
 		else if(type.equals("Titan")){
 			getRandInt(type);
+			isBoss = true;
 			tempname = "MonsterSprites/Titan/"+titan[randInt]+".gif";
 			System.out.println(tempname);
 			return tempname;
@@ -121,6 +125,20 @@ public class MonsterGraphic extends Graphic{
 	public String getImagePath() {
 		return tempname;
 		
+	}
+
+	public void setName(String name) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public int RaiseEnCounter(int encounters) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	public boolean isBossMonster() {
+		return isBoss;
 	}
 
 	

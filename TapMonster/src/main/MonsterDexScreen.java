@@ -1,6 +1,7 @@
 package main;
 
 import java.awt.Color;
+import java.awt.Font;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,9 +15,9 @@ import guiPractice.components.Visible;
 import interfaces.MonDexInterface;
 import main.MonsterGraphic;
 
-public class MonsterDexScreen extends ClickableScreen implements Runnable,MonDexInterface{
+public class MonsterDexScreen extends ClickableScreen implements Runnable,MonDexInterface,MonsterAbility{
 	
-	private static ArrayList<Graphic> monsters;
+	static ArrayList<Graphic> encounteredMonsters;
 
 	private Button next;
 	private Button back;
@@ -28,9 +29,14 @@ public class MonsterDexScreen extends ClickableScreen implements Runnable,MonDex
 	private static Graphic monsterImg4;	
 	private static Graphic monsterImg5;
 	private static Graphic monsterImg6;
-	private static TextArea Description;
-	private TextLabel Name;
+	private static TextLabel description;
+	private static String textHolder;
+	private TextLabel name;
+	private static String[] nameHolder;
 	private int monID = 0;
+	private int xPos = 100;;
+	private int yPos = 100;
+	
 	
 	private String[] trait1 = {"This"+""+"gives out an aura that scare any who come near it",
 			"This"+""+" towers above the others.",
@@ -68,7 +74,6 @@ public class MonsterDexScreen extends ClickableScreen implements Runnable,MonDex
 
 	@Override
 	public void initAllObjects(List<Visible> viewObjects) {
-		
 		next = new Button(getWidth() - 110, getHeight() - 70, 90, 50, "Next", Color.decode("#a52a2a"), new Action() {
 			public void act() {
 				
@@ -78,9 +83,9 @@ public class MonsterDexScreen extends ClickableScreen implements Runnable,MonDex
 		
 		back = new Button(20, getHeight() - 70, 90, 50, "Back", Color.decode("#a52a2a"), new Action() {
 			public void act() {
-				if ((monID+6)%monsters.size() != 0){
-				monsterImg1.loadImages(main.MonsterGraphic.getMonster("Beast"), 100, 100);
-				}
+//				if ((monID+6)%monsters.size() != 0){
+//				monsterImg1.loadImages(main.MonsterGraphic.getMonster("Beast"), 100, 100);
+//				}
 			}
 		});
 		
@@ -90,60 +95,80 @@ public class MonsterDexScreen extends ClickableScreen implements Runnable,MonDex
 			}
 		});
 		
+		
 		background = new Graphic(0,0,getWidth(),getHeight(),"src/resources/background.jpg");
-		monsterImg1 = new Graphic(100,100,100,100,main.MonsterGraphic.getMonster(getSpecies(monID))); 
-//		monsterImg2 = new Graphic(200,200,100,100,main.MonsterGraphic.getMonster("Beast")); 
-//		monsterImg3 = new Graphic(300,300,100,100,main.MonsterGraphic.getMonster("Titan")); 
-//		monsterImg4 = new Graphic(400,400,100,100,main.MonsterGraphic.getMonster("Beast")); 
-//		monsterImg5 = new Graphic(500,500,100,100,main.MonsterGraphic.getMonster("Beast")); 
-//		monsterImg6 = new Graphic(600,600,100,100,main.MonsterGraphic.getMonster("Titan")); 
-//		
+		//description has to go after monsterImg so that Javiy's name is put into an array, and so that getDesc can work properly.
+		//monsterImg1 = new Graphic(100,100,1,main.MonsterGraphic.getMonster(getSpecies(monID))); 
+		description = new TextLabel(120, 100, 300, 150, "Copperplate Gothic Bold" , 1,  Color.decode("#a52a2a"),getDesc());
+		//monsterImg2 = new Graphic(200,200,1,main.MonsterGraphic.getMonster("Beast")); 
+		description = new TextLabel(220, 200, 300, 150, "Garamond" , 1,  Color.decode("#a52a2a"),getDesc());
+		//monsterImg3 = new Graphic(300,300,100,100,main.MonsterGraphic.getMonster("Titan")); 
+		description = new TextLabel(320, 300, 300, 150, "Garamond" , 1,  Color.decode("#a52a2a"),getDesc());
+		//monsterImg4 = new Graphic(400,400,100,100,main.MonsterGraphic.getMonster("Beast")); 
+		description = new TextLabel(420, 400, 300, 150, "Garamond" , 1,  Color.decode("#a52a2a"),getDesc());
+		//monsterImg5 = new Graphic(500,500,100,100,main.MonsterGraphic.getMonster("Beast")); 
+		description = new TextLabel(520, 500, 300, 150, "Garamond" , 1,  Color.decode("#a52a2a"),getDesc());
+		//monsterImg6 = new Graphic(600,600,100,100,main.MonsterGraphic.getMonster("Titan")); 
+		description = new TextLabel(620, 600, 300, 150, "Garamond" , 1,  Color.decode("#a52a2a"),getDesc());
+		
 		viewObjects.add(background);
 		viewObjects.add(next);
 		viewObjects.add(back);	
 		viewObjects.add(home);	
-		//viewObjects.add(monsterImg1);
+//		viewObjects.add(monsterImg1);
 //		viewObjects.add(monsterImg2);
 //		viewObjects.add(monsterImg3);
 //		viewObjects.add(monsterImg4);
 //		viewObjects.add(monsterImg5);
 //		viewObjects.add(monsterImg6);
+		
+		viewObjects.add(description);
 
 	}
-	
+	//gets the randomized name from javiy and splits it into an array.
 	private String getSpecies(int monID) {
 		String x = Monster.returnNames().get(monID);
 		String[] y = x.split("");
+		nameHolder = y;
 		System.out.println(y[2]);
+		return y[2];
+	}	
+	
+	//makes a description by using getTrait
+	public static String getDesc(){
+		textHolder += getTrait(Monster.getName1(),nameHolder[0]);
+		System.out.println(textHolder);
+		textHolder += getTrait(Monster.getName2(),nameHolder[1]);
+		System.out.println(textHolder);
+		textHolder += getTrait(Monster.getName3(),nameHolder[2]);
+		System.out.println(textHolder);
+		return textHolder;
 	}
-
 	
-
-	public String pullMonsters(int i){
-		return "monsterImg"+"i";
+	//gets Traits by checking index of each part of javiy's name and using that index to get the trait from my array
+	public static int getTrait(String[] name, String trait){
+		 for(int i = 0; i < name.length; i++){
+			 if(name[i] == trait){
+				 return i;
+			 }
+		 }
+		return 1;
 	}
-	
-	
-	
-	public String getName() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-	
+		
 	public static void setMonsters(ArrayList<Graphic> monsterList) {
 		monsters = monsterList;
 	}
 	
-	public ArrayList<Graphic> getMonsters() {
+	public ArrayList<MonsterGraphic> getMonsters() {
 		return monsters;
 	}
 
-	public void run() {
-		// TODO Auto-generated method stub
+	public void SetDescription(String des) {
+		
 		
 	}
 	
-	public void SetDescription(String des) {
+	public void run() {
 		// TODO Auto-generated method stub
 		
 	}
@@ -156,5 +181,20 @@ public class MonsterDexScreen extends ClickableScreen implements Runnable,MonDex
 	public String getImagePath() {
 		return null;
 		
+	}
+
+	public String getName() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public void use() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public String getDescription() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }

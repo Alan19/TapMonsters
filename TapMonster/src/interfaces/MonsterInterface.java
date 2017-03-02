@@ -2,10 +2,11 @@ package interfaces;
 
 public interface MonsterInterface {
 
-	void setName(String name);
+	String getName();
 
 	int RaiseEnCounter(int encounters);
 	
 	boolean isBossMonster();
 	
+	String getImagePath();
 }

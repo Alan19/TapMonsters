@@ -191,6 +191,18 @@ public class Monster extends Component implements MonsterName{
 	public static ArrayList<String> returnNames(){
 		return names;
 	}
+	
+	public static String[] getName1(){
+		return name1;
+	}
+	
+	public static String[] getName2(){
+		return name2;
+	}
+	
+	public static String[] getName3(){
+		return name3;
+	}
 
 	//To do list
 	//Create a next level button to test everything out 
