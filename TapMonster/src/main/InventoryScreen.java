@@ -39,11 +39,13 @@ public class InventoryScreen extends ClickableScreen implements Runnable, Invent
 	private String[] images = {""};
 	
 	private Graphic bkgd;
+	static InventoryScreen inventoryScreen;
 
 	public InventoryScreen(int width, int height) {
 		super(width, height);
 		Thread app = new Thread(this);
 		app.start();
+		inventoryScreen = this;
 	}
 
 	//each artifact has a name and description
@@ -51,6 +53,11 @@ public class InventoryScreen extends ClickableScreen implements Runnable, Invent
 	//can make interface for adding "you gained +something" for
 	//every artifact that is collected in the inventory
 	//when player loses, pass in artifacts ArrayList
+	public static void purchaseItem(Artifact a){
+		artifactsPurchased.add(a);
+		Benefit.benefit = inventoryScreen.showLatestGain();
+		update();
+	}
 	
 	@Override
 	public void initAllObjects(List<Visible> viewObjects) {
@@ -86,8 +93,9 @@ public class InventoryScreen extends ClickableScreen implements Runnable, Invent
 		//viewObjects.add(purchaseAllArtifacts);
 		addArtifact();
 		displayArtifacts();
-		benefits = new TextLabel(700,500,getWidth()/2,50,showLatestGain());
-		//benefits = new TextLabel(700,500,getWidth()/2,50, Benefit.benefit);
+		//benefits = new TextLabel(700,500,getWidth()/2,50,showLatestGain());
+		Benefit.benefit = showLatestGain();
+		benefits = new TextLabel(700,500,getWidth()/2,50, Benefit.benefit);
 		viewObjects.add(benefits);
 	}
 	
