@@ -8,4 +8,5 @@ public interface MonsterInterface {
 	
 	boolean isBossMonster();
 	
+	String getImagePath();
 }

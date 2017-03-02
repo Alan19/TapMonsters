@@ -15,7 +15,7 @@ import guiPractice.components.Visible;
 import interfaces.MonDexInterface;
 import main.MonsterGraphic;
 
-public class MonsterDexScreen extends ClickableScreen implements Runnable,MonDexInterface{
+public class MonsterDexScreen extends ClickableScreen implements Runnable,MonDexInterface,MonsterAbility{
 	
 	static ArrayList<Graphic> monsters;
 
@@ -34,6 +34,9 @@ public class MonsterDexScreen extends ClickableScreen implements Runnable,MonDex
 	private TextLabel name;
 	private static String[] nameHolder;
 	private int monID = 0;
+	private int xPos = 100;;
+	private int yPos = 100;
+	
 	
 	private String[] trait1 = {"This"+""+"gives out an aura that scare any who come near it",
 			"This"+""+" towers above the others.",
@@ -95,29 +98,31 @@ public class MonsterDexScreen extends ClickableScreen implements Runnable,MonDex
 		
 		background = new Graphic(0,0,getWidth(),getHeight(),"src/resources/background.jpg");
 		//description has to go after monsterImg so that Javiy's name is put into an array, and so that getDesc can work properly.
-		monsterImg1 = new Graphic(100,100,1,main.MonsterGraphic.getMonster(getSpecies(monID))); 
+		//monsterImg1 = new Graphic(100,100,1,main.MonsterGraphic.getMonster(getSpecies(monID))); 
 		description = new TextLabel(120, 100, 300, 150, "Garamond" , 1,  Color.decode("#a52a2a"),getDesc());
-		monsterImg2 = new Graphic(200,200,1,main.MonsterGraphic.getMonster("Beast")); 
+		//monsterImg2 = new Graphic(200,200,1,main.MonsterGraphic.getMonster("Beast")); 
 		description = new TextLabel(220, 200, 300, 150, "Garamond" , 1,  Color.decode("#a52a2a"),getDesc());
-		monsterImg3 = new Graphic(300,300,100,100,main.MonsterGraphic.getMonster("Titan")); 
+		//monsterImg3 = new Graphic(300,300,100,100,main.MonsterGraphic.getMonster("Titan")); 
 		description = new TextLabel(320, 300, 300, 150, "Garamond" , 1,  Color.decode("#a52a2a"),getDesc());
-		monsterImg4 = new Graphic(400,400,100,100,main.MonsterGraphic.getMonster("Beast")); 
+		//monsterImg4 = new Graphic(400,400,100,100,main.MonsterGraphic.getMonster("Beast")); 
 		description = new TextLabel(420, 400, 300, 150, "Garamond" , 1,  Color.decode("#a52a2a"),getDesc());
-		monsterImg5 = new Graphic(500,500,100,100,main.MonsterGraphic.getMonster("Beast")); 
+		//monsterImg5 = new Graphic(500,500,100,100,main.MonsterGraphic.getMonster("Beast")); 
 		description = new TextLabel(520, 500, 300, 150, "Garamond" , 1,  Color.decode("#a52a2a"),getDesc());
-		monsterImg6 = new Graphic(600,600,100,100,main.MonsterGraphic.getMonster("Titan")); 
+		//monsterImg6 = new Graphic(600,600,100,100,main.MonsterGraphic.getMonster("Titan")); 
 		description = new TextLabel(620, 600, 300, 150, "Garamond" , 1,  Color.decode("#a52a2a"),getDesc());
 		
 		viewObjects.add(background);
 		viewObjects.add(next);
 		viewObjects.add(back);	
 		viewObjects.add(home);	
-		//viewObjects.add(monsterImg1);
-		viewObjects.add(monsterImg2);
-		viewObjects.add(monsterImg3);
-		viewObjects.add(monsterImg4);
-		viewObjects.add(monsterImg5);
-		viewObjects.add(monsterImg6);
+//		//viewObjects.add(monsterImg1);
+//		viewObjects.add(monsterImg2);
+//		viewObjects.add(monsterImg3);
+//		viewObjects.add(monsterImg4);
+//		viewObjects.add(monsterImg5);
+//		viewObjects.add(monsterImg6);
+		
+		viewObjects.add(description);
 
 	}
 	//gets the randomized name from javiy and splits it into an array.
@@ -158,12 +163,12 @@ public class MonsterDexScreen extends ClickableScreen implements Runnable,MonDex
 		return monsters;
 	}
 
-	public void run() {
-		// TODO Auto-generated method stub
+	public void SetDescription(String des) {
+		
 		
 	}
 	
-	public void SetDescription(String des) {
+	public void run() {
 		// TODO Auto-generated method stub
 		
 	}
@@ -179,6 +184,16 @@ public class MonsterDexScreen extends ClickableScreen implements Runnable,MonDex
 	}
 
 	public String getName() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public void use() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public String getDescription() {
 		// TODO Auto-generated method stub
 		return null;
 	}
