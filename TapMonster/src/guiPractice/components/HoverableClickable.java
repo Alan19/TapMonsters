@@ -3,8 +3,7 @@ package guiPractice.components;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
-public class HoverableClickable extends ClickableGraphic implements
-		MouseListener {
+public class HoverableClickable extends ClickableGraphic {
 
 	private Action hoverAct;
 	private Action exitAct;
@@ -28,26 +27,10 @@ public class HoverableClickable extends ClickableGraphic implements
 	public void setExitAction(Action action){
 		this.exitAct = action;
 	}
-
-	public void mouseClicked(MouseEvent arg0) {
-
-	}
-
-	public void mouseEntered(MouseEvent e) {
-		//if(this.isHovered(e.getX(), e.getY()))
-			this.hoverAct.act();
-	}
-
-	public void mousePressed(MouseEvent arg0) {
-
-	}
-
-	public void mouseReleased(MouseEvent arg0) {
-	}
-
-	public void mouseExited(MouseEvent e) {
-		//if(!this.isHovered(e.getX(), e.getY()))
-			this.exitAct.act();
+	
+	public void hoverAct(){
+		System.out.println("actting");
+		hoverAct.act();
 	}
 
 }
