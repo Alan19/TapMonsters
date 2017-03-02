@@ -181,7 +181,7 @@ public class SequenceScreen2 extends Screen implements KeyListener, KeysToPlayer
 			else {
 				System.out.println("Wrong");
 			}
-			p.setX(200);
+			p.setX(getWidth()/2);
 			background.setX(0);
 			viewObjects.add(playerChoice);
 			playerChoice.setX(playerx);
