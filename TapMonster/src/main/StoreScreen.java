@@ -96,8 +96,8 @@ public class StoreScreen extends ClickableScreen implements Runnable {
 						playerBalance -= boughtArtifact.getPrice();
 						playerMoney.setText("You have: " + playerBalance + " Relics");
 						TapMonsterGame.artifacts.remove(boughtArtifact.buyItem());
-//						TapMonsterScreen.score.addArtifact(boughtArtifact.getScore());
-//						score.setText(Integer.toString(TapMonsterScreen.score.score));
+						TapMonsterScreen.score.addArtifact(boughtArtifact.getScore());
+						score.setText(Integer.toString(TapMonsterScreen.score.score));
 						for(int i=0; i<TapMonsterGame.artifactPictures.size(); i++){
 							if(TapMonsterGame.artifactPictures.get(i).getImagePath().equals(boughtArtifact.getImagePath())){
 								index = i;

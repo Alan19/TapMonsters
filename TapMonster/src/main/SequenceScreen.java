@@ -14,8 +14,6 @@ import guiPractice.Screen;
 import guiPractice.components.Graphic;
 import guiPractice.components.TextLabel;
 import guiPractice.components.Visible;
-//check why the sequence is disappearing quicker than playersequence
-//do this by displaying playersequence and matchign up
 public class SequenceScreen extends Screen implements KeyListener{
 
 	public static int sequencex = 50;
@@ -106,19 +104,14 @@ public class SequenceScreen extends Screen implements KeyListener{
 						viewObjects.get(i).setX(viewObjects.get(i).getX() - 60);
 					}
 				sequencex = sequencex - 60;
-//				System.out.println(playerMatch);
-//				System.out.println(s.getSequence());
 				if(idx < s.getSequence().size()){
 					addToDisplayedSequence(1);
-					
 					addToViewObjects(1);
 				}
 				ctr++;
 				if (ctr == s.getSequence().size()){
 					System.out.println("You've won!");
 				}
-//				System.out.println("ctr = " + ctr + "");
-//				System.out.println("idx = " + idx + "");
 			}else{
 				System.out.println("Wrong");
 			}

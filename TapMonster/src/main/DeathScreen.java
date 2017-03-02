@@ -14,8 +14,6 @@ import guiPractice.components.ClickableGraphic;
 import guiPractice.components.Graphic;
 import guiPractice.components.TextLabel;
 import guiPractice.components.Visible;
-import interfaces.MonDexInterface;
-import main.MonsterDexScreen;
 
 /**
  * @author Alan19
@@ -26,16 +24,14 @@ public class DeathScreen extends ClickableScreen{
 	private TextLabel deathMessage;
 	private TextLabel artifactName;
 	private TextLabel artifactDescription;
-	private TextLabel epicKills;
 	private ArrayList<artifacts.Artifact> artifactList;
 	
-	public DeathScreen(int level, int round, int width, int height, ArrayList<artifacts.Artifact> artifacts, ArrayList<MonDexInterface> monsters) {
+	public DeathScreen(int level, int round, int width, int height, ArrayList<artifacts.Artifact> artifacts) {
 		super(width, height);
 		
 		//Game Over information and add background
 		deathMessage = new TextLabel(20, 40, 400, 25, "Copperplate Gothic Bold", 20, new Color(140, 146, 143), "You died! Level:" + level + " Round:" + round);
 		deathMessage.setText("You died! Level:" + level + " Round:" + round);
-		viewObjects.add(deathMessage);
 		
 		artifactName = new TextLabel(20, 150, 500, 100, "Copperplate Gothic Bold", 20, new Color(112, 119, 102), "Click on an artifact!");
 		artifactDescription = new TextLabel(20, 200, 500, 100, "Copperplate Gothic Bold", 20, new Color(112, 119, 102), "");
@@ -75,6 +71,7 @@ public class DeathScreen extends ClickableScreen{
 		}
 		
 		//Move artifact description under artifact images
+		viewObjects.add(deathMessage);
 		artifactName.setY(y+100);
 		artifactDescription.setY(y+150);
 		
@@ -82,17 +79,19 @@ public class DeathScreen extends ClickableScreen{
 		viewObjects.add(artifactName);
 		viewObjects.add(artifactDescription);
 		
-		addBossMonsterKillList(monsters);
+		addBossMonsterKillList();
 	}
 	
 
-	private void addBossMonsterKillList(ArrayList<MonDexInterface> monsters) {
+	private void addBossMonsterKillList() {
 		int x = getWidth()/2;
 		int y = 75;
-		epicKills = new TextLabel(getWidth()/2, y, 400, 25, "Copperplate Gothic Bold", 15, new Color(112, 119, 102), "Here is a list of your heroic feats");
-		for (MonDexInterface monster : TapMonsterGame.monsterdex.getMonsters()) {
+		new TextLabel(getWidth()/2, y, 400, 25, "Copperplate Gothic Bold", 15, new Color(112, 119, 102), "Here is a list of your heroic feats");
+		for (MonsterGraphic monster : TapMonsterGame.monsterdex.getMonsters()) {
+			if(monster.isBossMonster())
 			new Graphic(x, y, 100, 100, monster.getImagePath());
 			TextLabel name = new TextLabel(x+110, y, 400, 25, monster.getName());
+			viewObjects.add(name);
 			x = getWidth()/2;
 			y += 120;
 		}

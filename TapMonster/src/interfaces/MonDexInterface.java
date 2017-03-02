@@ -2,9 +2,8 @@ package interfaces;
 
 import java.util.ArrayList;
 
-import guiPractice.components.Clickable;
 import guiPractice.components.Graphic;
-import main.Monster;
+import main.MonsterGraphic;
 
 public interface MonDexInterface{
 		
@@ -16,9 +15,8 @@ public interface MonDexInterface{
 	/**
 	 *@Alan
 	 */
-	String getImagePath();
 
 	String getName();
 	
-	ArrayList<Graphic> getMonsters();
+	ArrayList<MonsterGraphic> getMonsters();
 }

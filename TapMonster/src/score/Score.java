@@ -44,7 +44,8 @@ public class Score extends Component implements ScoreKeeper{
 	public void addArtifact(int cost) {
 		score += cost;
 		playerExp+=cost;
-		checkExp(playerExp);
+		while(playerExp >= maxExp)checkExp(playerExp);
+		
 		update();
 	}
 	
