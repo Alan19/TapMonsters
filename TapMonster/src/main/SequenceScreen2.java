@@ -43,8 +43,10 @@ public class SequenceScreen2 extends Screen implements KeyListener, KeysToPlayer
 	private static TextLabel text;
 	private static int idx = 0;
 	private static int ctr = 0;
+	private static int round = 0;
 	
 	private Graphic background;
+	private Graphic monsterImg;
 
 	public static Player p = new Player(200,200);
 
@@ -89,12 +91,29 @@ public class SequenceScreen2 extends Screen implements KeyListener, KeysToPlayer
 
 	public void initObjects(ArrayList<Visible> viewObjects) {
 		background = new Graphic(0,0,0.75,"src/JaviyDemo/background.jpg");
+		getMonster();
 		viewObjects.add(background);
 		int length = 4;
 		System.out.println(s.getSequence());
 		addToDisplayedSequence(length);
 		addToViewObjects(length);
 		viewObjects.add(p);
+	}
+
+	private void getMonster() {
+		if(round == 0){
+			monsterImg = new Graphic(100,100,100,100,main.MonsterGraphic.getMonster(getSpecies(round))); 
+			round++;
+		}else{
+			monsterImg.loadImages(main.MonsterGraphic.getMonster("Beast"), 100, 100);
+			round++;
+		}
+	}
+
+	private String getSpecies(int round2) {
+			String x = Monster.returnNames().get(monID);
+			String[] y = x.split("");
+			return y[];
 	}
 
 	public void keyPressed(KeyEvent e) {

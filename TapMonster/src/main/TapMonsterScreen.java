@@ -324,11 +324,7 @@ public class TapMonsterScreen extends ClickableScreen implements Runnable,Game,R
 		TapMonsterGame.main.rewardObject.takeEffect(TapMonsterGame.main);
 	}
 	
-	private String getSpecies(int monID) {
-		String x = Monster.returnNames().get(monID);
-		String[] y = x.split("");
-		return y[3];
-	}
+	
 
 	public static double getTimeAlter() {
 		return timeAlter;
