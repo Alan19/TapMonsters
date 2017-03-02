@@ -7,6 +7,7 @@ import artifacts.Artifact;
 import guiPractice.GUIApplication;
 import guiPractice.Screen;
 import guiPractice.components.ClickableGraphic;
+import guiPractice.components.HoverableClickable;
 
 public class TapMonsterGame extends GUIApplication {
 
@@ -16,7 +17,7 @@ public class TapMonsterGame extends GUIApplication {
 	public static InventoryScreen inventory;
 	public static Screen death;
 	public static ArrayList<Artifact> artifacts;
-	public static ArrayList<ClickableGraphic> artifactPictures;
+	public static ArrayList<HoverableClickable> artifactPictures;
 	public static TapMonsterScreen main;
 	public static MonsterDexScreen monsterdex;
 	public static SequenceScreen2 fightScreen;
@@ -26,20 +27,15 @@ public class TapMonsterGame extends GUIApplication {
 	}
 
 	@Override
-	public void initScreen() {
-		
+	public void initScreen() {	
 		main = new TapMonsterScreen(getWidth(),getHeight());
 		intro = new IntroScreen(getWidth(),getHeight());
+		artifactPictures = new ArrayList<HoverableClickable>();
+		artifacts = new ArrayList<Artifact>();
 		store = new StoreScreen(getWidth(),getHeight());
-		artifactPictures = new ArrayList<ClickableGraphic>();
-		artifacts = new ArrayList();
-
 		fightScreen = new SequenceScreen2(getWidth(), getHeight());
-
-		store.createArtifacts();
-		store.createArtifactPics();
 		//inventory = new InventoryScreen(getWidth(),getHeight());
-		monsterdex = new MonsterDexScreen(getWidth(),getHeight());
+		//monsterdex = new MonsterDexScreen(getWidth(),getHeight());
 
 		setScreen(intro);
 	}

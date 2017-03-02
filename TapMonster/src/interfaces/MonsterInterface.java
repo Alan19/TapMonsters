@@ -6,4 +6,6 @@ public interface MonsterInterface {
 
 	int RaiseEnCounter(int encounters);
 	
+	boolean isBossMonster();
+	
 }

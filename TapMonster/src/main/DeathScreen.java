@@ -90,7 +90,7 @@ public class DeathScreen extends ClickableScreen{
 		int x = getWidth()/2;
 		int y = 75;
 		epicKills = new TextLabel(getWidth()/2, y, 400, 25, "Copperplate Gothic Bold", 15, new Color(112, 119, 102), "Here is a list of your heroic feats");
-		for (MonDexInterface monster : monsters) {
+		for (MonDexInterface monster : TapMonsterGame.monsterdex.getMonsters()) {
 			new Graphic(x, y, 100, 100, monster.getImagePath());
 			TextLabel name = new TextLabel(x+110, y, 400, 25, monster.getName());
 			x = getWidth()/2;
