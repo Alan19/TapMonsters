@@ -9,6 +9,7 @@ public class MonsterGraphic extends Graphic implements MonsterInterface{
 	public static int MonY = 100;
 	private static int randInt;
 	public static String tempName;
+	private static String monName;
 	private static boolean isBoss;
 	
 	public static String[] beast = {"Anguiform","Bismarck","Fidor","Harpiai","Nastidon","Palidor",
@@ -23,7 +24,7 @@ public class MonsterGraphic extends Graphic implements MonsterInterface{
 			"Veteren","Wart Puck"};
 	public static String[] titan = {"#128","Atma Weapon","Behemoth","Borras","Chimera","Czar Dragon",
 			"Didalos","Kefka","Ultros","Zombone","Zone Eater"};
-	public static String[] encounterNames;
+
 	
 	
 	public MonsterGraphic(int x, int y, int w, int h, String species) {
@@ -51,6 +52,7 @@ public class MonsterGraphic extends Graphic implements MonsterInterface{
 			getRandInt(type);
 			tempName = "MonsterSprites/Beast/"+beast[randInt]+".gif";
 			System.out.println(tempName);
+			monName = beast[randInt];
 			return tempName;
 		}
 		
@@ -58,6 +60,7 @@ public class MonsterGraphic extends Graphic implements MonsterInterface{
 			getRandInt(type);
 			tempName = "MonsterSprites/Demon/"+demon[randInt]+".gif";
 			System.out.println(tempName);
+			monName = beast[randInt];
 			return tempName;
 		}
 
@@ -65,6 +68,7 @@ public class MonsterGraphic extends Graphic implements MonsterInterface{
 			getRandInt(type);
 			tempName = "MonsterSprites/Fiend/"+fiend[randInt]+".gif";
 			System.out.println(tempName);
+			monName = beast[randInt];
 			return tempName;
 		}
 		
@@ -72,6 +76,7 @@ public class MonsterGraphic extends Graphic implements MonsterInterface{
 			getRandInt(type);
 			tempName = "MonsterSprites/Monster/"+monster[randInt]+".gif";
 			System.out.println(tempName);
+			monName = beast[randInt];
 			return tempName;	
 			}
 
@@ -79,6 +84,7 @@ public class MonsterGraphic extends Graphic implements MonsterInterface{
 			getRandInt(type);
 			tempName = "MonsterSprites/Thingy/"+thingy[randInt]+".gif";
 			System.out.println(tempName);
+			monName = beast[randInt];
 			return tempName;
 			}
 		
@@ -87,6 +93,7 @@ public class MonsterGraphic extends Graphic implements MonsterInterface{
 			isBoss = true;
 			tempName = "MonsterSprites/Titan/"+titan[randInt]+".gif";
 			System.out.println(tempName);
+			monName = beast[randInt];
 			return tempName;
 			}
 		
