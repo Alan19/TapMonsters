@@ -17,8 +17,6 @@ import main.MonsterGraphic;
 
 public class MonsterDexScreen extends ClickableScreen implements Runnable,MonDexInterface,MonsterAbility,FindMonster{
 
-	static ArrayList<String> filePaths = new ArrayList<String>();
-
 	Monster monsters;
 	private Button next;
 	private Button back;
@@ -59,7 +57,7 @@ public class MonsterDexScreen extends ClickableScreen implements Runnable,MonDex
 			" It will only hunt uninjured prey, and never takes them by surprise as a show of resspect.",
 			" Because of its fluffiness, no one takes it seriously, but looks can be deceiving...",
 			" It only hunts prey that have no chance of winning. Because of that it has never fought a real threat before."};
-	private static String[] trait3 = {" A animal, a creature that can be found anywhere in the world. You've fought many like it, but they can still trake you by surprise.",
+	private static String[] trait3 = {" A animal, a creature that can be found anywhere in the world. You've fought many like it, but they can still take you by surprise.",
 			" One of nature's greatest creations corrupted, used for whatever heinous purpose leads it.",
 			" Few of these exist anymore, which is surprising due to their size. They are the most dangerous creatrures alive, and living to tell the tale of its existence is an achievement in and of itself.",
 			" They exist mainly in the other world, but can sometimes enter our world. When they do they can stir up any amount of trouble.",
@@ -119,50 +117,56 @@ public class MonsterDexScreen extends ClickableScreen implements Runnable,MonDex
 
 	private void setMonsterDex() {
 		if (invisWall == false){	
-				for(int i = monID; i < Monster.returnNames().size(); i++){
+				for(int i = monID; i < Monster.returnNames().size()+1; i++){
 					if(i == 0){
-	                      monsterImg1 = new Graphic((100*i)+50,(100*i)+100,100,100,main.MonsterGraphic.getMonster(getSpecies(monID)));
-	                      description = new TextArea((100*i)+150,(100*i)+100,800,100,getDesc());
-	                      viewObjects.add(description);
-	                      viewObjects.add(monsterImg1); 
-	                      monID++;
-							
+	                    monsterImg1 = new Graphic((100*i)+50,(100*i)+100,100,100,MonsterGraphic.getFilePaths().get(i+1));
+	                    getSpecies(monID);
+	                    description = new TextArea((100*i)+150,(100*i)+100,800,100,getDesc());
+	                    viewObjects.add(description);
+	                    viewObjects.add(monsterImg1); 
+	                    monID+=2;
 					}
-					if(i == 1){
-						monsterImg2 = new Graphic((100*i)+50,(100*i)+100,100,100,main.MonsterGraphic.getMonster(getSpecies(monID)));
-						description = new TextArea((100*i)+150,(100*i)+100,800,100,getDesc());
-						viewObjects.add(description);
-						viewObjects.add(monsterImg2);
-						monID++;
-					}
-					if(i == 2){
-						monsterImg3 = new Graphic((100*i)+50,(100*i)+100,100,100,main.MonsterGraphic.getMonster(getSpecies(monID)));
-						description = new TextArea((100*i)+150,(100*i)+100,800,100,getDesc());
-						viewObjects.add(description);
-						viewObjects.add(monsterImg3);
-						monID++;
-					}
-					if(i == 3){
-						monsterImg4 = new Graphic((100*i)+50,(100*i)+100,100,100,main.MonsterGraphic.getMonster(getSpecies(monID)));
-						description = new TextArea((100*i)+150,(100*i)+100,800,100,getDesc());
-						viewObjects.add(description);
-						viewObjects.add(monsterImg4);
-						monID++;
-					}
-					if(i == 4){
-						monsterImg5 = new Graphic((100*i)+50,(100*i)+100,100,100,main.MonsterGraphic.getMonster(getSpecies(monID)));
-						description = new TextArea((100*i)+150,(100*i)+100,800,100,getDesc());
-						viewObjects.add(description);
-						viewObjects.add(monsterImg5);
-						monID++;				
-					}
-					if(i == 5){
-						monsterImg6 = new Graphic((100*i)+50,(100*i)+100,100,100,main.MonsterGraphic.getMonster(getSpecies(monID)));
-						description = new TextArea((100*i)+150,(100*i)+100,800,100,getDesc());
-						viewObjects.add(description);
-						viewObjects.add(monsterImg6);monID++;				
-					invisWall = true;
-					}
+//					if(i == 1){
+//						monsterImg2 = new Graphic((100*i)+50,(100*i)+100,100,100,MonsterGraphic.getFilePaths().get(i*2));
+//	                    getSpecies(monID);
+//	                    description = new TextArea((100*i)+150,(100*i)+100,800,100,getDesc());
+//	                    viewObjects.add(description);
+//	                    viewObjects.add(monsterImg2); 
+//	                    monID+=2;
+//					}
+//					if(i == 2){
+//						monsterImg3 = new Graphic((100*i)+50,(100*i)+100,100,100,MonsterGraphic.getFilePaths().get(i*2));
+//	                    getSpecies(monID);
+//	                    description = new TextArea((100*i)+150,(100*i)+100,800,100,getDesc());
+//	                    viewObjects.add(description);
+//	                    viewObjects.add(monsterImg3); 
+//	                    monID+=2;
+//					}
+//					if(i == 3){
+//						monsterImg4 = new Graphic((100*i)+50,(100*i)+100,100,100,MonsterGraphic.getFilePaths().get(i*2));
+//	                    getSpecies(monID);
+//	                    description = new TextArea((100*i)+150,(100*i)+100,800,100,getDesc());
+//	                    viewObjects.add(description);
+//	                    viewObjects.add(monsterImg4); 
+//	                    monID+=2;
+//					}
+//					if(i == 4){
+//						monsterImg5 = new Graphic((100*i)+50,(100*i)+100,100,100,MonsterGraphic.getFilePaths().get(i*2));
+//	                    getSpecies(monID);
+//	                    description = new TextArea((100*i)+150,(100*i)+100,800,100,getDesc());
+//	                    viewObjects.add(description);
+//	                    viewObjects.add(monsterImg5); 
+//	                    monID+=2;				
+//					}
+//					if(i == 5){
+//						monsterImg6 = new Graphic((100*i)+50,(100*i)+100,100,100,MonsterGraphic.getFilePaths().get(i*2));
+//	                    getSpecies(monID);
+//	                    description = new TextArea((100*i)+150,(100*i)+100,800,100,getDesc());
+//	                    viewObjects.add(description);
+//	                    viewObjects.add(monsterImg6); 
+//	                    monID+=2;				
+//	                    invisWall = true;
+//					}
 				}
 			}						
          }
@@ -282,8 +286,7 @@ public class MonsterDexScreen extends ClickableScreen implements Runnable,MonDex
 				}
 				if(monID % 6 == 5 && monID > 0){
 					monsterImg6.loadImages(main.MonsterGraphic.getMonster(getSpecies(monID)),1);
-					description = new TextArea((monID*100)+250,(100*i)+200,800,100,getDesc());
-					viewObjects.add(description);
+					
 					monID--;
 				}
 			}
