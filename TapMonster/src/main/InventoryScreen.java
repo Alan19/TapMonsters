@@ -116,6 +116,7 @@ public class InventoryScreen extends ClickableScreen implements Runnable{
 			viewObjects.add(artifact);
 		}
 		artifactNum.setText("You have "+artifactsPurchased.size()+ " artifacts.");
+		benefits.setText(Benefit.benefit);
 	}
 	
 	/*public void addArtifact(){
@@ -178,7 +179,7 @@ public class InventoryScreen extends ClickableScreen implements Runnable{
 	public String retrieveLatestGain(Artifact lastCollectedArtifact){
 		//takes the last artifact in the list and determines what to print on screen
 		
-			if(lastCollectedArtifact.getName() == "Wordly Illuminator"){
+			if(lastCollectedArtifact.getName() == "Worldly Illuminator"){
 				return "You just gained 10 HP!";
 			}
 			if(lastCollectedArtifact.getName() == "Warrior's Revival"){
