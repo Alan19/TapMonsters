@@ -14,6 +14,7 @@ import guiPractice.components.ClickableGraphic;
 import guiPractice.components.Graphic;
 import guiPractice.components.TextLabel;
 import guiPractice.components.Visible;
+import player.Score;
 
 /**
  * @author Alan19
@@ -24,14 +25,11 @@ public class DeathScreen extends ClickableScreen{
 	private TextLabel deathMessage;
 	private TextLabel artifactName;
 	private TextLabel artifactDescription;
-	private ArrayList<artifacts.Artifact> artifactList;
-	
-	public DeathScreen(int level, int round, int width, int height, ArrayList<artifacts.Artifact> artifacts) {
+	public DeathScreen(int width, int height) {
 		super(width, height);
 		
 		//Game Over information and add background
-		deathMessage = new TextLabel(20, 40, 400, 25, "Copperplate Gothic Bold", 20, new Color(140, 146, 143), "You died! Level:" + level + " Round:" + round);
-		deathMessage.setText("You died! Level:" + level + " Round:" + round);
+		deathMessage = new TextLabel(20, 40, 400, 25, "Copperplate Gothic Bold", 20, new Color(140, 146, 143), "You died!" + "Score: " + Score.score + " Round:" + SequenceScreen2.getRound());
 		
 		artifactName = new TextLabel(20, 150, 500, 100, "Copperplate Gothic Bold", 20, new Color(112, 119, 102), "Click on an artifact!");
 		artifactDescription = new TextLabel(20, 200, 500, 100, "Copperplate Gothic Bold", 20, new Color(112, 119, 102), "");
@@ -51,7 +49,7 @@ public class DeathScreen extends ClickableScreen{
 		int y = 80;
 		int imageWidth = 75;
 		if(TapMonsterGame.artifacts != null){
-			for (Artifact artifact : TapMonsterGame.artifacts) {
+			for (Artifact artifact : InventoryScreen.artifactsPurchased) {
 				final Artifact artifact2 = artifact;
 				ClickableGraphic artifactImage = new ClickableGraphic(x, y,imageWidth, imageWidth, artifact.getImagePath());
 				artifactImage.setAction(new Action() {
@@ -87,20 +85,21 @@ public class DeathScreen extends ClickableScreen{
 	
 
 	private void addBossMonsterKillList() {
-//		int x = getWidth()/2;
-//		int y = 75;
-//		if(TapMonsterGame.monsterdex.getMonsters() != null){
-//			new TextLabel(getWidth()/2, y, 400, 25, "Copperplate Gothic Bold", 15, new Color(112, 119, 102), "Here is a list of your heroic feats");
-//			for (MonsterGraphic monster : TapMonsterGame.monsterdex.getMonsters()) {
-//				if(monster.isBossMonster()){
-//					new Graphic(x, y, 100, 100, monster.getImagePath());
-//					TextLabel name = new TextLabel(x+110, y, 400, 25, monster.getName());
-//					viewObjects.add(name);
-//					x = getWidth()/2;
-//					y += 120;				
+		int x = getWidth()/2 + 30;
+		int y = 75;
+		if(MonsterDexScreen.filePaths != null){
+			TextLabel feats = new TextLabel(getWidth()/2, y, 400, 25, "Copperplate Gothic Bold", 15, new Color(112, 119, 102), "Here is a list of your heroic feats");
+			for (String monster : MonsterDexScreen.filePaths) {
+//				if(monster.contains("Titan")){
+					Graphic titan = new Graphic(x, y, 100, 100, monster);
+//					TextLabel name = new TextLabel(x+110, y, 400, 25, monster);
+					viewObjects.add(feats);
+					viewObjects.add(titan);
+					x = getWidth()/2;
+					y += 120;				
 //				}
-//			}
-//		}
+			}
+		}
 	}
 
 

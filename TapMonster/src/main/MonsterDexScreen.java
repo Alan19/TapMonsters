@@ -15,9 +15,9 @@ import guiPractice.components.Visible;
 import interfaces.MonDexInterface;
 import main.MonsterGraphic;
 
-public class MonsterDexScreen extends ClickableScreen implements Runnable,MonDexInterface,MonsterAbility{
-	
-	static ArrayList<Graphic> encounteredMonsters;
+public class MonsterDexScreen extends ClickableScreen implements Runnable,MonDexInterface,MonsterAbility,FindMonster{
+
+	static ArrayList<String> filePaths = new ArrayList<String>();
 
 	Monster monsters;
 	private Button next;
@@ -25,11 +25,6 @@ public class MonsterDexScreen extends ClickableScreen implements Runnable,MonDex
 	private Button home;
 	private Graphic background;
 	private static Graphic monsterImg1;
-	private static Graphic monsterImg2;
-	private static Graphic monsterImg3;	
-	private static Graphic monsterImg4;	
-	private static Graphic monsterImg5;
-	private static Graphic monsterImg6;
 	private static TextLabel description;
 	private static String textHolder = "";
 	private TextLabel name;
@@ -78,16 +73,14 @@ public class MonsterDexScreen extends ClickableScreen implements Runnable,MonDex
 //		monsters = new Monster(TapMonsterGame.main, 0,0);
 		next = new Button(getWidth() - 110, getHeight() - 70, 90, 50, "Next", Color.decode("#a52a2a"), new Action() {
 			public void act() {
-				
+				changeMonsters(1);
 			}
 
 		});
 		
 		back = new Button(20, getHeight() - 70, 90, 50, "Back", Color.decode("#a52a2a"), new Action() {
 			public void act() {
-//				if ((monID+6)%monsters.size() != 0){
-//				monsterImg1.loadImages(main.MonsterGraphic.getMonster("Beast"), 100, 100);
-//				}
+				changeMonsters(0);
 			}
 		});
 		
@@ -99,32 +92,13 @@ public class MonsterDexScreen extends ClickableScreen implements Runnable,MonDex
 		
 		
 		background = new Graphic(0,0,getWidth(),getHeight(),"src/resources/background.jpg");
-		//description has to go after monsterImg so that Javiy's name is put into an array, and so that getDesc can work properly.
-		monsterImg1 = new Graphic(100,100,1,main.MonsterGraphic.getMonster(getSpecies(monID))); 
-		description = new TextLabel(120, 100, 500,150,getDesc());
-		//monsterImg2 = new Graphic(200,200,1,main.MonsterGraphic.getMonster("Beast")); 
-		//description = new TextLabel(220, 200, 300, 150, "Garamond" , 1,  Color.decode("#a52a2a"),getDesc());
-		//monsterImg3 = new Graphic(300,300,100,100,main.MonsterGraphic.getMonster("Titan")); 
-		//description = new TextLabel(320, 300, 300, 150, "Garamond" , 1,  Color.decode("#a52a2a"),getDesc());
-		//monsterImg4 = new Graphic(400,400,100,100,main.MonsterGraphic.getMonster("Beast")); 
-		//description = new TextLabel(420, 400, 300, 150, "Garamond" , 1,  Color.decode("#a52a2a"),getDesc());
-		//monsterImg5 = new Graphic(500,500,100,100,main.MonsterGraphic.getMonster("Beast")); 
-		//description = new TextLabel(520, 500, 300, 150, "Garamond" , 1,  Color.decode("#a52a2a"),getDesc());
-		//monsterImg6 = new Graphic(600,600,100,100,main.MonsterGraphic.getMonster("Titan")); 
-		//description = new TextLabel(620, 600, 300, 150, "Garamond" , 1,  Color.decode("#a52a2a"),getDesc());
 		
+		monsterImg1 = new Graphic(100,100,1,main.MonsterGraphic.getMonster(getSpecies(monID))); 
 		viewObjects.add(background);
 		viewObjects.add(next);
 		viewObjects.add(back);	
 		viewObjects.add(home);	
-		viewObjects.add(monsterImg1);
-//		viewObjects.add(monsterImg2);
-//		viewObjects.add(monsterImg3);
-//		viewObjects.add(monsterImg4);
-//		viewObjects.add(monsterImg5);
-//		viewObjects.add(monsterImg6);
-		
-		viewObjects.add(description);
+		//viewObjects.add(monsterImg1);
 
 	}
 	//gets the randomized name from javiy and splits it into an array.
@@ -139,14 +113,15 @@ public class MonsterDexScreen extends ClickableScreen implements Runnable,MonDex
 	
 	//makes a description by using getTrait
 	public static String getDesc(){
-		textHolder += getTrait(Monster.getName1(),nameHolder[1]);
 		System.out.print(nameHolder[1]);
-		System.out.println(textHolder);
-		textHolder += getTrait(Monster.getName2(),nameHolder[2]);
 		System.out.print(nameHolder[2]);
-		System.out.println(textHolder);
-		textHolder += getTrait(Monster.getName3(),nameHolder[4]);
 		System.out.print(nameHolder[3]);
+		System.out.print(nameHolder[4]);
+		textHolder += getTrait(Monster.getName1(),nameHolder[1]);
+		
+		textHolder += getTrait(Monster.getName2(),nameHolder[3]);
+		
+		textHolder += getTrait(Monster.getName3(),nameHolder[4]);
 		System.out.println(textHolder);
 		return textHolder;
 	}
@@ -160,15 +135,29 @@ public class MonsterDexScreen extends ClickableScreen implements Runnable,MonDex
 		 }
 		return "Nothing is known";
 	}
-		
-	public static void setMonsters(ArrayList<Graphic> monsterList) {
-		monsters = monsterList;
-	}
 	
-	public ArrayList<MonsterGraphic> getMonsters() {
-		return monsters;
+	
+	
+	public void changeMonsters(int i){
+		if(i == 1){
+			
+		}
+		if(i == 0){
+			if(monID % 6 == 0 && monID > 0){
+				monsterImg1.loadImages(main.MonsterGraphic.getMonster(getSpecies(monID)),1);
+				monID++;
+			}
+		}		
 	}
 
+	public static void setMonsters(ArrayList<Graphic> monsterList) {
+		return;
+	}
+	
+	public ArrayList<monsterDex.MonsterGraphic> getMonsters() {
+		return null;
+	}
+	
 	public void SetDescription(String des) {
 		
 		
