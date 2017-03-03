@@ -36,7 +36,7 @@ public class DeathScreen extends ClickableScreen implements LoseInterface{
 	
 	public void displayGameOverInformation() {
 		//Game Over information and add background
-		deathMessage = new TextLabel(20, 40, 400, 25, "Helvetica", 20, new Color(140, 146, 143), "You died!" + " Round:" + SequenceScreen2.getRound());
+		deathMessage = new TextLabel(20, 40, 400, 25, "Helvetica", 20, new Color(140, 146, 143), "You died!" + " Round:" + SequenceScreen2.getRound() + " Score:" + score.Score.score);
 		
 		
 		//Add background first so it's in the back

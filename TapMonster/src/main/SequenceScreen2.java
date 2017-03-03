@@ -35,10 +35,10 @@ public class SequenceScreen2 extends Screen implements KeyListener, KeysToPlayer
 		return round;
 	}
 
-	private static Graphic arrowUp = new Graphic(sequencex, y, w, h, "src/sequenceArrows/arrowUp.jpg");
-	private static Graphic arrowDown = new Graphic(sequencex, y, w, h, "src/sequenceArrows/arrowDown.jpg");
-	private static Graphic arrowLeft = new Graphic(sequencex, y, w, h, "src/sequenceArrows/arrowLeft.jpg");
-	private static Graphic arrowRight = new Graphic(sequencex, y, w, h, "src/sequenceArrows/arrowRight.jpeg");
+	private static Graphic arrowUp = new Graphic(sequencex, y, w, h, "src/sequenceArrows/arrowUp.png");
+	private static Graphic arrowDown = new Graphic(sequencex, y, w, h, "src/sequenceArrows/arrowDown.png");
+	private static Graphic arrowLeft = new Graphic(sequencex, y, w, h, "src/sequenceArrows/arrowLeft.png");
+	private static Graphic arrowRight = new Graphic(sequencex, y, w, h, "src/sequenceArrows/arrowRight.png");
 
 
 	private static Sequence s = new Sequence(10);
@@ -74,19 +74,19 @@ public class SequenceScreen2 extends Screen implements KeyListener, KeysToPlayer
 	public void addToDisplayedSequence(int numOfTimes){
 		for (int i = 0; i < numOfTimes; i++){
 			if (s.getSequence().get(getIdx()) == 0){
-				displayedSequence.add(new Graphic(sequencex, y, w, h, "src/sequenceArrows/arrowUp.jpg"));
+				displayedSequence.add(new Graphic(sequencex, y, w, h, "src/sequenceArrows/arrowUp.png"));
 				playerMatch.add("W");
 			}
 			if (s.getSequence().get(getIdx()) == 1){
-				displayedSequence.add(new Graphic(sequencex, y, w, h, "src/sequenceArrows/arrowRight.jpeg"));
+				displayedSequence.add(new Graphic(sequencex, y, w, h, "src/sequenceArrows/arrowRight.png"));
 				playerMatch.add("D");
 			}
 			if (s.getSequence().get(getIdx()) == 2){
-				displayedSequence.add(new Graphic(sequencex, y, w, h, "src/sequenceArrows/arrowDown.jpg"));
+				displayedSequence.add(new Graphic(sequencex, y, w, h, "src/sequenceArrows/arrowDown.png"));
 				playerMatch.add("S");
 			}
 			if (s.getSequence().get(getIdx()) == 3){
-				displayedSequence.add(new Graphic(sequencex, y, w, h, "src/sequenceArrows/arrowLeft.jpg"));
+				displayedSequence.add(new Graphic(sequencex, y, w, h, "src/sequenceArrows/arrowLeft.png"));
 				playerMatch.add("A");
 			}
 			sequencex+=60;
@@ -94,6 +94,7 @@ public class SequenceScreen2 extends Screen implements KeyListener, KeysToPlayer
 				setIdx(getIdx() + 1);
 			}
 		}
+		System.out.println("PLAYER SEQUENCE = " + playerMatch);
 	}
 
 	public void addToViewObjects(int l){
@@ -110,6 +111,8 @@ public class SequenceScreen2 extends Screen implements KeyListener, KeysToPlayer
 		setIdx(0);
 		ctr = 0;
 		lng = s.getSequence().size();
+		sequencex = 50;
+		playerMatch = new ArrayList<String>();
 		TapMonsterScreen.setWasSequenceCompleted = false;
 
 		background = new Graphic(0,0,0.75,"src/JaviyDemo/background.jpg");
@@ -148,14 +151,14 @@ public class SequenceScreen2 extends Screen implements KeyListener, KeysToPlayer
 		if (playerChoice != null) remove(playerChoice);
 		if (e.getKeyCode() == KeyEvent.VK_W){
 //			viewObjects.add(background);
-			playerChoice = new Graphic(playerx, playery, w, h, "src/sequenceArrows/arrowUp.jpg");
+			playerChoice = new Graphic(playerx, playery, w, h, "src/sequenceArrows/arrowUp.png");
 			addObject(playerChoice);
 			addObject(p);
 			setMove(ATTACK);
 		}
 		if (e.getKeyCode() == KeyEvent.VK_D){
 //			viewObjects.add(background);
-			playerChoice = new Graphic(playerx, playery, w, h, "src/sequenceArrows/arrowRight.jpeg");
+			playerChoice = new Graphic(playerx, playery, w, h, "src/sequenceArrows/arrowRight.png");
 			addObject(playerChoice);
 			addObject(p);
 			setMove(DODGER);
@@ -163,14 +166,14 @@ public class SequenceScreen2 extends Screen implements KeyListener, KeysToPlayer
 		}
 		if (e.getKeyCode() == KeyEvent.VK_S){
 //			viewObjects.add(background);
-			playerChoice = new Graphic(playerx, playery, w, h, "src/sequenceArrows/arrowDown.jpg");
+			playerChoice = new Graphic(playerx, playery, w, h, "src/sequenceArrows/arrowDown.png");
 			addObject(playerChoice);
 			addObject(p);
 			setMove(GUARD);
 		}
 		if (e.getKeyCode() == KeyEvent.VK_A){
 //			viewObjects.add(background);
-			playerChoice = new Graphic(playerx, playery, w, h, "src/sequenceArrows/arrowLeft.jpg");
+			playerChoice = new Graphic(playerx, playery, w, h, "src/sequenceArrows/arrowLeft.png");
 			addObject(playerChoice);
 			addObject(p);
 			setMove(DODGEL);
@@ -203,7 +206,7 @@ public class SequenceScreen2 extends Screen implements KeyListener, KeysToPlayer
 				ctr++;
 				System.out.println("ctr = " + ctr);
 				if (ctr >= 10){
-					//TapMonsterGame.main.setRandomGold();
+					TapMonsterGame.main.setRandomGold();
 					TapMonsterGame.main.setRandomReward();
 					viewObjects.remove(monsterImg);
 					System.out.println("You've won!");

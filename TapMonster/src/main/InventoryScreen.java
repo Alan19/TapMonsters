@@ -11,6 +11,7 @@ import guiPractice.components.Action;
 import guiPractice.components.Button;
 import guiPractice.components.ClickableGraphic;
 import guiPractice.components.Graphic;
+import guiPractice.components.HoverableClickable;
 import guiPractice.components.TextArea;
 import guiPractice.components.TextLabel;
 import guiPractice.components.TransparentRoundedRect;
@@ -26,6 +27,8 @@ public class InventoryScreen extends ClickableScreen implements Runnable{
 	private int collected;
 	private Button back;
 	private TextLabel benefits;
+	private ArrayList<String> artNames;
+	private ArrayList<String> artBenefits;
 	
 	
 	public static ArrayList<Artifact> artifactsPurchased;
@@ -45,16 +48,19 @@ public class InventoryScreen extends ClickableScreen implements Runnable{
 	}
 
 	
-	public void purchaseItem(Artifact a){
+	public void purchaseItem(Artifact a, HoverableClickable b){
 		
 		artifactsPurchased.add(a);
 		Benefit.benefit = inventoryScreen.showLatestGain();
-		//update();
+		//change x and y of clickablegraphic
+		//viewObjects.add(b);
+		displayArtifacts();
 	}
 	
 	@Override
 	public void initAllObjects(List<Visible> viewObjects) {
 		artifactsPurchased = new ArrayList();
+		artNames = new ArrayList();
 		collected = artifactsPurchased.size();
 		title = new TextLabel((int)(getWidth()/2.2),40,getWidth()/2,50, "Inventory");
 		title.setSize(25);
@@ -80,7 +86,7 @@ public class InventoryScreen extends ClickableScreen implements Runnable{
 		
 		
 		
-		displayArtifacts();
+		//displayArtifacts();
 		//benefits = new TextLabel(700,500,getWidth()/2,50,showLatestGain());
 		
 		Benefit.benefit = showLatestGain();
@@ -165,15 +171,44 @@ public class InventoryScreen extends ClickableScreen implements Runnable{
 			return retrieveLatestGain(artifactsPurchased.get(artifactsPurchased.size()-1));
 		}
 			return "Go to the store to buy artifacts.";
+		//return artNames.get(0);
 	}
 	
 	public String retrieveLatestGain(Artifact lastCollectedArtifact){
 		//takes the last artifact in the list and determines what to print on screen
 		
+			if(lastCollectedArtifact.getName() == "Wordly Illuminator"){
+				return "You just gained 10 HP!";
+			}
+			if(lastCollectedArtifact.getName() == "Warrior's Revival"){
+				return "You just gained 20 HP!";
+			}
+			if(lastCollectedArtifact.getName() == "Divine Chalice"){
+				return "You just gained 35 HP!";
+			}
+			if(lastCollectedArtifact.getName() == "Tincture of Life"){
+				return "You just gained 1.5 secs!";
+			}
+			if(lastCollectedArtifact.getName() == "Knight's Shield"){
+				return "You just gained 3.5 secs!";
+			}
+			if(lastCollectedArtifact.getName() == "Undead Aura"){
+				return "You just gained 5 secs!";
+			}
+			if(lastCollectedArtifact.getName() == "Dark Cloak"){
+				return "You just gained a random reward!";
+			}
+			if(lastCollectedArtifact.getName() == "Crown Egg"){
+				return "You just gained time!";
+			}
 			if(lastCollectedArtifact.getName() == "Hero's Sword"){
 				return "You just gained nothing!";
 			}
 			return " ";
+	}
+	
+	public void addArtifactNames(){
+		
 	}
 	
 
