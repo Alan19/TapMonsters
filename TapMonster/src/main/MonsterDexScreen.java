@@ -39,31 +39,31 @@ public class MonsterDexScreen extends ClickableScreen implements Runnable,MonDex
 	
 	
 	
-	private static String[] trait1 = {"It gives out an aura that scare any who come near it",
+	private static String[] trait1 = {"It gives out an aura that scare any who come near it.",
 			"It towers above the others.",
 			"It has a very unusual size.",
 			"It is known for the number of adventurers it has killed.",
 			"It has a temper.",
 			"It has a streak of sadistic acts.",
-			"It is not dangerous,but have caution when near it",
+			"It is not dangerous,but have caution when near it.",
 			"It can be left with children if trained properly.",
-			"Its is said that the sight of It will kill any who see it",
+			"Its is said that the sight of It will kill any who see it.",
 			"It is rarely seen near others."};
-	private String[] trait2 = {" It thinks every action through, taking care to never make a mistake.",
+	private static String[] trait2 = {" It thinks every action through, taking care to never make a mistake.",
 			" It rushes through everything, causing it to be clumsy and uncoordinated.",
 			" It lays about, doing the bare minimum just to stay alive.",
-			" It constantly walks the border between life and death, due to its uncaring nature to life itself",
+			" It constantly walks the border between life and death, due to its uncaring nature to life itself.",
 			" If you find an injured animal, you can guarentee finding this animal nearby taking care of it. ",
-			" It exaggerates everything to the point that animals, predator or prey, purposefully avoid it",
+			" It exaggerates everything to the point that animals, predator or prey, purposefully avoid it.",
 			" In groups, you can find it leading the charge and taking risks to survive.",
 			" It will only hunt uninjured prey, and never takes them by surprise as a show of resspect.",
 			" Because of its fluffiness, no one takes it seriously, but looks can be deceiving...",
 			" It only hunts prey that have no chance of winning. Because of that it has never fought a real threat before."};
-	private String[] trait3 = {" A animal, a creature that can be found anywhere in the world. You've fought many like it, but they can still trake you by surprise.",
+	private static String[] trait3 = {" A animal, a creature that can be found anywhere in the world. You've fought many like it, but they can still trake you by surprise.",
 			" One of nature's greatest creations corrupted, used for whatever heinous purpose leads it.",
-			" Few of these exist anymore, which is surprising due to their size. They are the most dangerous creatrures alive, and living to tell the tale of its existence is an achievement in and of itself",
-			" They exist mainly in the other world, but can sometimes enter our world. When they do they can stir up any amount of trouble",
-			" The things are despicable creatures, whose appetites consist mainly of anything it can get its hands/tentacles/etc. on",
+			" Few of these exist anymore, which is surprising due to their size. They are the most dangerous creatrures alive, and living to tell the tale of its existence is an achievement in and of itself.",
+			" They exist mainly in the other world, but can sometimes enter our world. When they do they can stir up any amount of trouble.",
+			" The things are despicable creatures, whose appetites consist mainly of anything it can get its hands/tentacles/etc. on.",
 			" It can hardly be called a creature, much less a 'thing'. Due to their rarity, they are difficult to fight, since few have seen them and even fewer kill them."};
 	
 		
@@ -105,11 +105,6 @@ public class MonsterDexScreen extends ClickableScreen implements Runnable,MonDex
 		
 		setMonsterDex();
 		setMonNames();
-		setMonDescriptions();
-	}
-	
-	private void setMonDescriptions(){
-		
 	}
 	
 	private void setMonNames() {
@@ -126,26 +121,38 @@ public class MonsterDexScreen extends ClickableScreen implements Runnable,MonDex
 		for(int i = monID; i < Monster.returnNames().size(); i++){
 			if(monID == 0){
 				monsterImg1 = new Graphic((100*i)+50,(100*i)+100,100,100,main.MonsterGraphic.getMonster(getSpecies(monID)));
+				description = new TextArea((100*i)+150,(100*i)+100,800,100,getDesc());
+				viewObjects.add(description);
 				viewObjects.add(monsterImg1);
 			}
 			if(monID == 1){
 				monsterImg2 = new Graphic((100*i)+50,(100*i)+100,100,100,main.MonsterGraphic.getMonster(getSpecies(monID)));
+				description = new TextArea((100*i)+150,(100*i)+100,800,100,getDesc());
+				viewObjects.add(description);
 				viewObjects.add(monsterImg2);
 				}
 			if(monID == 2){
 				monsterImg3 = new Graphic((100*i)+50,(100*i)+100,100,100,main.MonsterGraphic.getMonster(getSpecies(monID)));
+				description = new TextArea((100*i)+150,(100*i)+100,800,100,getDesc());
+				viewObjects.add(description);
 				viewObjects.add(monsterImg3);
 				}
 			if(monID == 3){
 				monsterImg4 = new Graphic((100*i)+50,(100*i)+100,100,100,main.MonsterGraphic.getMonster(getSpecies(monID)));
+				description = new TextArea((100*i)+150,(100*i)+100,800,100,getDesc());
+				viewObjects.add(description);
 				viewObjects.add(monsterImg4);
 				}
 			if(monID == 4){
 				monsterImg5 = new Graphic((100*i)+50,(100*i)+100,100,100,main.MonsterGraphic.getMonster(getSpecies(monID)));
+				description = new TextArea((100*i)+150,(100*i)+100,800,100,getDesc());
+				viewObjects.add(description);
 				viewObjects.add(monsterImg5);
 				}
 			if(monID == 5){
 				monsterImg6 = new Graphic((100*i)+50,(100*i)+100,100,100,main.MonsterGraphic.getMonster(getSpecies(monID)));
+				description = new TextArea((100*i)+150,(100*i)+100,800,100,getDesc());
+				viewObjects.add(description);
 				viewObjects.add(monsterImg6);
 				}
 		}
@@ -166,20 +173,24 @@ public class MonsterDexScreen extends ClickableScreen implements Runnable,MonDex
 		System.out.print(nameHolder[2]);
 		System.out.print(nameHolder[3]);
 		System.out.print(nameHolder[4]);
-		textHolder += getTrait(Monster.getName1(),nameHolder[1]);
-		
-		textHolder += getTrait(Monster.getName2(),nameHolder[3]);
-		
-		textHolder += getTrait(Monster.getName3(),nameHolder[4]);
+		textHolder += getTrait(Monster.getName1(),nameHolder[1],1);
+		textHolder += getTrait(Monster.getName2(),nameHolder[3],2);
+		textHolder += getTrait(Monster.getName3(),nameHolder[4],3);
 		System.out.println(textHolder);
 		return textHolder;
 	}
 	
 	//gets Traits by checking index of each part of javiy's name and using that index to get the trait from my array
-	public static String getTrait(String[] name, String trait){
+	public static String getTrait(String[] name, String trait,int traitArr){
 		 for(int i = 0; i < name.length; i++){
-			 if(name[i].equals(trait)){
+			 if(name[i].equals(trait) && traitArr == 1){
 				 return trait1[i];
+			 }
+			 if(name[i].equals(trait) && traitArr == 2){
+				 return trait2[i];
+			 }
+			 if(name[i].equals(trait) && traitArr == 3){
+				 return trait3[i];
 			 }
 		 }
 		return "Nothing is known";
@@ -194,26 +205,38 @@ public class MonsterDexScreen extends ClickableScreen implements Runnable,MonDex
 			if(i == 1){
 				if(monID % 6 == 5 && monID < Monster.returnNames().size()){
 					monsterImg6.loadImages(main.MonsterGraphic.getMonster(getSpecies(monID)),1);
+					description = new TextArea((monID*100)+250,(100*i)+200,800,100,getDesc());
+					viewObjects.add(description);
 					monID++;
 				}
 				if(monID % 6 == 4 && monID < Monster.returnNames().size()){
 					monsterImg5.loadImages(main.MonsterGraphic.getMonster(getSpecies(monID)),1);
+					description = new TextArea((monID*100)+250,(100*i)+200,800,100,getDesc());
+					viewObjects.add(description);
 					monID++;
 				}
 				if(monID % 6 == 3 && monID < Monster.returnNames().size()){
 					monsterImg4.loadImages(main.MonsterGraphic.getMonster(getSpecies(monID)),1);
+					description = new TextArea((monID*100)+250,(100*i)+200,800,100,getDesc());
+					viewObjects.add(description);
 					monID++;
 				}
 				if(monID % 6 == 2 && monID < Monster.returnNames().size()){
 					monsterImg3.loadImages(main.MonsterGraphic.getMonster(getSpecies(monID)),1);
+					description = new TextArea((monID*100)+250,(100*i)+200,800,100,getDesc());
+					viewObjects.add(description);
 					monID++;
 				}
 				if(monID % 6 == 1 && monID < Monster.returnNames().size()){
 					monsterImg2.loadImages(main.MonsterGraphic.getMonster(getSpecies(monID)),1);
+					description = new TextArea((monID*100)+250,(100*i)+200,800,100,getDesc());
+					viewObjects.add(description);
 					monID++;
 				}
 				if(monID % 6 == 0 && monID < Monster.returnNames().size()){
 					monsterImg1.loadImages(main.MonsterGraphic.getMonster(getSpecies(monID)),1);
+					description = new TextArea((monID*100)+250,(100*i)+200,800,100,getDesc());
+					viewObjects.add(description);
 					monID++;
 				}
 			}	
