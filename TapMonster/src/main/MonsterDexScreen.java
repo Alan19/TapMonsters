@@ -252,26 +252,38 @@ public class MonsterDexScreen extends ClickableScreen implements Runnable,MonDex
 			if(i == 0){
 				if(monID % 6 == 0 && monID > 0){
 					monsterImg1.loadImages(main.MonsterGraphic.getMonster(getSpecies(monID)),1);
+					description = new TextArea((monID*100)+250,(100*i)+200,800,100,getDesc());
+					viewObjects.add(description);
 					monID--;
 				}
 				if(monID % 6 == 1 && monID > 0){
 					monsterImg2.loadImages(main.MonsterGraphic.getMonster(getSpecies(monID)),1);
+					description = new TextArea((monID*100)+250,(100*i)+200,800,100,getDesc());
+					viewObjects.add(description);
 					monID--;
 				}
 				if(monID % 6 == 2 && monID > 0){
 					monsterImg3.loadImages(main.MonsterGraphic.getMonster(getSpecies(monID)),1);
+					description = new TextArea((monID*100)+250,(100*i)+200,800,100,getDesc());
+					viewObjects.add(description);
 					monID--;
 				}
 				if(monID % 6 == 3 && monID > 0){
 					monsterImg4.loadImages(main.MonsterGraphic.getMonster(getSpecies(monID)),1);
+					description = new TextArea((monID*100)+250,(100*i)+200,800,100,getDesc());
+					viewObjects.add(description);
 					monID--;
 				}
 				if(monID % 6 == 4 && monID > 0){
 					monsterImg5.loadImages(main.MonsterGraphic.getMonster(getSpecies(monID)),1);
+					description = new TextArea((monID*100)+250,(100*i)+200,800,100,getDesc());
+					viewObjects.add(description);
 					monID--;
 				}
 				if(monID % 6 == 5 && monID > 0){
 					monsterImg6.loadImages(main.MonsterGraphic.getMonster(getSpecies(monID)),1);
+					description = new TextArea((monID*100)+250,(100*i)+200,800,100,getDesc());
+					viewObjects.add(description);
 					monID--;
 				}
 			}
