@@ -95,7 +95,7 @@ public class StoreScreen extends ClickableScreen implements Runnable {
 						TapMonsterGame.main.getGold(boughtArtifact.getPrice()*(-1));
 						playerMoney.setText("You have: " + TapMonsterGame.main.getGoldVar() + " Relics");
 						TapMonsterGame.artifacts.remove(boughtArtifact.buyItem());
-						TapMonsterGame.inventory.purchaseItem(boughtArtifact);
+						
 						TapMonsterScreen.score.addArtifact(boughtArtifact.getScore());
 						score.setText(Integer.toString(TapMonsterScreen.score.score));
 						for(int i=0; i<TapMonsterGame.artifactPictures.size(); i++){
@@ -103,6 +103,7 @@ public class StoreScreen extends ClickableScreen implements Runnable {
 								index = i;
 							}
 						}
+						TapMonsterGame.inventory.purchaseItem(boughtArtifact, TapMonsterGame.artifactPictures.get(index));
 						remove(TapMonsterGame.artifactPictures.get(index));
 						TapMonsterGame.artifactPictures.remove(index);
 					}
