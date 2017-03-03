@@ -323,8 +323,12 @@ public class TapMonsterScreen extends ClickableScreen implements Runnable,Game,R
 		
 	}
 	
-	public int getGold(){
+	public int getGoldVar(){
 		return this.gold;
+	}
+	
+	public void setGold(int i){
+		this.gold = i;
 	}
 
 	public void increaseScore(int i) {
