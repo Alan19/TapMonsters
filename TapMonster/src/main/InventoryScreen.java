@@ -26,7 +26,7 @@ public class InventoryScreen extends ClickableScreen implements Runnable, Invent
 	private int collected;
 	private Button back;
 	private TextLabel benefits;
-	//private Button purchaseAllArtifactss;
+	//private Button purchaseAllArtifacts;
 	
 	public static ArrayList<Artifact> artifactsPurchased;
 	private Graphics2D g;
@@ -54,6 +54,7 @@ public class InventoryScreen extends ClickableScreen implements Runnable, Invent
 	//every artifact that is collected in the inventory
 	//when player loses, pass in artifacts ArrayList
 	public void purchaseItem(Artifact a){
+		
 		artifactsPurchased.add(a);
 		Benefit.benefit = inventoryScreen.showLatestGain();
 		update();
