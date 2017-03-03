@@ -185,7 +185,6 @@ public class TapMonsterScreen extends ClickableScreen implements Runnable,Game,R
 				TapMonsterGame.newFightScreen();
 				timeLeft = 30.0;
 				running = false;
-				//setWasSequenceCompleted = false;
 				run();
 			}
 		});
