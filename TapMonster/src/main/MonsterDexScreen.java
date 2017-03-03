@@ -35,8 +35,8 @@ public class MonsterDexScreen extends ClickableScreen implements Runnable,MonDex
 	private TextLabel name;
 	private static String[] nameHolder;
 	private int monID = 0;
-	private int xPos = 100;;
-	private int yPos = 100;
+	private int InvisWall = 0;
+	
 	
 	
 	private static String[] trait1 = {"This"+" "+"gives out an aura that scare any who come near it",
@@ -98,7 +98,7 @@ public class MonsterDexScreen extends ClickableScreen implements Runnable,MonDex
 		
 		background = new Graphic(0,0,getWidth(),getHeight(),"src/resources/background.jpg");
 		
-		monsterImg1 = new Graphic(100,100,1,main.MonsterGraphic.getMonster(getSpecies(monID))); 
+		setMonsterDex();
 		viewObjects.add(background);
 		viewObjects.add(next);
 		viewObjects.add(back);	
@@ -106,6 +106,11 @@ public class MonsterDexScreen extends ClickableScreen implements Runnable,MonDex
 		//viewObjects.add(monsterImg1);
 
 	}
+	private void setMonsterDex() {
+		
+		
+	}
+
 	//gets the randomized name from javiy and splits it into an array.
 	public String getSpecies(int monID) {
 		String x = Monster.returnNames().get(monID);
@@ -141,7 +146,11 @@ public class MonsterDexScreen extends ClickableScreen implements Runnable,MonDex
 		return "Nothing is known";
 	}
 	
-	
+	public static void setMonsters(ArrayList<Graphic> monsterList) {
+		while(){
+			
+		}
+	}
 	
 	public void changeMonsters(int i){
 		if(i == 1){
@@ -198,9 +207,6 @@ public class MonsterDexScreen extends ClickableScreen implements Runnable,MonDex
 		}		
 	}
 
-	public static void setMonsters(ArrayList<Graphic> monsterList) {
-		return;
-	}
 	
 	public ArrayList<monsterDex.MonsterGraphic> getMonsters() {
 		return null;
