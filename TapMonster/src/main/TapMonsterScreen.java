@@ -127,10 +127,10 @@ public class TapMonsterScreen extends ClickableScreen implements Runnable,Game,R
 					hpBar.hpDecrease(25);
 					System.out.println("DECREASE HP");
 					
-					if(timeLeft>=0.0 && timeLeft<=0.2)time.setText("0.0");
-					}
 				}
 			}
+		}
+		if(timeLeft>=0.0 && timeLeft<=0.2 || timeLeft < 0.0)time.setText("0.0");
 		}
 	
 //	time.setText(""+timeLeft);
@@ -179,8 +179,9 @@ public class TapMonsterScreen extends ClickableScreen implements Runnable,Game,R
 
 			public void act() {
 				TapMonsterGame.newFightScreen();
-				//timeLeft = 30.0;
-				//timer(timeAlter);
+				timeLeft = 30.0;	
+				System.out.println(timeLeft);
+				timer(timeAlter);
 				//TapMonsterGame.game.setScreen(TapMonsterGame.fightScreen);
 			}
 		});
