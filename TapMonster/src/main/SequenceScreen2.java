@@ -203,7 +203,7 @@ public class SequenceScreen2 extends Screen implements KeyListener, KeysToPlayer
 				ctr++;
 				System.out.println("ctr = " + ctr);
 				if (ctr >= 10){
-					TapMonsterGame.main.setRandomGold();
+					//TapMonsterGame.main.setRandomGold();
 					TapMonsterGame.main.setRandomReward();
 					viewObjects.remove(monsterImg);
 					System.out.println("You've won!");
