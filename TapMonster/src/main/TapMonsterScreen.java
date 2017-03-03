@@ -210,6 +210,7 @@ public class TapMonsterScreen extends ClickableScreen implements Runnable,Game,R
 		fightButton = new Button(getWidth()-150,225,130,40,"FIGHT",new Color(153,153,153), new Action() {
 
 			public void act() {
+
 				resetTimer();
 				TapMonsterGame.game.setScreen(TapMonsterGame.fightScreen);
 				
