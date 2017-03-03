@@ -8,7 +8,7 @@ public class MonsterGraphic extends Graphic implements MonsterInterface{
 	public static int MonX = 100;
 	public static int MonY = 100;
 	private static int randInt;
-	public static String tempname;
+	public static String tempName;
 	private static boolean isBoss;
 	
 	public static String[] beast = {"Anguiform","Bismarck","Fidor","Harpiai","Nastidon","Palidor",
@@ -49,45 +49,45 @@ public class MonsterGraphic extends Graphic implements MonsterInterface{
 		System.out.println("Type:" + type);
 		if(type.equals("Beast")){
 			getRandInt(type);
-			tempname = "MonsterSprites/Beast/"+beast[randInt]+".gif";
-			System.out.println(tempname);
-			return tempname;
+			tempName = "MonsterSprites/Beast/"+beast[randInt]+".gif";
+			System.out.println(tempName);
+			return tempName;
 		}
 		
 		else if(type.equals("Demon")){
 			getRandInt(type);
-			tempname = "MonsterSprites/Demon/"+demon[randInt]+".gif";
-			System.out.println(tempname);
-			return tempname;
+			tempName = "MonsterSprites/Demon/"+demon[randInt]+".gif";
+			System.out.println(tempName);
+			return tempName;
 		}
 
 		else if(type.equals("Fiend")){
 			getRandInt(type);
-			tempname = "MonsterSprites/Fiend/"+fiend[randInt]+".gif";
-			System.out.println(tempname);
-			return tempname;
+			tempName = "MonsterSprites/Fiend/"+fiend[randInt]+".gif";
+			System.out.println(tempName);
+			return tempName;
 		}
 		
 		else if(type.equals("Monster")){
 			getRandInt(type);
-			tempname = "MonsterSprites/Monster/"+monster[randInt]+".gif";
-			System.out.println(tempname);
-			return tempname;	
+			tempName = "MonsterSprites/Monster/"+monster[randInt]+".gif";
+			System.out.println(tempName);
+			return tempName;	
 			}
 
 		else if(type.equals("Thingy")){
 			getRandInt(type);
-			tempname = "MonsterSprites/Thingy/"+thingy[randInt]+".gif";
-			System.out.println(tempname);
-			return tempname;
+			tempName = "MonsterSprites/Thingy/"+thingy[randInt]+".gif";
+			System.out.println(tempName);
+			return tempName;
 			}
 		
 		else if(type.equals("Titan")){
 			getRandInt(type);
 			isBoss = true;
-			tempname = "MonsterSprites/Titan/"+titan[randInt]+".gif";
-			System.out.println(tempname);
-			return tempname;
+			tempName = "MonsterSprites/Titan/"+titan[randInt]+".gif";
+			System.out.println(tempName);
+			return tempName;
 			}
 		
 		getRandInt(type);
@@ -123,7 +123,7 @@ public class MonsterGraphic extends Graphic implements MonsterInterface{
 	}
 	
 	public String getImagePath() {
-		return tempname;
+		return tempName;
 		
 	}
 

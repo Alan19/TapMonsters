@@ -19,7 +19,7 @@ import interfaces.Attack;
 import interfaces.KeysToPlayer;
 //check why the sequence is disappearing quicker than playersequence
 //do this by displaying playersequence and matchign up
-public class SequenceScreen2 extends Screen implements KeyListener, KeysToPlayer, Attack {
+public class SequenceScreen2 extends Screen implements KeyListener, KeysToPlayer, Attack,FindMonster {
 
 	public static int sequencex = 50;
 	public static int playerx = 100;
@@ -35,12 +35,14 @@ public class SequenceScreen2 extends Screen implements KeyListener, KeysToPlayer
 	private static Graphic arrowLeft = new Graphic(sequencex, y, w, h, "src/sequenceArrows/arrowLeft.jpg");
 	private static Graphic arrowRight = new Graphic(sequencex, y, w, h, "src/sequenceArrows/arrowRight.jpeg");
 
+
 	private static Sequence s = new Sequence(10);
 //	private static Sequence s;
 	private static ArrayList<String> playerMatch = new ArrayList<String>();
 //	private static ArrayList<String> playerMatch;
 	private static ArrayList<Graphic> displayedSequence = new ArrayList<Graphic>();
 //	private static ArrayList<Graphic> displayedSequence;
+	private static ArrayList<Graphic> encounteredMonsters = new ArrayList<Graphic>();
 
 	private static Graphic playerChoice; 
 	private static TextLabel text;
@@ -107,8 +109,8 @@ public class SequenceScreen2 extends Screen implements KeyListener, KeysToPlayer
 
 	public void initObjects(ArrayList<Visible> viewObjects) {
 		background = new Graphic(0,0,0.75,"src/JaviyDemo/background.jpg");
-		getMonster();
 		viewObjects.add(background);
+		getMonster();
 		viewObjects.add(monsterImg);
 		int length = 4;
 		System.out.println(s.getSequence());
@@ -118,20 +120,22 @@ public class SequenceScreen2 extends Screen implements KeyListener, KeysToPlayer
 	}
 
 	private void getMonster() {
-		if(round == 0){
-			monsterImg = new Graphic(getWidth()/2-50,getHeight()/2-100,150,150,main.MonsterGraphic.getMonster("Beast")); 
-			
+		if(round != 0){
+			encounteredMonsters.add(new Graphic(getWidth()/2-50,getHeight()/2-50,1,main.MonsterGraphic.getMonster(getSpecies(round))));			
+			monsterImg.loadImages(main.MonsterGraphic.getMonster(getSpecies(round)), 1);
 			round++;
-		}else{
-//			monsterImg.loadImages(main.MonsterGraphic.getMonster("Beast"), 100, 100);
+		}
+		if(round == 0){			
+			encounteredMonsters.add(new Graphic(getWidth()/2-50,getHeight()/2-50,1,main.MonsterGraphic.getMonster(getSpecies(round))));			
+			monsterImg = new Graphic(getWidth()/2-50,getHeight()/2-50,1,main.MonsterGraphic.getMonster(getSpecies(round)));
 			round++;
 		}
 	}
 
-	private String getSpecies(int rounds) {
+	public String getSpecies(int rounds) {
 			String x = Monster.returnNames().get(rounds);
-			String[] y = x.split("");
-			return y[2];
+			String[] y = x.split(" ");
+			return y[4];
 	}
 
 	public void keyPressed(KeyEvent e) {
@@ -202,6 +206,7 @@ public class SequenceScreen2 extends Screen implements KeyListener, KeysToPlayer
 				if (ctr >= 14){
 					TapMonsterGame.main.setRandomGold();
 					TapMonsterGame.main.setRandomReward();
+					viewObjects.remove(monsterImg);
 					System.out.println("You've won!");
 					TapMonsterScreen.setWasSequenceCompleted = true;
 					try {
@@ -257,5 +262,13 @@ public class SequenceScreen2 extends Screen implements KeyListener, KeysToPlayer
 
 	public static void setIdx(int idx) {
 		SequenceScreen2.idx = idx;
+	}
+
+	public static ArrayList<Graphic> getEncounteredMonsters() {
+		return encounteredMonsters;
+	}
+
+	public static void setEncounteredMonsters(ArrayList<Graphic> encounteredMonsters) {
+		SequenceScreen2.encounteredMonsters = encounteredMonsters;
 	}
 }
