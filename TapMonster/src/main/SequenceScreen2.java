@@ -60,6 +60,7 @@ public class SequenceScreen2 extends Screen implements KeyListener, KeysToPlayer
 	
 	private Graphic background;
 	private Graphic monsterImg;
+	public int round2;
 
 	public static Player p = new Player(200,200);
 	
@@ -67,23 +68,11 @@ public class SequenceScreen2 extends Screen implements KeyListener, KeysToPlayer
 
 	public SequenceScreen2(int width, int height) {
 		super(width, height);
-//		p.setX(getWidth()/2);
-//		p.setY(getHeight()/2+100);
-//		//s = new Sequence(10);
-//		setIdx(0);
-//		System.out.println("IDX  = " + idx);
-//		ctr = 0;
-//		lng = s.getSequence().size();
-		
-//		playerMatch = new ArrayList<String>();
-//		displayedSequence = new ArrayList<Graphic>();
-//		initObjects(viewObjects);
 		 
 	}
 
 	public void addToDisplayedSequence(int numOfTimes){
 		for (int i = 0; i < numOfTimes; i++){
-			//System.out.println(getIdx());
 			if (s.getSequence().get(getIdx()) == 0){
 				displayedSequence.add(new Graphic(sequencex, y, w, h, "src/sequenceArrows/arrowUp.jpg"));
 				playerMatch.add("W");
@@ -101,8 +90,6 @@ public class SequenceScreen2 extends Screen implements KeyListener, KeysToPlayer
 				playerMatch.add("A");
 			}
 			sequencex+=60;
-				//System.out.println(sequencex);
-//			if (idx < s.getSequence().size() ){
 			if (getIdx() < lng){
 				setIdx(getIdx() + 1);
 			}
@@ -123,10 +110,11 @@ public class SequenceScreen2 extends Screen implements KeyListener, KeysToPlayer
 		setIdx(0);
 		ctr = 0;
 		lng = s.getSequence().size();
-		
+		TapMonsterScreen.setWasSequenceCompleted = false;
+
 		background = new Graphic(0,0,0.75,"src/JaviyDemo/background.jpg");
 		viewObjects.add(background);
-		round = 0;
+		round2 = 0;
 		getMonster();
 		viewObjects.add(monsterImg);
 		int length = 4;
@@ -137,14 +125,14 @@ public class SequenceScreen2 extends Screen implements KeyListener, KeysToPlayer
 	}
 
 	private void getMonster() {
-		if(round != 0){
-			encounteredMonsters.add(new Graphic(getWidth()/2-50,getHeight()/2-50,1,main.MonsterGraphic.getMonster(getSpecies(round))));			
-			monsterImg.loadImages(main.MonsterGraphic.getMonster(getSpecies(round)), 1);
+		if(round2 != 0){
+			encounteredMonsters.add(new Graphic(getWidth()/2-50,getHeight()/2-50,1,main.MonsterGraphic.getMonster(getSpecies(round2))));			
+			monsterImg.loadImages(main.MonsterGraphic.getMonster(getSpecies(round2)), 1);
 			round++;
 		}
-		if(round == 0){			
-			encounteredMonsters.add(new Graphic(getWidth()/2-50,getHeight()/2-50,1,main.MonsterGraphic.getMonster(getSpecies(round))));			
-			monsterImg = new Graphic(getWidth()/2-50,getHeight()/2-50,1,main.MonsterGraphic.getMonster(getSpecies(round)));
+		if(round2 == 0){			
+			encounteredMonsters.add(new Graphic(getWidth()/2-50,getHeight()/2-50,1,main.MonsterGraphic.getMonster(getSpecies(round2))));			
+			monsterImg = new Graphic(getWidth()/2-50,getHeight()/2-50,1,main.MonsterGraphic.getMonster(getSpecies(round2)));
 			round++;
 		}
 	}

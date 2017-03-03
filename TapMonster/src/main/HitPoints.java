@@ -5,7 +5,7 @@ import java.awt.Graphics2D;
 
 import guiPractice.components.Component;
 
-public class HitPoints extends Component{
+public class HitPoints extends Component implements HPInterface{
 
 	public static int score;
 	public static int achieved;

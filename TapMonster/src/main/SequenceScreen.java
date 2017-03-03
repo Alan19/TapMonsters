@@ -56,7 +56,6 @@ public class SequenceScreen extends Screen implements KeyListener{
 					playerMatch.add("A");
 				}
 				sequencex+=60;
-			//	System.out.println(sequencex);
 				if (idx < s.getSequence().size() ) idx++;
 		}
 	}
