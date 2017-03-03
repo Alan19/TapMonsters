@@ -178,14 +178,10 @@ public class TapMonsterScreen extends ClickableScreen implements Runnable,Game,R
 		nextLevel = new Button(getWidth()-150,75,130,40,"NEXT LEVEL",new Color(153,153,153), new Action() {
 
 			public void act() {
-
-//				if(setWasSequenceCompleted){
-//					TapMonsterGame.game.setScreen(TapMonsterGame.fightScreen);
-//				}
 				TapMonsterGame.newFightScreen();
-			//	SequenceScreen2.setIdx(0);
+				//timeLeft = 30.0;
+				//timer(timeAlter);
 				//TapMonsterGame.game.setScreen(TapMonsterGame.fightScreen);
-
 			}
 		});
 		prestige = new Button(getWidth()-150,25,150,40,"MONSTERDEX",new Color(153,153,153), new Action() {

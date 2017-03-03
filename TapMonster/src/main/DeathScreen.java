@@ -25,14 +25,18 @@ public class DeathScreen extends ClickableScreen implements LoseInterface{
 	private TextLabel deathMessage;
 	private TextLabel artifactName;
 	private TextLabel artifactDescription;
+	
 	public DeathScreen(int width, int height) {
 		super(width, height);
+//		Test Artifact
+//		InventoryScreen.artifactsPurchased.add(new Artifact("Hello", "Hello Sword", 0, null, "src/resources/amulet_of_the_valrunes.png", 0));
+//		System.out.print(InventoryScreen.artifactsPurchased.size());
 		displayGameOverInformation();
 	}
 	
 	public void displayGameOverInformation() {
 		//Game Over information and add background
-		deathMessage = new TextLabel(20, 40, 400, 25, "Helvetica", 20, new Color(140, 146, 143), "You died!" + " Score:" + Score.score + " Round:" + SequenceScreen2.getRound());
+		deathMessage = new TextLabel(20, 40, 400, 25, "Helvetica", 20, new Color(140, 146, 143), "You died!" + " Round:" + SequenceScreen2.getRound());
 		
 		
 		//Add background first so it's in the back
@@ -43,12 +47,11 @@ public class DeathScreen extends ClickableScreen implements LoseInterface{
 		int x = 20;
 		int y = 80;
 		int imageWidth = 75;
-		
+		//Artifact Info TextLabels
+		artifactName = new TextLabel(20, 150, 500, 100, "Helvetica", 20, new Color(112, 119, 102), "Click on an artifact!");
+		artifactDescription = new TextLabel(20, 200, 500, 100, "Helvetica", 20, new Color(112, 119, 102), "");
 		//Only print artifact info if you have artifacts
 		if(InventoryScreen.artifactsPurchased != null && InventoryScreen.artifactsPurchased.size()>0){
-			//Artifact Info TextLabels
-			artifactName = new TextLabel(20, 150, 500, 100, "Helvetica", 20, new Color(112, 119, 102), "Click on an artifact!");
-			artifactDescription = new TextLabel(20, 200, 500, 100, "Helvetica", 20, new Color(112, 119, 102), "");
 			
 			for (Artifact artifact : InventoryScreen.artifactsPurchased) {
 				final Artifact artifact2 = artifact;
@@ -57,6 +60,7 @@ public class DeathScreen extends ClickableScreen implements LoseInterface{
 					public void act() {
 						artifactName.setText(artifact2.getName());
 						artifactDescription.setText(artifact2.getDescription());
+//						System.out.println(artifact2.getDescription());
 					}
 				});
 				addObject(artifactImage);
@@ -77,6 +81,10 @@ public class DeathScreen extends ClickableScreen implements LoseInterface{
 			//Add components for display
 			viewObjects.add(artifactName);
 			viewObjects.add(artifactDescription);
+		}
+		else{
+			viewObjects.remove(artifactName);
+			viewObjects.remove(artifactDescription);
 		}
 		
 		viewObjects.add(deathMessage);
