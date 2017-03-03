@@ -39,7 +39,7 @@ public class TapMonsterGame extends GUIApplication {
 		intro = new IntroScreen(getWidth(),getHeight());
 		fightScreen = new SequenceScreen2(getWidth(), getHeight());
 		inventory = new InventoryScreen(getWidth(),getHeight());
-		monsterdex = new MonsterDexScreen(getWidth(),getHeight());
+		//monsterdex = new MonsterDexScreen(getWidth(),getHeight());
 
 		setScreen(intro);
 	}
@@ -57,6 +57,7 @@ public class TapMonsterGame extends GUIApplication {
 	public static void newFightScreen() {
 		// TODO Auto-generated method stub
 		fightScreen = new SequenceScreen2(1200, 800);
+		System.out.println("THIS IS ROUND " +fightScreen.getRound());
 //		return fightScreen;
 	}
 	
