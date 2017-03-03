@@ -2,11 +2,11 @@ package interfaces;
 
 import java.util.ArrayList;
 
-import guiPractice.components.Graphic;
 import main.MonsterGraphic;
 
 public interface MonDexInterface{
 		
+	ArrayList<MonsterGraphic> monsters = new ArrayList<MonsterGraphic>();
 	
 	void SetDescription(String des);
 	
