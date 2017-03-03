@@ -102,7 +102,7 @@ public class MonsterDexScreen extends ClickableScreen implements Runnable,MonDex
 
 	}
 	//gets the randomized name from javiy and splits it into an array.
-	private String getSpecies(int monID) {
+	public String getSpecies(int monID) {
 		String x = Monster.returnNames().get(monID);
 		String[] y = x.split(" ");
 		nameHolder = y;
