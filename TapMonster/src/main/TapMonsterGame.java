@@ -31,7 +31,7 @@ public class TapMonsterGame extends GUIApplication {
 	@Override
 	public void initScreen() {	
 		main = new TapMonsterScreen(getWidth(),getHeight());
-		death =  new DeathScreen(1,5,getWidth(), getHeight(), null);
+		
 		artifactPictures = new ArrayList<HoverableClickable>();
 		artifacts = new ArrayList<Artifact>();
 		rewards = new ArrayList<Reward>();
@@ -49,7 +49,7 @@ public class TapMonsterGame extends GUIApplication {
 	}
 
 	public static void main(String[] args) {
-		game = new TapMonsterGame(1200, 800);
+		game = new TapMonsterGame(1200, 700);
 		Thread app = new Thread(game);
 		app.start();
 	}

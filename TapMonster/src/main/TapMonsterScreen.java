@@ -108,7 +108,10 @@ public class TapMonsterScreen extends ClickableScreen implements Runnable,Game,R
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
-			if(timeLeft>=0 &&timeLeft<=0.2||hp==0)TapMonsterGame.game.setScreen(TapMonsterGame.death);
+			if(timeLeft>=0 &&timeLeft<=0.2||hp==0){
+				TapMonsterGame.death =  new DeathScreen(getWidth(), getHeight());
+				TapMonsterGame.game.setScreen(TapMonsterGame.death);
+			}
 			timeLeft = timeLeft-.1*effect;
 			time.setText(""+(int)(timeLeft*10)/10.0);
 			if(effect==0.5){

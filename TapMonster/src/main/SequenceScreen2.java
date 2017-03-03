@@ -30,6 +30,10 @@ public class SequenceScreen2 extends Screen implements KeyListener, KeysToPlayer
 
 	public int playery = y+100;
 
+	public static int getRound() {
+		return round;
+	}
+
 	private static Graphic arrowUp = new Graphic(sequencex, y, w, h, "src/sequenceArrows/arrowUp.jpg");
 	private static Graphic arrowDown = new Graphic(sequencex, y, w, h, "src/sequenceArrows/arrowDown.jpg");
 	private static Graphic arrowLeft = new Graphic(sequencex, y, w, h, "src/sequenceArrows/arrowLeft.jpg");
