@@ -116,8 +116,8 @@ public class TapMonsterScreen extends ClickableScreen implements Runnable,Game,R
 				if(0<=timeLeft&&timeLeft<=5)time.setText(""+(int)(timeLeft*10.)/10.0);
 			}else if(effect==2.0){
 				if(timeLeft>=19.8 && timeLeft<20.0 || timeLeft>=9.8 && timeLeft<10.0){
-					hp= hp-25;
-					hpBar.hpDecrease(25);
+					hp= hp-5;
+					hpBar.hpDecrease(5);
 					System.out.println("DECREASE HP");
 					
 					if(timeLeft>=0.0 && timeLeft<=0.2)time.setText("0.0");
@@ -248,7 +248,6 @@ public class TapMonsterScreen extends ClickableScreen implements Runnable,Game,R
 	@Override
 	public void initAllObjects(List<Visible> viewObjects) {
 		score = new Score(50,50);
-		//scoreOnScreen = new TextLabel(score.getX(), score.getY(), score.getWidth(), score.getHeight(), Integer.toString(score.score));
 		hpBar = new HitPoints(50,100);
 		background = new Graphic(0,0,0.75,"src/JaviyDemo/background.jpg");
 		viewObjects.add(background);
