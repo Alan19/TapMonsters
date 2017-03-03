@@ -90,7 +90,6 @@ public class StoreScreen extends ClickableScreen implements Runnable {
 			HoverableClickable artifact = new HoverableClickable(xCoords[i], yCoords[i], TapMonsterGame.artifacts.get(i).getImagePath());
 			artifact.setAction(new Action(){
 				public void act() {
-					//boolean stopPlease = false;
 					if(playerBalance >= boughtArtifact.getPrice()){
 						int index = 0;
 						playerBalance -= boughtArtifact.getPrice();
@@ -103,10 +102,8 @@ public class StoreScreen extends ClickableScreen implements Runnable {
 								index = i;
 							}
 						}
-						//viewObjects.remove(TapMonsterGame.artifactPictures.remove(index));
 						remove(TapMonsterGame.artifactPictures.get(index));
 						TapMonsterGame.artifactPictures.remove(index);
-						//stopPlease = true;
 					}
 				}
 			});
@@ -131,58 +128,57 @@ public class StoreScreen extends ClickableScreen implements Runnable {
 	public void createArtifacts() {
 		Artifact arti1 = new Artifact("Placeholder please please", "Worldly Illuminator", 50, new Action(){
 			public void act() {
+				TapMonsterGame.main.increaseHearts(25);
 				playerLife++;
 				playerLifeBox.setText("You have: " + playerLife + " Lives");
-				System.out.println("Somebody");
 			}
 		}, "src/storeImages/arti1.png", 50);
 		
-		Artifact arti2 = new Artifact("Placeholder please please", "Name#2", 50, new Action(){
+		Artifact arti2 = new Artifact("Placeholder please please", "Warrior's Revival", 50, new Action(){
 			public void act() {
 				TapMonsterGame.main.setTimeLeft(35.0);
-				System.out.println("once");
 			}
 		}, "src/storeImages/arti2.png", 100);
 		
-		Artifact arti3 = new Artifact("Placeholder please please", "Name#3", 50, new Action(){
+		Artifact arti3 = new Artifact("Placeholder please please", "Divine Chalice", 50, new Action(){
 			public void act() {
-				System.out.println("told");
+				
 			}
 		}, "src/storeImages/arti3.png", 150);
 		
-		Artifact arti4 = new Artifact("Placeholder please please", "Name#4", 50, new Action(){
+		Artifact arti4 = new Artifact("Placeholder please please", "Tincture of Life", 50, new Action(){
 			public void act() {
-				System.out.println("me");
+				
 			}
 		}, "src/storeImages/arti4.png", 200);
 		
-		Artifact arti5 = new Artifact("Placeholder", "Name#5", 50, new Action(){
+		Artifact arti5 = new Artifact("Placeholder", "Knight's Shield", 50, new Action(){
 			public void act() {
-				System.out.println("the");
+				
 			}
 		}, "src/storeImages/arti5.png", 250);
 		
-		Artifact arti6 = new Artifact("Placeholder", "Name#6", 50, new Action(){
+		Artifact arti6 = new Artifact("Placeholder", "Undead Aura", 50, new Action(){
 			public void act() {
-				System.out.println("world");
+				
 			}
 		}, "src/storeImages/arti6.png", 300);
 		
-		Artifact arti7 = new Artifact("Placeholder", "Name#7", 50, new Action(){
+		Artifact arti7 = new Artifact("Placeholder", "Dark Cloak", 50, new Action(){
 			public void act() {
-				System.out.println("is");
+				
 			}
 		}, "src/storeImages/arti7.png", 350);
 		
-		Artifact arti8 = new Artifact("Placeholder", "Name#8", 50, new Action(){
+		Artifact arti8 = new Artifact("Placeholder", "Crown Egg", 50, new Action(){
 			public void act() {
-				System.out.println("gonna");
+				
 			}
 		}, "src/storeImages/arti8.png", 400);
 		
-		Artifact arti9 = new Artifact("Placeholder", "Name#9", 50, new Action(){
+		Artifact arti9 = new Artifact("Placeholder", "Hero's Sword", 50, new Action(){
 			public void act() {
-				System.out.println("roll me.");
+				
 			}
 		}, "src/storeImages/arti9.png", 450);
 		
