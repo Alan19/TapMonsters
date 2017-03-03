@@ -209,6 +209,8 @@ public class TapMonsterScreen extends ClickableScreen implements Runnable,Game,R
 		fightButton = new Button(getWidth()-150,225,130,40,"FIGHT",new Color(153,153,153), new Action() {
 
 			public void act() {
+
+				resetTimer();
 				TapMonsterGame.game.setScreen(TapMonsterGame.fightScreen);
 				
 			}
@@ -244,6 +246,14 @@ public class TapMonsterScreen extends ClickableScreen implements Runnable,Game,R
 		setTimeAlter(0.5);
 		System.out.println(Monster.description());
 
+	}
+	
+	public void stopTimer() {
+		setTimeAlter(0.0);
+	}
+	
+	public void resetTimer() {
+		setTimeAlter(1.0);
 	}
 
 	public void nothing() {
@@ -290,6 +300,9 @@ public class TapMonsterScreen extends ClickableScreen implements Runnable,Game,R
 		viewObjects.add(reward);
 		viewObjects.add(hpBar);
 		viewObjects.add(score);
+		
+		stopTimer();
+		resetTimer();
 	}
 
 	public void earnReward(Reward r) {
