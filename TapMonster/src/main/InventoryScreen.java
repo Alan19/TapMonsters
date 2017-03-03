@@ -53,8 +53,8 @@ public class InventoryScreen extends ClickableScreen implements Runnable{
 		artifactsPurchased.add(a);
 		Benefit.benefit = inventoryScreen.showLatestGain();
 		//change x and y of clickablegraphic
-		viewObjects.add(b);
-		//update();
+		//viewObjects.add(b);
+		displayArtifacts();
 	}
 	
 	@Override
@@ -86,7 +86,7 @@ public class InventoryScreen extends ClickableScreen implements Runnable{
 		
 		
 		
-		displayArtifacts();
+		//displayArtifacts();
 		//benefits = new TextLabel(700,500,getWidth()/2,50,showLatestGain());
 		
 		Benefit.benefit = showLatestGain();
@@ -177,6 +177,30 @@ public class InventoryScreen extends ClickableScreen implements Runnable{
 	public String retrieveLatestGain(Artifact lastCollectedArtifact){
 		//takes the last artifact in the list and determines what to print on screen
 		
+			if(lastCollectedArtifact.getName() == "Wordly Illuminator"){
+				return "You just gained 10 HP!";
+			}
+			if(lastCollectedArtifact.getName() == "Warrior's Revival"){
+				return "You just gained 20 HP!";
+			}
+			if(lastCollectedArtifact.getName() == "Divine Chalice"){
+				return "You just gained 35 HP!";
+			}
+			if(lastCollectedArtifact.getName() == "Tincture of Life"){
+				return "You just gained 1.5 secs!";
+			}
+			if(lastCollectedArtifact.getName() == "Knight's Shield"){
+				return "You just gained 3.5 secs!";
+			}
+			if(lastCollectedArtifact.getName() == "Undead Aura"){
+				return "You just gained 5 secs!";
+			}
+			if(lastCollectedArtifact.getName() == "Dark Cloak"){
+				return "You just gained a random reward!";
+			}
+			if(lastCollectedArtifact.getName() == "Crown Egg"){
+				return "You just gained time!";
+			}
 			if(lastCollectedArtifact.getName() == "Hero's Sword"){
 				return "You just gained nothing!";
 			}
