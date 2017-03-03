@@ -117,49 +117,54 @@ public class MonsterDexScreen extends ClickableScreen implements Runnable,MonDex
 		}	
 	}
 
-	private void setMonsterDex() {if invisWall == false){	
-		for(int i = monID; i < Monster.returnNames().size(); i++){
-			if(i == 0){
+	private void setMonsterDex() {
+		if (invisWall == false){	
+				for(int i = monID; i < Monster.returnNames().size(); i++){
+					if(i == 0){
 	                      monsterImg1 = new Graphic((100*i)+50,(100*i)+100,100,100,main.MonsterGraphic.getMonster(getSpecies(monID)));
-				description = new TextArea((100*i)+150,(100*i)+100,800,100,getDesc());
-								
-viewObjects.add(description);
-				viewObjects.add(monsterImg1); monID++;
+	                      description = new TextArea((100*i)+150,(100*i)+100,800,100,getDesc());
+	                      viewObjects.add(description);
+	                      viewObjects.add(monsterImg1); 
+	                      monID++;
 							
-			}
-			if(i == 1){
-				monsterImg2 = new Graphic((100*i)+50,(100*i)+100,100,100,main.MonsterGraphic.getMonster(getSpecies(monID)));
-				description = new TextArea((100*i)+150,(100*i)+100,800,100,getDesc());
-				viewObjects.add(description);
-				viewObjects.add(monsterImg2);monID++;
+					}
+					if(i == 1){
+						monsterImg2 = new Graphic((100*i)+50,(100*i)+100,100,100,main.MonsterGraphic.getMonster(getSpecies(monID)));
+						description = new TextArea((100*i)+150,(100*i)+100,800,100,getDesc());
+						viewObjects.add(description);
+						viewObjects.add(monsterImg2);
+						monID++;
+					}
+					if(i == 2){
+						monsterImg3 = new Graphic((100*i)+50,(100*i)+100,100,100,main.MonsterGraphic.getMonster(getSpecies(monID)));
+						description = new TextArea((100*i)+150,(100*i)+100,800,100,getDesc());
+						viewObjects.add(description);
+						viewObjects.add(monsterImg3);
+						monID++;
+					}
+					if(i == 3){
+						monsterImg4 = new Graphic((100*i)+50,(100*i)+100,100,100,main.MonsterGraphic.getMonster(getSpecies(monID)));
+						description = new TextArea((100*i)+150,(100*i)+100,800,100,getDesc());
+						viewObjects.add(description);
+						viewObjects.add(monsterImg4);
+						monID++;
+					}
+					if(i == 4){
+						monsterImg5 = new Graphic((100*i)+50,(100*i)+100,100,100,main.MonsterGraphic.getMonster(getSpecies(monID)));
+						description = new TextArea((100*i)+150,(100*i)+100,800,100,getDesc());
+						viewObjects.add(description);
+						viewObjects.add(monsterImg5);
+						monID++;				
+					}
+					if(i == 5){
+						monsterImg6 = new Graphic((100*i)+50,(100*i)+100,100,100,main.MonsterGraphic.getMonster(getSpecies(monID)));
+						description = new TextArea((100*i)+150,(100*i)+100,800,100,getDesc());
+						viewObjects.add(description);
+						viewObjects.add(monsterImg6);monID++;				
+					invisWall = true;
+					}
 				}
-			if(i == 2){
-				monsterImg3 = new Graphic((100*i)+50,(100*i)+100,100,100,main.MonsterGraphic.getMonster(getSpecies(monID)));
-				description = new TextArea((100*i)+150,(100*i)+100,800,100,getDesc());
-				viewObjects.add(description);
-				viewObjects.add(monsterImg3);monID++;
-				}
-			if(i == 3){
-				monsterImg4 = new Graphic((100*i)+50,(100*i)+100,100,100,main.MonsterGraphic.getMonster(getSpecies(monID)));
-				description = new TextArea((100*i)+150,(100*i)+100,800,100,getDesc());
-				viewObjects.add(description);
-				viewObjects.add(monsterImg4);monID;
-				}
-			if(i == 4){
-				monsterImg5 = new Graphic((100*i)+50,(100*i)+100,100,100,main.MonsterGraphic.getMonster(getSpecies(monID)));
-				description = new TextArea((100*i)+150,(100*i)+100,800,100,getDesc());
-				viewObjects.add(description);
-				viewObjects.add(monsterImg5);monID++;				
-On}
-			if(i == 5){
-				monsterImg6 = new Graphic((100*i)+50,(100*i)+100,100,100,main.MonsterGraphic.getMonster(getSpecies(monID)));
-				description = new TextArea((100*i)+150,(100*i)+100,800,100,getDesc());
-				viewObjects.add(description);
-				viewObjects.add(monsterImg6);monID++;
-								
-OninvisWall = true;}
-		}
-	}						
+			}						
          }
 
 	//gets the randomized name from javiy and splits it into an array.
