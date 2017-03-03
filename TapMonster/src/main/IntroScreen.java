@@ -111,9 +111,9 @@ public class IntroScreen extends ClickableScreen implements Attack, PlayerInterf
 				while (i > 0) {	
 					int tempInt = (int) ((TapMonsterGame.artifacts.size()) * Math.random());
 					System.out.println(TapMonsterGame.artifacts.get(tempInt).getName());
+					TapMonsterGame.store.remove(TapMonsterGame.artifactPictures.get(tempInt));
 					TapMonsterGame.artifacts.remove(tempInt);
 					TapMonsterGame.artifactPictures.remove(tempInt);
-					remove(TapMonsterGame.artifactPictures.get(tempInt));
 					i--;
 				}
 				// viewObjects.remove(viewObjects.size()-1);

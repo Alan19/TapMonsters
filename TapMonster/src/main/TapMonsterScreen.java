@@ -319,8 +319,12 @@ public class TapMonsterScreen extends ClickableScreen implements Runnable,Game,R
 		
 	}
 	
-	public int getGold(){
+	public int getGoldVar(){
 		return this.gold;
+	}
+	
+	public void setGold(int i){
+		this.gold = i;
 	}
 
 	public void increaseScore(int i) {
@@ -334,31 +338,17 @@ public class TapMonsterScreen extends ClickableScreen implements Runnable,Game,R
 	
 	public void setRandomReward(){
 		
-		int randNum = (int) (Math.random() * 11);
+		int randNum = (int) (Math.random() * rewardPool.size());
 		rewardObject = rewardPool.get(randNum);
+		if (!rewardObject.getUniqueness()){
+			rewardPool.remove(randNum);
+		}
 		listOfRewards.add(rewardObject);
 		listOfRewards.get(0).takeEffect(TapMonsterGame.main);
 		reward.setText(""+rewardObject.getDescription());
 		
 	}
 	
-	public void setRandomGold(){
-		int goldNum = (int) (Math.random() * 10 + 1);
-		if (goldNum <= 6){
-			rewardObject = rewardPool.get(8);
-		}
-		else if (goldNum <= 9){
-			rewardObject = rewardPool.get(9);
-		}
-		else{
-			rewardObject = rewardPool.get(10);
-		}
-		rewardObject.takeEffect(TapMonsterGame.main);
-	}
-	
-	public void createRewards(){
-		
-	}
 	
 	
 
