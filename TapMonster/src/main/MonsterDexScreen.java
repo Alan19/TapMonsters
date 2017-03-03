@@ -117,13 +117,14 @@ public class MonsterDexScreen extends ClickableScreen implements Runnable,MonDex
 		}	
 	}
 
-	private void setMonsterDex() {
+	private void setMonsterDex() {if invisWall == false){	
 		for(int i = monID; i < Monster.returnNames().size(); i++){
 			if(monID == 0){
 				monsterImg1 = new Graphic((100*i)+50,(100*i)+100,100,100,main.MonsterGraphic.getMonster(getSpecies(monID)));
 				description = new TextArea((100*i)+150,(100*i)+100,800,100,getDesc());
 				viewObjects.add(description);
 				viewObjects.add(monsterImg1);
+			
 			}
 			if(monID == 1){
 				monsterImg2 = new Graphic((100*i)+50,(100*i)+100,100,100,main.MonsterGraphic.getMonster(getSpecies(monID)));
@@ -154,9 +155,10 @@ public class MonsterDexScreen extends ClickableScreen implements Runnable,MonDex
 				description = new TextArea((100*i)+150,(100*i)+100,800,100,getDesc());
 				viewObjects.add(description);
 				viewObjects.add(monsterImg6);
-				}
+				invisWall = true;}
 		}
-	}
+	}						
+         }
 
 	//gets the randomized name from javiy and splits it into an array.
 	public String getSpecies(int monID) {
