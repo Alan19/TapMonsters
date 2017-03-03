@@ -39,16 +39,16 @@ public class MonsterDexScreen extends ClickableScreen implements Runnable,MonDex
 	
 	
 	
-	private static String[] trait1 = {"This"+" "+"gives out an aura that scare any who come near it",
-			"This"+" "+" towers above the others.",
-			"This"+" "+"  has a very unusual size.",
-			"This"+" "+"is known for the number of adventurers it has killed.",
-			"This"+" "+"has a temper.",
-			"This"+" "+"has a streak of sadistic acts.",
-			"This"+" "+"is not dangerous,but have caution when near it",
-			"This"+" "+" can be left with children if trained properly.",
-			"Its is said that the sight of this "+""+"will kill any who see it",
-			"This"+""+" is rarely seen near others."};
+	private static String[] trait1 = {"It gives out an aura that scare any who come near it",
+			"It towers above the others.",
+			"It has a very unusual size.",
+			"It is known for the number of adventurers it has killed.",
+			"It has a temper.",
+			"It has a streak of sadistic acts.",
+			"It is not dangerous,but have caution when near it",
+			"It can be left with children if trained properly.",
+			"Its is said that the sight of It will kill any who see it",
+			"It is rarely seen near others."};
 	private String[] trait2 = {" It thinks every action through, taking care to never make a mistake.",
 			" It rushes through everything, causing it to be clumsy and uncoordinated.",
 			" It lays about, doing the bare minimum just to stay alive.",
@@ -105,10 +105,12 @@ public class MonsterDexScreen extends ClickableScreen implements Runnable,MonDex
 		
 		setMonsterDex();
 		setMonNames();
-
+		setMonDescriptions();
 	}
 	
-	
+	private void setMonDescriptions(){
+		
+	}
 	
 	private void setMonNames() {
 		for(int i = monID; i < monID+6; i++){
