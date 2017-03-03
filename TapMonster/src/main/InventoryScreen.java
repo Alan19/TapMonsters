@@ -17,7 +17,7 @@ import guiPractice.components.TransparentRoundedRect;
 import guiPractice.components.Visible;
 import interfaces.InventoryArtifacts;
 
-public class InventoryScreen extends ClickableScreen implements Runnable, InventoryArtifacts{
+public class InventoryScreen extends ClickableScreen implements Runnable{
 	
 	private TextLabel title;
 	private TextLabel artifactName;
@@ -26,17 +26,13 @@ public class InventoryScreen extends ClickableScreen implements Runnable, Invent
 	private int collected;
 	private Button back;
 	private TextLabel benefits;
-	//private Button purchaseAllArtifacts;
+	
 	
 	public static ArrayList<Artifact> artifactsPurchased;
 	private Graphics2D g;
 	
 	private TransparentRoundedRect info;
 	
-	private String[] descArray = {""};
-	private String[] namesArray = {""};
-	private int[] priceArray = {};
-	private String[] images = {""};
 	
 	private Graphic bkgd;
 	static InventoryScreen inventoryScreen;
@@ -48,25 +44,23 @@ public class InventoryScreen extends ClickableScreen implements Runnable, Invent
 		inventoryScreen = this;
 	}
 
-	//each artifact has a name and description
-	//shows how many artifacts are collected
-	//can make interface for adding "you gained +something" for
-	//every artifact that is collected in the inventory
-	//when player loses, pass in artifacts ArrayList
+	
 	public void purchaseItem(Artifact a){
 		
 		artifactsPurchased.add(a);
 		Benefit.benefit = inventoryScreen.showLatestGain();
-		update();
+		//update();
 	}
 	
 	@Override
 	public void initAllObjects(List<Visible> viewObjects) {
 		artifactsPurchased = new ArrayList();
 		collected = artifactsPurchased.size();
-		title = new TextLabel((int)(getWidth()/1.2),40,getWidth()/2,50, "Inventory");
-		artifactName = new TextLabel(700,135,getWidth()/3,50,"artifact name");
-		artifactDescription = new TextLabel(700,200,getWidth()/3,50,"artifact desc");
+		title = new TextLabel((int)(getWidth()/2.2),40,getWidth()/2,50, "Inventory");
+		title.setSize(25);
+		title.setFont("Impact");
+		artifactName = new TextLabel(700,135,getWidth()/3,50,"Artifact Name");
+		artifactDescription = new TextLabel(700,200,getWidth()/3,50,"Artifact Description");
 		artifactNum = new TextLabel(700, 265, getWidth()/3, 50, "You have "+ collected+ " artifacts");
 		info = new TransparentRoundedRect(getWidth()/2,getWidth()/10,getWidth()/3,300,50,50);
 		bkgd = new Graphic(0,0,getWidth(),getHeight(),"src/resources/background.jpg");
@@ -76,14 +70,6 @@ public class InventoryScreen extends ClickableScreen implements Runnable, Invent
 			}
 		});
 		
-		
-		/*purchaseAllArtifacts = new Button(10,10,100,50, "Show all artifacts", Color.red, new Action(){
-			public void act(){
-				collected = 9;
-				artifactNum.setText("You have "+ collected+ " artifacts");
-				displayArtifacts();
-			}
-		});*/
 		viewObjects.add(bkgd);
 		viewObjects.add(title);	
 		viewObjects.add(info);
@@ -92,10 +78,11 @@ public class InventoryScreen extends ClickableScreen implements Runnable, Invent
 		viewObjects.add(artifactNum);
 		viewObjects.add(back);
 		
-		//viewObjects.add(purchaseAllArtifacts);
-		//addArtifact();
+		
+		
 		displayArtifacts();
 		//benefits = new TextLabel(700,500,getWidth()/2,50,showLatestGain());
+		
 		Benefit.benefit = showLatestGain();
 		benefits = new TextLabel(700,500,getWidth()/2,50, Benefit.benefit);
 		viewObjects.add(benefits);
@@ -103,11 +90,6 @@ public class InventoryScreen extends ClickableScreen implements Runnable, Invent
 	
 	public void displayArtifacts(){
 		//displays purchased artifacts
-		
-		/*for(Artifact artifact:artifacts){
-			ClickableGraphic item = new ClickableGraphic();
-		}*/
-		
 		
 		
 		int[] xCoord = {50, 250, 450, 50, 250, 450, 50, 250, 450};
@@ -120,28 +102,14 @@ public class InventoryScreen extends ClickableScreen implements Runnable, Invent
 			
 			artifact.setAction(new Action(){
 				public void act(){
-					//System.out.println("test");
 					artifactName.setText(theArtifact.getName());
 					artifactDescription.setText(theArtifact.getDescription());
-					//artifactsPurchased.get(0).getDescription();
 				}
 			});
 			viewObjects.add(artifact);
 		}
 		
 	}
-	
-	/*public void changeDescription(){
-		//dont need this
-		//changes desc of artifact in the info space
-		
-		//artifactDescription = new TextLabel(120,85,500,25, );
-	}*/
-	
-	/*public void changeName(){
-		//dont need this
-		//changes name of artifact in the info space11
-	}*/
 	
 	/*public void addArtifact(){
 		//adds artifact to artifact array once it is purchased
@@ -192,23 +160,24 @@ public class InventoryScreen extends ClickableScreen implements Runnable, Invent
 	}*/
 	
 	public String showLatestGain(){
+		//displays the benefit of the artifact
 		if(artifactsPurchased.size() > 0){
 			return retrieveLatestGain(artifactsPurchased.get(artifactsPurchased.size()-1));
 		}
-			return "nothing";
+			return "Go to the store to buy artifacts.";
 	}
 	
 	public String retrieveLatestGain(Artifact lastCollectedArtifact){
-		if(lastCollectedArtifact.getName() == "HERO'S SWORD"){
-			return "You just gained (benefit from HERO'S SWORD)!";
-		}
-		return "not hero sword";
+		//takes the last artifact in the list and determines what to print on screen
+		
+			if(lastCollectedArtifact.getName() == "Hero's Sword"){
+				return "You just gained nothing!";
+			}
+			return " ";
 	}
+	
 
 	public void run() {
-		//g.setColor(Color.black);
-		//g.drawRect(x, y, width, height);
-		
 		
 	}
 
