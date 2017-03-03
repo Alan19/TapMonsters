@@ -112,8 +112,10 @@ public class InventoryScreen extends ClickableScreen implements Runnable{
 					artifactDescription.setText(theArtifact.getDescription());
 				}
 			});
+			addObject(artifact);
 			viewObjects.add(artifact);
 		}
+		artifactNum.setText("You have "+collected+ " artifacts.");
 		
 	}
 	
@@ -207,9 +209,9 @@ public class InventoryScreen extends ClickableScreen implements Runnable{
 			return " ";
 	}
 	
-	public void addArtifactNames(){
+	/*public void addArtifactNames(){
 		
-	}
+	}*/
 	
 
 	public void run() {
