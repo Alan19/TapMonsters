@@ -4,7 +4,6 @@
 package main;
 
 import java.awt.Color;
-import java.util.ArrayList;
 import java.util.List;
 
 import artifacts.Artifact;
@@ -14,41 +13,43 @@ import guiPractice.components.ClickableGraphic;
 import guiPractice.components.Graphic;
 import guiPractice.components.TextLabel;
 import guiPractice.components.Visible;
+import interfaces.LoseInterface;
 import player.Score;
 
 /**
  * @author Alan19
  *
  */
-public class DeathScreen extends ClickableScreen{
+public class DeathScreen extends ClickableScreen implements LoseInterface{
 
 	private TextLabel deathMessage;
 	private TextLabel artifactName;
 	private TextLabel artifactDescription;
 	public DeathScreen(int width, int height) {
 		super(width, height);
-		
+		displayGameOverInformation();
+	}
+	
+	public void displayGameOverInformation() {
 		//Game Over information and add background
-		deathMessage = new TextLabel(20, 40, 400, 25, "Copperplate Gothic Bold", 20, new Color(140, 146, 143), "You died!" + "Score: " + Score.score + " Round:" + SequenceScreen2.getRound());
+		deathMessage = new TextLabel(20, 40, 400, 25, "Helvetica", 20, new Color(140, 146, 143), "You died!" + " Score:" + Score.score + " Round:" + SequenceScreen2.getRound());
 		
-		artifactName = new TextLabel(20, 150, 500, 100, "Copperplate Gothic Bold", 20, new Color(112, 119, 102), "Click on an artifact!");
-		artifactDescription = new TextLabel(20, 200, 500, 100, "Copperplate Gothic Bold", 20, new Color(112, 119, 102), "");
+		
+		//Add background first so it's in the back
 		Graphic background = new Graphic(0, 0, getWidth(), getHeight(), "src/resources/background.jpg");
 		viewObjects.add(background);
-		
-		/**Hard-coded artifact example
-		artifactList = new ArrayList<Artifact>();
-		artifactList.add(new Artifact("Increases damage by 25% and heals you", "Crafter's Elixir", 100, null, "src/resources/crafters_elixir.png"));
-		artifactList.add(new Artifact("Increases damage by 100%", "Death Seeker", 100, null, "src/resources/death_seeker.png"));
-		artifactList.add(new Artifact("Prevents certain death once", "Warrior's Revival", 100, null, "src/resources/warriors_revival.png"));
-		artifactList.add(new Artifact("Increases the amount of relics earned", "Amulet of the Valrunes", 100, null, "src/resources/amulet_of_the_valrunes.png"));
-		**/
 		
 		//Loop through artifacts sent in to set width and description on click
 		int x = 20;
 		int y = 80;
 		int imageWidth = 75;
-		if(TapMonsterGame.artifacts != null){
+		
+		//Only print artifact info if you have artifacts
+		if(InventoryScreen.artifactsPurchased != null && InventoryScreen.artifactsPurchased.size()>0){
+			//Artifact Info TextLabels
+			artifactName = new TextLabel(20, 150, 500, 100, "Helvetica", 20, new Color(112, 119, 102), "Click on an artifact!");
+			artifactDescription = new TextLabel(20, 200, 500, 100, "Helvetica", 20, new Color(112, 119, 102), "");
+			
 			for (Artifact artifact : InventoryScreen.artifactsPurchased) {
 				final Artifact artifact2 = artifact;
 				ClickableGraphic artifactImage = new ClickableGraphic(x, y,imageWidth, imageWidth, artifact.getImagePath());
@@ -68,36 +69,34 @@ public class DeathScreen extends ClickableScreen{
 				}
 				else x += imageWidth + 10;
 			}
+			
+			//Move artifact description under artifact images
+			artifactName.setY(y+100);
+			artifactDescription.setY(y+150);
+			
+			//Add components for display
+			viewObjects.add(artifactName);
+			viewObjects.add(artifactDescription);
 		}
 		
-		
-		//Move artifact description under artifact images
-		artifactName.setY(y+100);
-		artifactDescription.setY(y+150);
-		
-		//Add components for display
 		viewObjects.add(deathMessage);
-		viewObjects.add(artifactName);
-		viewObjects.add(artifactDescription);
-		
 		addBossMonsterKillList();
 	}
-	
 
-	private void addBossMonsterKillList() {
+	public void addBossMonsterKillList() {
 		int x = getWidth()/2 + 30;
-		int y = 75;
+		int y = 40;
 		if(MonsterDexScreen.filePaths != null){
-			TextLabel feats = new TextLabel(getWidth()/2, y, 400, 25, "Copperplate Gothic Bold", 15, new Color(112, 119, 102), "Here is a list of your heroic feats");
+			TextLabel feats = new TextLabel(getWidth()/2, y, 400, 25, "Helvetica", 20, new Color(112, 119, 102), "Here are the portraits of the titans you have slayed");
+			y += 50;
 			for (String monster : MonsterDexScreen.filePaths) {
-//				if(monster.contains("Titan")){
+				if(monster.contains("Titan")){
 					Graphic titan = new Graphic(x, y, 100, 100, monster);
-//					TextLabel name = new TextLabel(x+110, y, 400, 25, monster);
 					viewObjects.add(feats);
 					viewObjects.add(titan);
 					x = getWidth()/2;
 					y += 120;				
-//				}
+				}
 			}
 		}
 	}
@@ -107,6 +106,7 @@ public class DeathScreen extends ClickableScreen{
 	public void initAllObjects(List<Visible> viewObjects) {
 		
 	}
-	
+
+
 	
 }

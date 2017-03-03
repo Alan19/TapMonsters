@@ -73,6 +73,10 @@ public class TapMonsterScreen extends ClickableScreen implements Runnable,Game,R
 	public void setTimeLeft(double timeLeft) {
 		this.timeLeft = timeLeft;
 	}
+	
+	public void increaseTimeLeft(double i){
+		this.timeLeft += i;
+	}
 
 	private void changeText(String string){
 		try {
@@ -81,6 +85,10 @@ public class TapMonsterScreen extends ClickableScreen implements Runnable,Game,R
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
+	}
+	
+	public int getGold(){
+		return this.gold;
 	}
 
 	public void run() {

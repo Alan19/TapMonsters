@@ -26,7 +26,10 @@ public class IntroScreen extends ClickableScreen implements Attack, PlayerInterf
 
 	public IntroScreen(int width, int height) {
 		super(width, height);
-		MonsterDexScreen.filePaths.add(MonsterGraphic.getMonster("Titan"));
+		/**
+		 *  TODO Force titan spawn if necessary
+		 */
+//		MonsterDexScreen.filePaths.add(MonsterGraphic.getMonster("Titan"));
 
 	}
 

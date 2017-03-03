@@ -95,6 +95,7 @@ public class StoreScreen extends ClickableScreen implements Runnable {
 						playerBalance -= boughtArtifact.getPrice();
 						playerMoney.setText("You have: " + playerBalance + " Relics");
 						TapMonsterGame.artifacts.remove(boughtArtifact.buyItem());
+						TapMonsterGame.inventory.purchaseItem(boughtArtifact);
 						TapMonsterScreen.score.addArtifact(boughtArtifact.getScore());
 						score.setText(Integer.toString(TapMonsterScreen.score.score));
 						for(int i=0; i<TapMonsterGame.artifactPictures.size(); i++){
@@ -126,42 +127,42 @@ public class StoreScreen extends ClickableScreen implements Runnable {
 	}
 
 	public void createArtifacts() {
-		Artifact arti1 = new Artifact("Placeholder please please", "Worldly Illuminator", 50, new Action(){
+		Artifact arti1 = new Artifact("Increases HP by 10.", "Worldly Illuminator", 70, new Action(){
 			public void act() {
-				TapMonsterGame.main.increaseHearts(25);
-				TapMonsterGame.main.fillHeart(25);
-				playerLife++;
-				playerLifeBox.setText("You have: " + playerLife + " Lives");
+				TapMonsterGame.main.increaseHearts(10);
+				TapMonsterGame.main.fillHeart(10);
 			}
 		}, "src/storeImages/arti1.png", 50);
 		
-		Artifact arti2 = new Artifact("Placeholder please please", "Warrior's Revival", 50, new Action(){
+		Artifact arti2 = new Artifact("Increases HP by 20.", "Warrior's Revival", 150, new Action(){
 			public void act() {
-				TapMonsterGame.main.setTimeLeft(35.0);
+				TapMonsterGame.main.increaseHearts(20);
+				TapMonsterGame.main.fillHeart(20);
 			}
 		}, "src/storeImages/arti2.png", 100);
 		
-		Artifact arti3 = new Artifact("Placeholder please please", "Divine Chalice", 50, new Action(){
+		Artifact arti3 = new Artifact("Increases HP by 35.", "Divine Chalice", 250, new Action(){
 			public void act() {
-				
+				TapMonsterGame.main.increaseHearts(35);
+				TapMonsterGame.main.fillHeart(35);
 			}
 		}, "src/storeImages/arti3.png", 150);
 		
-		Artifact arti4 = new Artifact("Placeholder please please", "Tincture of Life", 50, new Action(){
+		Artifact arti4 = new Artifact("Increases time by 1.5s.", "Tincture of Life", 50, new Action(){
 			public void act() {
-				
+				TapMonsterGame.main.increaseTimeLeft(1.5);
 			}
 		}, "src/storeImages/arti4.png", 200);
 		
-		Artifact arti5 = new Artifact("Placeholder", "Knight's Shield", 50, new Action(){
+		Artifact arti5 = new Artifact("Increases time by 3.5s.", "Knight's Shield", 80, new Action(){
 			public void act() {
-				
+				TapMonsterGame.main.increaseTimeLeft(3.5);
 			}
 		}, "src/storeImages/arti5.png", 250);
 		
-		Artifact arti6 = new Artifact("Placeholder", "Undead Aura", 50, new Action(){
+		Artifact arti6 = new Artifact("Increases time by 5.0s.", "Undead Aura", 140, new Action(){
 			public void act() {
-				
+				TapMonsterGame.main.increaseTimeLeft(5.0);
 			}
 		}, "src/storeImages/arti6.png", 300);
 		
