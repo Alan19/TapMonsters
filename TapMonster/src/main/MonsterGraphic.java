@@ -1,5 +1,7 @@
 package main;
 
+import java.util.ArrayList;
+
 import guiPractice.components.Graphic;
 import interfaces.MonsterInterface;
 
@@ -11,7 +13,16 @@ public class MonsterGraphic extends Graphic implements MonsterInterface{
 	public static String tempName;
 	private static String monName;
 	private static boolean isBoss;
+	static ArrayList<String> filePaths = new ArrayList<String>();
 	
+	public static ArrayList<String> getFilePaths() {
+		return filePaths;
+	}
+
+	public static void setFilePaths(ArrayList<String> filePaths) {
+		MonsterGraphic.filePaths = filePaths;
+	}
+
 	public static String[] beast = {"Anguiform","Bismarck","Fidor","Harpiai","Nastidon","Palidor",
 			"Prussian","Red_Wolf","Sand_Horse","Toe_Cutter","Vulture","Were-Rat"};
 	public static String[] demon = {"Daredevil","Chupon","Crucifix","Doom Gaze","Harvester","Hidon",
@@ -52,39 +63,49 @@ public class MonsterGraphic extends Graphic implements MonsterInterface{
 			getRandInt(type);
 			tempName = "MonsterSprites/Beast/"+beast[randInt]+".gif";
 			System.out.println(tempName);
+			System.out.println(randInt + "GET THIS ONE OVER HERE");
 			monName = beast[randInt];
+			filePaths.add(tempName);
 			return tempName;
 		}
 		
 		else if(type.equals("Demon")){
 			getRandInt(type);
 			tempName = "MonsterSprites/Demon/"+demon[randInt]+".gif";
+			System.out.println(randInt + "GET THIS ONE OVER HERE");
 			System.out.println(tempName);
 			monName = beast[randInt];
+			filePaths.add(tempName);
 			return tempName;
 		}
 
 		else if(type.equals("Fiend")){
 			getRandInt(type);
 			tempName = "MonsterSprites/Fiend/"+fiend[randInt]+".gif";
+			System.out.println(randInt + "GET THIS ONE OVER HERE");
 			System.out.println(tempName);
 			monName = beast[randInt];
+			filePaths.add(tempName);
 			return tempName;
 		}
 		
 		else if(type.equals("Monster")){
 			getRandInt(type);
 			tempName = "MonsterSprites/Monster/"+monster[randInt]+".gif";
+			System.out.println(randInt + "GET THIS ONE OVER HERE");
 			System.out.println(tempName);
 			monName = beast[randInt];
+			filePaths.add(tempName);
 			return tempName;	
 			}
 
 		else if(type.equals("Thingy")){
 			getRandInt(type);
 			tempName = "MonsterSprites/Thingy/"+thingy[randInt]+".gif";
+			System.out.println(randInt + "GET THIS ONE OVER HERE");
 			System.out.println(tempName);
 			monName = beast[randInt];
+			filePaths.add(tempName);
 			return tempName;
 			}
 		
@@ -92,8 +113,10 @@ public class MonsterGraphic extends Graphic implements MonsterInterface{
 			getRandInt(type);
 			isBoss = true;
 			tempName = "MonsterSprites/Titan/"+titan[randInt]+".gif";
+			System.out.println(randInt + "GET THIS ONE OVER HERE");
 			System.out.println(tempName);
 			monName = beast[randInt];
+			filePaths.add(tempName);
 			return tempName;
 			}
 		
@@ -103,28 +126,34 @@ public class MonsterGraphic extends Graphic implements MonsterInterface{
 	}
 
 	private static void getRandInt(String type) {
-		if(type == "Beast"){
+		if(type.equals("Beast")){
 			randInt = (int) (Math.random()*beast.length);
+			System.out.println(randInt+"THIS IS THE ONE YOU ARE LOOKING FOR");
 		}
 		
-		else if(type == "Demon"){
+		else if(type.equals("Demon")){
 			randInt = (int) (Math.random()*demon.length);
+			System.out.println(randInt+"THIS IS THE ONE YOU ARE LOOKING FOR");
 		}
 
-		else if(type == "Fiend"){
+		else if(type.equals("Fiend")){
 			randInt = (int) (Math.random()*fiend.length);
+			System.out.println(randInt+"THIS IS THE ONE YOU ARE LOOKING FOR");
 		}
 		
-		else if(type == "Monster"){
+		else if(type.equals("Monster")){
 			randInt = (int) (Math.random()*monster.length);
+			System.out.println(randInt+"THIS IS THE ONE YOU ARE LOOKING FOR");
 		}
 
-		else if(type == "Thingy"){
+		else if(type.equals("Thingy")){
 			randInt = (int) (Math.random()*thingy.length);
+			System.out.println(randInt+"THIS IS THE ONE YOU ARE LOOKING FOR");
 		}
 		
-		else if(type == "Titan"){
+		else if(type.equals("Titan")){
 			randInt = (int) (Math.random()*titan.length);
+			System.out.println(randInt+"THIS IS THE ONE YOU ARE LOOKING FOR");
 		}
 //		randInt = (int) (Math.random()*12);
 	}
