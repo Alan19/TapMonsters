@@ -178,7 +178,7 @@ public class StoreScreen extends ClickableScreen implements Runnable {
 			}
 		}, "src/storeImages/arti8.png", 400);
 		
-		Artifact arti9 = new Artifact("Placeholder", "Hero's Sword", 50, new Action(){
+		Artifact arti9 = new Artifact("Does literally nothing.", "Hero's Sword", 5000, new Action(){
 			public void act() {
 				
 			}
