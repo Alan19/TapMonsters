@@ -95,6 +95,7 @@ public class StoreScreen extends ClickableScreen implements Runnable {
 						playerBalance -= boughtArtifact.getPrice();
 						playerMoney.setText("You have: " + playerBalance + " Relics");
 						TapMonsterGame.artifacts.remove(boughtArtifact.buyItem());
+						TapMonsterGame.inventory.purchaseItem(boughtArtifact);
 						TapMonsterScreen.score.addArtifact(boughtArtifact.getScore());
 						score.setText(Integer.toString(TapMonsterScreen.score.score));
 						for(int i=0; i<TapMonsterGame.artifactPictures.size(); i++){
@@ -177,7 +178,7 @@ public class StoreScreen extends ClickableScreen implements Runnable {
 			}
 		}, "src/storeImages/arti8.png", 400);
 		
-		Artifact arti9 = new Artifact("Placeholder", "Hero's Sword", 50, new Action(){
+		Artifact arti9 = new Artifact("Does literally nothing.", "Hero's Sword", 5000, new Action(){
 			public void act() {
 				
 			}

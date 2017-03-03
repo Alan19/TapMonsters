@@ -26,8 +26,6 @@ public class IntroScreen extends ClickableScreen implements Attack, PlayerInterf
 
 	public IntroScreen(int width, int height) {
 		super(width, height);
-		//MonsterDexScreen.filePaths.add(MonsterGraphic.getMonster("Titan"));
-
 	}
 
 	// public static ArrayList<String> art;
@@ -110,7 +108,7 @@ public class IntroScreen extends ClickableScreen implements Attack, PlayerInterf
 			public void act() {
 				int i = difficulty;
 
-				while (i > 0) {
+				while (i > 0) {	
 					int tempInt = (int) ((TapMonsterGame.artifacts.size()) * Math.random());
 					System.out.println(TapMonsterGame.artifacts.get(tempInt).getName());
 					TapMonsterGame.artifacts.remove(tempInt);

@@ -184,7 +184,7 @@ public class TapMonsterScreen extends ClickableScreen implements Runnable,Game,R
 //				}
 				TapMonsterGame.newFightScreen();
 			//	SequenceScreen2.setIdx(0);
-				TapMonsterGame.game.setScreen(TapMonsterGame.fightScreen);
+				//TapMonsterGame.game.setScreen(TapMonsterGame.fightScreen);
 
 			}
 		});
@@ -321,6 +321,10 @@ public class TapMonsterScreen extends ClickableScreen implements Runnable,Game,R
 	public void getGold(int i) {
 		gold += i;
 		
+	}
+	
+	public int getGold(){
+		return this.gold;
 	}
 
 	public void increaseScore(int i) {

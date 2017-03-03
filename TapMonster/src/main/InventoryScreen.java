@@ -53,7 +53,7 @@ public class InventoryScreen extends ClickableScreen implements Runnable, Invent
 	//can make interface for adding "you gained +something" for
 	//every artifact that is collected in the inventory
 	//when player loses, pass in artifacts ArrayList
-	public static void purchaseItem(Artifact a){
+	public void purchaseItem(Artifact a){
 		artifactsPurchased.add(a);
 		Benefit.benefit = inventoryScreen.showLatestGain();
 		update();
