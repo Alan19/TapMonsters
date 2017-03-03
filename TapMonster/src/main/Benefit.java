@@ -11,7 +11,7 @@ public class Benefit extends Component implements InventoryArtifacts {
 	public static String benefit;
 	
 	public Benefit(int x, int y) {
-		// TODO Auto-generated constructor stub
+		
 		super(x,y,100,100);
 		benefit = "blank";
 	}
