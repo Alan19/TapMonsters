@@ -116,7 +116,6 @@ public class InventoryScreen extends ClickableScreen implements Runnable{
 			viewObjects.add(artifact);
 		}
 		artifactNum.setText("You have "+collected+ " artifacts.");
-		
 	}
 	
 	/*public void addArtifact(){
