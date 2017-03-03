@@ -51,6 +51,7 @@ public class TapMonsterScreen extends ClickableScreen implements Runnable,Game,R
 	
 	private boolean wasSequenceCompleted;
 	private boolean sequenceNotCompleted;
+	private boolean running = true;
 
 	//DOETWAC00M001vl50g
 
@@ -88,12 +89,16 @@ public class TapMonsterScreen extends ClickableScreen implements Runnable,Game,R
 	}
 
 	public void run() {
-		changeText("Ready");
-		changeText("Set...");
-		changeText("Go!");
-		changeText("");
-		title.setText("TAP MONSTERS");
-		timer(timeAlter);
+		while(running == true){
+			changeText("Ready");
+			changeText("Set...");
+			changeText("Go!");
+			changeText("");
+			title.setText("TAP MONSTERS");
+			timer(timeAlter);
+		}
+		System.out.println("It has stopped");
+		running = true;
 	}
 	
 	void timer(double effect){
@@ -126,7 +131,10 @@ public class TapMonsterScreen extends ClickableScreen implements Runnable,Game,R
 				}
 			}
 		}
-		if(timeLeft>=0.0 && timeLeft<=0.2 || timeLeft < 0.0)time.setText("0.0");
+		if(timeLeft>=0.0 && timeLeft<=0.2 || timeLeft < 0.0){
+			time.setText("0.0");
+			running = false;
+		}
 		}
 	
 //	time.setText(""+timeLeft);
@@ -176,7 +184,9 @@ public class TapMonsterScreen extends ClickableScreen implements Runnable,Game,R
 			public void act() {
 				TapMonsterGame.newFightScreen();
 				timeLeft = 30.0;
-				timer(timeAlter);
+				running = false;
+				//setWasSequenceCompleted = false;
+				run();
 			}
 		});
 		prestige = new Button(getWidth()-150,25,150,40,"MONSTERDEX",new Color(153,153,153), new Action() {
@@ -200,7 +210,8 @@ public class TapMonsterScreen extends ClickableScreen implements Runnable,Game,R
 		fightButton = new Button(getWidth()-150,225,130,40,"FIGHT",new Color(153,153,153), new Action() {
 
 			public void act() {
-//				timer(timeAlter);
+
+				resetTimer();
 				TapMonsterGame.game.setScreen(TapMonsterGame.fightScreen);
 				
 			}
@@ -236,6 +247,14 @@ public class TapMonsterScreen extends ClickableScreen implements Runnable,Game,R
 		setTimeAlter(0.5);
 		System.out.println(Monster.description());
 
+	}
+	
+	public void stopTimer() {
+		setTimeAlter(0.0);
+	}
+	
+	public void resetTimer() {
+		setTimeAlter(1.0);
 	}
 
 	public void nothing() {
@@ -282,6 +301,9 @@ public class TapMonsterScreen extends ClickableScreen implements Runnable,Game,R
 		viewObjects.add(reward);
 		viewObjects.add(hpBar);
 		viewObjects.add(score);
+		
+		stopTimer();
+		resetTimer();
 	}
 
 	public void earnReward(Reward r) {

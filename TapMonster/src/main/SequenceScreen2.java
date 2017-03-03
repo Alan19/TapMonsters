@@ -94,6 +94,7 @@ public class SequenceScreen2 extends Screen implements KeyListener, KeysToPlayer
 				setIdx(getIdx() + 1);
 			}
 		}
+		System.out.println("PLAYER SEQUENCE = " + playerMatch);
 	}
 
 	public void addToViewObjects(int l){
@@ -110,6 +111,8 @@ public class SequenceScreen2 extends Screen implements KeyListener, KeysToPlayer
 		setIdx(0);
 		ctr = 0;
 		lng = s.getSequence().size();
+		sequencex = 50;
+		playerMatch = new ArrayList<String>();
 		TapMonsterScreen.setWasSequenceCompleted = false;
 
 		background = new Graphic(0,0,0.75,"src/JaviyDemo/background.png");
@@ -203,7 +206,7 @@ public class SequenceScreen2 extends Screen implements KeyListener, KeysToPlayer
 				ctr++;
 				System.out.println("ctr = " + ctr);
 				if (ctr >= 10){
-					//TapMonsterGame.main.setRandomGold();
+					TapMonsterGame.main.setRandomGold();
 					TapMonsterGame.main.setRandomReward();
 					viewObjects.remove(monsterImg);
 					System.out.println("You've won!");
