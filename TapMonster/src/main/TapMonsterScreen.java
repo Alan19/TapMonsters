@@ -175,8 +175,6 @@ public class TapMonsterScreen extends ClickableScreen implements Runnable,Game,R
 
 			public void act() {
 				TapMonsterGame.newFightScreen();
-				run();
-				TapMonsterGame.game.setScreen(TapMonsterGame.fightScreen);
 			}
 		});
 		prestige = new Button(getWidth()-150,25,150,40,"MONSTERDEX",new Color(153,153,153), new Action() {
@@ -344,6 +342,19 @@ public class TapMonsterScreen extends ClickableScreen implements Runnable,Game,R
 		
 	}
 	
+	public void setRandomGold(){
+		int goldNum = (int) (Math.random() * 10 + 1);
+		if (goldNum <= 6){
+			rewardObject = rewardPool.get(8);
+		}
+		else if (goldNum <= 9){
+			rewardObject = rewardPool.get(9);
+		}
+		else{
+			rewardObject = rewardPool.get(10);
+		}
+		rewardObject.takeEffect(TapMonsterGame.main);
+	}
 	
 	
 
