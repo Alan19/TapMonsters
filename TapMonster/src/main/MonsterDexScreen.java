@@ -25,7 +25,12 @@ public class MonsterDexScreen extends ClickableScreen implements Runnable,MonDex
 	private Button home;
 	private Graphic background;
 	private static Graphic monsterImg1;
-	private static TextLabel description;
+	private static Graphic monsterImg2;
+	private static Graphic monsterImg3;
+	private static Graphic monsterImg4;
+	private static Graphic monsterImg5;
+	private static Graphic monsterImg6;
+	private static TextArea description;
 	private static String textHolder = "";
 	private TextLabel name;
 	private static String[] nameHolder;
@@ -102,7 +107,7 @@ public class MonsterDexScreen extends ClickableScreen implements Runnable,MonDex
 
 	}
 	//gets the randomized name from javiy and splits it into an array.
-	private String getSpecies(int monID) {
+	public String getSpecies(int monID) {
 		String x = Monster.returnNames().get(monID);
 		String[] y = x.split(" ");
 		nameHolder = y;
@@ -140,12 +145,55 @@ public class MonsterDexScreen extends ClickableScreen implements Runnable,MonDex
 	
 	public void changeMonsters(int i){
 		if(i == 1){
-			
+			if(monID % 6 == 5 && monID < Monster.returnNames().size()){
+				monsterImg6.loadImages(main.MonsterGraphic.getMonster(getSpecies(monID)),1);
+				monID++;
+			}
+			if(monID % 6 == 4 && monID < Monster.returnNames().size()){
+				monsterImg5.loadImages(main.MonsterGraphic.getMonster(getSpecies(monID)),1);
+				monID++;
+			}
+			if(monID % 6 == 3 && monID < Monster.returnNames().size()){
+				monsterImg4.loadImages(main.MonsterGraphic.getMonster(getSpecies(monID)),1);
+				monID++;
+			}
+			if(monID % 6 == 2 && monID < Monster.returnNames().size()){
+				monsterImg3.loadImages(main.MonsterGraphic.getMonster(getSpecies(monID)),1);
+				monID++;
+			}
+			if(monID % 6 == 1 && monID < Monster.returnNames().size()){
+				monsterImg2.loadImages(main.MonsterGraphic.getMonster(getSpecies(monID)),1);
+				monID++;
+			}
+			}
+			if(monID % 6 == 0 && monID < Monster.returnNames().size()){
+				monsterImg1.loadImages(main.MonsterGraphic.getMonster(getSpecies(monID)),1);
+				monID++;
 		}
 		if(i == 0){
 			if(monID % 6 == 0 && monID > 0){
 				monsterImg1.loadImages(main.MonsterGraphic.getMonster(getSpecies(monID)),1);
-				monID++;
+				monID--;
+			}
+			if(monID % 6 == 1 && monID > 0){
+				monsterImg2.loadImages(main.MonsterGraphic.getMonster(getSpecies(monID)),1);
+				monID--;
+			}
+			if(monID % 6 == 2 && monID > 0){
+				monsterImg3.loadImages(main.MonsterGraphic.getMonster(getSpecies(monID)),1);
+				monID--;
+			}
+			if(monID % 6 == 3 && monID > 0){
+				monsterImg4.loadImages(main.MonsterGraphic.getMonster(getSpecies(monID)),1);
+				monID--;
+			}
+			if(monID % 6 == 4 && monID > 0){
+				monsterImg5.loadImages(main.MonsterGraphic.getMonster(getSpecies(monID)),1);
+				monID--;
+			}
+			if(monID % 6 == 5 && monID > 0){
+				monsterImg6.loadImages(main.MonsterGraphic.getMonster(getSpecies(monID)),1);
+				monID--;
 			}
 		}		
 	}
