@@ -29,7 +29,6 @@ public class HoverableClickable extends ClickableGraphic {
 	}
 	
 	public void hoverAct(){
-		System.out.println("actting");
 		hoverAct.act();
 	}
 
