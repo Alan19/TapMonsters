@@ -6,7 +6,13 @@ public interface MonsterInterface {
 
 	int RaiseEnCounter(int encounters);
 	
+	/**
+	 *@Alan
+	 */
+	
 	boolean isBossMonster();
 	
 	String getImagePath();
+	
+	void addToList();
 }
