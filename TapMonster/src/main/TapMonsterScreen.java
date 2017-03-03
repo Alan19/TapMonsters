@@ -95,10 +95,6 @@ public class TapMonsterScreen extends ClickableScreen implements Runnable,Game,R
 		title.setText("TAP MONSTERS");
 		timer(timeAlter);
 	}
-
-	void timer(){
-		timer(timeAlter);
-	}
 	
 	void timer(double effect){
 		time.setText(""+timeLeft);
@@ -179,8 +175,7 @@ public class TapMonsterScreen extends ClickableScreen implements Runnable,Game,R
 
 			public void act() {
 				TapMonsterGame.newFightScreen();
-//				timeLeft = 30.0;	
-//				timer(timeAlter);
+				run();
 				TapMonsterGame.game.setScreen(TapMonsterGame.fightScreen);
 			}
 		});
