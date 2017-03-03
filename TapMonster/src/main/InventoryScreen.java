@@ -106,8 +106,7 @@ public class InventoryScreen extends ClickableScreen implements Runnable, Invent
 			ClickableGraphic item = new ClickableGraphic();
 		}*/
 		
-		//for now artifacts will be displayed independent of
-		//items bought
+		
 		
 		int[] xCoord = {50, 250, 450, 50, 250, 450, 50, 250, 450};
 		int[] yCoord = {150, 150, 150, 350, 350, 350, 550, 550, 550};
