@@ -129,6 +129,7 @@ public class StoreScreen extends ClickableScreen implements Runnable {
 		Artifact arti1 = new Artifact("Placeholder please please", "Worldly Illuminator", 50, new Action(){
 			public void act() {
 				TapMonsterGame.main.increaseHearts(25);
+				TapMonsterGame.main.fillHeart(25);
 				playerLife++;
 				playerLifeBox.setText("You have: " + playerLife + " Lives");
 			}

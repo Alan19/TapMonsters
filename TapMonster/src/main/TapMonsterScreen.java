@@ -116,8 +116,8 @@ public class TapMonsterScreen extends ClickableScreen implements Runnable,Game,R
 				if(0<=timeLeft&&timeLeft<=5)time.setText(""+(int)(timeLeft*10.)/10.0);
 			}else if(effect==2.0){
 				if(timeLeft>=19.8 && timeLeft<20.0 || timeLeft>=9.8 && timeLeft<10.0){
-					hp= hp-5;
-					hpBar.hpDecrease(5);
+					hp= hp-25;
+					hpBar.hpDecrease(25);
 					System.out.println("DECREASE HP");
 					
 					if(timeLeft>=0.0 && timeLeft<=0.2)time.setText("0.0");
@@ -248,6 +248,7 @@ public class TapMonsterScreen extends ClickableScreen implements Runnable,Game,R
 	@Override
 	public void initAllObjects(List<Visible> viewObjects) {
 		score = new Score(50,50);
+		//scoreOnScreen = new TextLabel(score.getX(), score.getY(), score.getWidth(), score.getHeight(), Integer.toString(score.score));
 		hpBar = new HitPoints(50,100);
 		background = new Graphic(0,0,0.75,"src/JaviyDemo/background.jpg");
 		viewObjects.add(background);
@@ -302,10 +303,12 @@ public class TapMonsterScreen extends ClickableScreen implements Runnable,Game,R
 
 	public void fillHeart(int i) {
 		System.out.println("This added health");
-		hp += i;
-		if (hp > hpBar.getMax()){
-			hp = hpBar.getMax();
+		System.out.println("" + hp);
+		hpBar.hpDecrease(0-i);
+		if (hpBar.getHP() > hpBar.getMax()){
+			hpBar.hpDecrease(hpBar.getHP() - hpBar.getMax());
 		}
+		update();
 	}
 
 	public void getGold(int i) {
@@ -323,29 +326,9 @@ public class TapMonsterScreen extends ClickableScreen implements Runnable,Game,R
 	}
 	
 	public void setRandomReward(){
-		int rewardTier = 0;
-		int probNum = (int) (Math.random() * 10 +1);
-		if (probNum <= 6){
-			rewardTier = 0;
-		}
-		else if (probNum <= 9){
-			rewardTier = 1;
-		}
-		else{
-			rewardTier = 2;
-		}
-		if (rewardTier == 0){
-			int randNum = (int) (Math.random() * 2);
-			rewardObject = rewardPool.get(randNum);
-		}
-		else if (rewardTier == 1){
-			int randNum = (int) (Math.random() * 2+2);
-			rewardObject = rewardPool.get(randNum);
-		}
-		else{
-			int randNum = (int) (Math.random() * 4+4);
-			rewardObject = rewardPool.get(randNum);
-		}
+		
+		int randNum = (int) (Math.random() * 11);
+		rewardObject = rewardPool.get(randNum);
 		listOfRewards.add(rewardObject);
 		listOfRewards.get(0).takeEffect(TapMonsterGame.main);
 		reward.setText(""+rewardObject.getDescription());
