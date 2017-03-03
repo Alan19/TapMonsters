@@ -115,7 +115,7 @@ public class SequenceScreen2 extends Screen implements KeyListener, KeysToPlayer
 		playerMatch = new ArrayList<String>();
 		TapMonsterScreen.setWasSequenceCompleted = false;
 
-		background = new Graphic(0,0,0.75,"src/JaviyDemo/background.png");
+		background = new Graphic(0,0,0.75,"src/JaviyDemo/background.jpg");
 		viewObjects.add(background);
 		round2 = 0;
 		getMonster();
