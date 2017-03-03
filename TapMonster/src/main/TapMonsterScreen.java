@@ -127,10 +127,10 @@ public class TapMonsterScreen extends ClickableScreen implements Runnable,Game,R
 					hpBar.hpDecrease(25);
 					System.out.println("DECREASE HP");
 					
-					if(timeLeft>=0.0 && timeLeft<=0.2)time.setText("0.0");
-					}
 				}
 			}
+		}
+		if(timeLeft>=0.0 && timeLeft<=0.2 || timeLeft < 0.0)time.setText("0.0");
 		}
 	
 //	time.setText(""+timeLeft);
@@ -178,14 +178,11 @@ public class TapMonsterScreen extends ClickableScreen implements Runnable,Game,R
 		nextLevel = new Button(getWidth()-150,75,130,40,"NEXT LEVEL",new Color(153,153,153), new Action() {
 
 			public void act() {
-
-//				if(setWasSequenceCompleted){
-//					TapMonsterGame.game.setScreen(TapMonsterGame.fightScreen);
-//				}
 				TapMonsterGame.newFightScreen();
-			//	SequenceScreen2.setIdx(0);
+				timeLeft = 30.0;	
+				System.out.println(timeLeft);
+				timer(timeAlter);
 				//TapMonsterGame.game.setScreen(TapMonsterGame.fightScreen);
-
 			}
 		});
 		prestige = new Button(getWidth()-150,25,150,40,"MONSTERDEX",new Color(153,153,153), new Action() {
@@ -342,31 +339,17 @@ public class TapMonsterScreen extends ClickableScreen implements Runnable,Game,R
 	
 	public void setRandomReward(){
 		
-		int randNum = (int) (Math.random() * 11);
+		int randNum = (int) (Math.random() * rewardPool.size());
 		rewardObject = rewardPool.get(randNum);
+		if (!rewardObject.getUniqueness()){
+			rewardPool.remove(randNum);
+		}
 		listOfRewards.add(rewardObject);
 		listOfRewards.get(0).takeEffect(TapMonsterGame.main);
 		reward.setText(""+rewardObject.getDescription());
 		
 	}
 	
-	public void setRandomGold(){
-		int goldNum = (int) (Math.random() * 10 + 1);
-		if (goldNum <= 6){
-			rewardObject = rewardPool.get(8);
-		}
-		else if (goldNum <= 9){
-			rewardObject = rewardPool.get(9);
-		}
-		else{
-			rewardObject = rewardPool.get(10);
-		}
-		rewardObject.takeEffect(TapMonsterGame.main);
-	}
-	
-	public void createRewards(){
-		
-	}
 	
 	
 
