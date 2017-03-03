@@ -18,7 +18,7 @@ public class MonsterGraphic extends Graphic implements MonsterInterface{
 	public static String[] fiend = 	{"BioSoldier","Brawler","Guard","Hemophyte","Ninja","Parasoul",
 			"Pipsqueak","Samurai","ShadowDancer","Test Rider","Yojimbo"};
 	public static String[] monster = {"BoneDragon","Cactuar","Esper","Evil_Oscar","MagicPot",
-			"Sandcrawler","Uroburos","WhiteFlame",};
+			"Sandcrawler","Uroburos","WhiteFlame"};
 	public static String[] thingy = {"Adamanchyt","Deep Eye","Flan","Mag Roadie","Poplium","Pug",
 			"Veteren","Wart Puck"};
 	public static String[] titan = {"#128","Atma Weapon","Behemoth","Borras","Chimera","Czar Dragon",
