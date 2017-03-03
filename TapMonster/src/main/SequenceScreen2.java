@@ -94,7 +94,6 @@ public class SequenceScreen2 extends Screen implements KeyListener, KeysToPlayer
 				setIdx(getIdx() + 1);
 			}
 		}
-		System.out.println("PLAYER SEQUENCE = " + playerMatch);
 	}
 
 	public void addToViewObjects(int l){
@@ -121,7 +120,7 @@ public class SequenceScreen2 extends Screen implements KeyListener, KeysToPlayer
 		getMonster();
 		viewObjects.add(monsterImg);
 		int length = 4;
-		System.out.println(s.getSequence());
+		//System.out.println(s.getSequence());
 		addToDisplayedSequence(length);
 		addToViewObjects(length);
 		viewObjects.add(p);
@@ -143,7 +142,6 @@ public class SequenceScreen2 extends Screen implements KeyListener, KeysToPlayer
 	public String getSpecies(int rounds) {
 			String x = Monster.returnNames().get(rounds);
 			String[] y = x.split(" ");
-			System.out.println("x = " + x + "y = " +y);
 			return y[4];
 	}
 

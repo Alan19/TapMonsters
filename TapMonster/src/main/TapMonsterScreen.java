@@ -103,6 +103,7 @@ public class TapMonsterScreen extends ClickableScreen implements Runnable,Game,R
 	
 	void timer(double effect){
 		time.setText(""+timeLeft);
+		System.out.print("TIMELEFT = " + timeLeft);
 		while(timeLeft>0.0){
 			if(setWasSequenceCompleted){
 				timeLeft = 0.0;
@@ -135,7 +136,7 @@ public class TapMonsterScreen extends ClickableScreen implements Runnable,Game,R
 			time.setText("0.0");
 			running = false;
 		}
-		}
+	}
 	
 //	time.setText(""+timeLeft);
 //	while(timeLeft>0.0){
