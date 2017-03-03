@@ -32,11 +32,11 @@ public class TapMonsterGame extends GUIApplication {
 	public void initScreen() {	
 		main = new TapMonsterScreen(getWidth(),getHeight());
 		death =  new DeathScreen(1,5,getWidth(), getHeight(), null);
-		intro = new IntroScreen(getWidth(),getHeight());
 		artifactPictures = new ArrayList<HoverableClickable>();
 		artifacts = new ArrayList<Artifact>();
 		rewards = new ArrayList<Reward>();
 		store = new StoreScreen(getWidth(),getHeight());
+		intro = new IntroScreen(getWidth(),getHeight());
 		fightScreen = new SequenceScreen2(getWidth(), getHeight());
 	//	inventory = new InventoryScreen(getWidth(),getHeight());
 		monsterdex = new MonsterDexScreen(getWidth(),getHeight());
