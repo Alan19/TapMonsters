@@ -17,6 +17,7 @@ import guiPractice.components.TextLabel;
 import guiPractice.components.Visible;
 import interfaces.Attack;
 import interfaces.KeysToPlayer;
+import score.Score;
 //check why the sequence is disappearing quicker than playersequence
 //do this by displaying playersequence and matchign up
 public class SequenceScreen2 extends Screen implements KeyListener, KeysToPlayer, Attack,FindMonster {
@@ -61,6 +62,8 @@ public class SequenceScreen2 extends Screen implements KeyListener, KeysToPlayer
 	private Graphic monsterImg;
 
 	public static Player p = new Player(200,200);
+	
+	public static TextLabel score;
 
 	public SequenceScreen2(int width, int height) {
 		super(width, height);
@@ -116,16 +119,13 @@ public class SequenceScreen2 extends Screen implements KeyListener, KeysToPlayer
 	public void initObjects(ArrayList<Visible> viewObjects) {
 		p.setX(getWidth()/2);
 		p.setY(getHeight()/2+100);
-		//s = new Sequence(10);
+		s = new Sequence(10);
 		setIdx(0);
-		System.out.println("IDX  = " + idx);
 		ctr = 0;
 		lng = s.getSequence().size();
 		
 		background = new Graphic(0,0,0.75,"src/JaviyDemo/background.jpg");
 		viewObjects.add(background);
-		System.out.println("Round = " + round);
-		System.out.println("Names = " + Monster.returnNames());
 		round = 0;
 		getMonster();
 		viewObjects.add(monsterImg);
@@ -192,7 +192,6 @@ public class SequenceScreen2 extends Screen implements KeyListener, KeysToPlayer
 	public void keyReleased(KeyEvent e) {
 		System.out.println(playerMatch.isEmpty());
 		if (!playerMatch.isEmpty()){
-//			viewObjects.remove(viewObjects.indexOf(p));
 			if (Character.toLowerCase(playerMatch.get(0).charAt(0)) == Character.toLowerCase(e.getKeyChar())){
 				playerMatch.remove(0);
 				
@@ -200,29 +199,21 @@ public class SequenceScreen2 extends Screen implements KeyListener, KeysToPlayer
 					viewObjects.remove(1);
 				}
 				else {
-					
 					viewObjects.remove(0);
 				}
 				viewObjects.remove(playerChoice);
-				
 				
 				for (int i = 0; i < viewObjects.size(); i++){
 
 					viewObjects.get(i).setX(viewObjects.get(i).getX() - 60);
 				}
 				sequencex = sequencex - 60;
-				//				System.out.println(playerMatch);
-				//				System.out.println(s.getSequence());
-//				if(idx < s.getSequence().size()){
 				if(getIdx() < lng){
 					addToDisplayedSequence(1);
-
 					addToViewObjects(1);
-
 				}
 				ctr++;
 				System.out.println("ctr = " + ctr);
-//				if (ctr == s.getSequence().size()){
 				if (ctr >= 10){
 					TapMonsterGame.main.setRandomGold();
 					TapMonsterGame.main.setRandomReward();
@@ -232,15 +223,10 @@ public class SequenceScreen2 extends Screen implements KeyListener, KeysToPlayer
 					try {
 						Thread.sleep(1000);
 					} catch (InterruptedException e1) {
-						// TODO Auto-generated catch block
 						e1.printStackTrace();
 					}
-					
 					TapMonsterGame.game.setScreen(TapMonsterGame.main);
-//					TapMonsterGame.newFightScreen();
 				}
-				//				System.out.println("ctr = " + ctr + "");
-				//				System.out.println("idx = " + idx + "");
 			}
 			else {
 				System.out.println("Wrong");
@@ -258,7 +244,6 @@ public class SequenceScreen2 extends Screen implements KeyListener, KeysToPlayer
 				viewObjects.remove(i);
 			}
 		}
-			
 	}
 	
 
