@@ -86,10 +86,6 @@ public class TapMonsterScreen extends ClickableScreen implements Runnable,Game,R
 			e.printStackTrace();
 		}
 	}
-	
-	public int getGold(){
-		return this.gold;
-	}
 
 	public void run() {
 		changeText("Ready");
@@ -321,6 +317,10 @@ public class TapMonsterScreen extends ClickableScreen implements Runnable,Game,R
 	public void getGold(int i) {
 		gold += i;
 		
+	}
+	
+	public int getGold(){
+		return this.gold;
 	}
 
 	public void increaseScore(int i) {
