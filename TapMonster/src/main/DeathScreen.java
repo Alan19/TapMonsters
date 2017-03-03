@@ -4,7 +4,6 @@
 package main;
 
 import java.awt.Color;
-import java.util.ArrayList;
 import java.util.List;
 
 import artifacts.Artifact;
@@ -33,7 +32,7 @@ public class DeathScreen extends ClickableScreen implements LoseInterface{
 	
 	public void displayGameOverInformation() {
 		//Game Over information and add background
-		deathMessage = new TextLabel(20, 40, 400, 25, "Copperplate Gothic Bold", 20, new Color(140, 146, 143), "You died!" + "Score: " + Score.score + " Round:" + SequenceScreen2.getRound());
+		deathMessage = new TextLabel(20, 40, 400, 25, "Helvetica", 20, new Color(140, 146, 143), "You died!" + " Score:" + Score.score + " Round:" + SequenceScreen2.getRound());
 		
 		
 		//Add background first so it's in the back
@@ -48,8 +47,8 @@ public class DeathScreen extends ClickableScreen implements LoseInterface{
 		//Only print artifact info if you have artifacts
 		if(InventoryScreen.artifactsPurchased != null && InventoryScreen.artifactsPurchased.size()>0){
 			//Artifact Info TextLabels
-			artifactName = new TextLabel(20, 150, 500, 100, "Copperplate Gothic Bold", 20, new Color(112, 119, 102), "Click on an artifact!");
-			artifactDescription = new TextLabel(20, 200, 500, 100, "Copperplate Gothic Bold", 20, new Color(112, 119, 102), "");
+			artifactName = new TextLabel(20, 150, 500, 100, "Helvetica", 20, new Color(112, 119, 102), "Click on an artifact!");
+			artifactDescription = new TextLabel(20, 200, 500, 100, "Helvetica", 20, new Color(112, 119, 102), "");
 			
 			for (Artifact artifact : InventoryScreen.artifactsPurchased) {
 				final Artifact artifact2 = artifact;
@@ -88,7 +87,7 @@ public class DeathScreen extends ClickableScreen implements LoseInterface{
 		int x = getWidth()/2 + 30;
 		int y = 40;
 		if(MonsterDexScreen.filePaths != null){
-			TextLabel feats = new TextLabel(getWidth()/2, y, 400, 25, "Copperplate Gothic Bold", 20, new Color(112, 119, 102), "Here is a list of your heroic feats");
+			TextLabel feats = new TextLabel(getWidth()/2, y, 400, 25, "Helvetica", 20, new Color(112, 119, 102), "Here are the portraits of the titans you have slayed");
 			y += 50;
 			for (String monster : MonsterDexScreen.filePaths) {
 				if(monster.contains("Titan")){
