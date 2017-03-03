@@ -61,7 +61,8 @@ public class InventoryScreen extends ClickableScreen implements Runnable, Invent
 	
 	@Override
 	public void initAllObjects(List<Visible> viewObjects) {
-		collected = 9;
+		artifactsPurchased = new ArrayList();
+		collected = artifactsPurchased.size();
 		title = new TextLabel((int)(getWidth()/1.2),40,getWidth()/2,50, "Inventory");
 		artifactName = new TextLabel(700,135,getWidth()/3,50,"artifact name");
 		artifactDescription = new TextLabel(700,200,getWidth()/3,50,"artifact desc");
@@ -91,7 +92,7 @@ public class InventoryScreen extends ClickableScreen implements Runnable, Invent
 		viewObjects.add(back);
 		
 		//viewObjects.add(purchaseAllArtifacts);
-		addArtifact();
+		//addArtifact();
 		displayArtifacts();
 		//benefits = new TextLabel(700,500,getWidth()/2,50,showLatestGain());
 		Benefit.benefit = showLatestGain();
@@ -129,19 +130,19 @@ public class InventoryScreen extends ClickableScreen implements Runnable, Invent
 		
 	}
 	
-	public void changeDescription(){
+	/*public void changeDescription(){
 		//dont need this
 		//changes desc of artifact in the info space
 		
 		//artifactDescription = new TextLabel(120,85,500,25, );
-	}
+	}*/
 	
-	public void changeName(){
+	/*public void changeName(){
 		//dont need this
 		//changes name of artifact in the info space11
-	}
+	}*/
 	
-	public void addArtifact(){
+	/*public void addArtifact(){
 		//adds artifact to artifact array once it is purchased
 		//for now artifacts will be displayed independent of artifacts
 		//purchased
@@ -187,7 +188,7 @@ public class InventoryScreen extends ClickableScreen implements Runnable, Invent
 		artifactsPurchased.add(seventh);
 		artifactsPurchased.add(eighth);
 		artifactsPurchased.add(ninth);
-	}
+	}*/
 	
 	public String showLatestGain(){
 		if(artifactsPurchased.size() > 0){

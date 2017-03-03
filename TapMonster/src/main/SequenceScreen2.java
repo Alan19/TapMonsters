@@ -30,6 +30,10 @@ public class SequenceScreen2 extends Screen implements KeyListener, KeysToPlayer
 
 	public int playery = y+100;
 
+	public static int getRound() {
+		return round;
+	}
+
 	private static Graphic arrowUp = new Graphic(sequencex, y, w, h, "src/sequenceArrows/arrowUp.jpg");
 	private static Graphic arrowDown = new Graphic(sequencex, y, w, h, "src/sequenceArrows/arrowDown.jpg");
 	private static Graphic arrowLeft = new Graphic(sequencex, y, w, h, "src/sequenceArrows/arrowLeft.jpg");
@@ -62,8 +66,9 @@ public class SequenceScreen2 extends Screen implements KeyListener, KeysToPlayer
 		super(width, height);
 		p.setX(getWidth()/2);
 		p.setY(getHeight()/2+100);
-//		s = new Sequence(10);
+		s = new Sequence(10);
 		setIdx(0);
+		System.out.println("HI PLS WORK");
 		ctr = 0;
 		lng = s.getSequence().size();
 		
@@ -75,6 +80,7 @@ public class SequenceScreen2 extends Screen implements KeyListener, KeysToPlayer
 
 	public void addToDisplayedSequence(int numOfTimes){
 		for (int i = 0; i < numOfTimes; i++){
+			System.out.println(getIdx());
 			if (s.getSequence().get(getIdx()) == 0){
 				displayedSequence.add(new Graphic(sequencex, y, w, h, "src/sequenceArrows/arrowUp.jpg"));
 				playerMatch.add("W");
@@ -260,8 +266,9 @@ public class SequenceScreen2 extends Screen implements KeyListener, KeysToPlayer
 		return idx;
 	}
 
-	public static void setIdx(int idx) {
-		SequenceScreen2.idx = idx;
+	public static void setIdx(int i) {
+		//SequenceScreen2.idx = idx;
+		idx = i;
 	}
 
 	public static ArrayList<Graphic> getEncounteredMonsters() {
