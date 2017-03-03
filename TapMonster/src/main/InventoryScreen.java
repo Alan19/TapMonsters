@@ -26,7 +26,7 @@ public class InventoryScreen extends ClickableScreen implements Runnable, Invent
 	private int collected;
 	private Button back;
 	private TextLabel benefits;
-	//private Button purchaseAllArtifactss;
+	//private Button purchaseAllArtifacts;
 	
 	public static ArrayList<Artifact> artifactsPurchased;
 	private Graphics2D g;
