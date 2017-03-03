@@ -90,17 +90,19 @@ public class MonsterDexScreen extends ClickableScreen implements Runnable,MonDex
 			}
 		});
 		
+		
 		background = new Graphic(0,0,getWidth(),getHeight(),"src/resources/background.jpg");
+		
 		monsterImg1 = new Graphic(100,100,1,main.MonsterGraphic.getMonster(getSpecies(monID))); 
 		viewObjects.add(background);
 		viewObjects.add(next);
 		viewObjects.add(back);	
 		viewObjects.add(home);	
-		viewObjects.add(monsterImg1);
+		//viewObjects.add(monsterImg1);
 
 	}
 	//gets the randomized name from javiy and splits it into an array.
-	public String getSpecies(int monID) {
+	private String getSpecies(int monID) {
 		String x = Monster.returnNames().get(monID);
 		String[] y = x.split(" ");
 		nameHolder = y;
@@ -124,16 +126,6 @@ public class MonsterDexScreen extends ClickableScreen implements Runnable,MonDex
 		return textHolder;
 	}
 	
-	public String getSpecies() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-	
-	public String getMonster() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-	
 	//gets Traits by checking index of each part of javiy's name and using that index to get the trait from my array
 	public static String getTrait(String[] name, String trait){
 		 for(int i = 0; i < name.length; i++){
@@ -148,15 +140,12 @@ public class MonsterDexScreen extends ClickableScreen implements Runnable,MonDex
 	
 	public void changeMonsters(int i){
 		if(i == 1){
-			if(monID < SequenceScreen2.getEncounteredMonsters().size()){
-				monsterImg1.loadImages(main.MonsterGraphic.getMonster(getSpecies(monID)),1);
-				monID++;
-			}
+			
 		}
 		if(i == 0){
-			if(monID > 0){
+			if(monID % 6 == 0 && monID > 0){
 				monsterImg1.loadImages(main.MonsterGraphic.getMonster(getSpecies(monID)),1);
-				monID--;
+				monID++;
 			}
 		}		
 	}
