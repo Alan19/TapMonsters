@@ -176,7 +176,7 @@ public class TapMonsterScreen extends ClickableScreen implements Runnable,Game,R
 //					TapMonsterGame.game.setScreen(TapMonsterGame.fightScreen);
 //				}
 				TapMonsterGame.newFightScreen();
-				SequenceScreen2.setIdx(0);
+			//	SequenceScreen2.setIdx(0);
 				TapMonsterGame.game.setScreen(TapMonsterGame.fightScreen);
 
 			}
