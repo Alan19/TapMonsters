@@ -86,6 +86,10 @@ public class TapMonsterScreen extends ClickableScreen implements Runnable,Game,R
 			e.printStackTrace();
 		}
 	}
+	
+	public int getGold(){
+		return this.gold;
+	}
 
 	public void run() {
 		changeText("Ready");
