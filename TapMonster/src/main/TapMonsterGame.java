@@ -21,8 +21,8 @@ public class TapMonsterGame extends GUIApplication {
 	public static ArrayList<Reward> rewards;
 	public static ArrayList<HoverableClickable> artifactPictures;
 	public static TapMonsterScreen main;
-	public static MonsterDexScreen monsterdex;
 	public static SequenceScreen2 fightScreen;
+	public static MonsterDexScreen monsterdex;
 	
 	public TapMonsterGame(int width, int height) {
 		super(width,height);
