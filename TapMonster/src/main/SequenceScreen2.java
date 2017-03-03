@@ -64,13 +64,13 @@ public class SequenceScreen2 extends Screen implements KeyListener, KeysToPlayer
 
 	public SequenceScreen2(int width, int height) {
 		super(width, height);
-		p.setX(getWidth()/2);
-		p.setY(getHeight()/2+100);
-		s = new Sequence(10);
-		setIdx(0);
-		System.out.println("HI PLS WORK");
-		ctr = 0;
-		lng = s.getSequence().size();
+//		p.setX(getWidth()/2);
+//		p.setY(getHeight()/2+100);
+//		//s = new Sequence(10);
+//		setIdx(0);
+//		System.out.println("IDX  = " + idx);
+//		ctr = 0;
+//		lng = s.getSequence().size();
 		
 //		playerMatch = new ArrayList<String>();
 //		displayedSequence = new ArrayList<Graphic>();
@@ -80,7 +80,7 @@ public class SequenceScreen2 extends Screen implements KeyListener, KeysToPlayer
 
 	public void addToDisplayedSequence(int numOfTimes){
 		for (int i = 0; i < numOfTimes; i++){
-			System.out.println(getIdx());
+			//System.out.println(getIdx());
 			if (s.getSequence().get(getIdx()) == 0){
 				displayedSequence.add(new Graphic(sequencex, y, w, h, "src/sequenceArrows/arrowUp.jpg"));
 				playerMatch.add("W");
@@ -98,7 +98,7 @@ public class SequenceScreen2 extends Screen implements KeyListener, KeysToPlayer
 				playerMatch.add("A");
 			}
 			sequencex+=60;
-				System.out.println(sequencex);
+				//System.out.println(sequencex);
 //			if (idx < s.getSequence().size() ){
 			if (getIdx() < lng){
 				setIdx(getIdx() + 1);
@@ -114,8 +114,19 @@ public class SequenceScreen2 extends Screen implements KeyListener, KeysToPlayer
 	}
 
 	public void initObjects(ArrayList<Visible> viewObjects) {
+		p.setX(getWidth()/2);
+		p.setY(getHeight()/2+100);
+		//s = new Sequence(10);
+		setIdx(0);
+		System.out.println("IDX  = " + idx);
+		ctr = 0;
+		lng = s.getSequence().size();
+		
 		background = new Graphic(0,0,0.75,"src/JaviyDemo/background.jpg");
 		viewObjects.add(background);
+		System.out.println("Round = " + round);
+		System.out.println("Names = " + Monster.returnNames());
+		round = 0;
 		getMonster();
 		viewObjects.add(monsterImg);
 		int length = 4;
@@ -141,6 +152,7 @@ public class SequenceScreen2 extends Screen implements KeyListener, KeysToPlayer
 	public String getSpecies(int rounds) {
 			String x = Monster.returnNames().get(rounds);
 			String[] y = x.split(" ");
+			System.out.println("x = " + x + "y = " +y);
 			return y[4];
 	}
 
@@ -178,6 +190,7 @@ public class SequenceScreen2 extends Screen implements KeyListener, KeysToPlayer
 	}
 
 	public void keyReleased(KeyEvent e) {
+		System.out.println(playerMatch.isEmpty());
 		if (!playerMatch.isEmpty()){
 //			viewObjects.remove(viewObjects.indexOf(p));
 			if (Character.toLowerCase(playerMatch.get(0).charAt(0)) == Character.toLowerCase(e.getKeyChar())){
@@ -208,8 +221,9 @@ public class SequenceScreen2 extends Screen implements KeyListener, KeysToPlayer
 
 				}
 				ctr++;
+				System.out.println("ctr = " + ctr);
 //				if (ctr == s.getSequence().size()){
-				if (ctr >= 14){
+				if (ctr >= 10){
 					TapMonsterGame.main.setRandomGold();
 					TapMonsterGame.main.setRandomReward();
 					viewObjects.remove(monsterImg);
