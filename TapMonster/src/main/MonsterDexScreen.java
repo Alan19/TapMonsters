@@ -96,7 +96,7 @@ public class MonsterDexScreen extends ClickableScreen implements Runnable,MonDex
 		viewObjects.add(next);
 		viewObjects.add(back);	
 		viewObjects.add(home);	
-		//viewObjects.add(monsterImg1);
+		viewObjects.add(monsterImg1);
 
 	}
 	//gets the randomized name from javiy and splits it into an array.
