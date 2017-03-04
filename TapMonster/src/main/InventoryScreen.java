@@ -32,7 +32,6 @@ public class InventoryScreen extends ClickableScreen implements Runnable{
 	
 	
 	public static ArrayList<Artifact> artifactsPurchased;
-	private Graphics2D g;
 	
 	private TransparentRoundedRect info;
 	
@@ -49,11 +48,9 @@ public class InventoryScreen extends ClickableScreen implements Runnable{
 
 	
 	public void purchaseItem(Artifact a, HoverableClickable b){
-		
+		//adds artifact purchased from store into artifactsPurchased ArrayList
 		artifactsPurchased.add(a);
 		Benefit.benefit = inventoryScreen.showLatestGain();
-		//change x and y of clickablegraphic
-		//viewObjects.add(b);
 		displayArtifacts();
 	}
 	
@@ -61,6 +58,7 @@ public class InventoryScreen extends ClickableScreen implements Runnable{
 	public void initAllObjects(List<Visible> viewObjects) {
 		artifactsPurchased = new ArrayList();
 		artNames = new ArrayList();
+		artBenefits = new ArrayList();
 		collected = artifactsPurchased.size();
 		title = new TextLabel((int)(getWidth()/2.2),40,getWidth()/2,50, "Inventory");
 		title.setSize(25);
@@ -84,10 +82,8 @@ public class InventoryScreen extends ClickableScreen implements Runnable{
 		viewObjects.add(artifactNum);
 		viewObjects.add(back);
 		
-		
-		
-		//displayArtifacts();
-		//benefits = new TextLabel(700,500,getWidth()/2,50,showLatestGain());
+		addArtifactNames();
+		addArtifactBenefits();
 		
 		Benefit.benefit = showLatestGain();
 		benefits = new TextLabel(700,500,getWidth()/2,50, Benefit.benefit);
@@ -115,57 +111,14 @@ public class InventoryScreen extends ClickableScreen implements Runnable{
 			addObject(artifact);
 			viewObjects.add(artifact);
 		}
-		artifactNum.setText("You have "+artifactsPurchased.size()+ " artifacts.");
+		if(artifactsPurchased.size() == 1){
+			artifactNum.setText("You have "+artifactsPurchased.size()+ " artifact.");
+		}
+		if(artifactsPurchased.size() > 1){
+			artifactNum.setText("You have "+artifactsPurchased.size()+ " artifacts.");
+		}
 		benefits.setText(Benefit.benefit);
 	}
-	
-	/*public void addArtifact(){
-		//adds artifact to artifact array once it is purchased
-		//for now artifacts will be displayed independent of artifacts
-		//purchased
-		artifactsPurchased = new ArrayList();
-		//below i added all artifacts for demo purposes
-		Artifact first = new Artifact("desc","WORLDLY ILLUMINATOR",50,
-				//new Action(){
-					//public void act(){
-						//artifactName.setText(artifactsPurchased.get(0).getDescription());
-					//}
-				//}
-	null, "src/storeImages/arti1.png",0);
-		
-		Artifact second = new Artifact("PREVENTS CERTAIN DEATH ONCE","WARRIOR'S REVIVAL",50,
-	null, "src/storeImages/arti2.png",0);
-		Artifact third = new Artifact("desc","DIVINE CHALICE",50,
-	null, "src/storeImages/arti3.png",0);
-		Artifact fourth = new Artifact("INCREASES DAMAGE BY 25%, HEALS YOU","CRAFTER'S ELIXIR",50,
-	null, "src/storeImages/arti4.png",0);
-		Artifact fifth = new Artifact("desc","KNIGHT'S SHIELD",50,
-	null, "src/storeImages/arti5.png",0);
-		Artifact sixth = new Artifact("desc","UNDEAD AURA",50,
-	null, "src/storeImages/arti6.png",0);
-		Artifact seventh = new Artifact("desc","DARK CLOAK",50,
-	null, "src/storeImages/arti7.png",0);
-		Artifact eighth = new Artifact("desc","CROWN EGG",50,
-	null, "src/storeImages/arti8.png",0);
-		Artifact ninth = new Artifact("desc","HERO'S SWORD",50,
-	null, "src/storeImages/arti9.png",0);
-		Artifact tenth = new Artifact("INCREASES THE AMOUNT OF RELICS EARNED","AMULET OF THE VALRUNES",50,
-				null, "src/resources/amulet_of_the_valrunes.png",0);
-		Artifact eleventh = new Artifact("desc","DEATH DANCE",50,
-				null, "src/resources/death_dance.png",0);
-		Artifact twelfth = new Artifact("INCREASES DAMAGE BY 100%","DEATH SEEKER",50,
-				null, "src/resources/death_seeker.png",0);
-		
-		artifactsPurchased.add(first);
-		artifactsPurchased.add(second);
-		artifactsPurchased.add(third);
-		artifactsPurchased.add(fourth);
-		artifactsPurchased.add(fifth);
-		artifactsPurchased.add(sixth);
-		artifactsPurchased.add(seventh);
-		artifactsPurchased.add(eighth);
-		artifactsPurchased.add(ninth);
-	}*/
 	
 	public String showLatestGain(){
 		//displays the benefit of the artifact
@@ -173,45 +126,43 @@ public class InventoryScreen extends ClickableScreen implements Runnable{
 			return retrieveLatestGain(artifactsPurchased.get(artifactsPurchased.size()-1));
 		}
 			return "Go to the store to buy artifacts.";
-		//return artNames.get(0);
 	}
 	
 	public String retrieveLatestGain(Artifact lastCollectedArtifact){
 		//takes the last artifact in the list and determines what to print on screen
-		
-			if(lastCollectedArtifact.getName() == "Worldly Illuminator"){
-				return "You just gained 10 HP!";
+			for(int i = 0; i < artNames.size(); i++){
+				if(lastCollectedArtifact.getName() == artNames.get(i)){
+					return "You just gained "+artBenefits.get(i)+ "!";
+				}
 			}
-			if(lastCollectedArtifact.getName() == "Warrior's Revival"){
-				return "You just gained 20 HP!";
-			}
-			if(lastCollectedArtifact.getName() == "Divine Chalice"){
-				return "You just gained 35 HP!";
-			}
-			if(lastCollectedArtifact.getName() == "Tincture of Life"){
-				return "You just gained 1.5 secs!";
-			}
-			if(lastCollectedArtifact.getName() == "Knight's Shield"){
-				return "You just gained 3.5 secs!";
-			}
-			if(lastCollectedArtifact.getName() == "Undead Aura"){
-				return "You just gained 5 secs!";
-			}
-			if(lastCollectedArtifact.getName() == "Dark Cloak"){
-				return "You just gained a random reward!";
-			}
-			if(lastCollectedArtifact.getName() == "Crown Egg"){
-				return "You just gained time!";
-			}
-			if(lastCollectedArtifact.getName() == "Hero's Sword"){
-				return "You just gained nothing!";
-			}
-			return " ";
+			return "";
 	}
 	
-	/*public void addArtifactNames(){
-		
-	}*/
+	public void addArtifactNames(){
+		//adds names of artifacts to artNames ArrayList
+		artNames.add("Worldly Illuminator");
+		artNames.add("Warrior's Revival");
+		artNames.add("Divine Chalice");
+		artNames.add("Tincture of Life");
+		artNames.add("Knight's Shield");
+		artNames.add("Undead Aura");
+		artNames.add("Dark Cloak");
+		artNames.add("Crown Egg");
+		artNames.add("Hero's Sword");
+	}
+	
+	public void addArtifactBenefits(){
+		//adds benefit description of artifacts to artBenefits ArrayList
+		artBenefits.add("10 HP");
+		artBenefits.add("20 HP");
+		artBenefits.add("35 HP");
+		artBenefits.add("1.5 seconds");
+		artBenefits.add("3.5 seconds");
+		artBenefits.add("5 seconds");
+		artBenefits.add("a random reward");
+		artBenefits.add("a slight time slowdown");
+		artBenefits.add("nothing");
+	}
 	
 
 	public void run() {
