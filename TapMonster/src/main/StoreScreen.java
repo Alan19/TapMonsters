@@ -23,14 +23,13 @@ public class StoreScreen extends ClickableScreen implements Runnable {
 	private TextLabel greeting;
 	private TextArea playerMoney;
 	private TextArea itemsInfo;
-	private TextArea playerLifeBox;
+	private TextLabel artifactName;
+	private TextLabel artifactPrice;
 	private TransparentRoundedRect artifactsBG;
 	private TransparentRoundedRect greetingBG;
 	private TransparentRoundedRect itemInfoBG;
 	private Button backButton;
 	private Graphic background;
-	private int playerBalance;
-	private int playerLife;
 	private TextLabel score;
 	
 
@@ -42,26 +41,26 @@ public class StoreScreen extends ClickableScreen implements Runnable {
 
 	@Override
 	public void initAllObjects(List<Visible> viewObjects) {
-		playerBalance = 10000;
-		playerLife = 3;
-		greeting = new TextLabel((int)(getWidth()/5.5), 60, getWidth()-30, 40, "Welcome to the shop Adventurer!");
-		greeting.setSize(50);
-		playerLifeBox = new TextArea(getWidth()-310, 510, 270, 40, "You have: " + playerLife + " Lives");
-		playerMoney = new TextArea(getWidth()-310, 470, 270, 40, "You have: " + playerBalance + " Relics");
-		itemsInfo = new TextArea(getWidth()-310, 140, 270, (int)(getHeight()/1.4), "Placeholder. This is a placeholder and nothing but a placeholder. Placeholders are good and serve as good stuff for testing.");
+		TapMonsterGame.main.setGold(10000);
+		greeting = new TextLabel((int)(getWidth()/5.5), 60, getWidth()-30, 40, "Papyrus", 50, Color.white, "Welcome to the shop Adventurer!");
+		artifactName = new TextLabel(getWidth()-310, 140, 270, 40, "Helvetica", 26, Color.white, "");
+		artifactPrice = new TextLabel(getWidth()-310, 170, 270, 40, "Helvetica", 20, Color.white, "");
+		
+		playerMoney = new TextArea(getWidth()-310, 470, 270, 40, "You have: " + TapMonsterGame.main.getGoldVar() + " Relics");
+		itemsInfo = new TextArea(getWidth()-310, 210, 270, (int)(getHeight()/1.4), "");
 		
 		greetingBG = new TransparentRoundedRect(15, 50, getWidth()-30, 60, 60, 60);
 		artifactsBG = new TransparentRoundedRect(15, 130, getWidth()-350, (int)(getHeight()/1.3), 80, 80);
 		itemInfoBG = new TransparentRoundedRect((int)(getWidth()-330), 130, 310, (int)(getHeight()/1.3), 80, 80);
 		
-		backButton = new Button(getWidth()-310, 620, 250, 50, "Back", Color.GRAY, new Action(){
+		backButton = new Button(getWidth()-310, 600, 250, 50, "Back", Color.GRAY, new Action(){
 			public void act(){
 				TapMonsterGame.game.setScreen(TapMonsterGame.main);
 			}
 		});
 		
 		background = new Graphic(0, 0, getWidth(), getHeight(), "src/storeImages/bgimage.jpg");
-		score = new TextLabel(getWidth()-310, 600, 270, 20, Integer.toString(TapMonsterScreen.score.score));
+		score = new TextLabel(getWidth()-310, 570, 270, 20, Integer.toString(TapMonsterScreen.score.score));
 		
 		viewObjects.add(background);
 		viewObjects.add(greetingBG);
@@ -69,9 +68,10 @@ public class StoreScreen extends ClickableScreen implements Runnable {
 		viewObjects.add(itemInfoBG);
 		viewObjects.add(itemsInfo);
 		viewObjects.add(playerMoney);
-		viewObjects.add(playerLifeBox);
 		viewObjects.add(backButton);
 		viewObjects.add(greeting);
+		viewObjects.add(artifactPrice);
+		viewObjects.add(artifactName);
 		viewObjects.add(score);
 		
 		createArtifacts();
@@ -90,12 +90,12 @@ public class StoreScreen extends ClickableScreen implements Runnable {
 			HoverableClickable artifact = new HoverableClickable(xCoords[i], yCoords[i], TapMonsterGame.artifacts.get(i).getImagePath());
 			artifact.setAction(new Action(){
 				public void act() {
-					if(playerBalance >= boughtArtifact.getPrice()){
+					if(TapMonsterGame.main.getGoldVar() >= boughtArtifact.getPrice()){
 						int index = 0;
-						playerBalance -= boughtArtifact.getPrice();
-						playerMoney.setText("You have: " + playerBalance + " Relics");
+						TapMonsterGame.main.getGold(boughtArtifact.getPrice()*(-1));
+						playerMoney.setText("You have: " + TapMonsterGame.main.getGoldVar() + " Relics");
 						TapMonsterGame.artifacts.remove(boughtArtifact.buyItem());
-						TapMonsterGame.inventory.purchaseItem(boughtArtifact);
+						
 						TapMonsterScreen.score.addArtifact(boughtArtifact.getScore());
 						score.setText(Integer.toString(TapMonsterScreen.score.score));
 						for(int i=0; i<TapMonsterGame.artifactPictures.size(); i++){
@@ -103,6 +103,7 @@ public class StoreScreen extends ClickableScreen implements Runnable {
 								index = i;
 							}
 						}
+						TapMonsterGame.inventory.purchaseItem(boughtArtifact, TapMonsterGame.artifactPictures.get(index));
 						remove(TapMonsterGame.artifactPictures.get(index));
 						TapMonsterGame.artifactPictures.remove(index);
 					}
@@ -112,6 +113,8 @@ public class StoreScreen extends ClickableScreen implements Runnable {
 			artifact.setHoverAction(new Action(){
 				public void act() {
 					itemsInfo.setText(boughtArtifact.getDescription());
+					artifactPrice.setText("Price: " + Integer.toString(boughtArtifact.getPrice()) + " Relics");
+					artifactName.setText(boughtArtifact.getName());
 				}
 			});
 			
@@ -166,15 +169,15 @@ public class StoreScreen extends ClickableScreen implements Runnable {
 			}
 		}, "src/storeImages/arti6.png", 300);
 		
-		Artifact arti7 = new Artifact("Placeholder", "Dark Cloak", 50, new Action(){
+		Artifact arti7 = new Artifact("Get a random reward.", "Dark Cloak", 50, new Action(){
 			public void act() {
-				
+				TapMonsterGame.main.setRandomReward();
 			}
 		}, "src/storeImages/arti7.png", 350);
 		
-		Artifact arti8 = new Artifact("Placeholder", "Crown Egg", 50, new Action(){
+		Artifact arti8 = new Artifact("Slows time down slightly.", "Crown Egg", 50, new Action(){
 			public void act() {
-				
+				TapMonsterGame.main.setTimeAlter(.8);
 			}
 		}, "src/storeImages/arti8.png", 400);
 		

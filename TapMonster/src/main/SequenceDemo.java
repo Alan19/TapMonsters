@@ -14,7 +14,7 @@ public class SequenceDemo extends GUIApplication{
 	}
 
 	protected void initScreen() {
-		SequenceScreen2 screen = new SequenceScreen2(getWidth(), getHeight());
+		SequenceScreen screen = new SequenceScreen(getWidth(), getHeight());
 		setScreen(screen);
 	}
 

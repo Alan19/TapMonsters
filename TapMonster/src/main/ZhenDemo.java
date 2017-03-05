@@ -77,6 +77,14 @@ public class ZhenDemo extends GUIApplication {
 			artifactList.add(new Artifact("Increases damage by 100%", "Death Seeker", 100, null, "src/resources/death_seeker.png", height));
 			artifactList.add(new Artifact("Prevents certain death once", "Warrior's Revival", 100, null, "src/resources/warriors_revival.png", height));
 			artifactList.add(new Artifact("Increases the amount of relics earned", "Amulet of the Valrunes", 100, null, "src/resources/amulet_of_the_valrunes.png", height));
+			artifactList.add(new Artifact("Increases damage by 25% and heals you", "Crafter's Elixir", 100, null, "src/resources/crafters_elixir.png", height));
+			artifactList.add(new Artifact("Increases damage by 25% and heals you", "Crafter's Elixir", 100, null, "src/resources/crafters_elixir.png", height));
+			artifactList.add(new Artifact("Increases damage by 25% and heals you", "Crafter's Elixir", 100, null, "src/resources/crafters_elixir.png", height));
+			artifactList.add(new Artifact("Increases damage by 25% and heals you", "Crafter's Elixir", 100, null, "src/resources/crafters_elixir.png", height));
+			artifactList.add(new Artifact("Increases damage by 25% and heals you", "Crafter's Elixir", 100, null, "src/resources/crafters_elixir.png", height));
+			artifactList.add(new Artifact("Increases damage by 25% and heals you", "Crafter's Elixir", 100, null, "src/resources/crafters_elixir.png", height));
+			artifactList.add(new Artifact("Increases damage by 25% and heals you", "Crafter's Elixir", 100, null, "src/resources/crafters_elixir.png", height));
+			artifactList.add(new Artifact("Increases damage by 25% and heals you", "Crafter's Elixir", 100, null, "src/resources/crafters_elixir.png", height));
 			
 			int x = 20;
 			int y = 80;
@@ -93,7 +101,7 @@ public class ZhenDemo extends GUIApplication {
 				addObject(artifactImage);
 				viewObjects.add(artifactImage);				
 				x += imageWidth + 10;
-				if(x > getWidth()-10){
+				if(x > getWidth()/2){
 					x = 20;
 					y += imageWidth + 25;
 				}

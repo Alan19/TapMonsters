@@ -6,35 +6,16 @@ import artifacts.Artifact;
 import guiPractice.components.Component;
 import interfaces.InventoryArtifacts;
 
-public class Benefit extends Component implements InventoryArtifacts {
+public class Benefit implements InventoryArtifacts {
 
 	public static String benefit;
 	
-	public Benefit(int x, int y) {
+	public Benefit() {
 		
-		super(x,y,100,100);
+		//super(x,y,100,100);
 		benefit = "blank";
 	}
 
-	public void displayArtifacts() {
-		// TODO Auto-generated method stub
-
-	}
-
-	public void addArtifact() {
-		// TODO Auto-generated method stub
-
-	}
-
-	public void changeName() {
-		// TODO Auto-generated method stub
-
-	}
-
-	public void changeDescription() {
-		// TODO Auto-generated method stub
-
-	}
 
 	public String showLatestGain() {
 		// TODO Auto-generated method stub
@@ -52,10 +33,10 @@ public class Benefit extends Component implements InventoryArtifacts {
 		return "not hero sword";
 	}
 
-	@Override
+	/*@Override
 	public void update(Graphics2D g) {
 		// TODO Auto-generated method stub
 		
-	}
+	}*/
 
 }

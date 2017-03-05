@@ -40,23 +40,22 @@ public class SequenceScreen extends Screen implements KeyListener{
 	public void addToDisplayedSequence(int numOfTimes){
 			for (int i = 0; i < numOfTimes; i++){
 				if (s.getSequence().get(idx) == 0){
-					displayedSequence.add(new Graphic(sequencex, y, w, h, "src/sequenceArrows/arrowUp.jpg"));
+					displayedSequence.add(new Graphic(sequencex, y, w, h, "src/sequenceArrows/arrowUp.png"));
 					playerMatch.add("W");
 				}
 				if (s.getSequence().get(idx) == 1){
-					displayedSequence.add(new Graphic(sequencex, y, w, h, "src/sequenceArrows/arrowRight.jpeg"));
+					displayedSequence.add(new Graphic(sequencex, y, w, h, "src/sequenceArrows/arrowRight.png"));
 					playerMatch.add("D");
 				}
 				if (s.getSequence().get(idx) == 2){
-					displayedSequence.add(new Graphic(sequencex, y, w, h, "src/sequenceArrows/arrowDown.jpg"));
+					displayedSequence.add(new Graphic(sequencex, y, w, h, "src/sequenceArrows/arrowDown.png"));
 					playerMatch.add("S");
 				}
 				if (s.getSequence().get(idx) == 3){
-					displayedSequence.add(new Graphic(sequencex, y, w, h, "src/sequenceArrows/arrowLeft.jpg"));
+					displayedSequence.add(new Graphic(sequencex, y, w, h, "src/sequenceArrows/arrowLeft.png"));
 					playerMatch.add("A");
 				}
 				sequencex+=60;
-			//	System.out.println(sequencex);
 				if (idx < s.getSequence().size() ) idx++;
 		}
 	}
@@ -78,19 +77,19 @@ public class SequenceScreen extends Screen implements KeyListener{
 	public void keyPressed(KeyEvent e) {
 		if (playerChoice != null) remove(playerChoice);
 		if (e.getKeyCode() == KeyEvent.VK_W){
-			playerChoice = new Graphic(playerx, playery, w, h, "src/sequenceArrows/arrowUp.jpg");
+			playerChoice = new Graphic(playerx, playery, w, h, "src/sequenceArrows/arrowUp.png");
 			addObject(playerChoice);
 		}
 		if (e.getKeyCode() == KeyEvent.VK_D){
-			playerChoice = new Graphic(playerx, playery, w, h, "src/sequenceArrows/arrowRight.jpeg");
+			playerChoice = new Graphic(playerx, playery, w, h, "src/sequenceArrows/arrowRight.png");
 			addObject(playerChoice);
 		}
 		if (e.getKeyCode() == KeyEvent.VK_S){
-			playerChoice = new Graphic(playerx, playery, w, h, "src/sequenceArrows/arrowDown.jpg");
+			playerChoice = new Graphic(playerx, playery, w, h, "src/sequenceArrows/arrowDown.png");
 			addObject(playerChoice);
 		}
 		if (e.getKeyCode() == KeyEvent.VK_A){
-			playerChoice = new Graphic(playerx, playery, w, h, "src/sequenceArrows/arrowLeft.jpg");
+			playerChoice = new Graphic(playerx, playery, w, h, "src/sequenceArrows/arrowLeft.png");
 			addObject(playerChoice);
 		}
 	}

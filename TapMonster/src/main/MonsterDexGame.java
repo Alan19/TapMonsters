@@ -5,7 +5,7 @@ import guiPractice.GUIApplication;
 public class MonsterDexGame extends GUIApplication{
 	
 	public MonsterDexGame() {
-		super(1000,800);
+		super(1200,800);
 	}
 	
 	@Override
