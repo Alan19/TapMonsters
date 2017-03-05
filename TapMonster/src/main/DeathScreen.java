@@ -4,6 +4,7 @@
 package main;
 
 import java.awt.Color;
+import java.util.ArrayList;
 import java.util.List;
 
 import artifacts.Artifact;
@@ -52,8 +53,8 @@ public class DeathScreen extends ClickableScreen implements LoseInterface{
 		artifactDescription = new TextLabel(20, 200, 500, 100, "Helvetica", 20, new Color(112, 119, 102), "");
 		//Only print artifact info if you have artifacts
 		if(InventoryScreen.artifactsPurchased != null && InventoryScreen.artifactsPurchased.size()>0){
-			
-			for (Artifact artifact : InventoryScreen.artifactsPurchased) {
+			ArrayList<Artifact> artifactList = InventoryScreen.artifactsPurchased;
+			for (Artifact artifact : artifactList) {
 				final Artifact artifact2 = artifact;
 				ClickableGraphic artifactImage = new ClickableGraphic(x, y,imageWidth, imageWidth, artifact.getImagePath());
 				artifactImage.setAction(new Action() {
