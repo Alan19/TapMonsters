@@ -32,7 +32,7 @@ public class MonsterGraphic extends Graphic implements MonsterInterface{
 	public static String[] monster = {"BoneDragon","Cactuar","Esper","Evil_Oscar","MagicPot",
 			"Sandcrawler","Uroburos","WhiteFlame"};
 	public static String[] thingy = {"Adamanchyt","Deep Eye","Flan","Mag Roadie","Poplium","Pug",
-			"Veteren","Wart Puck"};
+			"Veteran","Wart Puck"};
 	public static String[] titan = {"#128","Atma Weapon","Behemoth","Borras","Chimera","Czar Dragon",
 			"Didalos","Kefka","Ultros","Zombone","Zone Eater"};
 
@@ -180,6 +180,11 @@ public class MonsterGraphic extends Graphic implements MonsterInterface{
 	public String getName() {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	public void addToList() {
+		// TODO Auto-generated method stub
+		
 	}
 
 	

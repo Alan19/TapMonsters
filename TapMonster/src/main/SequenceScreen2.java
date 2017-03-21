@@ -215,6 +215,7 @@ public class SequenceScreen2 extends Screen implements KeyListener, KeysToPlayer
 						e1.printStackTrace();
 					}
 					TapMonsterGame.game.setScreen(TapMonsterGame.main);
+					TapMonsterGame.fightScreen = new SequenceScreen2(getWidth(), getHeight());
 				}
 			}
 			else {
