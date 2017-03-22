@@ -182,6 +182,11 @@ public class MonsterGraphic extends Graphic implements MonsterInterface{
 		return null;
 	}
 
+	public void addToList() {
+		// TODO Auto-generated method stub
+		
+	}
+
 	
 	
 	

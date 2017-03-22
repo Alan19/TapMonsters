@@ -126,47 +126,47 @@ public class MonsterDexScreen extends ClickableScreen implements Runnable,MonDex
 	                    viewObjects.add(monsterImg1); 
 	                    monID+=2;
 					}
-//					if(i == 1){
-//						monsterImg2 = new Graphic((100*i)+50,(100*i)+100,100,100,MonsterGraphic.getFilePaths().get(i*2));
-//	                    getSpecies(monID);
-//	                    description = new TextArea((100*i)+150,(100*i)+100,800,100,getDesc());
-//	                    viewObjects.add(description);
-//	                    viewObjects.add(monsterImg2); 
-//	                    monID+=2;
-//					}
-//					if(i == 2){
-//						monsterImg3 = new Graphic((100*i)+50,(100*i)+100,100,100,MonsterGraphic.getFilePaths().get(i*2));
-//	                    getSpecies(monID);
-//	                    description = new TextArea((100*i)+150,(100*i)+100,800,100,getDesc());
-//	                    viewObjects.add(description);
-//	                    viewObjects.add(monsterImg3); 
-//	                    monID+=2;
-//					}
-//					if(i == 3){
-//						monsterImg4 = new Graphic((100*i)+50,(100*i)+100,100,100,MonsterGraphic.getFilePaths().get(i*2));
-//	                    getSpecies(monID);
-//	                    description = new TextArea((100*i)+150,(100*i)+100,800,100,getDesc());
-//	                    viewObjects.add(description);
-//	                    viewObjects.add(monsterImg4); 
-//	                    monID+=2;
-//					}
-//					if(i == 4){
-//						monsterImg5 = new Graphic((100*i)+50,(100*i)+100,100,100,MonsterGraphic.getFilePaths().get(i*2));
-//	                    getSpecies(monID);
-//	                    description = new TextArea((100*i)+150,(100*i)+100,800,100,getDesc());
-//	                    viewObjects.add(description);
-//	                    viewObjects.add(monsterImg5); 
-//	                    monID+=2;				
-//					}
-//					if(i == 5){
-//						monsterImg6 = new Graphic((100*i)+50,(100*i)+100,100,100,MonsterGraphic.getFilePaths().get(i*2));
-//	                    getSpecies(monID);
-//	                    description = new TextArea((100*i)+150,(100*i)+100,800,100,getDesc());
-//	                    viewObjects.add(description);
-//	                    viewObjects.add(monsterImg6); 
-//	                    monID+=2;				
-//	                    invisWall = true;
-//					}
+					if(i == 1){
+						monsterImg2 = new Graphic((100*i)+50,(100*i)+100,100,100,MonsterGraphic.getFilePaths().get(i+1));
+	                    getSpecies(monID);
+	                    description = new TextArea((100*i)+150,(100*i)+100,800,100,getDesc());
+	                    viewObjects.add(description);
+	                    viewObjects.add(monsterImg2); 
+	                    monID+=2;
+					}
+					if(i == 2){
+						monsterImg3 = new Graphic((100*i)+50,(100*i)+100,100,100,MonsterGraphic.getFilePaths().get(i+1));
+	                    getSpecies(monID);
+	                    description = new TextArea((100*i)+150,(100*i)+100,800,100,getDesc());
+	                    viewObjects.add(description);
+	                    viewObjects.add(monsterImg3); 
+	                    monID+=2;
+					}
+					if(i == 3){
+						monsterImg4 = new Graphic((100*i)+50,(100*i)+100,100,100,MonsterGraphic.getFilePaths().get(i+1));
+	                    getSpecies(monID);
+	                    description = new TextArea((100*i)+150,(100*i)+100,800,100,getDesc());
+	                    viewObjects.add(description);
+	                    viewObjects.add(monsterImg4); 
+	                    monID+=2;
+					}
+					if(i == 4){
+						monsterImg5 = new Graphic((100*i)+50,(100*i)+100,100,100,MonsterGraphic.getFilePaths().get(i+1));
+	                    getSpecies(monID);
+	                    description = new TextArea((100*i)+150,(100*i)+100,800,100,getDesc());
+	                    viewObjects.add(description);
+	                    viewObjects.add(monsterImg5); 
+	                    monID+=2;				
+					}
+					if(i == 5){
+						monsterImg6 = new Graphic((100*i)+50,(100*i)+100,100,100,MonsterGraphic.getFilePaths().get(i+1));
+	                    getSpecies(monID);
+	                    description = new TextArea((100*i)+150,(100*i)+100,800,100,getDesc());
+	                    viewObjects.add(description);
+	                    viewObjects.add(monsterImg6); 
+	                    monID+=2;				
+	                    invisWall = true;
+					}
 				}
 			}						
          }
