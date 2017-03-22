@@ -48,7 +48,6 @@ public class TapMonsterScreen extends ClickableScreen implements Runnable,Game,R
 	private static Reward rewardObject;
 	private static Reward[] rewardList;
 	public static boolean setWasSequenceCompleted;
-	public static SequenceScreen2 newScreen;
 	
 	private boolean wasSequenceCompleted;
 	private boolean sequenceNotCompleted;
@@ -224,7 +223,7 @@ public class TapMonsterScreen extends ClickableScreen implements Runnable,Game,R
 
 				resetTimer();
 				TapMonsterGame.game.setScreen(TapMonsterGame.fightScreen);
-				newScreen = new SequenceScreen2(getWidth(), getHeight());
+				
 			}
 		});
 
