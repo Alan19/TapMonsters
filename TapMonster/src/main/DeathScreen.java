@@ -95,19 +95,19 @@ public class DeathScreen extends ClickableScreen implements LoseInterface{
 	public void addBossMonsterKillList() {
 		int x = getWidth()/2 + 30;
 		int y = 40;
-		if(MonsterDexScreen.filePaths != null){
-			TextLabel feats = new TextLabel(getWidth()/2, y, 400, 25, "Helvetica", 20, new Color(112, 119, 102), "Here are the portraits of the titans you have slayed");
-			y += 50;
-			for (String monster : MonsterDexScreen.filePaths) {
-				if(monster.contains("Titan")){
-					Graphic titan = new Graphic(x, y, 100, 100, monster);
-					viewObjects.add(feats);
-					viewObjects.add(titan);
-					x = getWidth()/2;
-					y += 120;				
-				}
-			}
-		}
+//		if(MonsterDexScreen.filePaths != null){
+//			TextLabel feats = new TextLabel(getWidth()/2, y, 400, 25, "Helvetica", 20, new Color(112, 119, 102), "Here are the portraits of the titans you have slayed");
+//			y += 50;
+//			for (String monster : MonsterDexScreen.filePaths) {
+//				if(monster.contains("Titan")){
+//					Graphic titan = new Graphic(x, y, 100, 100, monster);
+//					viewObjects.add(feats);
+//					viewObjects.add(titan);
+//					x = getWidth()/2;
+//					y += 120;				
+//				}
+//			}
+//		}
 	}
 
 
