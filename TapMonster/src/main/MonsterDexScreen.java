@@ -114,7 +114,7 @@ public class MonsterDexScreen extends ClickableScreen implements Runnable,MonDex
 			}	
 		}	
 	}
-
+ 
 	private void setMonsterDex() {
 		if (invisWall == false){	
 				for(int i = monID; i < Monster.returnNames().size()+1; i++){
@@ -216,37 +216,37 @@ public class MonsterDexScreen extends ClickableScreen implements Runnable,MonDex
 	public void changeMonsters(int i){
 		if(invisWall == true){
 			if(i == 1){
-				if(monID % 6 == 5 && monID < Monster.returnNames().size()){
+				if(monID % 12 == 11 && monID < Monster.returnNames().size()){
 					monsterImg6.loadImages(main.MonsterGraphic.getMonster(getSpecies(monID)),1);
 					description = new TextArea((monID*100)+250,(100*i)+200,800,100,getDesc());
 					viewObjects.add(description);
 					monID++;
 				}
-				if(monID % 6 == 4 && monID < Monster.returnNames().size()){
+				if(monID % 12 == 9 && monID < Monster.returnNames().size()){
 					monsterImg5.loadImages(main.MonsterGraphic.getMonster(getSpecies(monID)),1);
 					description = new TextArea((monID*100)+250,(100*i)+200,800,100,getDesc());
 					viewObjects.add(description);
 					monID++;
 				}
-				if(monID % 6 == 3 && monID < Monster.returnNames().size()){
+				if(monID % 12 == 7 && monID < Monster.returnNames().size()){
 					monsterImg4.loadImages(main.MonsterGraphic.getMonster(getSpecies(monID)),1);
 					description = new TextArea((monID*100)+250,(100*i)+200,800,100,getDesc());
 					viewObjects.add(description);
 					monID++;
 				}
-				if(monID % 6 == 2 && monID < Monster.returnNames().size()){
+				if(monID % 12 == 5 && monID < Monster.returnNames().size()){
 					monsterImg3.loadImages(main.MonsterGraphic.getMonster(getSpecies(monID)),1);
 					description = new TextArea((monID*100)+250,(100*i)+200,800,100,getDesc());
 					viewObjects.add(description);
 					monID++;
 				}
-				if(monID % 6 == 1 && monID < Monster.returnNames().size()){
+				if(monID % 12 == 3 && monID < Monster.returnNames().size()){
 					monsterImg2.loadImages(main.MonsterGraphic.getMonster(getSpecies(monID)),1);
 					description = new TextArea((monID*100)+250,(100*i)+200,800,100,getDesc());
 					viewObjects.add(description);
 					monID++;
 				}
-				if(monID % 6 == 0 && monID < Monster.returnNames().size()){
+				if(monID % 12 == 1 && monID < Monster.returnNames().size()){
 					monsterImg1.loadImages(main.MonsterGraphic.getMonster(getSpecies(monID)),1);
 					description = new TextArea((monID*100)+250,(100*i)+200,800,100,getDesc());
 					viewObjects.add(description);
@@ -254,7 +254,7 @@ public class MonsterDexScreen extends ClickableScreen implements Runnable,MonDex
 				}
 			}	
 			if(i == 0){
-				if(monID % 6 == 0 && monID > 0){
+				if(monID % 12 == 0 && monID > 0){
 					monsterImg1.loadImages(main.MonsterGraphic.getMonster(getSpecies(monID)),1);
 					description = new TextArea((monID*100)+250,(100*i)+200,800,100,getDesc());
 					viewObjects.add(description);
