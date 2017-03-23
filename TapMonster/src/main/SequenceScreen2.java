@@ -129,12 +129,12 @@ public class SequenceScreen2 extends Screen implements KeyListener, KeysToPlayer
 	private void getMonster() {
 		if(round2 != 0){
 			encounteredMonsters.add(new Graphic(getWidth()/2-50,getHeight()/2-50,1,main.MonsterGraphic.getMonster(getSpecies(round2))));			
-			monsterImg.loadImages(main.MonsterGraphic.getMonster(getSpecies(round2)), 1);
+			monsterImg.loadImages(main.MonsterGraphic.getFilePaths().get(round), 1);
 			round++;
 		}
 		if(round2 == 0){			
 			encounteredMonsters.add(new Graphic(getWidth()/2-50,getHeight()/2-50,1,main.MonsterGraphic.getMonster(getSpecies(round2))));			
-			monsterImg = new Graphic(getWidth()/2-50,getHeight()/2-50,1,main.MonsterGraphic.getMonster(getSpecies(round2)));
+			monsterImg = new Graphic(getWidth()/2-50,getHeight()/2-50,1,main.MonsterGraphic.getFilePaths().get(round));
 			round++;
 		}
 	}
