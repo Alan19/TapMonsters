@@ -222,8 +222,14 @@ public class TapMonsterScreen extends ClickableScreen implements Runnable,Game,R
 			public void act() {
 
 				resetTimer();
+				timeLeft = 30.0;
+				running = false;
 				TapMonsterGame.game.setScreen(TapMonsterGame.fightScreen);
-				
+				run();
+				stageLevel++;
+				stage.setText("STAGE " + stageLevel);
+				System.out.println(SequenceScreen2.getRound());
+//				timerBackground.setText("60");
 			}
 		});
 
